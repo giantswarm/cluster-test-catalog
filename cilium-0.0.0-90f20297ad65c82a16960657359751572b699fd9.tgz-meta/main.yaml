@@ -1,0 +1,45 @@
+annotations:
+  application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cilium-0.0.0-90f20297ad65c82a16960657359751572b699fd9.tgz-meta/main.yaml
+  application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cilium-0.0.0-90f20297ad65c82a16960657359751572b699fd9.tgz-meta/README.md
+  artifacthub.io/crds: "- kind: CiliumNetworkPolicy\n  version: v2\n  name: ciliumnetworkpolicies.cilium.io\n\
+    \  displayName: Cilium Network Policy\n  description: |\n    Cilium Network Policies\
+    \ provide additional functionality beyond what\n    is provided by standard Kubernetes\
+    \ NetworkPolicy such as the ability\n    to allow traffic based on FQDNs, or to\
+    \ filter at Layer 7.\n- kind: CiliumClusterwideNetworkPolicy\n  version: v2\n\
+    \  name: ciliumclusterwidenetworkpolicies.cilium.io\n  displayName: Cilium Clusterwide\
+    \ Network Policy\n  description: |\n    Cilium Clusterwide Network Policies support\
+    \ configuring network traffic\n    policiies across the entire cluster, including\
+    \ applying node firewalls.\n- kind: CiliumExternalWorkload\n  version: v2\n  name:\
+    \ ciliumexternalworkloads.cilium.io\n  displayName: Cilium External Workload\n\
+    \  description: |\n    Cilium External Workload supports configuring the ability\
+    \ for external\n    non-Kubernetes workloads to join the cluster.\n- kind: CiliumLocalRedirectPolicy\n\
+    \  version: v2\n  name: ciliumlocalredirectpolicies.cilium.io\n  displayName:\
+    \ Cilium Local Redirect Policy\n  description: |\n    Cilium Local Redirect Policy\
+    \ allows local redirects to be configured\n    within a node to support use cases\
+    \ like Node-Local DNS or KIAM.\n- kind: CiliumNode\n  version: v2\n  name: ciliumnodes.cilium.io\n\
+    \  displayName: Cilium Node\n  description: |\n    Cilium Node represents a node\
+    \ managed by Cilium. It contains a\n    specification to control various node\
+    \ specific configuration aspects\n    and a status section to represent the status\
+    \ of the node.\n- kind: CiliumIdentity\n  version: v2\n  name: ciliumidentities.cilium.io\n\
+    \  displayName: Cilium Identity\n  description: |\n    Cilium Identity allows\
+    \ introspection into security identities that\n    Cilium allocates which identify\
+    \ sets of labels that are assigned to\n    individual endpoints in the cluster.\n\
+    - kind: CiliumEndpoint\n  version: v2\n  name: ciliumendpoints.cilium.io\n  displayName:\
+    \ Cilium Endpoint\n  description: |\n    Cilium Endpoint represents the status\
+    \ of individual pods or nodes in\n    the cluster which are managed by Cilium,\
+    \ including enforcement status,\n    IP addressing and whether the networking\
+    \ is succesfully operational.\n- kind: CiliumEndpointSlice\n  version: v2alpha1\n\
+    \  name: ciliumendpointslices.cilium.io\n  displayName: Cilium Endpoint Slice\n\
+    \  description: |\n    Cilium Endpoint Slice represents the status of groups of\
+    \ pods or nodes\n    in the cluster which are managed by Cilium, including enforcement\
+    \ status,\n    IP addressing and whether the networking is succesfully operational.\n\
+    - kind: CiliumEgressNATPolicy\n  version: v2alpha1\n  name: ciliumegressnatpolicies.cilium.io\n\
+    \  displayName: Cilium Egress NAT Policy\n  description: |\n    Cilium Egress\
+    \ NAT Policy provides control over the way that traffic\n    leaves the cluster\
+    \ and which source addresses to use for that traffic.\n"
+chartApiVersion: v2
+chartFile: cilium-0.0.0-90f20297ad65c82a16960657359751572b699fd9.tgz
+dateCreated: '2022-03-21T20:08:23.423802'
+digest: 59a15a1caa1579d2560db4df2929767b09108b329cf6c6dedf8a0c87cece0e8a
+home: https://cilium.io/
+icon: https://cdn.jsdelivr.net/gh/cilium/cilium@v1.11.2/Documentation/images/logo-solo.svg
