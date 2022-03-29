@@ -1,0 +1,129 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "cluster": {
+            "type": "object",
+            "properties": {
+                "kubernetesVersion": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "organization": {
+                    "type": "string"
+                }
+            }
+        },
+        "controlPlane": {
+            "type": "object",
+            "properties": {
+                "endpoint": {
+                    "type": "object",
+                    "properties": {
+                        "host": {
+                            "type": "string"
+                        },
+                        "port": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "replicas": {
+                    "type": "integer"
+                }
+            }
+        },
+        "kubeadm": {
+            "type": ["null", "object"],
+            "properties": {
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "authorizedKeys": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "network": {
+            "type": "object",
+            "properties": {
+                "podsCidr": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "template": {
+            "type": "object",
+            "properties": {
+                "cloneMode": {
+                    "type": "string"
+                },
+                "diskGiB": {
+                    "type": "integer"
+                },
+                "folder": {
+                    "type": "string"
+                },
+                "memoryMiB": {
+                    "type": "integer"
+                },
+                "networkName": {
+                    "type": "string"
+                },
+                "numCPUs": {
+                    "type": "integer"
+                },
+                "resourcePool": {
+                    "type": "string"
+                },
+                "storagePolicyName": {
+                    "type": ["null", "string"]
+                },
+                "templateName": {
+                    "type": "string"
+                }
+            }
+        },
+        "vcenter": {
+            "type": "object",
+            "properties": {
+                "datacenter": {
+                    "type": "string"
+                },
+                "datastore": {
+                    "type": "string"
+                },
+                "server": {
+                    "type": "string"
+                },
+                "thumbprint": {
+                    "type": "string"
+                }
+            }
+        },
+        "worker": {
+            "type": "object",
+            "properties": {
+                "replicas": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}
