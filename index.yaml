@@ -2105,6 +2105,25 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.1.9-0d71b3debd32ac470df1a4783ec4fab53ba07d56.tgz
     version: 0.1.9-0d71b3debd32ac470df1a4783ec4fab53ba07d56
+  cluster-azure:
+  - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.0-f8dbbe27a1a32274bd58702e0cc74018b79a3828.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.0-f8dbbe27a1a32274bd58702e0cc74018b79a3828.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+    apiVersion: v2
+    created: "2022-04-22T06:46:20.773150025Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the Azure infrastructure
+      provider (CAPA).
+    digest: 658cc5be944ca2162b3b7cd6c46cbf45d06320646af30f43cac2e76018e25626
+    name: cluster-azure
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.0-f8dbbe27a1a32274bd58702e0cc74018b79a3828.tgz
+    version: 0.0.0-f8dbbe27a1a32274bd58702e0cc74018b79a3828
   cluster-gcp:
   - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.4.2-0b9d4a00e5687afb0396f482c806f95879592468.tgz-meta/main.yaml
@@ -9091,4 +9110,4 @@ entries:
     urls:
     - default-apps-openstack-0.0.0-19c65a3a7256435d59a38e972a43eb8f8ccd138c.tgz
     version: 0.0.0-19c65a3a7256435d59a38e972a43eb8f8ccd138c
-generated: "2022-04-19T14:23:55.416517437Z"
+generated: "2022-04-22T06:46:20.772211957Z"
