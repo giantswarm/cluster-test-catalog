@@ -1,0 +1,105 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "apps": {
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "appName": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "catalog": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "chartName": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "clusterValues": {
+                        "type": "object",
+                        "properties": {
+                            "configMap": {
+                                "type": "boolean"
+                            },
+                            "secret": {
+                                "type": "boolean"
+                            }
+                        }
+                    },
+                    "forceUpgrade": {
+                        "type": "boolean"
+                    },
+                    "namespace": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "version": {
+                        "minLength": 1,
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "appName",
+                    "catalog",
+                    "chartName",
+                    "clusterValues",
+                    "forceUpgrade",
+                    "namespace",
+                    "version"
+                ]
+            },
+            "type": "object"
+        },
+        "clusterName": {
+            "minLength": 1,
+            "type": "string"
+        },
+        "managementCluster": {
+            "minLength": 1,
+            "type": "string"
+        },
+        "organization": {
+            "minLength": 1,
+            "type": "string"
+        },
+        "userConfig": {
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "configMap": {
+                        "type": "object",
+                        "properties": {
+                            "values": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "values"
+                        ]
+                    },
+                    "secret": {
+                        "type": "object",
+                        "properties": {
+                            "values": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "values"
+                        ]
+                    }
+                }
+            },
+            "type": "object"
+        }
+    },
+    "required": [
+        "clusterName",
+        "organization",
+        "managementCluster"
+    ]
+}
+
