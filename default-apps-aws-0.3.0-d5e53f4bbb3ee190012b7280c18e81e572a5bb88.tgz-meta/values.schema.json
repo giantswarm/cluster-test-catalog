@@ -1,0 +1,527 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "apps": {
+            "type": "object",
+            "properties": {
+                "aws-cni": {
+                    "type": "object",
+                    "properties": {
+                        "appName": {
+                            "type": "string"
+                        },
+                        "catalog": {
+                            "type": "string"
+                        },
+                        "chartName": {
+                            "type": "string"
+                        },
+                        "clusterValues": {
+                            "type": "object",
+                            "properties": {
+                                "configMap": {
+                                    "type": "boolean"
+                                },
+                                "secret": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "forceUpgrade": {
+                            "type": "boolean"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "aws-ebs-csi-driver": {
+                    "type": "object",
+                    "properties": {
+                        "appName": {
+                            "type": "string"
+                        },
+                        "catalog": {
+                            "type": "string"
+                        },
+                        "chartName": {
+                            "type": "string"
+                        },
+                        "clusterValues": {
+                            "type": "object",
+                            "properties": {
+                                "configMap": {
+                                    "type": "boolean"
+                                },
+                                "secret": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "forceUpgrade": {
+                            "type": "boolean"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "calico": {
+                    "type": "object",
+                    "properties": {
+                        "appName": {
+                            "type": "string"
+                        },
+                        "catalog": {
+                            "type": "string"
+                        },
+                        "chartName": {
+                            "type": "string"
+                        },
+                        "clusterValues": {
+                            "type": "object",
+                            "properties": {
+                                "configMap": {
+                                    "type": "boolean"
+                                },
+                                "secret": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "forceUpgrade": {
+                            "type": "boolean"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "capi-node-labeler": {
+                    "type": "object",
+                    "properties": {
+                        "appName": {
+                            "type": "string"
+                        },
+                        "catalog": {
+                            "type": "string"
+                        },
+                        "chartName": {
+                            "type": "string"
+                        },
+                        "clusterValues": {
+                            "type": "object",
+                            "properties": {
+                                "configMap": {
+                                    "type": "boolean"
+                                },
+                                "secret": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "forceUpgrade": {
+                            "type": "boolean"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "certExporter": {
+                    "type": "object",
+                    "properties": {
+                        "appName": {
+                            "type": "string"
+                        },
+                        "catalog": {
+                            "type": "string"
+                        },
+                        "chartName": {
+                            "type": "string"
+                        },
+                        "clusterValues": {
+                            "type": "object",
+                            "properties": {
+                                "configMap": {
+                                    "type": "boolean"
+                                },
+                                "secret": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "forceUpgrade": {
+                            "type": "boolean"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "certManager": {
+                    "type": "object",
+                    "properties": {
+                        "appName": {
+                            "type": "string"
+                        },
+                        "catalog": {
+                            "type": "string"
+                        },
+                        "chartName": {
+                            "type": "string"
+                        },
+                        "clusterValues": {
+                            "type": "object",
+                            "properties": {
+                                "configMap": {
+                                    "type": "boolean"
+                                },
+                                "secret": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "forceUpgrade": {
+                            "type": "boolean"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "coreDNS": {
+                    "type": "object",
+                    "properties": {
+                        "appName": {
+                            "type": "string"
+                        },
+                        "catalog": {
+                            "type": "string"
+                        },
+                        "chartName": {
+                            "type": "string"
+                        },
+                        "clusterValues": {
+                            "type": "object",
+                            "properties": {
+                                "configMap": {
+                                    "type": "boolean"
+                                },
+                                "secret": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "forceUpgrade": {
+                            "type": "boolean"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "externalDns": {
+                    "type": "object",
+                    "properties": {
+                        "appName": {
+                            "type": "string"
+                        },
+                        "catalog": {
+                            "type": "string"
+                        },
+                        "chartName": {
+                            "type": "string"
+                        },
+                        "clusterValues": {
+                            "type": "object",
+                            "properties": {
+                                "configMap": {
+                                    "type": "boolean"
+                                },
+                                "secret": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "forceUpgrade": {
+                            "type": "boolean"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "kiam": {
+                    "type": "object",
+                    "properties": {
+                        "appName": {
+                            "type": "string"
+                        },
+                        "catalog": {
+                            "type": "string"
+                        },
+                        "chartName": {
+                            "type": "string"
+                        },
+                        "clusterValues": {
+                            "type": "object",
+                            "properties": {
+                                "configMap": {
+                                    "type": "boolean"
+                                },
+                                "secret": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "forceUpgrade": {
+                            "type": "boolean"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "kubeStateMetrics": {
+                    "type": "object",
+                    "properties": {
+                        "appName": {
+                            "type": "string"
+                        },
+                        "catalog": {
+                            "type": "string"
+                        },
+                        "chartName": {
+                            "type": "string"
+                        },
+                        "clusterValues": {
+                            "type": "object",
+                            "properties": {
+                                "configMap": {
+                                    "type": "boolean"
+                                },
+                                "secret": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "forceUpgrade": {
+                            "type": "boolean"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "metricsServer": {
+                    "type": "object",
+                    "properties": {
+                        "appName": {
+                            "type": "string"
+                        },
+                        "catalog": {
+                            "type": "string"
+                        },
+                        "chartName": {
+                            "type": "string"
+                        },
+                        "clusterValues": {
+                            "type": "object",
+                            "properties": {
+                                "configMap": {
+                                    "type": "boolean"
+                                },
+                                "secret": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "forceUpgrade": {
+                            "type": "boolean"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "netExporter": {
+                    "type": "object",
+                    "properties": {
+                        "appName": {
+                            "type": "string"
+                        },
+                        "catalog": {
+                            "type": "string"
+                        },
+                        "chartName": {
+                            "type": "string"
+                        },
+                        "clusterValues": {
+                            "type": "object",
+                            "properties": {
+                                "configMap": {
+                                    "type": "boolean"
+                                },
+                                "secret": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "forceUpgrade": {
+                            "type": "boolean"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "nodeExporter": {
+                    "type": "object",
+                    "properties": {
+                        "appName": {
+                            "type": "string"
+                        },
+                        "catalog": {
+                            "type": "string"
+                        },
+                        "chartName": {
+                            "type": "string"
+                        },
+                        "clusterValues": {
+                            "type": "object",
+                            "properties": {
+                                "configMap": {
+                                    "type": "boolean"
+                                },
+                                "secret": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "forceUpgrade": {
+                            "type": "boolean"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "vpa": {
+                    "type": "object",
+                    "properties": {
+                        "appName": {
+                            "type": "string"
+                        },
+                        "catalog": {
+                            "type": "string"
+                        },
+                        "chartName": {
+                            "type": "string"
+                        },
+                        "clusterValues": {
+                            "type": "object",
+                            "properties": {
+                                "configMap": {
+                                    "type": "boolean"
+                                },
+                                "secret": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "forceUpgrade": {
+                            "type": "boolean"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "vpaCRD": {
+                    "type": "object",
+                    "properties": {
+                        "appName": {
+                            "type": "string"
+                        },
+                        "catalog": {
+                            "type": "string"
+                        },
+                        "chartName": {
+                            "type": "string"
+                        },
+                        "clusterValues": {
+                            "type": "object",
+                            "properties": {
+                                "configMap": {
+                                    "type": "boolean"
+                                },
+                                "secret": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "forceUpgrade": {
+                            "type": "boolean"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "clusterName": {
+            "type": "string"
+        },
+        "organization": {
+            "type": "string"
+        }
+    }
+}
