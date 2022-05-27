@@ -2420,6 +2420,25 @@ entries:
     version: 0.0.0-0fc04418ec5c0b552009bebf2dc06fa930899b72
   cluster-gcp:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.7.0-8f06ae0679d6fb709eed3ee7ea4b21ee18c962aa.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.7.0-8f06ae0679d6fb709eed3ee7ea4b21ee18c962aa.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.7.0-8f06ae0679d6fb709eed3ee7ea4b21ee18c962aa.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-05-27T10:32:46.327854433Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the GCP infrastructure
+      provider (CAPG).
+    digest: efa08cbd292bac38ea02f232325ec31d3b949439e5a151e9eadaa6f4a6ed9bd8
+    name: cluster-gcp
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.7.0-8f06ae0679d6fb709eed3ee7ea4b21ee18c962aa.tgz
+    version: 0.7.0-8f06ae0679d6fb709eed3ee7ea4b21ee18c962aa
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.6.2-be72c51f8db5355f8b8a7283596aec544a138692.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.6.2-be72c51f8db5355f8b8a7283596aec544a138692.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -11551,4 +11570,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-05-27T10:32:19.824215032Z"
+generated: "2022-05-27T10:32:46.32614148Z"
