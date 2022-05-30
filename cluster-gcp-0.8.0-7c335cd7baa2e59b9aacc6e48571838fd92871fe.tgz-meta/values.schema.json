@@ -1,0 +1,175 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "baseDomain": {
+            "type": "string"
+        },
+        "bastion": {
+            "type": "object",
+            "properties": {
+                "image": {
+                    "type": "string"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "replicas": {
+                    "type": "integer"
+                }
+            }
+        },
+        "clusterDescription": {
+            "type": "string"
+        },
+        "clusterName": {
+            "type": "string"
+        },
+        "controlPlane": {
+            "type": "object",
+            "properties": {
+                "instanceType": {
+                    "type": "string"
+                },
+                "replicas": {
+                    "type": "integer"
+                },
+                "rootVolumeSizeGB": {
+                    "type": "integer"
+                },
+                "serviceAccount": {
+                    "type": "object",
+                    "properties": {
+                        "email": {
+                            "type": "string"
+                        },
+                        "scopes": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "gcp": {
+            "type": "object",
+            "properties": {
+                "baseImage": {
+                    "type": "string"
+                },
+                "failureDomains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "project": {
+                    "type": "string"
+                },
+                "region": {
+                    "type": "string"
+                }
+            }
+        },
+        "includeClusterResourceSet": {
+            "type": "boolean"
+        },
+        "kubectlImage": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "registry": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                }
+            }
+        },
+        "kubernetesVersion": {
+            "type": "string"
+        },
+        "machineDeployments": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "customNodeLabels": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "failureDomain": {
+                        "type": "string"
+                    },
+                    "instanceType": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "replicas": {
+                        "type": "integer"
+                    },
+                    "rootVolumeSizeGB": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "network": {
+            "type": "object",
+            "properties": {
+                "autoCreateSubnetworks": {
+                    "type": "boolean"
+                },
+                "podCidr": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "serviceCIDR": {
+                    "type": "string"
+                }
+            }
+        },
+        "oidc": {
+            "type": "object",
+            "properties": {
+                "caFile": {
+                    "type": "string"
+                },
+                "clientId": {
+                    "type": "string"
+                },
+                "groupsClaim": {
+                    "type": "string"
+                },
+                "issuerUrl": {
+                    "type": "string"
+                },
+                "usernameClaim": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clientId",
+                "groupsClaim",
+                "issuerUrl",
+                "usernameClaim"
+            ]
+        },
+        "organization": {
+            "type": "string"
+        },
+        "sshSSOPublicKey": {
+            "type": "string"
+        }
+    }
+}
