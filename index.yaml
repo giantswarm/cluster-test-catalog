@@ -2420,6 +2420,25 @@ entries:
     version: 0.0.0-0fc04418ec5c0b552009bebf2dc06fa930899b72
   cluster-gcp:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.8.0-e6ef5b242ae3b4cd8efa1ec4504ff8f3a8cbad0f.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.8.0-e6ef5b242ae3b4cd8efa1ec4504ff8f3a8cbad0f.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.8.0-e6ef5b242ae3b4cd8efa1ec4504ff8f3a8cbad0f.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-05-30T16:53:21.79599839Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the GCP infrastructure
+      provider (CAPG).
+    digest: 131cbb6761032e71c8218d5d6b430ccdb54202ceadac1e6237ae04438f380d37
+    name: cluster-gcp
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.8.0-e6ef5b242ae3b4cd8efa1ec4504ff8f3a8cbad0f.tgz
+    version: 0.8.0-e6ef5b242ae3b4cd8efa1ec4504ff8f3a8cbad0f
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.8.0-1e0a91a6a9d8321e4c5711ba8ce53a7b6f11053a.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.8.0-1e0a91a6a9d8321e4c5711ba8ce53a7b6f11053a.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -11713,4 +11732,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-05-30T12:09:32.248257195Z"
+generated: "2022-05-30T16:53:21.794835548Z"
