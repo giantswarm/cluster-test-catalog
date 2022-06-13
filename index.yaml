@@ -2420,6 +2420,25 @@ entries:
     version: 0.0.0-0fc04418ec5c0b552009bebf2dc06fa930899b72
   cluster-gcp:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.11.0-8f3c0a719d27af54dae483cd97590c40cb0cb307.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.11.0-8f3c0a719d27af54dae483cd97590c40cb0cb307.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.11.0-8f3c0a719d27af54dae483cd97590c40cb0cb307.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-06-13T12:02:11.089882857Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the GCP infrastructure
+      provider (CAPG).
+    digest: e368faede794e22a7ac2ee091399ff8b8cd68089e47630971af1b9c475eb8746
+    name: cluster-gcp
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.11.0-8f3c0a719d27af54dae483cd97590c40cb0cb307.tgz
+    version: 0.11.0-8f3c0a719d27af54dae483cd97590c40cb0cb307
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.10.2-dc6406692cb71fcd7c8ef576488fcbc24a19172c.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.10.2-dc6406692cb71fcd7c8ef576488fcbc24a19172c.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -12924,4 +12943,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-06-13T12:01:37.58027172Z"
+generated: "2022-06-13T12:02:11.088814661Z"
