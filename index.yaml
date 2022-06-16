@@ -2439,6 +2439,25 @@ entries:
     version: 0.0.0-0fc04418ec5c0b552009bebf2dc06fa930899b72
   cluster-gcp:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.12.1-a79e8774bfb1abdfe89f3b70916b8a6d23f41e7d.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.12.1-a79e8774bfb1abdfe89f3b70916b8a6d23f41e7d.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.12.1-a79e8774bfb1abdfe89f3b70916b8a6d23f41e7d.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-06-16T10:54:04.83805875Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.4.0
+    description: A helm chart for creating Cluster API clusters with the GCP infrastructure
+      provider (CAPG).
+    digest: 0b07c0d0a3f2f470f9c993e812f829cc18ca76644d2898150ac6ffe1e1d08ba6
+    name: cluster-gcp
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.12.1-a79e8774bfb1abdfe89f3b70916b8a6d23f41e7d.tgz
+    version: 0.12.1-a79e8774bfb1abdfe89f3b70916b8a6d23f41e7d
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.12.1-4c9dcca4cbb3124b9568a43c33b392b44c4ce9b2.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.12.1-4c9dcca4cbb3124b9568a43c33b392b44c4ce9b2.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -13556,4 +13575,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-06-16T10:18:49.117692825Z"
+generated: "2022-06-16T10:54:04.837002062Z"
