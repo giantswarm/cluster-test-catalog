@@ -2439,6 +2439,25 @@ entries:
     version: 0.0.0-0fc04418ec5c0b552009bebf2dc06fa930899b72
   cluster-gcp:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.12.8-1ea4c646353daa86312615cb743b89330a9e9655.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.12.8-1ea4c646353daa86312615cb743b89330a9e9655.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.12.8-1ea4c646353daa86312615cb743b89330a9e9655.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-06-20T15:41:04.003189635Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: '>0.4.0'
+    description: A helm chart for creating Cluster API clusters with the GCP infrastructure
+      provider (CAPG).
+    digest: 941b5a845a70b38a418a6cc001ff9602455593a9b8e7f948439c7adb7c100549
+    name: cluster-gcp
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.12.8-1ea4c646353daa86312615cb743b89330a9e9655.tgz
+    version: 0.12.8-1ea4c646353daa86312615cb743b89330a9e9655
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.12.7-e9016d44f79bd22680cbca3f54dcce963c0d7c2e.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.12.7-e9016d44f79bd22680cbca3f54dcce963c0d7c2e.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -14712,4 +14731,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-06-20T15:34:16.268769365Z"
+generated: "2022-06-20T15:41:04.002052326Z"
