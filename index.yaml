@@ -2439,6 +2439,25 @@ entries:
     version: 0.0.0-0fc04418ec5c0b552009bebf2dc06fa930899b72
   cluster-gcp:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.13.0-8b87a68d9d914a9b623add0f71214e2ccee321f1.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.13.0-8b87a68d9d914a9b623add0f71214e2ccee321f1.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.13.0-8b87a68d9d914a9b623add0f71214e2ccee321f1.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-06-23T15:07:30.234402058Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: '>0.4.0'
+    description: A helm chart for creating Cluster API clusters with the GCP infrastructure
+      provider (CAPG).
+    digest: 35c28791122c021697aee69a093d0ec61d10f7c7061b3f402beade6f43854e81
+    name: cluster-gcp
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.13.0-8b87a68d9d914a9b623add0f71214e2ccee321f1.tgz
+    version: 0.13.0-8b87a68d9d914a9b623add0f71214e2ccee321f1
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.12.8-ff405d0e3aa760ec3b6daa1fcd7dba165b2d564b.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.12.8-ff405d0e3aa760ec3b6daa1fcd7dba165b2d564b.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -15046,4 +15065,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-06-23T15:07:00.357035908Z"
+generated: "2022-06-23T15:07:30.232771954Z"
