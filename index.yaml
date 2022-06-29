@@ -2439,6 +2439,25 @@ entries:
     version: 0.0.0-0fc04418ec5c0b552009bebf2dc06fa930899b72
   cluster-gcp:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.14.1-dcb3cded79a1852a2e98681716b919d387c9f751.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.14.1-dcb3cded79a1852a2e98681716b919d387c9f751.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.14.1-dcb3cded79a1852a2e98681716b919d387c9f751.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-06-29T08:05:52.935615841Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: '>0.4.0'
+    description: A helm chart for creating Cluster API clusters with the GCP infrastructure
+      provider (CAPG).
+    digest: debd6e486c07d1b66829d9ec110dada759420db5f6e1450b7778ed8b51307413
+    name: cluster-gcp
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.14.1-dcb3cded79a1852a2e98681716b919d387c9f751.tgz
+    version: 0.14.1-dcb3cded79a1852a2e98681716b919d387c9f751
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.14.0-e87af8ebb1068afa9ac2ea995a0365b57456a51e.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.14.0-e87af8ebb1068afa9ac2ea995a0365b57456a51e.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -16347,4 +16366,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-06-29T07:56:08.450294632Z"
+generated: "2022-06-29T08:05:52.934426167Z"
