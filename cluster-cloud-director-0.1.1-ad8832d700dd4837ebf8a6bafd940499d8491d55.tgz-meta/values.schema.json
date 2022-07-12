@@ -1,0 +1,267 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "cloudDirector": {
+            "type": "object",
+            "properties": {
+                "org": {
+                    "type": "string"
+                },
+                "ovdc": {
+                    "type": "string"
+                },
+                "ovdcNetwork": {
+                    "type": "string"
+                },
+                "site": {
+                    "type": "string"
+                }
+            }
+        },
+        "cluster": {
+            "type": "object",
+            "properties": {
+                "controlPlaneEndpoint": {
+                    "type": "object",
+                    "properties": {
+                        "host": {
+                            "type": "string"
+                        },
+                        "port": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "defaultStorageClass": {
+                    "type": "object",
+                    "properties": {
+                        "enable": {
+                            "type": "boolean"
+                        },
+                        "fileSystem": {
+                            "type": "string"
+                        },
+                        "k8sStorageClassName": {
+                            "type": "string"
+                        },
+                        "useDeleteReclaimPolicy": {
+                            "type": "boolean"
+                        },
+                        "vcdStorageProfileName": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "kubernetesVersion": {
+                    "type": "string"
+                },
+                "loadBalancer": {
+                    "type": "object",
+                    "properties": {
+                        "useOneArm": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "network": {
+                    "type": "object",
+                    "properties": {
+                        "podsCidrBlocks": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "servicesCidrBlocks": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "organization": {
+                    "type": "string"
+                },
+                "parentUid": {
+                    "type": "string"
+                },
+                "proxyConfig": {
+                    "type": "object",
+                    "properties": {
+                        "httpProxy": {
+                            "type": "string"
+                        },
+                        "httpsProxy": {
+                            "type": "string"
+                        },
+                        "noProxy": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "rdeId": {
+                    "type": "string"
+                },
+                "serviceDomain": {
+                    "type": "string"
+                },
+                "useAsManagementCluster": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "controlPlane": {
+            "type": "object",
+            "properties": {
+                "catalog": {
+                    "type": "string"
+                },
+                "placementPolicy": {
+                    "type": "string"
+                },
+                "replicas": {
+                    "type": "integer"
+                },
+                "sizingPolicy": {
+                    "type": "string"
+                },
+                "storageProfile": {
+                    "type": "string"
+                },
+                "template": {
+                    "type": "string"
+                }
+            }
+        },
+        "kubeadm": {
+            "type": "object",
+            "properties": {
+                "dns": {
+                    "type": "object",
+                    "properties": {
+                        "image": {
+                            "type": "object",
+                            "properties": {
+                                "repository": {
+                                    "type": "string"
+                                },
+                                "tag": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "image": {
+                    "type": "object",
+                    "properties": {
+                        "repository": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "authorizedKeys": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "nodeClasses": {
+            "items": {
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "catalog": {
+                        "type": "string"
+                    },
+                    "template": {
+                        "type": "string"
+                    },
+                    "sizingPolicy": {
+                        "type": "string"
+                    },
+                    "placementPolicy": {
+                        "type": "string"
+                    },
+                    "storageProfile": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "catalog",
+                    "template"
+                ]
+            },
+            "minItems": 1,
+            "type": "array"
+        },
+        "nodePools": {
+            "items": {
+                "properties": {
+                    "class": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "replicas": {
+                        "minimum": 1,
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "class",
+                    "name",
+                    "replicas"
+                ]
+            },
+            "minItems": 1,
+            "type": "array"
+        },
+        "userContext": {
+            "type": "object",
+            "properties": {
+                "password": {
+                    "type": "string"
+                },
+                "refreshToken": {
+                    "type": "string"
+                },
+                "secretRef": {
+                    "type": "object",
+                    "properties": {
+                        "secretName": {
+                            "type": "string"
+                        },
+                        "useSecretRef": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
