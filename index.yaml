@@ -97,6 +97,25 @@ entries:
     version: 0.0.0-90f20297ad65c82a16960657359751572b699fd9
   cluster-aws:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.4.0-f326ba25095a279a57ed293549e8e314f5eabcc3.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.4.0-f326ba25095a279a57ed293549e8e314f5eabcc3.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.4.0-f326ba25095a279a57ed293549e8e314f5eabcc3.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-07-13T12:52:02.791765761Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: ba3dc9a15f51f5ead839d6a7be66c74e9a2adb89715f61de5a445c43a29793c0
+    name: cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.4.0-f326ba25095a279a57ed293549e8e314f5eabcc3.tgz
+    version: 0.4.0-f326ba25095a279a57ed293549e8e314f5eabcc3
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.4.0-e519a4386bd66ce5a4107453dc27e0c7133963b4.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.4.0-e519a4386bd66ce5a4107453dc27e0c7133963b4.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -18776,4 +18795,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-07-13T12:22:18.794943221Z"
+generated: "2022-07-13T12:52:02.790651779Z"
