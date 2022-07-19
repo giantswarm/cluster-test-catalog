@@ -97,6 +97,25 @@ entries:
     version: 0.0.0-90f20297ad65c82a16960657359751572b699fd9
   cluster-aws:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.4.1-c26cd2f7cd02fc71b3c3695f1f01bd99a4f92d7a.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.4.1-c26cd2f7cd02fc71b3c3695f1f01bd99a4f92d7a.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.4.1-c26cd2f7cd02fc71b3c3695f1f01bd99a4f92d7a.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-07-19T11:33:53.493951041Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 70d96371720cdd0034e0d0e2877c566e1ab9345ff12e2986adfe9d672b3de0b2
+    name: cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.4.1-c26cd2f7cd02fc71b3c3695f1f01bd99a4f92d7a.tgz
+    version: 0.4.1-c26cd2f7cd02fc71b3c3695f1f01bd99a4f92d7a
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.4.1-7e8d23cfa0b2ad590d443e4d95db78b6be7cc98c.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.4.1-7e8d23cfa0b2ad590d443e4d95db78b6be7cc98c.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -20084,4 +20103,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-07-19T11:27:02.179806866Z"
+generated: "2022-07-19T11:33:53.492887078Z"
