@@ -97,6 +97,25 @@ entries:
     version: 0.0.0-90f20297ad65c82a16960657359751572b699fd9
   cluster-aws:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.4.2-7b3b31ec8fa03bc19dc04833e0ae65df20b5d4c2.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.4.2-7b3b31ec8fa03bc19dc04833e0ae65df20b5d4c2.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.4.2-7b3b31ec8fa03bc19dc04833e0ae65df20b5d4c2.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-07-26T10:49:34.770986817Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 5808470bbf7a67b3ee85fa8ac21faf191cd0c95449c6dbb87662bfafd9980709
+    name: cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.4.2-7b3b31ec8fa03bc19dc04833e0ae65df20b5d4c2.tgz
+    version: 0.4.2-7b3b31ec8fa03bc19dc04833e0ae65df20b5d4c2
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.4.1-f4bb7f383b0f0dd1c5d97408c147b45e9c6bd55f.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.4.1-f4bb7f383b0f0dd1c5d97408c147b45e9c6bd55f.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -21156,4 +21175,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-07-25T13:02:27.260167463Z"
+generated: "2022-07-26T10:49:34.769905014Z"
