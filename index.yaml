@@ -97,6 +97,25 @@ entries:
     version: 0.0.0-90f20297ad65c82a16960657359751572b699fd9
   cluster-aws:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.5.0-d1948ceb9d1a7d948bd7ceb483fd2c5489ed548e.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.5.0-d1948ceb9d1a7d948bd7ceb483fd2c5489ed548e.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.5.0-d1948ceb9d1a7d948bd7ceb483fd2c5489ed548e.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-07-26T13:17:02.681717637Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 7186d9ef7d18a1667d737bfea47b4eac026884679ddfdbfbfbb04f063cd1a407
+    name: cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.5.0-d1948ceb9d1a7d948bd7ceb483fd2c5489ed548e.tgz
+    version: 0.5.0-d1948ceb9d1a7d948bd7ceb483fd2c5489ed548e
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.5.0-317f7a025f58fa82cffab1add6ebd500142c5685.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.5.0-317f7a025f58fa82cffab1add6ebd500142c5685.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -21359,4 +21378,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-07-26T13:01:51.362539421Z"
+generated: "2022-07-26T13:17:02.680102159Z"
