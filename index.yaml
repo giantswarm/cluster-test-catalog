@@ -97,6 +97,25 @@ entries:
     version: 0.0.0-90f20297ad65c82a16960657359751572b699fd9
   cluster-aws:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.5.1-cae1bcb8846b3485fe1ec97f1c8f2d2bc7060804.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.5.1-cae1bcb8846b3485fe1ec97f1c8f2d2bc7060804.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.5.1-cae1bcb8846b3485fe1ec97f1c8f2d2bc7060804.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-07-26T13:53:43.915744242Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 1a3e2bab0f25969aea0863b46792a2252ab26e562d9c45a04b7331bf61f1464c
+    name: cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.5.1-cae1bcb8846b3485fe1ec97f1c8f2d2bc7060804.tgz
+    version: 0.5.1-cae1bcb8846b3485fe1ec97f1c8f2d2bc7060804
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.5.1-a9719c846351bfef11d68d545185a11592d1d209.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.5.1-a9719c846351bfef11d68d545185a11592d1d209.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -21492,4 +21511,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-07-26T13:52:49.278610206Z"
+generated: "2022-07-26T13:53:43.914166011Z"
