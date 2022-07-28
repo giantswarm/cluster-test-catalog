@@ -3499,6 +3499,26 @@ entries:
     version: 0.1.0-2a659326192c4725ad3d7dbf1f344dc8933a9745
   cluster-gcp:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.19.1-2a53178261d3e81ac12d701459a4a4055ac8c4fc.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.19.1-2a53178261d3e81ac12d701459a4a4055ac8c4fc.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.19.1-2a53178261d3e81ac12d701459a4a4055ac8c4fc.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-07-28T05:21:44.31275924Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: '>0.4.0'
+    description: A helm chart for creating Cluster API clusters with the GCP infrastructure
+      provider (CAPG).
+    digest: af4e87b58af78e1d6acc0781f3150b7d4c1956b3cce445608d8bbfe9cb5cef6b
+    icon: https://s.giantswarm.io/app-icons/gcp/1/light.svg
+    name: cluster-gcp
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.19.1-2a53178261d3e81ac12d701459a4a4055ac8c4fc.tgz
+    version: 0.19.1-2a53178261d3e81ac12d701459a4a4055ac8c4fc
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.19.0-ee5702cfbef8285b3bf6b2feaeba9176ced014cf.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.19.0-ee5702cfbef8285b3bf6b2feaeba9176ced014cf.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -21511,4 +21531,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-07-26T13:53:43.914166011Z"
+generated: "2022-07-28T05:21:44.311509006Z"
