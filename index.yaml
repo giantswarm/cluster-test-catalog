@@ -97,6 +97,25 @@ entries:
     version: 0.0.0-90f20297ad65c82a16960657359751572b699fd9
   cluster-aws:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.6.2-fecf5a74381892094b3e9e326d8fa0286aec793a.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.6.2-fecf5a74381892094b3e9e326d8fa0286aec793a.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.6.2-fecf5a74381892094b3e9e326d8fa0286aec793a.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-08-08T14:53:37.361511522Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 22edce434a5d9814f54ee42ea69d27454d9406dba4b0cfe9e75afb5d68488f84
+    name: cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.6.2-fecf5a74381892094b3e9e326d8fa0286aec793a.tgz
+    version: 0.6.2-fecf5a74381892094b3e9e326d8fa0286aec793a
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.6.2-f59be7d3706ec0999714a4bb1275bbc6188dfe39.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.6.2-f59be7d3706ec0999714a4bb1275bbc6188dfe39.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -22323,4 +22342,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-08-08T13:56:36.38358086Z"
+generated: "2022-08-08T14:53:37.36050487Z"
