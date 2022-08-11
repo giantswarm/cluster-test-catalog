@@ -97,6 +97,25 @@ entries:
     version: 0.0.0-90f20297ad65c82a16960657359751572b699fd9
   cluster-aws:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.7.3-e0437d2651a98dc65a11b6baa5c7c56fdb88a802.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.7.3-e0437d2651a98dc65a11b6baa5c7c56fdb88a802.tgz-meta/README.md
+      application.giantswarm.io/team: hydra
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.7.3-e0437d2651a98dc65a11b6baa5c7c56fdb88a802.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-08-11T11:50:41.361559296Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: ec81e3752d254506f500df8855971804831c475d15467a1ae7fd6ac587986364
+    name: cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.7.3-e0437d2651a98dc65a11b6baa5c7c56fdb88a802.tgz
+    version: 0.7.3-e0437d2651a98dc65a11b6baa5c7c56fdb88a802
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.7.2-d36191ef1f5010c945ce2518f7982b58fcf0dc54.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.7.2-d36191ef1f5010c945ce2518f7982b58fcf0dc54.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -23201,4 +23220,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-08-11T11:47:05.139912759Z"
+generated: "2022-08-11T11:50:41.360427353Z"
