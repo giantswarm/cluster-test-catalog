@@ -97,6 +97,25 @@ entries:
     version: 0.0.0-90f20297ad65c82a16960657359751572b699fd9
   cluster-aws:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.1-e4a495b58722cbcb3903266e34252af5a84e8813.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.1-e4a495b58722cbcb3903266e34252af5a84e8813.tgz-meta/README.md
+      application.giantswarm.io/team: hydra
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.1-e4a495b58722cbcb3903266e34252af5a84e8813.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-08-15T15:21:21.792181597Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: d471287b33a647f5d94295fe8f5267fe8d1a110519897aa68fff2d103802cc26
+    name: cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.1-e4a495b58722cbcb3903266e34252af5a84e8813.tgz
+    version: 0.8.1-e4a495b58722cbcb3903266e34252af5a84e8813
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.1-ccf416d7d8372d95f9a6a45d54be7e5ddd9f2afa.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.1-ccf416d7d8372d95f9a6a45d54be7e5ddd9f2afa.tgz-meta/README.md
       application.giantswarm.io/team: hydra
@@ -24083,4 +24102,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-08-15T15:20:31.205828875Z"
+generated: "2022-08-15T15:21:21.791150203Z"
