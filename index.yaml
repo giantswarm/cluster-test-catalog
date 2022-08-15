@@ -97,6 +97,25 @@ entries:
     version: 0.0.0-90f20297ad65c82a16960657359751572b699fd9
   cluster-aws:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.1-ccf416d7d8372d95f9a6a45d54be7e5ddd9f2afa.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.1-ccf416d7d8372d95f9a6a45d54be7e5ddd9f2afa.tgz-meta/README.md
+      application.giantswarm.io/team: hydra
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.1-ccf416d7d8372d95f9a6a45d54be7e5ddd9f2afa.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-08-15T15:12:57.505246857Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 22009c946dc9b5f81137c8ba4bd37dd422ac51baaefbeaada6184e3a9b117480
+    name: cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.1-ccf416d7d8372d95f9a6a45d54be7e5ddd9f2afa.tgz
+    version: 0.8.1-ccf416d7d8372d95f9a6a45d54be7e5ddd9f2afa
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.0-e6895dbc690411b55a53976effd18cf3dd30bce9.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.0-e6895dbc690411b55a53976effd18cf3dd30bce9.tgz-meta/README.md
       application.giantswarm.io/team: hydra
@@ -24064,4 +24083,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-08-15T08:09:35.04300441Z"
+generated: "2022-08-15T15:12:57.504123542Z"
