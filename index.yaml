@@ -97,6 +97,25 @@ entries:
     version: 0.0.0-90f20297ad65c82a16960657359751572b699fd9
   cluster-aws:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.6-6d3b92b670584d11e7386045f3de02892ea4ac0e.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.6-6d3b92b670584d11e7386045f3de02892ea4ac0e.tgz-meta/README.md
+      application.giantswarm.io/team: hydra
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.6-6d3b92b670584d11e7386045f3de02892ea4ac0e.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-08-23T08:16:59.697307747Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 8b473bbe41ce71eea6a691c863dc99bd9ddb2974b2683345cde77d5be6a9c70f
+    name: cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.6-6d3b92b670584d11e7386045f3de02892ea4ac0e.tgz
+    version: 0.8.6-6d3b92b670584d11e7386045f3de02892ea4ac0e
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.6-00aa5cc1becbaf535a5995462913b3ace2ef5ccd.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.6-00aa5cc1becbaf535a5995462913b3ace2ef5ccd.tgz-meta/README.md
       application.giantswarm.io/team: hydra
@@ -26590,4 +26609,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-08-23T08:14:28.40873311Z"
+generated: "2022-08-23T08:16:59.696086948Z"
