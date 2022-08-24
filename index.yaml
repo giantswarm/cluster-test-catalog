@@ -97,6 +97,25 @@ entries:
     version: 0.0.0-90f20297ad65c82a16960657359751572b699fd9
   cluster-aws:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.6-a8bd8e2124eb8a791e08a6312a71f16bb824eb49.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.6-a8bd8e2124eb8a791e08a6312a71f16bb824eb49.tgz-meta/README.md
+      application.giantswarm.io/team: hydra
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.6-a8bd8e2124eb8a791e08a6312a71f16bb824eb49.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-08-24T12:53:11.254329454Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: dbeadf4ec12ab57e85cf4ee30929a7e669d30ebcfe6ed8f2583a1c2768ca0957
+    name: cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.6-a8bd8e2124eb8a791e08a6312a71f16bb824eb49.tgz
+    version: 0.8.6-a8bd8e2124eb8a791e08a6312a71f16bb824eb49
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.6-6d3b92b670584d11e7386045f3de02892ea4ac0e.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.6-6d3b92b670584d11e7386045f3de02892ea4ac0e.tgz-meta/README.md
       application.giantswarm.io/team: hydra
@@ -27189,4 +27208,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-08-24T12:45:40.505364069Z"
+generated: "2022-08-24T12:53:11.253260122Z"
