@@ -6049,6 +6049,26 @@ entries:
     version: 0.1.0-2a659326192c4725ad3d7dbf1f344dc8933a9745
   cluster-gcp:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.26.0-d3e854394829f1561af8a8795d95cbe740849c4a.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.26.0-d3e854394829f1561af8a8795d95cbe740849c4a.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.26.0-d3e854394829f1561af8a8795d95cbe740849c4a.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-08-25T10:47:59.914720276Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: '>0.4.0'
+    description: A helm chart for creating Cluster API clusters with the GCP infrastructure
+      provider (CAPG).
+    digest: b22e14ed87e7a29352073ae8bc5c4dbaf7f3ae5fcde007cb7e7c17b9d7ccbe09
+    icon: https://s.giantswarm.io/app-icons/gcp/1/light.svg
+    name: cluster-gcp
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.26.0-d3e854394829f1561af8a8795d95cbe740849c4a.tgz
+    version: 0.26.0-d3e854394829f1561af8a8795d95cbe740849c4a
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.26.0-c837f2ee0d100593a7755afdb74174494ee81009.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.26.0-c837f2ee0d100593a7755afdb74174494ee81009.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -27678,4 +27698,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-08-25T09:55:17.4378996Z"
+generated: "2022-08-25T10:47:59.913442729Z"
