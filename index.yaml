@@ -97,6 +97,25 @@ entries:
     version: 0.0.0-90f20297ad65c82a16960657359751572b699fd9
   cluster-aws:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.7-b1f085cc581bf2972f0e126618ecbf639da9b84d.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.7-b1f085cc581bf2972f0e126618ecbf639da9b84d.tgz-meta/README.md
+      application.giantswarm.io/team: hydra
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.7-b1f085cc581bf2972f0e126618ecbf639da9b84d.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-09-05T08:14:44.454879295Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 23a1cd598bbd5935e8d86ed14388d960c3e237f266de18a27ef1249fc42aacbb
+    name: cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.7-b1f085cc581bf2972f0e126618ecbf639da9b84d.tgz
+    version: 0.8.7-b1f085cc581bf2972f0e126618ecbf639da9b84d
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.6-a8bd8e2124eb8a791e08a6312a71f16bb824eb49.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.6-a8bd8e2124eb8a791e08a6312a71f16bb824eb49.tgz-meta/README.md
       application.giantswarm.io/team: hydra
@@ -29906,4 +29925,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-09-05T07:46:34.441175305Z"
+generated: "2022-09-05T08:14:44.453794419Z"
