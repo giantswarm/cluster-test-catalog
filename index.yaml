@@ -97,6 +97,25 @@ entries:
     version: 0.0.0-90f20297ad65c82a16960657359751572b699fd9
   cluster-aws:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.7-f2c580c9729c2057fadd830e8586bfdc289ec841.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.7-f2c580c9729c2057fadd830e8586bfdc289ec841.tgz-meta/README.md
+      application.giantswarm.io/team: hydra
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.7-f2c580c9729c2057fadd830e8586bfdc289ec841.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-09-06T08:16:13.948085469Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 4764845172c5ffda1d57afe8d1e42aa6f30f9a486fc08269337a2073f7177085
+    name: cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.7-f2c580c9729c2057fadd830e8586bfdc289ec841.tgz
+    version: 0.8.7-f2c580c9729c2057fadd830e8586bfdc289ec841
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.7-b1f085cc581bf2972f0e126618ecbf639da9b84d.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.8.7-b1f085cc581bf2972f0e126618ecbf639da9b84d.tgz-meta/README.md
       application.giantswarm.io/team: hydra
@@ -30511,4 +30530,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a.tgz
     version: 0.1.0-2f3a546fa7da742d315501e35f49b11d1498d76a
-generated: "2022-09-06T08:15:31.467563954Z"
+generated: "2022-09-06T08:16:13.946319075Z"
