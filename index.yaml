@@ -210,6 +210,25 @@ entries:
     version: 0.0.0-90f20297ad65c82a16960657359751572b699fd9
   cluster-aws:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.9.2-ddb6d8b1ef4b5f440da0da83fc12e5518fe33665.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.9.2-ddb6d8b1ef4b5f440da0da83fc12e5518fe33665.tgz-meta/README.md
+      application.giantswarm.io/team: hydra
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.9.2-ddb6d8b1ef4b5f440da0da83fc12e5518fe33665.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-09-26T14:55:22.822875062Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: ff2645b605469e94c36fe1de04f068e65e6ae8eebd19a9bef2a4edf4f2849a29
+    name: cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.9.2-ddb6d8b1ef4b5f440da0da83fc12e5518fe33665.tgz
+    version: 0.9.2-ddb6d8b1ef4b5f440da0da83fc12e5518fe33665
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.9.1-d853d72e048aeb7773342c8da9a9c48604f234e4.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.9.1-d853d72e048aeb7773342c8da9a9c48604f234e4.tgz-meta/README.md
       application.giantswarm.io/team: hydra
@@ -35624,4 +35643,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.1.1-0dd4947bc66f42c652c431a0a8dea707c95ff3b0.tgz
     version: 0.1.1-0dd4947bc66f42c652c431a0a8dea707c95ff3b0
-generated: "2022-09-26T07:50:59.869499077Z"
+generated: "2022-09-26T14:55:22.821523169Z"
