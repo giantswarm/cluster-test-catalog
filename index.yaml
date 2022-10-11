@@ -369,6 +369,26 @@ entries:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.10.0-0a1421b3e48222f1d1d575636f0140ba7248a7b4.tgz
     version: 0.10.0-0a1421b3e48222f1d1d575636f0140ba7248a7b4
   - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.10.0-0a0e776dad7c4c443d501cd59d9206602c62d128.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.10.0-0a0e776dad7c4c443d501cd59d9206602c62d128.tgz-meta/README.md
+      application.giantswarm.io/team: hydra
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.10.0-0a0e776dad7c4c443d501cd59d9206602c62d128.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-10-11T09:14:59.16032676Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 2f091795f9bf1f241389a0013633a21ec7a11a4a406388835b883a9fb525e9d7
+    name: cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.10.0-0a0e776dad7c4c443d501cd59d9206602c62d128.tgz
+    version: 0.10.0-0a0e776dad7c4c443d501cd59d9206602c62d128
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.9.2-f58e3ece3f5b4655057e680efa1599ae741df201.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.9.2-f58e3ece3f5b4655057e680efa1599ae741df201.tgz-meta/README.md
       application.giantswarm.io/team: hydra
@@ -38590,4 +38610,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.1.1-0dd4947bc66f42c652c431a0a8dea707c95ff3b0.tgz
     version: 0.1.1-0dd4947bc66f42c652c431a0a8dea707c95ff3b0
-generated: "2022-10-11T09:03:53.384660369Z"
+generated: "2022-10-11T09:14:59.159214025Z"
