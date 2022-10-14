@@ -211,6 +211,26 @@ entries:
   cluster-aws:
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.11.0-87997b2d20167753d6a246de71954ac88c36e8ba.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.11.0-87997b2d20167753d6a246de71954ac88c36e8ba.tgz-meta/README.md
+      application.giantswarm.io/team: hydra
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.11.0-87997b2d20167753d6a246de71954ac88c36e8ba.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-10-14T06:42:32.573222788Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.3.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 5ecda06ba85724d37b177ca33090779e877528507907c74f7722f9f90d9a1d54
+    name: cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.11.0-87997b2d20167753d6a246de71954ac88c36e8ba.tgz
+    version: 0.11.0-87997b2d20167753d6a246de71954ac88c36e8ba
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.10.0-e2d10467565ada798cfc5bfd0009bfb3158e0365.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.10.0-e2d10467565ada798cfc5bfd0009bfb3158e0365.tgz-meta/README.md
       application.giantswarm.io/team: hydra
@@ -40608,4 +40628,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.1.1-0dd4947bc66f42c652c431a0a8dea707c95ff3b0.tgz
     version: 0.1.1-0dd4947bc66f42c652c431a0a8dea707c95ff3b0
-generated: "2022-10-14T06:42:06.990891684Z"
+generated: "2022-10-14T06:42:32.571826066Z"
