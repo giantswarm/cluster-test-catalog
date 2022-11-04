@@ -10023,6 +10023,27 @@ entries:
   cluster-gcp:
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.32.1-8bf108434c71071da0c36360f4bde2d1ec20e8d2.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.32.1-8bf108434c71071da0c36360f4bde2d1ec20e8d2.tgz-meta/README.md
+      application.giantswarm.io/team: hydra
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.32.1-8bf108434c71071da0c36360f4bde2d1ec20e8d2.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-11-04T15:19:42.729369175Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.3
+    description: A helm chart for creating Cluster API clusters with the GCP infrastructure
+      provider (CAPG).
+    digest: 61c0fbb9bdf74db918273b1316aaa0bfe628d3b434f6c2a2eb50cce5babc8668
+    icon: https://s.giantswarm.io/app-icons/gcp/1/light.svg
+    name: cluster-gcp
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.32.1-8bf108434c71071da0c36360f4bde2d1ec20e8d2.tgz
+    version: 0.32.1-8bf108434c71071da0c36360f4bde2d1ec20e8d2
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.32.1-0d52a67fa550ed2e79229cbde34056c5ee63f63b.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.32.1-0d52a67fa550ed2e79229cbde34056c5ee63f63b.tgz-meta/README.md
       application.giantswarm.io/team: hydra
@@ -45776,4 +45797,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.1.1-0dd4947bc66f42c652c431a0a8dea707c95ff3b0.tgz
     version: 0.1.1-0dd4947bc66f42c652c431a0a8dea707c95ff3b0
-generated: "2022-11-04T15:17:46.051582223Z"
+generated: "2022-11-04T15:19:42.728075645Z"
