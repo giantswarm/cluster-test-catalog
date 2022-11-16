@@ -1,0 +1,231 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "baseDomain": {
+            "type": "string"
+        },
+        "cloudDirector": {
+            "type": "object",
+            "properties": {
+                "org": {
+                    "type": "string"
+                },
+                "ovdc": {
+                    "type": "string"
+                },
+                "ovdcNetwork": {
+                    "type": "string"
+                },
+                "site": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "org",
+                "ovdc",
+                "ovdcNetwork",
+                "site"
+            ]
+        },
+        "cluster": {
+            "type": "object",
+            "properties": {
+                "parentUid": {
+                    "type": "string"
+                },
+                "rdeId": {
+                    "type": "string"
+                },
+                "useAsManagementCluster": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "clusterDescription": {
+            "type": "string"
+        },
+        "controlPlane": {
+            "type": "object",
+            "required": [
+                "catalog",
+                "template",
+                "replicas",
+                "dns",
+                "etcd",
+                "resourceRatio"
+            ],
+            "properties": {
+                "catalog": {
+                    "type": "string"
+                },
+                "dns": {
+                    "type": "object",
+                    "properties": {
+                        "imageRepository": {
+                            "type": "string"
+                        },
+                        "imageTag": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "etcd": {
+                    "type": "object",
+                    "properties": {
+                        "imageRepository": {
+                            "type": "string"
+                        },
+                        "imageTag": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "image": {
+                    "type": "object",
+                    "properties": {
+                        "repository": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "placementPolicy": {
+                    "type": "string"
+                },
+                "replicas": {
+                    "type": "integer"
+                },
+                "sizingPolicy": {
+                    "type": "string"
+                },
+                "storageProfile": {
+                    "type": "string"
+                },
+                "template": {
+                    "type": "string"
+                },
+                "diskSize": {
+                    "anyOf": [
+                        {
+                            "type": "integer"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "resourceRatio" : {
+                    "minimum": 2,
+                    "type": "integer"
+                }
+            }
+        },
+        "kubernetesVersion": {
+            "type": "string"
+        },
+        "network": {
+            "type": "object",
+            "properties": {
+                "controlPlaneEndpoint": {
+                    "type": "object",
+                    "properties": {
+                        "host": {
+                            "type": "string"
+                        },
+                        "port": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "loadBalancer": {
+                    "type": "object",
+                    "properties": {
+                        "vipSubnet": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "podsCidrBlocks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "servicesCidrBlocks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "loadBalancer",
+                "podsCidrBlocks",
+                "servicesCidrBlocks"
+            ]
+        },
+        "proxy": {
+            "type": "object",
+            "properties": {
+                "secretName": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "nodeClasses": {
+            "type": "object"
+        },
+        "nodePools": {
+            "type": "object"
+        },
+        "organization": {
+            "type": "string"
+        },
+        "ssh": {
+            "type": "object",
+            "properties": {
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "authorizedKeys": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "servicePriority": {
+            "type": "string",
+            "enum": [
+                "lowest",
+                "medium",
+                "highest"
+            ]
+        },
+        "userContext": {
+            "type": "object",
+            "properties": {
+                "secretRef": {
+                    "type": "object",
+                    "properties": {
+                        "secretName": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
