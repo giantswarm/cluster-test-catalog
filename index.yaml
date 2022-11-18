@@ -211,6 +211,26 @@ entries:
   cluster-aws:
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.17.0-87c0b82e9c0a451a2073af7b6d7d642a40516f14.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.17.0-87c0b82e9c0a451a2073af7b6d7d642a40516f14.tgz-meta/README.md
+      application.giantswarm.io/team: hydra
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.17.0-87c0b82e9c0a451a2073af7b6d7d642a40516f14.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-11-18T12:26:43.917005607Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.4
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 9adefc8b5e2e2c653a6bb2182f4b423b8a191e28b4d33299367c87dfac4fa2bd
+    name: cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.17.0-87c0b82e9c0a451a2073af7b6d7d642a40516f14.tgz
+    version: 0.17.0-87c0b82e9c0a451a2073af7b6d7d642a40516f14
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.16.1-ebb437ad6aa533d7a2461a47bec9a5044a9b8d67.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.16.1-ebb437ad6aa533d7a2461a47bec9a5044a9b8d67.tgz-meta/README.md
       application.giantswarm.io/team: hydra
@@ -50372,4 +50392,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.1.1-0dd4947bc66f42c652c431a0a8dea707c95ff3b0.tgz
     version: 0.1.1-0dd4947bc66f42c652c431a0a8dea707c95ff3b0
-generated: "2022-11-18T12:26:25.665806Z"
+generated: "2022-11-18T12:26:43.91562556Z"
