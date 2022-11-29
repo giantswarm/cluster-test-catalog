@@ -1,0 +1,230 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "ami": {
+            "type": "string"
+        },
+        "aws": {
+            "type": "object",
+            "properties": {
+                "awsClusterRole": {
+                    "type": "string"
+                },
+                "region": {
+                    "type": "string"
+                }
+            }
+        },
+        "baseDomain": {
+            "type": "string"
+        },
+        "bastion": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "replicas": {
+                    "type": "integer"
+                }
+            }
+        },
+        "clusterDescription": {
+            "type": "string"
+        },
+        "clusterName": {
+            "type": "string"
+        },
+        "controlPlane": {
+            "type": "object",
+            "properties": {
+                "containerdVolumeSizeGB": {
+                    "type": "integer"
+                },
+                "etcdVolumeSizeGB": {
+                    "type": "integer"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "kubeletVolumeSizeGB": {
+                    "type": "integer"
+                },
+                "rootVolumeSizeGB": {
+                    "type": "integer"
+                }
+            }
+        },
+        "flatcarAWSAccount": {
+            "type": "string"
+        },
+        "hashSalt": {
+            "type": "string"
+        },
+        "includeClusterResourceSet": {
+            "type": "boolean"
+        },
+        "kubectlImage": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "registry": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                }
+            }
+        },
+        "kubernetesVersion": {
+            "type": "string"
+        },
+        "machinePools": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "availabilityZones": {
+                        "type": "array"
+                    },
+                    "customNodeLabels": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "customNodeTaints": {
+                        "type": "array"
+                    },
+                    "instanceType": {
+                        "type": "string"
+                    },
+                    "maxSize": {
+                        "type": "integer"
+                    },
+                    "minSize": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "rootVolumeSizeGB": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "network": {
+            "type": "object",
+            "properties": {
+                "apiMode": {
+                    "type": "string"
+                },
+                "availabilityZoneUsageLimit": {
+                    "type": "integer"
+                },
+                "dnsAssignAdditionalVPCs": {
+                    "type": "string"
+                },
+                "dnsMode": {
+                    "type": "string"
+                },
+                "podCIDR": {
+                    "type": "string"
+                },
+                "prefixListID": {
+                    "type": "string"
+                },
+                "serviceCIDR": {
+                    "type": "string"
+                },
+                "subnets": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "cidrBlock": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "topologyMode": {
+                    "type": "string"
+                },
+                "transitGatewayID": {
+                    "type": "string"
+                },
+                "vpcCIDR": {
+                    "type": "string"
+                },
+                "vpcMode": {
+                    "type": "string"
+                }
+            }
+        },
+        "oidc": {
+            "type": "object",
+            "properties": {
+                "caFile": {
+                    "type": "string"
+                },
+                "clientId": {
+                    "type": "string"
+                },
+                "groupsClaim": {
+                    "type": "string"
+                },
+                "issuerUrl": {
+                    "type": "string"
+                },
+                "usernameClaim": {
+                    "type": "string"
+                }
+            }
+        },
+        "organization": {
+            "type": "string"
+        },
+        "proxy": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "http_proxy": {
+                    "type": "string"
+                },
+                "https_proxy": {
+                    "type": "string"
+                }
+            }
+        },
+        "registry": {
+            "type": "object",
+            "properties": {
+                "configure": {
+                    "type": "boolean"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        },
+        "releaseVersion": {
+            "type": "string"
+        },
+        "sshSSOPublicKey": {
+            "type": "string"
+        }
+    }
+}
