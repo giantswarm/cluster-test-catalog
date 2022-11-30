@@ -1,0 +1,132 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "azure": {
+            "type": "object",
+            "properties": {
+                "location": {
+                    "type": "string"
+                }
+            }
+        },
+        "bastion": {
+            "type": "object",
+            "properties": {
+                "replicas": {
+                    "type": "integer"
+                },
+                "vmSize": {
+                    "type": "string"
+                }
+            }
+        },
+        "clusterDescription": {
+            "type": "string"
+        },
+        "clusterName": {
+            "type": "string"
+        },
+        "controlPlane": {
+            "type": "object",
+            "properties": {
+                "etcdVolumeSizeGB": {
+                    "type": "integer"
+                },
+                "replicas": {
+                    "type": "integer"
+                },
+                "rootVolumeSizeGB": {
+                    "type": "integer"
+                },
+                "vmSize": {
+                    "type": "string"
+                }
+            }
+        },
+        "includeClusterResourceSet": {
+            "type": "boolean"
+        },
+        "kubectlImage": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "registry": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                }
+            }
+        },
+        "kubernetesVersion": {
+            "type": "string"
+        },
+        "machinePools": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "availabilityZones": {
+                        "type": "null"
+                    },
+                    "customNodeLabels": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "instanceType": {
+                        "type": "string"
+                    },
+                    "maxSize": {
+                        "type": "integer"
+                    },
+                    "minSize": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "rootVolumeSizeGB": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "network": {
+            "type": "object",
+            "properties": {
+                "bastionSubnet": {
+                    "type": "string"
+                },
+                "controlPlaneSubnet": {
+                    "type": "string"
+                },
+                "podCIDR": {
+                    "type": "string"
+                },
+                "podNodeCidr": {
+                    "type": "integer"
+                },
+                "serviceCIDR": {
+                    "type": "string"
+                },
+                "vnetCIDR": {
+                    "type": "string"
+                }
+            }
+        },
+        "organization": {
+            "type": "string"
+        },
+        "releaseVersion": {
+            "type": "string"
+        },
+        "sshSSOPublicKey": {
+            "type": "string"
+        }
+    }
+}
