@@ -1,0 +1,215 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "apiServer": {
+            "type": "object",
+            "properties": {
+                "enableAdmissionPlugins": {
+                    "type": "string"
+                },
+                "featureGates": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "enableAdmissionPlugins",
+                "featureGates"
+            ]
+        },
+        "baseDomain": {
+            "type": "string"
+        },
+        "bastion": {
+            "type": "object",
+            "properties": {
+                "bootFromVolume": {
+                    "type": "boolean"
+                },
+                "diskSize": {
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "flavor": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "flavor",
+                "image"
+            ]
+        },
+        "cloudConfig": {
+            "type": "string"
+        },
+        "cloudName": {
+            "type": "string"
+        },
+        "clusterDescription": {
+            "type": "string"
+        },
+        "clusterName": {
+            "type": "string"
+        },
+        "controllerManager": {
+            "type": "object",
+            "properties": {
+                "featureGates": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "featureGates"
+            ]
+        },
+        "controlPlane": {
+            "type": "object",
+            "properties": {
+                "availabilityZones": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "bootFromVolume": {
+                    "type": "boolean"
+                },
+                "diskSize": {
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "etcd": {
+                    "type": "object",
+                    "properties": {
+                        "imageRepository": {
+                            "type": "string"
+                        },
+                        "imageTag": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "flavor": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "replicas": {
+                    "minimum": 1,
+                    "maximum": 7,
+                    "type": "integer"
+                },
+                "resourceRatio" : {
+                    "minimum": 2,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "flavor",
+                "image",
+                "resourceRatio"
+            ]
+        },
+        "dnsNameservers": {
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "externalNetworkID": {
+            "type": "string"
+        },
+        "ignition": {
+            "type": "object",
+            "properties": {
+                "enable": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "enable"
+            ]
+        },
+        "includeClusterResourceSet": {
+            "type": "string"
+        },
+        "kubectlImage": {
+            "type": "object"
+        },
+        "kubernetesVersion": {
+            "type": "string"
+        },
+        "managementCluster": {
+            "type": "string"
+        },
+        "networkName": {
+            "type": "string"
+        },
+        "nodeCIDR": {
+            "type": "string"
+        },
+        "nodeClasses": {
+            "type": "object"
+        },
+        "nodePools": {
+            "type": "object"
+        },
+        "oidc": {
+            "type": "object",
+            "properties": {
+                "caFile": {
+                    "type": "string"
+                },
+                "clientId": {
+                    "type": "string"
+                },
+                "groupsClaim": {
+                    "type": "string"
+                },
+                "issuerUrl": {
+                    "type": "string"
+                },
+                "usernameClaim": {
+                    "type": "string"
+                },
+                "usernamePrefix": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clientId",
+                "groupsClaim",
+                "issuerUrl",
+                "usernameClaim"
+            ]
+        },
+        "organization": {
+            "type": "string"
+        },
+        "subnetName": {
+            "type": "string"
+        }
+    },
+    "required": [
+      "apiServer",
+      "baseDomain",
+      "bastion",
+      "cloudConfig",
+      "cloudName",
+      "clusterDescription",
+      "clusterName",
+      "controllerManager",
+      "controlPlane",
+      "kubernetesVersion",
+      "managementCluster",
+      "nodeCIDR",
+      "nodeClasses",
+      "nodePools",
+      "organization"
+    ]
+}
