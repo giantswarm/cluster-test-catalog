@@ -1,0 +1,400 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$defs": {
+        "catalog": {
+            "type": "string",
+            "title": "Catalog",
+            "description": "VCD catalog in which the template is stored.",
+            "examples": [
+                "giantswarm"
+            ]
+        },
+        "placementPolicy": {
+            "type": "string",
+            "title": "Placement policy"
+        },
+        "sizingPolicy": {
+            "type": "string",
+            "title": "Sizing policy",
+            "examples": [
+                "m1.medium"
+            ]
+        },
+        "storageProfile": {
+            "type": "string",
+            "title": "Storage profile"
+        },
+        "template": {
+            "type": "string",
+            "title": "Template",
+            "description": "Template used to create the node VM.",
+            "examples": [
+                "ubuntu-2004-kube-v1.22.5"
+            ]
+        }
+    },
+    "type": "object",
+    "properties": {
+        "apiServer": {
+            "type": "object",
+            "properties": {
+                "enableAdmissionPlugins": {
+                    "type": "string"
+                },
+                "featureGates": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "enableAdmissionPlugins",
+                "featureGates"
+            ]
+        },
+        "controllerManager": {
+            "type": "object",
+            "properties": {
+                "featureGates": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "featureGates"
+            ]
+        },
+        "baseDomain": {
+            "type": "string"
+        },
+        "cloudDirector": {
+            "type": "object",
+            "properties": {
+                "org": {
+                    "type": "string"
+                },
+                "ovdc": {
+                    "type": "string"
+                },
+                "ovdcNetwork": {
+                    "type": "string"
+                },
+                "site": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "org",
+                "ovdc",
+                "ovdcNetwork",
+                "site"
+            ]
+        },
+        "cluster": {
+            "type": "object",
+            "properties": {
+                "parentUid": {
+                    "type": "string"
+                },
+                "rdeId": {
+                    "type": "string"
+                },
+                "useAsManagementCluster": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "clusterDescription": {
+            "type": "string"
+        },
+        "controlPlane": {
+            "type": "object",
+            "required": [
+                "catalog",
+                "template",
+                "replicas",
+                "dns",
+                "etcd",
+                "resourceRatio"
+            ],
+            "properties": {
+                "catalog": {
+                    "$ref": "#/$defs/catalog"
+                },
+                "dns": {
+                    "type": "object",
+                    "properties": {
+                        "imageRepository": {
+                            "type": "string"
+                        },
+                        "imageTag": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "etcd": {
+                    "type": "object",
+                    "properties": {
+                        "imageRepository": {
+                            "type": "string"
+                        },
+                        "imageTag": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "image": {
+                    "type": "object",
+                    "properties": {
+                        "repository": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "placementPolicy": {
+                    "$ref": "#/$defs/placementPolicy"
+                },
+                "replicas": {
+                    "type": "integer"
+                },
+                "sizingPolicy": {
+                    "$ref": "#/$defs/sizingPolicy"
+                },
+                "storageProfile": {
+                    "$ref": "#/$defs/storageProfile"
+                },
+                "template": {
+                    "$ref": "#/$defs/template"
+                },
+                "diskSize": {
+                    "anyOf": [
+                        {
+                            "type": "integer"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "resourceRatio": {
+                    "minimum": 2,
+                    "type": "integer"
+                }
+            }
+        },
+        "includeClusterResourceSet": {
+            "type": "string"
+        },
+        "kubectlImage": {
+            "type": "object"
+        },
+        "kubernetesVersion": {
+            "type": "string"
+        },
+        "network": {
+            "type": "object",
+            "properties": {
+                "controlPlaneEndpoint": {
+                    "type": "object",
+                    "properties": {
+                        "host": {
+                            "type": "string"
+                        },
+                        "port": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "loadBalancer": {
+                    "type": "object",
+                    "properties": {
+                        "vipSubnet": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "podsCidrBlocks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "servicesCidrBlocks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "staticRoutes": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "destination": {
+                                "type": "string",
+                                "examples": [
+                                    "10.128.0.0/16"
+                                ]
+                            },
+                            "via": {
+                                "type": "string",
+                                "format": "ipv4"
+                            }
+                        },
+                        "required": [
+                            "destination",
+                            "via"
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "loadBalancer",
+                "podsCidrBlocks",
+                "servicesCidrBlocks"
+            ]
+        },
+        "proxy": {
+            "type": "object",
+            "properties": {
+                "secretName": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "nodeClasses": {
+            "type": "object",
+            "title": "Node classes",
+            "description": "Re-usable node configuration.",
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "catalog": {
+                        "$ref": "#/$defs/catalog"
+                    },
+                    "template": {
+                        "$ref": "#/$defs/template"
+                    },
+                    "sizingPolicy": {
+                        "$ref": "#/$defs/sizingPolicy"
+                    },
+                    "placementPolicy": {
+                        "$ref": "#/$defs/placementPolicy"
+                    },
+                    "storageProfile": {
+                        "$ref": "#/$defs/storageProfile"
+                    },
+                    "diskSize": {
+                        "type": "string",
+                        "title": "Disk size"
+                    }
+                }
+            }
+        },
+        "nodePools": {
+            "type": "object",
+            "title": "Node pools",
+            "description": "Groups of worker nodes with identical configuration.",
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "class": {
+                        "type": "string",
+                        "title": "Node class"
+                    },
+                    "replicas": {
+                        "type": "integer",
+                        "minimum": 1
+                    }
+                }
+            }
+        },
+        "oidc": {
+            "type": "object",
+            "properties": {
+                "caFile": {
+                    "type": "string"
+                },
+                "clientId": {
+                    "type": "string"
+                },
+                "groupsClaim": {
+                    "type": "string"
+                },
+                "issuerUrl": {
+                    "type": "string"
+                },
+                "usernameClaim": {
+                    "type": "string"
+                },
+                "usernamePrefix": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clientId",
+                "groupsClaim",
+                "issuerUrl",
+                "usernameClaim"
+            ]
+        },
+        "organization": {
+            "type": "string"
+        },
+        "ssh": {
+            "type": "object",
+            "properties": {
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "authorizedKeys": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "servicePriority": {
+            "type": "string",
+            "enum": [
+                "lowest",
+                "medium",
+                "highest"
+            ]
+        },
+        "userContext": {
+            "type": "object",
+            "properties": {
+                "secretRef": {
+                    "type": "object",
+                    "properties": {
+                        "secretName": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "required": [
+        "apiServer",
+        "baseDomain",
+        "controllerManager",
+        "cloudDirector",
+        "controlPlane",
+        "network",
+        "nodeClasses",
+        "nodePools",
+        "organization",
+        "userContext"
+    ]
+}
