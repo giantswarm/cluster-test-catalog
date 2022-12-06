@@ -1,0 +1,276 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$defs": {
+        "bootFromVolume": {
+            "type": "boolean",
+            "title": "Boot from volume"
+        },
+        "diskSize": {
+            "type": "integer",
+            "title": "Disk size",
+            "minimum": 1
+        },
+        "flavor": {
+            "type": "string",
+            "title": "Flavor",
+            "examples": [
+                "n1.medium"
+            ]
+        },
+        "image": {
+            "type": "string",
+            "Title": "Image",
+            "examples": [
+                "ubuntu-2004-kube-v1.22.9"
+            ]
+        }
+    },
+    "type": "object",
+    "properties": {
+        "apiServer": {
+            "type": "object",
+            "properties": {
+                "enableAdmissionPlugins": {
+                    "type": "string"
+                },
+                "featureGates": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "enableAdmissionPlugins",
+                "featureGates"
+            ]
+        },
+        "baseDomain": {
+            "type": "string"
+        },
+        "bastion": {
+            "type": "object",
+            "properties": {
+                "bootFromVolume": {
+                    "$ref": "#/$defs/bootFromVolume"
+                },
+                "diskSize": {
+                    "$ref": "#/$defs/diskSize"
+                },
+                "flavor": {
+                    "$ref": "#/$defs/flavor"
+                },
+                "image": {
+                    "$ref": "#/$defs/image"
+                }
+            },
+            "required": [
+                "flavor",
+                "image"
+            ]
+        },
+        "cloudConfig": {
+            "type": "string"
+        },
+        "cloudName": {
+            "type": "string"
+        },
+        "clusterDescription": {
+            "type": "string"
+        },
+        "clusterName": {
+            "type": "string"
+        },
+        "controllerManager": {
+            "type": "object",
+            "properties": {
+                "featureGates": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "featureGates"
+            ]
+        },
+        "controlPlane": {
+            "type": "object",
+            "properties": {
+                "availabilityZones": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "bootFromVolume": {
+                    "$ref": "#/$defs/bootFromVolume"
+                },
+                "diskSize": {
+                    "$ref": "#/$defs/diskSize"
+                },
+                "etcd": {
+                    "type": "object",
+                    "properties": {
+                        "imageRepository": {
+                            "type": "string"
+                        },
+                        "imageTag": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "flavor": {
+                    "type": "string"
+                },
+                "image": {
+                    "$ref": "#/$defs/image"
+                },
+                "replicas": {
+                    "minimum": 1,
+                    "maximum": 7,
+                    "type": "integer"
+                },
+                "resourceRatio": {
+                    "minimum": 2,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "flavor",
+                "image",
+                "resourceRatio"
+            ]
+        },
+        "dnsNameservers": {
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "externalNetworkID": {
+            "type": "string"
+        },
+        "ignition": {
+            "type": "object",
+            "properties": {
+                "enable": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "enable"
+            ]
+        },
+        "includeClusterResourceSet": {
+            "type": "string"
+        },
+        "kubectlImage": {
+            "type": "object"
+        },
+        "kubernetesVersion": {
+            "type": "string"
+        },
+        "managementCluster": {
+            "type": "string"
+        },
+        "networkName": {
+            "type": "string"
+        },
+        "nodeCIDR": {
+            "type": "string"
+        },
+        "nodeClasses": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "bootFromVolume": {
+                        "$ref": "#/$defs/bootFromVolume"
+                    },
+                    "diskSize": {
+                        "$ref": "#/$defs/diskSize"
+                    },
+                    "flavor": {
+                        "$ref": "#/$defs/flavor"
+                    },
+                    "image": {
+                        "$ref": "#/$defs/image"
+                    }
+                }
+            }
+        },
+        "nodePools": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "class": {
+                        "type": "string",
+                        "title": "Node class"
+                    },
+                    "failureDomain": {
+                        "type": "string",
+                        "title": "Failure domain",
+                        "description": "OpenStack availability zone",
+                        "examples": [
+                            "az1"
+                        ]
+                    },
+                    "replicas": {
+                        "type": "integer",
+                        "title": "Number of nodes"
+                    }
+                }
+            }
+        },
+        "oidc": {
+            "type": "object",
+            "properties": {
+                "caFile": {
+                    "type": "string"
+                },
+                "clientId": {
+                    "type": "string"
+                },
+                "groupsClaim": {
+                    "type": "string"
+                },
+                "issuerUrl": {
+                    "type": "string"
+                },
+                "usernameClaim": {
+                    "type": "string"
+                },
+                "usernamePrefix": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clientId",
+                "groupsClaim",
+                "issuerUrl",
+                "usernameClaim"
+            ]
+        },
+        "organization": {
+            "type": "string"
+        },
+        "subnetName": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "apiServer",
+        "baseDomain",
+        "bastion",
+        "cloudConfig",
+        "cloudName",
+        "clusterDescription",
+        "clusterName",
+        "controllerManager",
+        "controlPlane",
+        "kubernetesVersion",
+        "managementCluster",
+        "nodeCIDR",
+        "nodeClasses",
+        "nodePools",
+        "organization"
+    ]
+}
