@@ -27516,6 +27516,27 @@ entries:
     version: 0.0.0-07926dfcf2fe5d560bd3c1f809bff9257f81ca51
   cluster-openstack:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-openstack-0.17.0-f9778fd53916c5d809822611624707ed39610d77.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-openstack-0.17.0-f9778fd53916c5d809822611624707ed39610d77.tgz-meta/README.md
+      application.giantswarm.io/team: rocket
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-openstack-0.17.0-f9778fd53916c5d809822611624707ed39610d77.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2022-12-06T21:24:57.12773066Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.3
+    description: A helm chart for creating Cluster API clusters with the OpenStack
+      infrastructure provider (CAPO).
+    digest: d3f4d3f940b03b25cba8cf1c1fa6d98f9b8e607a08e8606460c48f3070d8aa2f
+    home: https://github.com/giantswarm/cluster-openstack
+    icon: https://s.giantswarm.io/app-icons/openstack/1/light.svg
+    name: cluster-openstack
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-openstack-0.17.0-f9778fd53916c5d809822611624707ed39610d77.tgz
+    version: 0.17.0-f9778fd53916c5d809822611624707ed39610d77
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-openstack-0.17.0-ea0e41d35088d850b17a683050786c0e6a73338b.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-openstack-0.17.0-ea0e41d35088d850b17a683050786c0e6a73338b.tgz-meta/README.md
       application.giantswarm.io/team: rocket
@@ -58377,4 +58398,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.1.1-0dd4947bc66f42c652c431a0a8dea707c95ff3b0.tgz
     version: 0.1.1-0dd4947bc66f42c652c431a0a8dea707c95ff3b0
-generated: "2022-12-06T18:06:23.777181642Z"
+generated: "2022-12-06T21:24:57.126497808Z"
