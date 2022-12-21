@@ -1,0 +1,132 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "azure": {
+            "type": "object",
+            "properties": {
+                "azureClusterIdentity": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "location": {
+                    "type": "string"
+                },
+                "subscriptionId": {
+                    "type": "string"
+                }
+            }
+        },
+        "clusterDescription": {
+            "type": "string"
+        },
+        "clusterName": {
+            "type": "string"
+        },
+        "controlPlane": {
+            "type": "object",
+            "properties": {
+                "etcdVolumeSizeGB": {
+                    "type": "integer"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "replicas": {
+                    "type": "integer"
+                },
+                "rootVolumeSizeGB": {
+                    "type": "integer"
+                }
+            }
+        },
+        "enablePerClusterIdentity": {
+            "type": "boolean"
+        },
+        "kubernetesVersion": {
+            "type": "string"
+        },
+        "machinePools": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "customNodeLabels": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "customNodeTaints": {
+                        "type": "array"
+                    },
+                    "instanceType": {
+                        "type": "string"
+                    },
+                    "location": {
+                        "type": "string"
+                    },
+                    "maxSize": {
+                        "type": "integer"
+                    },
+                    "minSize": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "rootVolumeSizeGB": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "managementCluster": {
+            "type": "boolean"
+        },
+        "network": {
+            "type": "object",
+            "properties": {
+                "podCIDR": {
+                    "type": "string"
+                },
+                "serviceCIDR": {
+                    "type": "string"
+                }
+            }
+        },
+        "oidc": {
+            "type": "object",
+            "properties": {
+                "caPem": {
+                    "type": "string"
+                },
+                "clientId": {
+                    "type": "string"
+                },
+                "groupsClaim": {
+                    "type": "string"
+                },
+                "issuerUrl": {
+                    "type": "string"
+                },
+                "usernameClaim": {
+                    "type": "string"
+                }
+            }
+        },
+        "organization": {
+            "type": "string"
+        },
+        "sshSSOPublicKey": {
+            "type": "string"
+        }
+    }
+}
