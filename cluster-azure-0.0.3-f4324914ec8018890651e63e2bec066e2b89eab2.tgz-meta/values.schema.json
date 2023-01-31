@@ -1,0 +1,180 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "description": "Configuration of an Azure cluster using Cluster API",
+    "properties": {
+        "attachCapzControllerIdentity": {
+            "title": "Attach controller identity",
+            "type": "boolean"
+        },
+        "azure": {
+            "properties": {
+                "azureClusterIdentity": {
+                    "properties": {
+                        "name": {
+                            "title": "Name",
+                            "type": "string"
+                        },
+                        "namespace": {
+                            "title": "Namespace",
+                            "type": "string"
+                        }
+                    },
+                    "title": "Cluster identity",
+                    "type": "object"
+                },
+                "location": {
+                    "title": "Location",
+                    "type": "string"
+                },
+                "subscriptionId": {
+                    "title": "Subscription ID",
+                    "type": "string"
+                }
+            },
+            "title": "Azure settings",
+            "type": "object"
+        },
+        "clusterDescription": {
+            "title": "Cluster description",
+            "description": "User-friendly description of the cluster's purpose.",
+            "type": "string"
+        },
+        "clusterName": {
+            "title": "Cluster name",
+            "description": "Unique identifier, cannot be changed after creation.",
+            "type": "string"
+        },
+        "controlPlane": {
+            "properties": {
+                "etcdVolumeSizeGB": {
+                    "title": "Etcd volume size (GB)",
+                    "type": "integer"
+                },
+                "instanceType": {
+                    "title": "Node VM size",
+                    "type": "string"
+                },
+                "replicas": {
+                    "title": "Number of nodes",
+                    "type": "integer"
+                },
+                "rootVolumeSizeGB": {
+                    "title": "Root volume size (GB)",
+                    "type": "integer"
+                }
+            },
+            "title": "Control plane settings",
+            "type": "object"
+        },
+        "enablePerClusterIdentity": {
+            "title": "Enable identity per cluster",
+            "type": "boolean"
+        },
+        "kubernetesVersion": {
+            "title": "Kubernetes version",
+            "type": "string"
+        },
+        "machinePools": {
+            "items": {
+                "properties": {
+                    "customNodeLabels": {
+                        "items": {
+                            "title": "Label",
+                            "type": "string"
+                        },
+                        "title": "Custom node labels",
+                        "type": "array"
+                    },
+                    "customNodeTaints": {
+                        "title": "Custom node taints",
+                        "type": "array"
+                    },
+                    "instanceType": {
+                        "title": "VM size",
+                        "type": "string"
+                    },
+                    "location": {
+                        "title": "Location",
+                        "type": "string"
+                    },
+                    "maxSize": {
+                        "title": "Maximum number of nodes",
+                        "type": "integer"
+                    },
+                    "minSize": {
+                        "title": "Minimum number of nodes",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "Unique identifier, cannot be changed after creation.",
+                        "type": "string"
+                    },
+                    "rootVolumeSizeGB": {
+                        "title": "Root volume size (GB)",
+                        "type": "integer"
+                    }
+                },
+                "title": "Node pool",
+                "type": "object"
+            },
+            "title": "Node pools",
+            "type": "array"
+        },
+        "network": {
+            "properties": {
+                "hostCIDR": {
+                    "title": "Host CIDR",
+                    "type": "string"
+                },
+                "podCIDR": {
+                    "title": "Pod CIDR",
+                    "type": "string"
+                },
+                "serviceCIDR": {
+                    "title": "Service CIDR",
+                    "type": "string"
+                }
+            },
+            "title": "Network settings",
+            "type": "object"
+        },
+        "oidc": {
+            "properties": {
+                "caPem": {
+                    "title": "Certificate authority",
+                    "description": "Identity provider's CA certificate in PEM format.",
+                    "type": "string"
+                },
+                "clientId": {
+                    "title": "Client ID",
+                    "type": "string"
+                },
+                "groupsClaim": {
+                    "title": "Groups claim",
+                    "type": "string"
+                },
+                "issuerUrl": {
+                    "title": "Issuer URL",
+                    "type": "string"
+                },
+                "usernameClaim": {
+                    "title": "Username claim",
+                    "type": "string"
+                }
+            },
+            "title": "OIDC settings",
+            "type": "object"
+        },
+        "organization": {
+            "title": "Organization",
+            "type": "string"
+        },
+        "sshSSOPublicKey": {
+            "title": "SSH Public key for SSO",
+            "type": "string"
+        }
+    },
+    "title": "Cluster configuration",
+    "type": "object"
+}
