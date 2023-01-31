@@ -1,0 +1,137 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "title": "Cluster configuration",
+    "description": "Configuration of an Azure cluster using Cluster API",
+    "properties": {
+        "attachCapzControllerIdentity": {
+            "type": "boolean"
+        },
+        "azure": {
+            "properties": {
+                "azureClusterIdentity": {
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "subscriptionId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "clusterDescription": {
+            "type": "string"
+        },
+        "clusterName": {
+            "type": "string"
+        },
+        "controlPlane": {
+            "properties": {
+                "etcdVolumeSizeGB": {
+                    "type": "integer"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "replicas": {
+                    "type": "integer"
+                },
+                "rootVolumeSizeGB": {
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "enablePerClusterIdentity": {
+            "type": "boolean"
+        },
+        "kubernetesVersion": {
+            "type": "string"
+        },
+        "machinePools": {
+            "items": {
+                "properties": {
+                    "customNodeLabels": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "customNodeTaints": {
+                        "type": "array"
+                    },
+                    "instanceType": {
+                        "type": "string"
+                    },
+                    "location": {
+                        "type": "string"
+                    },
+                    "maxSize": {
+                        "type": "integer"
+                    },
+                    "minSize": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "rootVolumeSizeGB": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "network": {
+            "properties": {
+                "hostCIDR": {
+                    "type": "string"
+                },
+                "podCIDR": {
+                    "type": "string"
+                },
+                "serviceCIDR": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "oidc": {
+            "properties": {
+                "caPem": {
+                    "type": "string"
+                },
+                "clientId": {
+                    "type": "string"
+                },
+                "groupsClaim": {
+                    "type": "string"
+                },
+                "issuerUrl": {
+                    "type": "string"
+                },
+                "usernameClaim": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "organization": {
+            "type": "string"
+        },
+        "sshSSOPublicKey": {
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
