@@ -1,0 +1,371 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": false,
+    "description": "Configuration of an Azure cluster using Cluster API",
+    "properties": {
+        "cluster-shared": {
+            "title": "Library chart"
+        },
+        "connectivity": {
+            "properties": {
+                "bastion": {
+                    "properties": {
+                        "enabled": {
+                            "title": "Enable bastion host for this cluster",
+                            "type": "boolean"
+                        },
+                        "instanceType": {
+                            "title": "Bastion node instance size",
+                            "type": "string"
+                        }
+                    },
+                    "title": "Bastion settings",
+                    "type": "object"
+                },
+                "network": {
+                    "properties": {
+                        "hostCidr": {
+                            "description": "IPv4 address range for nodes, in CIDR notation.",
+                            "title": "Node subnet",
+                            "type": "string"
+                        },
+                        "mode": {
+                            "enum": [
+                                "public",
+                                "private"
+                            ],
+                            "title": "Network mode",
+                            "type": "string"
+                        },
+                        "podCidr": {
+                            "description": "IPv4 address range for pods, in CIDR notation.",
+                            "title": "Pod subnet",
+                            "type": "string"
+                        },
+                        "serviceCidr": {
+                            "description": "IPv4 address range for services, in CIDR notation.",
+                            "title": "Service subnet",
+                            "type": "string"
+                        }
+                    },
+                    "title": "Network settings",
+                    "type": "object"
+                },
+                "sshSSOPublicKey": {
+                    "title": "SSH Public key for single sign-on",
+                    "type": "string"
+                }
+            },
+            "title": "Connectivity settings",
+            "type": "object"
+        },
+        "controlPlane": {
+            "properties": {
+                "etcdVolumeSizeGB": {
+                    "title": "Etcd volume size (GB)",
+                    "type": "integer"
+                },
+                "instanceType": {
+                    "title": "Node VM size",
+                    "type": "string"
+                },
+                "oidc": {
+                    "properties": {
+                        "caPem": {
+                            "description": "Identity provider's CA certificate in PEM format.",
+                            "title": "Certificate authority",
+                            "type": "string"
+                        },
+                        "clientId": {
+                            "title": "Client ID",
+                            "type": "string"
+                        },
+                        "groupsClaim": {
+                            "title": "Groups claim",
+                            "type": "string"
+                        },
+                        "issuerUrl": {
+                            "title": "Issuer URL",
+                            "type": "string"
+                        },
+                        "usernameClaim": {
+                            "title": "Username claim",
+                            "type": "string"
+                        }
+                    },
+                    "title": "OIDC settings",
+                    "type": "object"
+                },
+                "replicas": {
+                    "title": "Number of nodes",
+                    "type": "integer"
+                },
+                "rootVolumeSizeGB": {
+                    "title": "Root volume size (GB)",
+                    "type": "integer"
+                }
+            },
+            "title": "Control plane settings",
+            "type": "object"
+        },
+        "internal": {
+            "properties": {
+                "defaults": {
+                    "properties": {
+                        "evictionMinimumReclaim": {
+                            "title": "Default settings for eviction minimum reclaim",
+                            "type": "string"
+                        },
+                        "hardEvictionThresholds": {
+                            "title": "Default settings for hard eviction thresholds",
+                            "type": "string"
+                        },
+                        "softEvictionGracePeriod": {
+                            "title": "Default settings for soft eviction grace period",
+                            "type": "string"
+                        },
+                        "softEvictionThresholds": {
+                            "title": "Default settings for soft eviction thresholds",
+                            "type": "string"
+                        }
+                    },
+                    "title": "Default settings",
+                    "type": "object"
+                },
+                "identity": {
+                    "properties": {
+                        "attachCapzControllerIdentity": {
+                            "title": "Attach controller identity",
+                            "type": "boolean"
+                        },
+                        "enablePerClusterIdentity": {
+                            "title": "Enable identity per cluster",
+                            "type": "boolean"
+                        }
+                    },
+                    "title": "Identity",
+                    "type": "object"
+                },
+                "kubernetesVersion": {
+                    "title": "Kubernetes version",
+                    "type": "string"
+                }
+            },
+            "title": "Internal settings",
+            "type": "object"
+        },
+        "machineDeployments": {
+            "items": {
+                "properties": {
+                    "customNodeLabels": {
+                        "items": {
+                            "title": "Label",
+                            "type": "string"
+                        },
+                        "title": "Custom node labels",
+                        "type": "array"
+                    },
+                    "customNodeTaints": {
+                        "descriptions": "Taints that will be set on all nodes in the node pool, to avoid the scheduling of certain workloads.",
+                        "items": {
+                            "properties": {
+                                "effect": {
+                                    "enum": [
+                                        "NoSchedule",
+                                        "PreferNoSchedule",
+                                        "NoExecute"
+                                    ],
+                                    "title": "Effect",
+                                    "type": "string"
+                                },
+                                "key": {
+                                    "title": "Key",
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "title": "Value",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "effect",
+                                "key",
+                                "value"
+                            ],
+                            "title": "Node taint",
+                            "type": "object"
+                        },
+                        "title": "Custom node taints",
+                        "type": "array"
+                    },
+                    "disableHealthCheck": {
+                        "title": "Disable HealthChecks for the MachineDeployment",
+                        "type": "boolean"
+                    },
+                    "instanceType": {
+                        "title": "VM size",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Unique identifier, cannot be changed after creation.",
+                        "title": "Name",
+                        "type": "string"
+                    },
+                    "replicas": {
+                        "title": "Number of nodes in the MachineDeployment",
+                        "type": "integer"
+                    },
+                    "rootVolumeSizeGB": {
+                        "title": "Root volume size (GB)",
+                        "type": "integer"
+                    }
+                },
+                "title": "Node pool",
+                "type": "object"
+            },
+            "title": "Node pools",
+            "type": "array"
+        },
+        "machinePools": {
+            "$comment": "/machineDeployments is used instead.",
+            "deprecated": true,
+            "items": {
+                "properties": {
+                    "customNodeLabels": {
+                        "items": {
+                            "title": "Label",
+                            "type": "string"
+                        },
+                        "title": "Custom node labels",
+                        "type": "array"
+                    },
+                    "customNodeTaints": {
+                        "descriptions": "Taints that will be set on all nodes in the node pool, to avoid the scheduling of certain workloads.",
+                        "items": {
+                            "properties": {
+                                "effect": {
+                                    "enum": [
+                                        "NoSchedule",
+                                        "PreferNoSchedule",
+                                        "NoExecute"
+                                    ],
+                                    "title": "Effect",
+                                    "type": "string"
+                                },
+                                "key": {
+                                    "title": "Key",
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "title": "Value",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "effect",
+                                "key",
+                                "value"
+                            ],
+                            "title": "Node taint",
+                            "type": "object"
+                        },
+                        "title": "Custom node taints",
+                        "type": "array"
+                    },
+                    "instanceType": {
+                        "title": "VM size",
+                        "type": "string"
+                    },
+                    "location": {
+                        "title": "Location",
+                        "type": "string"
+                    },
+                    "maxSize": {
+                        "title": "Maximum number of nodes",
+                        "type": "integer"
+                    },
+                    "minSize": {
+                        "title": "Minimum number of nodes",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Unique identifier, cannot be changed after creation.",
+                        "title": "Name",
+                        "type": "string"
+                    },
+                    "rootVolumeSizeGB": {
+                        "title": "Root volume size (GB)",
+                        "type": "integer"
+                    }
+                },
+                "title": "Node pool",
+                "type": "object"
+            },
+            "title": "Machine pools (deprecated)",
+            "type": "array"
+        },
+        "metadata": {
+            "properties": {
+                "description": {
+                    "description": "User-friendly description of the cluster's purpose.",
+                    "title": "Cluster description",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Unique identifier, cannot be changed after creation.",
+                    "title": "Cluster name",
+                    "type": "string"
+                },
+                "organization": {
+                    "title": "Organization",
+                    "type": "string"
+                },
+                "servicePriority": {
+                    "$comment": "Defined in https://github.com/giantswarm/rfc/tree/main/classify-cluster-priority",
+                    "default": "highest",
+                    "description": "The relative importance of this cluster.",
+                    "enum": [
+                        "highest",
+                        "medium",
+                        "lowest"
+                    ],
+                    "title": "Service priority",
+                    "type": "string"
+                }
+            },
+            "title": "Metadata",
+            "type": "object"
+        },
+        "providerSpecific": {
+            "properties": {
+                "azureClusterIdentity": {
+                    "description": "AzureClusterIdentity resource to use for this cluster.",
+                    "properties": {
+                        "name": {
+                            "title": "Name",
+                            "type": "string"
+                        },
+                        "namespace": {
+                            "title": "Namespace",
+                            "type": "string"
+                        }
+                    },
+                    "title": "Identity",
+                    "type": "object"
+                },
+                "location": {
+                    "title": "Location",
+                    "type": "string"
+                },
+                "subscriptionId": {
+                    "title": "Subscription ID",
+                    "type": "string"
+                }
+            },
+            "title": "Azure settings",
+            "type": "object"
+        }
+    },
+    "title": "Cluster configuration",
+    "type": "object"
+}
