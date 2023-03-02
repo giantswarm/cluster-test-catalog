@@ -1,9 +1,7 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "type": "object",
     "properties": {
         "cluster": {
-            "type": "object",
             "properties": {
                 "kubernetesVersion": {
                     "type": "string"
@@ -14,13 +12,12 @@
                 "organization": {
                     "type": "string"
                 }
-            }
+            },
+            "type": "object"
         },
         "controlPlane": {
-            "type": "object",
             "properties": {
                 "endpoint": {
-                    "type": "object",
                     "properties": {
                         "host": {
                             "type": "string"
@@ -28,10 +25,10 @@
                         "port": {
                             "type": "integer"
                         }
-                    }
+                    },
+                    "type": "object"
                 },
                 "etcd": {
-                    "type": "object",
                     "properties": {
                         "imageRepository": {
                             "type": "string"
@@ -39,48 +36,52 @@
                         "imageTag": {
                             "type": "string"
                         }
-                    }
+                    },
+                    "type": "object"
                 },
                 "replicas": {
                     "type": "integer"
                 }
-            }
+            },
+            "type": "object"
         },
         "kubeadm": {
-            "type": ["null", "object"],
             "properties": {
                 "users": {
-                    "type": "array",
                     "items": {
-                        "type": "object",
                         "properties": {
                             "authorizedKeys": {
-                                "type": "array",
                                 "items": {
                                     "type": "string"
-                                }
+                                },
+                                "type": "array"
                             },
                             "name": {
                                 "type": "string"
                             }
-                        }
-                    }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
                 }
-            }
+            },
+            "type": [
+                "null",
+                "object"
+            ]
         },
         "network": {
-            "type": "object",
             "properties": {
                 "podsCidr": {
-                    "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "type": "array"
                 }
-            }
+            },
+            "type": "object"
         },
         "template": {
-            "type": "object",
             "properties": {
                 "cloneMode": {
                     "type": "string"
@@ -104,15 +105,18 @@
                     "type": "string"
                 },
                 "storagePolicyName": {
-                    "type": ["null", "string"]
+                    "type": [
+                        "null",
+                        "string"
+                    ]
                 },
                 "templateName": {
                     "type": "string"
                 }
-            }
+            },
+            "type": "object"
         },
         "vcenter": {
-            "type": "object",
             "properties": {
                 "datacenter": {
                     "type": "string"
@@ -126,15 +130,17 @@
                 "thumbprint": {
                     "type": "string"
                 }
-            }
+            },
+            "type": "object"
         },
         "worker": {
-            "type": "object",
             "properties": {
                 "replicas": {
                     "type": "integer"
                 }
-            }
+            },
+            "type": "object"
         }
-    }
+    },
+    "type": "object"
 }
