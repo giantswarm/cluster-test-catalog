@@ -1,0 +1,256 @@
+{
+    "$defs": {
+        "nodeTaint": {
+            "properties": {
+                "effect": {
+                    "enum": [
+                        "NoSchedule",
+                        "PreferNoSchedule",
+                        "NoExecute"
+                    ],
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "effect",
+                "key",
+                "value"
+            ],
+            "type": "object"
+        }
+    },
+    "$schema": "http://json-schema.org/schema#",
+    "properties": {
+        "baseDomain": {
+            "type": "string"
+        },
+        "bastion": {
+            "properties": {
+                "allowlistSubnets": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "replicas": {
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "clusterDescription": {
+            "type": "string"
+        },
+        "clusterName": {
+            "type": "string"
+        },
+        "controlPlane": {
+            "properties": {
+                "apiAllowlistSubnets": {
+                    "type": "string"
+                },
+                "containerdVolumeSizeGB": {
+                    "type": "integer"
+                },
+                "customNodeTaints": {
+                    "items": {
+                        "$ref": "#/$defs/nodeTaint"
+                    },
+                    "type": "array"
+                },
+                "etcd": {
+                    "properties": {
+                        "imageTag": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "etcdVolumeSizeGB": {
+                    "type": "integer"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "kubeletVolumeSizeGB": {
+                    "type": "integer"
+                },
+                "rootVolumeSizeGB": {
+                    "type": "integer"
+                },
+                "serviceAccount": {
+                    "properties": {
+                        "email": {
+                            "type": "string"
+                        },
+                        "scopes": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "gcp": {
+            "properties": {
+                "failureDomains": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "project": {
+                    "type": "string"
+                },
+                "region": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "hashSalt": {
+            "type": "string"
+        },
+        "includeClusterResourceSet": {
+            "type": "boolean"
+        },
+        "kubectlImage": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "registry": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "kubernetesVersion": {
+            "type": "string"
+        },
+        "machineDeployments": {
+            "items": {
+                "properties": {
+                    "containerdVolumeSizeGB": {
+                        "type": "integer"
+                    },
+                    "customNodeLabels": {
+                        "items": {
+                            "$ref": "https://schema.giantswarm.io/labelvalue/v0.0.1"
+                        },
+                        "type": "array"
+                    },
+                    "customNodeTaints": {
+                        "items": {
+                            "$ref": "#/$defs/nodeTaint"
+                        },
+                        "type": "array"
+                    },
+                    "failureDomain": {
+                        "type": "string"
+                    },
+                    "instanceType": {
+                        "type": "string"
+                    },
+                    "kubeletVolumeSizeGB": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "replicas": {
+                        "type": "integer"
+                    },
+                    "rootVolumeSizeGB": {
+                        "type": "integer"
+                    },
+                    "serviceAccount": {
+                        "properties": {
+                            "email": {
+                                "type": "string"
+                            },
+                            "scopes": {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "network": {
+            "properties": {
+                "nodeSubnetCidr": {
+                    "type": "string"
+                },
+                "podCidr": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "proxySubnetCidr": {
+                    "type": "string"
+                },
+                "serviceCIDR": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "oidc": {
+            "properties": {
+                "caFile": {
+                    "type": "string"
+                },
+                "clientId": {
+                    "type": "string"
+                },
+                "groupsClaim": {
+                    "type": "string"
+                },
+                "issuerUrl": {
+                    "type": "string"
+                },
+                "usernameClaim": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "organization": {
+            "type": "string"
+        },
+        "sshSSOPublicKey": {
+            "type": "string"
+        },
+        "ubuntuImageVersion": {
+            "type": "string"
+        },
+        "vmImageBase": {
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
