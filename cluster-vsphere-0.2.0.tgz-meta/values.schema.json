@@ -23,14 +23,16 @@
         "controlPlane": {
             "properties": {
                 "endpoint": {
-                    "description": "TODO",
+                    "description": "Kubernetes API configuration.",
                     "properties": {
                         "host": {
-                            "title": "Host name",
+                            "title": "Host",
+                            "description": "Floating IP for access to the Kubernetes API.",
                             "type": "string"
                         },
                         "port": {
                             "title": "Port number",
+                            "description": "Port for access to the Kubernetes API.",
                             "type": "integer"
                         }
                     },
@@ -94,6 +96,9 @@
                 "podsCidr": {
                     "items": {
                         "description": "IPv4 address range for pods, in CIDR notation.",
+                        "examples": [
+                            "192.168.0.0/16"
+                        ],
                         "title": "Pod sbunet",
                         "type": "string"
                     },
@@ -105,44 +110,45 @@
             "type": "object"
         },
         "template": {
-            "description": "TODO",
+            "description": "Provisioning options for node templates.",
             "properties": {
                 "cloneMode": {
-                    "description": "TODO",
+                    "description": "Method used to clone template image.",
                     "title": "Clone mode",
                     "type": "string"
                 },
                 "diskGiB": {
-                    "description": "TODO",
-                    "title": "Disk size (GiB)",
+                    "description": "Node disk size in GB. Must be at least as large as the source image.",
+                    "title": "Disk size (GB)",
                     "type": "integer"
                 },
                 "folder": {
-                    "description": "TODO",
+                    "description": "VSphere folder to deploy instances in. Must already exist.",
                     "title": "Folder",
                     "type": "string"
                 },
                 "memoryMiB": {
-                    "description": "TODO",
-                    "title": "Memory (MiB)",
+                    "description": "Node memory allocation in MB.",
+                    "title": "Memory (MB)",
                     "type": "integer"
                 },
                 "networkName": {
-                    "description": "TODO",
-                    "title": "Network name",
+                    "description": "Segment name to attach nodes to. Must already exist.",
+                    "title": "Segment name",
                     "type": "string"
                 },
                 "numCPUs": {
-                    "title": "Number of CPU cores",
+                    "description": "Number of CPUs to assign per node.",
+                    "title": "CPU cores",
                     "type": "integer"
                 },
                 "resourcePool": {
-                    "description": "TODO",
+                    "description": "Resource pool to allocate nodes from. Must already exist.",
                     "title": "Resource pool",
                     "type": "string"
                 },
                 "storagePolicyName": {
-                    "description": "TODO",
+                    "description": "Storage policy to use. If specified, it must already exist.",
                     "title": "Storage policy",
                     "type": [
                         "null",
@@ -150,34 +156,34 @@
                     ]
                 },
                 "templateName": {
-                    "description": "TODO",
+                    "description": "Image template name to use for nodes.",
                     "title": "Name",
                     "type": "string"
                 }
             },
-            "title": "Template",
+            "title": "Node template",
             "type": "object"
         },
         "vcenter": {
-            "description": "TODO",
+            "description": "Configuration for vSphere API access.",
             "properties": {
                 "datacenter": {
-                    "description": "TODO",
+                    "description": "Name of the datacenter to deploy nodes into.",
                     "title": "Datacenter",
                     "type": "string"
                 },
                 "datastore": {
-                    "description": "TODO",
+                    "description": "Name of the datastore for node disk storage.",
                     "title": "Datastore",
                     "type": "string"
                 },
                 "server": {
-                    "description": "TODO",
+                    "description": "URL of the VSphere API.",
                     "title": "Server",
                     "type": "string"
                 },
                 "thumbprint": {
-                    "description": "Secure hash algorithm (SHA1) signature of the vCenter Server TLS certificate.",
+                    "description": "TLS certificate signature of the VSphere API.",
                     "title": "Thumbprint",
                     "type": "string"
                 }
