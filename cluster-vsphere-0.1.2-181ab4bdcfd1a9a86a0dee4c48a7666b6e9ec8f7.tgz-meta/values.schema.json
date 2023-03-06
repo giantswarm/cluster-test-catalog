@@ -1,0 +1,143 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "properties": {
+        "cluster": {
+            "properties": {
+                "kubernetesVersion": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "organization": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "controlPlane": {
+            "properties": {
+                "endpoint": {
+                    "properties": {
+                        "host": {
+                            "type": "string"
+                        },
+                        "port": {
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                },
+                "etcd": {
+                    "properties": {
+                        "imageRepository": {
+                            "type": "string"
+                        },
+                        "imageTag": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "replicas": {
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "kubeadm": {
+            "properties": {
+                "users": {
+                    "items": {
+                        "properties": {
+                            "authorizedKeys": {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": [
+                "null",
+                "object"
+            ]
+        },
+        "network": {
+            "properties": {
+                "podsCidr": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "template": {
+            "properties": {
+                "cloneMode": {
+                    "type": "string"
+                },
+                "diskGiB": {
+                    "type": "integer"
+                },
+                "folder": {
+                    "type": "string"
+                },
+                "memoryMiB": {
+                    "type": "integer"
+                },
+                "networkName": {
+                    "type": "string"
+                },
+                "numCPUs": {
+                    "type": "integer"
+                },
+                "resourcePool": {
+                    "type": "string"
+                },
+                "storagePolicyName": {
+                    "type": "string"
+                },
+                "templateName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "vcenter": {
+            "properties": {
+                "datacenter": {
+                    "type": "string"
+                },
+                "datastore": {
+                    "type": "string"
+                },
+                "server": {
+                    "type": "string"
+                },
+                "thumbprint": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "worker": {
+            "properties": {
+                "replicas": {
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "type": "object"
+}
