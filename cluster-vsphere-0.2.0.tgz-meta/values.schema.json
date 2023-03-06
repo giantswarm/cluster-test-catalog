@@ -4,45 +4,59 @@
         "cluster": {
             "properties": {
                 "kubernetesVersion": {
+                    "title": "Kubernetes version",
                     "type": "string"
                 },
                 "name": {
+                    "description": "Unique identifier, cannot be changed after creation.",
+                    "title": "Cluster name",
                     "type": "string"
                 },
                 "organization": {
+                    "title": "Organization",
                     "type": "string"
                 }
             },
+            "title": "Cluster",
             "type": "object"
         },
         "controlPlane": {
             "properties": {
                 "endpoint": {
+                    "description": "TODO",
                     "properties": {
                         "host": {
+                            "title": "Host name",
                             "type": "string"
                         },
                         "port": {
+                            "title": "Port number",
                             "type": "integer"
                         }
                     },
+                    "title": "Endpoint",
                     "type": "object"
                 },
                 "etcd": {
                     "properties": {
                         "imageRepository": {
+                            "title": "Image repository",
                             "type": "string"
                         },
                         "imageTag": {
+                            "title": "Image tag",
                             "type": "string"
                         }
                     },
+                    "title": "Etcd",
                     "type": "object"
                 },
                 "replicas": {
+                    "title": "Number of nodes",
                     "type": "integer"
                 }
             },
+            "title": "Control plane",
             "type": "object"
         },
         "kubeadm": {
@@ -52,19 +66,24 @@
                         "properties": {
                             "authorizedKeys": {
                                 "items": {
+                                    "title": "Key",
                                     "type": "string"
                                 },
+                                "title": "Authorized keys",
                                 "type": "array"
                             },
                             "name": {
+                                "title": "Name",
                                 "type": "string"
                             }
                         },
                         "type": "object"
                     },
+                    "title": "Users",
                     "type": "array"
                 }
             },
+            "title": "Kubeadm",
             "type": [
                 "null",
                 "object"
@@ -74,71 +93,106 @@
             "properties": {
                 "podsCidr": {
                     "items": {
+                        "description": "IPv4 address range for pods, in CIDR notation.",
+                        "title": "Pod sbunet",
                         "type": "string"
                     },
+                    "title": "Pod subnets",
                     "type": "array"
                 }
             },
+            "title": "Network",
             "type": "object"
         },
         "template": {
+            "description": "TODO",
             "properties": {
                 "cloneMode": {
+                    "description": "TODO",
+                    "title": "Clone mode",
                     "type": "string"
                 },
                 "diskGiB": {
+                    "description": "TODO",
+                    "title": "Disk size (GiB)",
                     "type": "integer"
                 },
                 "folder": {
+                    "description": "TODO",
+                    "title": "Folder",
                     "type": "string"
                 },
                 "memoryMiB": {
+                    "description": "TODO",
+                    "title": "Memory (MiB)",
                     "type": "integer"
                 },
                 "networkName": {
+                    "description": "TODO",
+                    "title": "Network name",
                     "type": "string"
                 },
                 "numCPUs": {
+                    "title": "Number of CPU cores",
                     "type": "integer"
                 },
                 "resourcePool": {
+                    "description": "TODO",
+                    "title": "Resource pool",
                     "type": "string"
                 },
                 "storagePolicyName": {
+                    "description": "TODO",
+                    "title": "Storage policy",
                     "type": [
                         "null",
                         "string"
                     ]
                 },
                 "templateName": {
+                    "description": "TODO",
+                    "title": "Name",
                     "type": "string"
                 }
             },
+            "title": "Template",
             "type": "object"
         },
         "vcenter": {
+            "description": "TODO",
             "properties": {
                 "datacenter": {
+                    "description": "TODO",
+                    "title": "Datacenter",
                     "type": "string"
                 },
                 "datastore": {
+                    "description": "TODO",
+                    "title": "Datastore",
                     "type": "string"
                 },
                 "server": {
+                    "description": "TODO",
+                    "title": "Server",
                     "type": "string"
                 },
                 "thumbprint": {
+                    "description": "Secure hash algorithm (SHA1) signature of the vCenter Server TLS certificate.",
+                    "title": "Thumbprint",
                     "type": "string"
                 }
             },
+            "title": "VCenter",
             "type": "object"
         },
         "worker": {
             "properties": {
                 "replicas": {
+                    "title": "Number of nodes",
                     "type": "integer"
                 }
             },
+            "title": "Worker",
             "type": "object"
         }
     },
