@@ -1,0 +1,489 @@
+{
+    "$defs": {
+        "machinePool": {
+            "properties": {
+                "availabilityZones": {
+                    "items": {
+                        "title": "Availability zone",
+                        "type": "string"
+                    },
+                    "title": "Availability zones",
+                    "type": "array"
+                },
+                "customNodeLabels": {
+                    "items": {
+                        "title": "Label",
+                        "type": "string"
+                    },
+                    "title": "Custom node labels",
+                    "type": "array"
+                },
+                "customNodeTaints": {
+                    "items": {
+                        "properties": {
+                            "effect": {
+                                "enum": [
+                                    "NoSchedule",
+                                    "PreferNoSchedule",
+                                    "NoExecute"
+                                ],
+                                "title": "Effect",
+                                "type": "string"
+                            },
+                            "key": {
+                                "title": "Key",
+                                "type": "string"
+                            },
+                            "value": {
+                                "title": "Value",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "effect",
+                            "key",
+                            "value"
+                        ],
+                        "type": "object"
+                    },
+                    "title": "Custom node taints",
+                    "type": "array"
+                },
+                "instanceType": {
+                    "title": "EC2 instance type",
+                    "type": "string"
+                },
+                "maxSize": {
+                    "title": "Minimum number of nodes",
+                    "type": "integer"
+                },
+                "minSize": {
+                    "title": "Minimum number of nodes",
+                    "type": "integer"
+                },
+                "rootVolumeSizeGB": {
+                    "title": "Root volume size (GB)",
+                    "type": "integer"
+                },
+                "subnetTags": {
+                    "description": "Tags to select AWS resources for this node pool by.",
+                    "items": {
+                        "title": "Subnet tag",
+                        "type": "object"
+                    },
+                    "title": "Subnet tags",
+                    "type": "array"
+                }
+            },
+            "title": "Node pool",
+            "type": "object"
+        }
+    },
+    "$schema": "http://json-schema.org/schema#",
+    "properties": {
+        "ami": {
+            "description": "If specified, this image will be used to provision EC2 instances.",
+            "title": "Amazon machine image (AMI)",
+            "type": "string"
+        },
+        "aws": {
+            "properties": {
+                "awsClusterRole": {
+                    "deprecated": true,
+                    "title": "Cluster role",
+                    "type": "string"
+                },
+                "awsClusterRoleIdentityName": {
+                    "maxLength": 63,
+                    "minLength": 1,
+                    "pattern": "^[-a-zA-Z0-9_\\.]{1,63}$",
+                    "title": "Cluster role identity name",
+                    "type": "string"
+                },
+                "region": {
+                    "title": "Region",
+                    "type": "string"
+                }
+            },
+            "title": "AWS settings",
+            "type": "object"
+        },
+        "baseDomain": {
+            "title": "Base DNS domain",
+            "type": "string"
+        },
+        "bastion": {
+            "properties": {
+                "enabled": {
+                    "title": "Enable",
+                    "type": "boolean"
+                },
+                "instanceType": {
+                    "title": "EC2 instance type",
+                    "type": "string"
+                },
+                "replicas": {
+                    "title": "Number of hosts",
+                    "type": "integer"
+                },
+                "subnetTags": {
+                    "description": "Tags to select AWS resources for the bastion hosts by.",
+                    "items": {
+                        "title": "Subnet tag",
+                        "type": "object"
+                    },
+                    "title": "Subnet tags",
+                    "type": "array"
+                }
+            },
+            "title": "Bastion host",
+            "type": "object"
+        },
+        "clusterDescription": {
+            "description": "User-friendly description of the cluster's purpose.",
+            "title": "Cluster description",
+            "type": "string"
+        },
+        "clusterName": {
+            "description": "Unique identifier, cannot be changed after creation.",
+            "title": "Cluster name",
+            "type": "string"
+        },
+        "connectivity": {
+            "properties": {
+                "containerRegistries": {
+                    "title": "Container registries",
+                    "type": "object"
+                }
+            },
+            "title": "Connectivity",
+            "type": "object"
+        },
+        "controlPlane": {
+            "properties": {
+                "containerdVolumeSizeGB": {
+                    "title": "Containerd volume size (GB)",
+                    "type": "integer"
+                },
+                "etcdVolumeSizeGB": {
+                    "title": "Etcd volume size (GB)",
+                    "type": "integer"
+                },
+                "instanceType": {
+                    "title": "EC2 instance type",
+                    "type": "string"
+                },
+                "kubeletVolumeSizeGB": {
+                    "title": "Kubelet volume size (GB)",
+                    "type": "integer"
+                },
+                "machineHealthCheck": {
+                    "properties": {
+                        "enabled": {
+                            "title": "Enable",
+                            "type": "boolean"
+                        },
+                        "maxUnhealthy": {
+                            "examples": [
+                                "40%"
+                            ],
+                            "title": "Maximum unhealthy nodes",
+                            "type": "string"
+                        },
+                        "nodeStartupTimeout": {
+                            "description": "Determines how long a machine health check should wait for a node to join the cluster, before considering a machine unhealthy.",
+                            "examples": [
+                                "10m",
+                                "100s"
+                            ],
+                            "title": "Node startup timeout",
+                            "type": "string"
+                        },
+                        "unhealthyNotReadyTimeout": {
+                            "description": "If a node is not in condition 'Ready' after this timeout, it will be considered unhealthy.",
+                            "examples": [
+                                "300s"
+                            ],
+                            "title": "Timeout for ready",
+                            "type": "string"
+                        },
+                        "unhealthyUnknownTimeout": {
+                            "description": "If a node is in 'Unknown' condition after this timeout, it will be considered unhealthy.",
+                            "examples": [
+                                "300s"
+                            ],
+                            "title": "Timeout for unknown condition",
+                            "type": "string"
+                        }
+                    },
+                    "title": "Machine health check",
+                    "type": "object"
+                },
+                "rootVolumeSizeGB": {
+                    "title": "Root volume size (GB)",
+                    "type": "integer"
+                },
+                "subnetTags": {
+                    "description": "Tags to select AWS resources for the control plane by.",
+                    "items": {
+                        "title": "Subnet tag",
+                        "type": "object"
+                    },
+                    "title": "Subnet tags",
+                    "type": "array"
+                }
+            },
+            "title": "Control plane",
+            "type": "object"
+        },
+        "defaultMachinePools": {
+            "patternProperties": {
+                "^[a-z0-9]{5,10}$": {
+                    "$ref": "#/$defs/machinePool"
+                }
+            },
+            "title": "Default node pool",
+            "type": "object"
+        },
+        "flatcarAWSAccount": {
+            "description": "AWS account ID owning the Flatcar Container Linux AMI.",
+            "title": "AWS account owning Flatcar image",
+            "type": "string"
+        },
+        "hashSalt": {
+            "description": "If specified, this token is used as a salt to the hash suffix of some resource names. Can be used to force-recreate some resources.",
+            "title": "Hash salt",
+            "type": "string"
+        },
+        "includeClusterResourceSet": {
+            "title": "Include ClusterResourceSet",
+            "type": "boolean"
+        },
+        "kubectlImage": {
+            "properties": {
+                "name": {
+                    "title": "Repository",
+                    "type": "string"
+                },
+                "registry": {
+                    "title": "Registry",
+                    "type": "string"
+                },
+                "tag": {
+                    "title": "Tag",
+                    "type": "string"
+                }
+            },
+            "title": "Kubectl image",
+            "type": "object"
+        },
+        "kubernetesVersion": {
+            "title": "Kubernetes version",
+            "type": "string"
+        },
+        "machinePools": {
+            "patternProperties": {
+                "^[a-z0-9]{5,10}$": {
+                    "$ref": "#/$defs/machinePool"
+                }
+            },
+            "title": "Node pools",
+            "type": "object"
+        },
+        "network": {
+            "properties": {
+                "apiMode": {
+                    "description": "Whether the Kubernetes API server load balancer should be reachable from the internet (public) or internal only (private).",
+                    "title": "API mode",
+                    "type": "string"
+                },
+                "availabilityZoneUsageLimit": {
+                    "description": "Number of availability zones that should be used for nodes.",
+                    "title": "Availability zones",
+                    "type": "integer"
+                },
+                "dnsAssignAdditionalVPCs": {
+                    "description": "If DNS mode is 'private', the VPCs specified here will be assigned to the private hosted zone. Separate multiple entries with comma.",
+                    "examples": [
+                        "vpc-98injA",
+                        "vpc-x2aeasd1d,vpc-98injA"
+                    ],
+                    "title": "DNS assign additional VPCs",
+                    "type": "string"
+                },
+                "dnsMode": {
+                    "description": "Whether the Route53 hosted zone of this cluster should be public or private.",
+                    "enum": [
+                        "public",
+                        "private"
+                    ],
+                    "title": "DNS mode",
+                    "type": "string"
+                },
+                "podCIDR": {
+                    "description": "IPv4 address range for pods, in CIDR notation.",
+                    "title": "Pod subnet",
+                    "type": "string"
+                },
+                "prefixListID": {
+                    "description": "ID of the managed prefix list to use when the topology mode is set to 'UserManaged'.",
+                    "title": "Prefix list ID",
+                    "type": "string"
+                },
+                "resolverRulesOwnerAccount": {
+                    "description": "ARN of the AWS account that created the resolver rules to be associated with the workload cluster VPC.",
+                    "oneOf": [
+                        {
+                            "pattern": "^\\d{12}$"
+                        },
+                        {
+                            "const": ""
+                        }
+                    ],
+                    "title": "Resolver rules owner",
+                    "type": "string"
+                },
+                "serviceCIDR": {
+                    "description": "IPv4 address range for services, in CIDR notation.",
+                    "title": "Service subnet",
+                    "type": "string"
+                },
+                "subnets": {
+                    "items": {
+                        "properties": {
+                            "cidrBlocks": {
+                                "items": {
+                                    "properties": {
+                                        "availabilityZone": {
+                                            "examples": [
+                                                "a"
+                                            ],
+                                            "title": "Availability zone",
+                                            "type": "string"
+                                        },
+                                        "cidr": {
+                                            "description": "IPv4 address range, in CIDR notation.",
+                                            "title": "Address range",
+                                            "type": "string"
+                                        },
+                                        "tags": {
+                                            "description": "Tags to assign to AWS resources for this CIDR block.",
+                                            "title": "Tags",
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "title": "Network",
+                                "type": "array"
+                            },
+                            "isPublic": {
+                                "title": "Public",
+                                "type": "boolean"
+                            },
+                            "tags": {
+                                "description": "Tags to assign to AWS resources for this subnet.",
+                                "title": "Tags",
+                                "type": "object"
+                            }
+                        },
+                        "title": "Subnet",
+                        "type": "object"
+                    },
+                    "title": "Subnets",
+                    "type": "array"
+                },
+                "topologyMode": {
+                    "description": "Defines the type of cross-cluster networking architecture between management and workload cluster. Valid values: GiantSwarmManaged, UserManaged, None",
+                    "title": "Topology mode",
+                    "type": "string"
+                },
+                "transitGatewayID": {
+                    "description": "If the topology mode is set to 'UserManaged', this can be used to specify the transit gateway to use.",
+                    "title": "Transit gateway ID",
+                    "type": "string"
+                },
+                "vpcCIDR": {
+                    "description": "IPv4 address range to assign to this cluster's VPC, in CIDR notation.",
+                    "title": "VPC subnet",
+                    "type": "string"
+                },
+                "vpcEndpointMode": {
+                    "description": "Who is reponsible for creation and management of VPC endpoints.",
+                    "title": "VPC endpoint mode",
+                    "type": "string"
+                },
+                "vpcMode": {
+                    "description": "Whether the cluser's VPC is created with public, internet facing resources (public subnets, NAT gateway) or not (private).",
+                    "title": "VPC mode",
+                    "type": "string"
+                }
+            },
+            "title": "Network",
+            "type": "object"
+        },
+        "oidc": {
+            "properties": {
+                "caPem": {
+                    "description": "Identity provider's CA certificate in PEM format.",
+                    "title": "Certificate authority",
+                    "type": "string"
+                },
+                "clientId": {
+                    "title": "Client ID",
+                    "type": "string"
+                },
+                "groupsClaim": {
+                    "title": "Groups claim",
+                    "type": "string"
+                },
+                "issuerUrl": {
+                    "description": "Exact issuer URL that will be included in identity tokens.",
+                    "title": "Issuer URL",
+                    "type": "string"
+                },
+                "usernameClaim": {
+                    "title": "Username claim",
+                    "type": "string"
+                }
+            },
+            "title": "OIDC authentication",
+            "type": "object"
+        },
+        "organization": {
+            "title": "Organization",
+            "type": "string"
+        },
+        "proxy": {
+            "description": "Whether/how outgoing traffic is routed through proxy servers.",
+            "properties": {
+                "enabled": {
+                    "title": "Enable",
+                    "type": "boolean"
+                },
+                "http_proxy": {
+                    "description": "To be passed to the HTTP_PROXY environment variable in all hosts.",
+                    "title": "HTTP proxy",
+                    "type": "string"
+                },
+                "https_proxy": {
+                    "description": "To be passed to the HTTPS_PROXY environment variable in all hosts.",
+                    "title": "HTTPS proxy",
+                    "type": "string"
+                },
+                "no_proxy": {
+                    "description": "To be passed to the NO_PROXY environment variable in all hosts.",
+                    "title": "No proxy",
+                    "type": "string"
+                }
+            },
+            "title": "Proxy",
+            "type": "object"
+        },
+        "sshSSOPublicKey": {
+            "title": "SSH public key for single sign-on",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
