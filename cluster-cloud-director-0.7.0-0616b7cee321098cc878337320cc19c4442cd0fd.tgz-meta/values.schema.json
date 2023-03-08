@@ -1,0 +1,577 @@
+{
+    "$defs": {
+        "catalog": {
+            "description": "VCD catalog in which the template is stored.",
+            "examples": [
+                "giantswarm"
+            ],
+            "title": "Catalog",
+            "type": "string"
+        },
+        "diskSizeGB": {
+            "description": "Change size of the nodes OS disk.",
+            "examples": [
+                30
+            ],
+            "title": "Node disk size in GB",
+            "type": "integer"
+        },
+        "nodeLabels": {
+            "items": {
+                "examples": [
+                    "key=value"
+                ],
+                "pattern": "^[A-Za-z0-9-_\\./]{1,63}=[A-Za-z0-9-_\\.]{0,63}$",
+                "title": "Custom node label",
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "nodeTaints": {
+            "items": {
+                "properties": {
+                    "effect": {
+                        "description": "One of NoSchedule, PreferNoSchedule or NoExecute",
+                        "enum": [
+                            "NoSchedule",
+                            "PreferNoSchedule",
+                            "NoExecute"
+                        ],
+                        "type": "string"
+                    },
+                    "key": {
+                        "description": "Name of the label on a node",
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "value of the label identified by the key",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "key",
+                    "effect"
+                ],
+                "title": "Custom node taint",
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "placementPolicy": {
+            "title": "Placement policy",
+            "type": "string"
+        },
+        "sizingPolicy": {
+            "examples": [
+                "m1.medium"
+            ],
+            "title": "Sizing policy",
+            "type": "string"
+        },
+        "storageProfile": {
+            "title": "Storage profile",
+            "type": "string"
+        },
+        "template": {
+            "description": "Template used to create the node VM.",
+            "examples": [
+                "ubuntu-2004-kube-v1.22.5"
+            ],
+            "title": "Template",
+            "type": "string"
+        }
+    },
+    "$schema": "http://json-schema.org/schema#",
+    "properties": {
+        "apiServer": {
+            "properties": {
+                "certSANs": {
+                    "items": {
+                        "title": "SAN",
+                        "type": "string"
+                    },
+                    "title": "Subject alternative names (SAN)",
+                    "description": "Alternative names to encode in the API server's certificate.",
+                    "type": "array"
+                },
+                "enableAdmissionPlugins": {
+                    "title": "Admission plugins",
+                    "description": "Comma-separated list of admission plugins to enable.",
+                    "type": "string"
+                },
+                "featureGates": {
+                    "title": "Feature gates",
+                    "description": "Enabled feature gates, as a comma-separated list.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "enableAdmissionPlugins",
+                "featureGates"
+            ],
+            "title": "Kubernetes API server",
+            "type": "object"
+        },
+        "baseDomain": {
+            "title": "Base DNS domain",
+            "type": "string"
+        },
+        "cloudDirector": {
+            "properties": {
+                "org": {
+                    "title": "Organization",
+                    "description": "VCD organization name.",
+                    "type": "string"
+                },
+                "ovdc": {
+                    "title": "Virtual datacenter",
+                    "description": "TODO",
+                    "type": "string"
+                },
+                "ovdcNetwork": {
+                    "title": "Network",
+                    "description": "VCD network to connect VMs.",
+                    "type": "string"
+                },
+                "site": {
+                    "title": "Endpoint",
+                    "description": "VCD endpoint URL in the format https://VCD_HOST, without trailing slash.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "org",
+                "ovdc",
+                "ovdcNetwork",
+                "site"
+            ],
+            "title": "Cloud Director",
+            "type": "object"
+        },
+        "cluster": {
+            "properties": {
+                "parentUid": {
+                    "title": "Management cluster UID",
+                    "description": "If set, create the cluster from a specific management cluster associated with this UID.",
+                    "type": "string"
+                },
+                "rdeId": {
+                    "title": "RDE ID",
+                    "description": "TODO",
+                    "type": "string"
+                },
+                "useAsManagementCluster": {
+                    "title": "Display as management cluster",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "clusterDescription": {
+            "title": "Cluster description",
+            "description": "User-friendly description of the cluster's purpose.",
+            "type": "string"
+        },
+        "clusterLabels": {
+            "description": "Used for adding configurable labels to the cluster resource.",
+            "title": "Cluster labels",
+            "type": "object"
+        },
+        "connectivity": {
+            "description": "Configurations related to cluster connectivity such as container registries.",
+            "properties": {
+                "containerRegistries": {
+                    "additionalProperties": {
+                        "items": {
+                            "properties": {
+                                "credentials": {
+                                    "description": "Credentials for the endpoint.",
+                                    "properties": {
+                                        "auth": {
+                                            "description": "Base64-encoded string from the concatenation of the username, a colon, and the password.",
+                                            "title": "Auth",
+                                            "type": "string"
+                                        },
+                                        "identitytoken": {
+                                            "description": "Used to authenticate the user and obtain an access token for the registry.",
+                                            "title": "Identity token",
+                                            "type": "string"
+                                        },
+                                        "password": {
+                                            "description": "Used to authenticate for the registry with username/password.",
+                                            "title": "Password",
+                                            "type": "string"
+                                        },
+                                        "username": {
+                                            "description": "Used to authenticate for the registry with username/password.",
+                                            "title": "Username",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "Credentials",
+                                    "type": "object"
+                                },
+                                "endpoint": {
+                                    "description": "Endpoint for the container registry.",
+                                    "title": "Endpoint",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "endpoint"
+                            ],
+                            "type": "object"
+                        },
+                        "type": "array"
+                    },
+                    "description": "Endpoints and credentials configuration for container registries.",
+                    "title": "Container registries",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "containerRegistries"
+            ],
+            "title": "Connectivity",
+            "type": "object"
+        },
+        "controlPlane": {
+            "properties": {
+                "catalog": {
+                    "$ref": "#/$defs/catalog"
+                },
+                "customNodeLabels": {
+                    "$ref": "#/$defs/nodeLabels"
+                },
+                "diskSizeGB": {
+                    "$ref": "#/$defs/diskSizeGB"
+                },
+                "dns": {
+                    "properties": {
+                        "imageRepository": {
+                            "type": "string"
+                        },
+                        "imageTag": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "etcd": {
+                    "properties": {
+                        "imageRepository": {
+                            "type": "string"
+                        },
+                        "imageTag": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "image": {
+                    "properties": {
+                        "repository": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "placementPolicy": {
+                    "$ref": "#/$defs/placementPolicy"
+                },
+                "replicas": {
+                    "type": "integer"
+                },
+                "resourceRatio": {
+                    "minimum": 2,
+                    "type": "integer"
+                },
+                "sizingPolicy": {
+                    "$ref": "#/$defs/sizingPolicy"
+                },
+                "storageProfile": {
+                    "$ref": "#/$defs/storageProfile"
+                },
+                "template": {
+                    "$ref": "#/$defs/template"
+                }
+            },
+            "required": [
+                "catalog",
+                "template",
+                "replicas",
+                "dns",
+                "etcd",
+                "resourceRatio"
+            ],
+            "type": "object"
+        },
+        "controllerManager": {
+            "properties": {
+                "featureGates": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "featureGates"
+            ],
+            "type": "object"
+        },
+        "includeClusterResourceSet": {
+            "type": "string"
+        },
+        "kubectlImage": {
+            "description": "Used by cluster-shared library chart to configure coredns in-cluster.",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "registry": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                }
+            },
+            "title": "Kubectl image",
+            "type": "object"
+        },
+        "kubernetesVersion": {
+            "type": "string"
+        },
+        "network": {
+            "properties": {
+                "controlPlaneEndpoint": {
+                    "properties": {
+                        "host": {
+                            "type": "string"
+                        },
+                        "port": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "extraOvdcNetworks": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "loadBalancer": {
+                    "properties": {
+                        "vipSubnet": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "podsCidrBlocks": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "servicesCidrBlocks": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "staticRoutes": {
+                    "items": {
+                        "properties": {
+                            "destination": {
+                                "examples": [
+                                    "10.128.0.0/16"
+                                ],
+                                "type": "string"
+                            },
+                            "via": {
+                                "format": "ipv4",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "destination",
+                            "via"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "loadBalancer",
+                "podsCidrBlocks",
+                "servicesCidrBlocks"
+            ],
+            "type": "object"
+        },
+        "nodeClasses": {
+            "additionalProperties": {
+                "properties": {
+                    "catalog": {
+                        "$ref": "#/$defs/catalog"
+                    },
+                    "customNodeLabels": {
+                        "$ref": "#/$defs/nodeLabels"
+                    },
+                    "customNodeTaints": {
+                        "$ref": "#/$defs/nodeTaints"
+                    },
+                    "diskSizeGB": {
+                        "$ref": "#/$defs/diskSizeGB"
+                    },
+                    "placementPolicy": {
+                        "$ref": "#/$defs/placementPolicy"
+                    },
+                    "sizingPolicy": {
+                        "$ref": "#/$defs/sizingPolicy"
+                    },
+                    "storageProfile": {
+                        "$ref": "#/$defs/storageProfile"
+                    },
+                    "template": {
+                        "$ref": "#/$defs/template"
+                    }
+                },
+                "type": "object"
+            },
+            "description": "Re-usable node configuration.",
+            "title": "Node classes",
+            "type": "object"
+        },
+        "nodePools": {
+            "additionalProperties": {
+                "properties": {
+                    "class": {
+                        "title": "Node class",
+                        "type": "string"
+                    },
+                    "replicas": {
+                        "minimum": 1,
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "description": "Groups of worker nodes with identical configuration.",
+            "title": "Node pools",
+            "type": "object"
+        },
+        "oidc": {
+            "properties": {
+                "caFile": {
+                    "type": "string"
+                },
+                "clientId": {
+                    "type": "string"
+                },
+                "groupsClaim": {
+                    "type": "string"
+                },
+                "issuerUrl": {
+                    "type": "string"
+                },
+                "usernameClaim": {
+                    "type": "string"
+                },
+                "usernamePrefix": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clientId",
+                "groupsClaim",
+                "issuerUrl",
+                "usernameClaim"
+            ],
+            "type": "object"
+        },
+        "organization": {
+            "type": "string"
+        },
+        "osUsers": {
+            "description": "Configuration for OS users in cluster nodes.",
+            "items": {
+                "properties": {
+                    "name": {
+                        "description": "Username of the user.",
+                        "title": "Name",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name"
+                ],
+                "title": "User",
+                "type": "object"
+            },
+            "title": "OS Users",
+            "type": "array"
+        },
+        "proxy": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "secretName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "servicePriority": {
+            "enum": [
+                "lowest",
+                "medium",
+                "highest"
+            ],
+            "type": "string"
+        },
+        "sshTrustedUserCAKeys": {
+            "description": "CA certificates of issuers that are trusted to sign SSH user certificates.",
+            "items": {
+                "type": "string"
+            },
+            "title": "Trusted SSH cert issuers",
+            "type": "array"
+        },
+        "userContext": {
+            "properties": {
+                "secretRef": {
+                    "properties": {
+                        "secretName": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "vmNamingTemplate": {
+            "description": "Go template to generate VM names based on machine and vcdMachine CRs.",
+            "examples": [
+                "mytenant-{{.machine.Name |sha256sum | trunc 7}}"
+            ],
+            "title": "VM naming template",
+            "type": "string"
+        }
+    },
+    "required": [
+        "apiServer",
+        "baseDomain",
+        "controllerManager",
+        "cloudDirector",
+        "controlPlane",
+        "network",
+        "nodeClasses",
+        "nodePools",
+        "organization",
+        "userContext"
+    ],
+    "type": "object"
+}
