@@ -1,0 +1,129 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "definitions": {
+        "app": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+                "appName": {
+                    "type": "string"
+                },
+                "catalog": {
+                    "type": "string"
+                },
+                "chartName": {
+                    "type": "string"
+                },
+                "clusterValues": {
+                    "type": "object",
+                    "properties": {
+                        "configMap": {
+                            "type": "boolean"
+                        },
+                        "secret": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "extraConfigs": {
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "kind": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "forceUpgrade": {
+                    "type": "boolean"
+                },
+                "inCluster": {
+                    "type": "boolean"
+                },
+                "namespace": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "userConfig": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+                "configMap": {
+                    "type": "object",
+                    "properties": {
+                        "values": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "properties": {
+        "apps": {
+            "type": "object",
+            "properties": {
+                "certExporter": {
+                    "$ref": "#/definitions/app"
+                },
+                "clusterResources": {
+                    "$ref": "#/definitions/app"
+                },
+                "metricsServer": {
+                    "$ref": "#/definitions/app"
+                },
+                "netExporter": {
+                    "$ref": "#/definitions/app"
+                },
+                "nodeExporter": {
+                    "$ref": "#/definitions/app"
+                },
+                "observabilityBundle": {
+                    "$ref": "#/definitions/app"
+                }
+            }
+        },
+        "clusterName": {
+            "type": "string"
+        },
+        "managementCluster": {
+            "type": "string"
+        },
+        "organization": {
+            "type": "string"
+        },
+        "userConfig": {
+            "type": "object",
+            "properties": {
+                "certExporter": {
+                    "$ref": "#/definitions/userConfig"
+                },
+                "certManager": {
+                    "$ref": "#/definitions/userConfig"
+                },
+                "metricsServer": {
+                    "$ref": "#/definitions/userConfig"
+                },
+                "netExporter": {
+                    "$ref": "#/definitions/userConfig"
+                },
+                "nodeExporter": {
+                    "$ref": "#/definitions/userConfig"
+                },
+                "vpa": {
+                    "$ref": "#/definitions/userConfig"
+                }
+            }
+        }
+    }
+}
