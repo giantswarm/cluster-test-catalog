@@ -1,0 +1,497 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$defs": {
+        "awsResourceTagValue": {
+            "type": "string",
+            "title": "Tag value",
+            "$comment": "Restrictions based on https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions",
+            "maxLength": 256,
+            "minLength": 0,
+            "pattern": "^[ a-zA-Z0-9\\._:/=+-@]+$"
+        },
+        "machinePool": {
+            "type": "object",
+            "title": "Node pool",
+            "properties": {
+                "availabilityZones": {
+                    "type": "array",
+                    "title": "Availability zones",
+                    "items": {
+                        "type": "string",
+                        "title": "Availability zone"
+                    }
+                },
+                "customNodeLabels": {
+                    "type": "array",
+                    "title": "Custom node labels",
+                    "items": {
+                        "type": "string",
+                        "title": "Label"
+                    }
+                },
+                "customNodeTaints": {
+                    "type": "array",
+                    "title": "Custom node taints",
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "effect",
+                            "key",
+                            "value"
+                        ],
+                        "properties": {
+                            "effect": {
+                                "type": "string",
+                                "title": "Effect",
+                                "enum": [
+                                    "NoSchedule",
+                                    "PreferNoSchedule",
+                                    "NoExecute"
+                                ]
+                            },
+                            "key": {
+                                "type": "string",
+                                "title": "Key"
+                            },
+                            "value": {
+                                "type": "string",
+                                "title": "Value"
+                            }
+                        }
+                    }
+                },
+                "instanceType": {
+                    "type": "string",
+                    "title": "EC2 instance type"
+                },
+                "maxSize": {
+                    "type": "integer",
+                    "title": "Maximum number of nodes"
+                },
+                "minSize": {
+                    "type": "integer",
+                    "title": "Minimum number of nodes"
+                },
+                "rootVolumeSizeGB": {
+                    "type": "integer",
+                    "title": "Root volume size (GB)"
+                },
+                "subnetTags": {
+                    "type": "array",
+                    "title": "Subnet tags",
+                    "description": "Tags to filter which AWS subnets will be used for this node pool.",
+                    "items": {
+                        "type": "object",
+                        "title": "Subnet tag",
+                        "additionalProperties": {
+                            "$ref": "#/$defs/awsResourceTagValue"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "baseDomain": {
+            "type": "string",
+            "title": "Base DNS domain"
+        },
+        "cluster-shared": {
+            "type": "object",
+            "title": "Library chart"
+        },
+        "connectivity": {
+            "type": "object",
+            "title": "Connectivity",
+            "properties": {
+                "availabilityZoneUsageLimit": {
+                    "type": "integer",
+                    "title": "Availability zones",
+                    "description": "Maximum number of availability zones (AZ) that should be used in a region. If a region has more than this number of AZs then this number of AZs will be picked randomly when creating subnets.",
+                    "default": 3
+                },
+                "containerRegistries": {
+                    "type": "object",
+                    "title": "Container registries",
+                    "description": "Endpoints and credentials configuration for container registries.",
+                    "additionalProperties": {
+                        "type": "array",
+                        "title": "Registries",
+                        "description": "Container registries and mirrors",
+                        "items": {
+                            "type": "object",
+                            "title": "Registry",
+                            "required": [
+                                "endpoint"
+                            ],
+                            "properties": {
+                                "credentials": {
+                                    "type": "object",
+                                    "title": "Credentials",
+                                    "properties": {
+                                        "auth": {
+                                            "type": "string",
+                                            "title": "Auth",
+                                            "description": "Base64-encoded string from the concatenation of the username, a colon, and the password."
+                                        },
+                                        "identitytoken": {
+                                            "type": "string",
+                                            "title": "Identity token",
+                                            "description": "Used to authenticate the user and obtain an access token for the registry."
+                                        },
+                                        "password": {
+                                            "type": "string",
+                                            "title": "Password",
+                                            "description": "Used to authenticate for the registry with username/password."
+                                        },
+                                        "username": {
+                                            "type": "string",
+                                            "title": "Username",
+                                            "description": "Used to authenticate for the registry with username/password."
+                                        }
+                                    }
+                                },
+                                "endpoint": {
+                                    "type": "string",
+                                    "title": "Endpoint",
+                                    "description": "Endpoint for the container registry."
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "docker.io": [
+                            {
+                                "endpoint": "registry-1.docker.io"
+                            },
+                            {
+                                "endpoint": "giantswarm.azurecr.io"
+                            }
+                        ]
+                    }
+                },
+                "network": {
+                    "type": "object",
+                    "title": "Network",
+                    "properties": {
+                        "pods": {
+                            "type": "object",
+                            "title": "Pods",
+                            "properties": {
+                                "cidrBlocks": {
+                                    "type": "array",
+                                    "title": "Pod subnets",
+                                    "items": {
+                                        "type": "string",
+                                        "title": "Pod subnet",
+                                        "description": "IPv4 address range for pods, in CIDR notation.",
+                                        "examples": [
+                                            "10.244.0.0/16"
+                                        ]
+                                    },
+                                    "default": [
+                                        "100.64.0.0/12"
+                                    ],
+                                    "maxItems": 1,
+                                    "minItems": 1
+                                }
+                            }
+                        },
+                        "services": {
+                            "type": "object",
+                            "title": "Services",
+                            "properties": {
+                                "cidrBlocks": {
+                                    "type": "array",
+                                    "title": "K8s Service subnets",
+                                    "items": {
+                                        "type": "string",
+                                        "title": "Service subnet",
+                                        "description": "IPv4 address range for kubernetes services, in CIDR notation.",
+                                        "examples": [
+                                            "172.31.0.0/16"
+                                        ]
+                                    },
+                                    "default": [
+                                        "172.31.0.0/16"
+                                    ],
+                                    "maxItems": 1,
+                                    "minItems": 1
+                                }
+                            }
+                        },
+                        "vpcCidr": {
+                            "type": "string",
+                            "title": "VPC subnet",
+                            "description": "IPv4 address range to assign to this cluster's VPC, in CIDR notation.",
+                            "default": "10.0.0.0/16"
+                        }
+                    }
+                },
+                "subnets": {
+                    "type": "array",
+                    "title": "Subnets",
+                    "description": "Subnets are created and tagged based on this definition.",
+                    "items": {
+                        "type": "object",
+                        "title": "Subnet",
+                        "properties": {
+                            "cidrBlocks": {
+                                "type": "array",
+                                "title": "Network",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "availabilityZone": {
+                                            "type": "string",
+                                            "title": "Availability zone",
+                                            "examples": [
+                                                "a"
+                                            ]
+                                        },
+                                        "cidr": {
+                                            "type": "string",
+                                            "title": "Address range",
+                                            "description": "IPv4 address range, in CIDR notation."
+                                        },
+                                        "tags": {
+                                            "type": "object",
+                                            "title": "Tags",
+                                            "description": "AWS resource tags to assign to this subnet.",
+                                            "additionalProperties": {
+                                                "$ref": "#/$defs/awsResourceTagValue"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "isPublic": {
+                                "type": "boolean",
+                                "title": "Public"
+                            },
+                            "tags": {
+                                "type": "object",
+                                "title": "Tags",
+                                "description": "AWS resource tags to assign to this CIDR block.",
+                                "additionalProperties": {
+                                    "$ref": "#/$defs/awsResourceTagValue"
+                                }
+                            }
+                        }
+                    },
+                    "default": [
+                        {
+                            "cidrBlocks": [
+                                {
+                                    "availabilityZone": "a",
+                                    "cidr": "10.0.0.0/20"
+                                },
+                                {
+                                    "availabilityZone": "b",
+                                    "cidr": "10.0.16.0/20"
+                                },
+                                {
+                                    "availabilityZone": "c",
+                                    "cidr": "10.0.32.0/20"
+                                }
+                            ],
+                            "isPublic": true
+                        },
+                        {
+                            "cidrBlocks": [
+                                {
+                                    "availabilityZone": "a",
+                                    "cidr": "10.0.64.0/18"
+                                },
+                                {
+                                    "availabilityZone": "b",
+                                    "cidr": "10.0.128.0/18"
+                                },
+                                {
+                                    "availabilityZone": "c",
+                                    "cidr": "10.0.192.0/18"
+                                }
+                            ],
+                            "isPublic": false
+                        }
+                    ]
+                }
+            }
+        },
+        "controlPlane": {
+            "type": "object",
+            "title": "Control plane",
+            "properties": {
+                "apiMode": {
+                    "type": "string",
+                    "title": "API mode",
+                    "description": "Whether the Kubernetes API server load balancer should be reachable from the internet (public) or internal only (private).",
+                    "enum": [
+                        "public",
+                        "private"
+                    ],
+                    "default": "public"
+                }
+            }
+        },
+        "internal": {
+            "type": "object",
+            "title": "Internal",
+            "description": "For Giant Swarm internal use only, not stable, or not supported by UIs.",
+            "properties": {
+                "hashSalt": {
+                    "type": "string",
+                    "title": "Hash salt",
+                    "description": "If specified, this token is used as a salt to the hash suffix of some resource names. Can be used to force-recreate some resources."
+                },
+                "kubernetesVersion": {
+                    "type": "string",
+                    "title": "Kubernetes version",
+                    "examples": [
+                        "1.24.7"
+                    ],
+                    "default": "1.24.10"
+                },
+                "nodePools": {
+                    "type": "object",
+                    "title": "Default node pool",
+                    "patternProperties": {
+                        "^[a-z0-9]{5,10}$": {
+                            "$ref": "#/$defs/machinePool"
+                        }
+                    },
+                    "default": {
+                        "def00": {
+                            "customNodeLabels": [
+                                "label=default"
+                            ],
+                            "instanceType": "r6i.xlarge",
+                            "minSize": 3
+                        }
+                    }
+                },
+                "sandboxContainerImage": {
+                    "type": "object",
+                    "title": "Kubectl image",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "title": "Repository",
+                            "default": "giantswarm/pause"
+                        },
+                        "registry": {
+                            "type": "string",
+                            "title": "Registry",
+                            "default": "quay.io"
+                        },
+                        "tag": {
+                            "type": "string",
+                            "title": "Tag",
+                            "default": "3.9"
+                        }
+                    }
+                }
+            }
+        },
+        "kubectlImage": {
+            "type": "object",
+            "title": "Kubectl image",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Repository",
+                    "default": "giantswarm/kubectl"
+                },
+                "registry": {
+                    "type": "string",
+                    "title": "Registry",
+                    "default": "quay.io"
+                },
+                "tag": {
+                    "type": "string",
+                    "title": "Tag",
+                    "default": "1.23.5"
+                }
+            }
+        },
+        "managementCluster": {
+            "type": "string",
+            "title": "Management cluster",
+            "description": "Name of the Cluster API cluster managing this workload cluster."
+        },
+        "metadata": {
+            "type": "object",
+            "title": "Metadata",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "title": "Cluster description",
+                    "description": "User-friendly description of the cluster's purpose."
+                },
+                "name": {
+                    "type": "string",
+                    "title": "Cluster name",
+                    "description": "Unique identifier, cannot be changed after creation."
+                },
+                "organization": {
+                    "type": "string",
+                    "title": "Organization"
+                },
+                "servicePriority": {
+                    "type": "string",
+                    "title": "Service priority",
+                    "description": "The relative importance of this cluster.",
+                    "$comment": "Defined in https://github.com/giantswarm/rfc/tree/main/classify-cluster-priority",
+                    "enum": [
+                        "highest",
+                        "medium",
+                        "lowest"
+                    ],
+                    "default": "highest"
+                }
+            }
+        },
+        "nodePools": {
+            "type": "object",
+            "title": "Node pools",
+            "description": "Node pools of the cluster. If not specified, this defaults to the value of `internal.nodePools`.",
+            "additionalProperties": false,
+            "patternProperties": {
+                "^[a-z0-9]{5,10}$": {
+                    "$ref": "#/$defs/machinePool"
+                }
+            }
+        },
+        "provider": {
+            "type": "string",
+            "title": "Cluster API provider name"
+        },
+        "providerSpecific": {
+            "type": "object",
+            "title": "AWS settings",
+            "properties": {
+                "ami": {
+                    "type": "string",
+                    "title": "Amazon machine image (AMI)",
+                    "description": "If specified, this image will be used to provision EC2 instances."
+                },
+                "awsClusterRoleIdentityName": {
+                    "type": "string",
+                    "title": "Cluster role identity name",
+                    "description": "Name of an AWSClusterRoleIdentity object. This in turn refers to the IAM role used to create all AWS cloud resources when creating the cluster. The role can be in another AWS account in order to create all resources in that account. Note: This name does not refer directly to an IAM role name/ARN.",
+                    "$comment": "See also https://cluster-api-aws.sigs.k8s.io/topics/multitenancy.html#awsclusterroleidentity",
+                    "default": "default",
+                    "maxLength": 63,
+                    "minLength": 1,
+                    "pattern": "^[-a-zA-Z0-9_\\.]{1,63}$"
+                },
+                "region": {
+                    "type": "string",
+                    "title": "Region"
+                }
+            }
+        }
+    }
+}
