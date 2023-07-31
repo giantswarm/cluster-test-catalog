@@ -2667,6 +2667,30 @@ entries:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.28-9c260161d01686790d42ee99e264a6ad9c80669d.tgz
     version: 0.0.28-9c260161d01686790d42ee99e264a6ad9c80669d
   - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.28-5f8f2704fc4f8f6e158f3ecc7a8a51f669085017.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.28-5f8f2704fc4f8f6e158f3ecc7a8a51f669085017.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.28-5f8f2704fc4f8f6e158f3ecc7a8a51f669085017.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2023-07-31T11:26:28.512593547Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.5
+    description: A helm chart for creating Cluster API clusters with the Azure infrastructure
+      provider (CAPZ).
+    digest: 463db32a19668521de9d955fd03ec3db3977703ce8151994467724155dda2b6e
+    home: https://github.com/giantswarm/cluster-azure
+    icon: https://s.giantswarm.io/app-icons/azure/1/light.svg
+    name: cluster-azure
+    sources:
+    - https://github.com/giantswarm/cluster-azure
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.28-5f8f2704fc4f8f6e158f3ecc7a8a51f669085017.tgz
+    version: 0.0.28-5f8f2704fc4f8f6e158f3ecc7a8a51f669085017
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.27-d4dacc3cbf6ed8b74516544e8a34824bd17690fd.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.27-d4dacc3cbf6ed8b74516544e8a34824bd17690fd.tgz-meta/README.md
       application.giantswarm.io/team: clippy
@@ -9561,4 +9585,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.2.5-2f91f4d3ca1e0b74f7cd221d10e2d9a6b75bb845.tgz
     version: 0.2.5-2f91f4d3ca1e0b74f7cd221d10e2d9a6b75bb845
-generated: "2023-07-31T11:26:27.019057658Z"
+generated: "2023-07-31T11:26:28.510887569Z"
