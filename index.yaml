@@ -108,6 +108,30 @@ entries:
     version: 0.38.4-c095c7a0bd854a61380b7c21ca2667f3a05ed2cf
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.38.4-869b48ee08e7e19ced281f8fd0ef85118283b40a.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.38.4-869b48ee08e7e19ced281f8fd0ef85118283b40a.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.38.4-869b48ee08e7e19ced281f8fd0ef85118283b40a.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2023-08-30T10:24:08.77315399Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.5
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 86544070ddcb8ab601613dcf5d49c5c92046fa5e08cf4cca38bd9f4cfcd427ae
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/1/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.38.4-869b48ee08e7e19ced281f8fd0ef85118283b40a.tgz
+    version: 0.38.4-869b48ee08e7e19ced281f8fd0ef85118283b40a
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.38.3.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.38.3.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -12938,4 +12962,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.6.0-279451218fd665dd8b7d5e183b723e6f95a5eb71.tgz
     version: 0.6.0-279451218fd665dd8b7d5e183b723e6f95a5eb71
-generated: "2023-08-30T08:11:38.218607154Z"
+generated: "2023-08-30T10:24:08.771245438Z"
