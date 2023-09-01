@@ -1647,6 +1647,30 @@ entries:
   cluster-azure:
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-f75c1c1788bdcd4c2d8b1086118edcfa8c57c42b.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-f75c1c1788bdcd4c2d8b1086118edcfa8c57c42b.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-f75c1c1788bdcd4c2d8b1086118edcfa8c57c42b.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2023-09-01T10:44:35.327367232Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.5
+    description: A helm chart for creating Cluster API clusters with the Azure infrastructure
+      provider (CAPZ).
+    digest: 6a4f90a0fb7d550d430bb4347f078c57323f4bacffc7f8cf523266b857527195
+    home: https://github.com/giantswarm/cluster-azure
+    icon: https://s.giantswarm.io/app-icons/azure/1/light.svg
+    name: cluster-azure
+    sources:
+    - https://github.com/giantswarm/cluster-azure
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-f75c1c1788bdcd4c2d8b1086118edcfa8c57c42b.tgz
+    version: 0.0.29-f75c1c1788bdcd4c2d8b1086118edcfa8c57c42b
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-ea632d8f4271b357618ca1799968541c96b7f000.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-ea632d8f4271b357618ca1799968541c96b7f000.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -4607,4 +4631,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.6.1-34f503a0dcdb7c6f9d4c4f5ece6b35c91364199b.tgz
     version: 0.6.1-34f503a0dcdb7c6f9d4c4f5ece6b35c91364199b
-generated: "2023-09-01T10:42:36.633286131Z"
+generated: "2023-09-01T10:44:35.325286064Z"
