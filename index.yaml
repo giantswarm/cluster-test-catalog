@@ -1765,6 +1765,30 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-52d2a32a5f845a92f7bae2fd6609c8e812f56412.tgz
     version: 0.0.29-52d2a32a5f845a92f7bae2fd6609c8e812f56412
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-4ddc9bb93394ece492195d79359f293a11f65320.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-4ddc9bb93394ece492195d79359f293a11f65320.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-4ddc9bb93394ece492195d79359f293a11f65320.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2023-09-06T08:35:50.466415554Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.5
+    description: A helm chart for creating Cluster API clusters with the Azure infrastructure
+      provider (CAPZ).
+    digest: d666c28b032228677b5b6ae002a4e2d41239887c3fe742a2fa78b489dba3619e
+    home: https://github.com/giantswarm/cluster-azure
+    icon: https://s.giantswarm.io/app-icons/azure/1/light.svg
+    name: cluster-azure
+    sources:
+    - https://github.com/giantswarm/cluster-azure
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-4ddc9bb93394ece492195d79359f293a11f65320.tgz
+    version: 0.0.29-4ddc9bb93394ece492195d79359f293a11f65320
   cluster-cloud-director:
   - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.13.0-debf95b809c3d6e2f3334d1eab2e2558ccc9fb0c.tgz-meta/main.yaml
@@ -5190,4 +5214,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.6.1-34f503a0dcdb7c6f9d4c4f5ece6b35c91364199b.tgz
     version: 0.6.1-34f503a0dcdb7c6f9d4c4f5ece6b35c91364199b
-generated: "2023-09-06T08:05:57.502170934Z"
+generated: "2023-09-06T08:35:50.452227881Z"
