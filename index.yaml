@@ -121,6 +121,30 @@ entries:
   cluster-aws:
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.40.0-e77f7b565ec9dabca8640d992334573f0a6cbd4a.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.40.0-e77f7b565ec9dabca8640d992334573f0a6cbd4a.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.40.0-e77f7b565ec9dabca8640d992334573f0a6cbd4a.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2023-09-18T09:05:37.773899305Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.5
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 9f0b5a8be782860d769ecf13a3bd4475b3f47de57f17e4c08a4a0776de655535
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/1/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.40.0-e77f7b565ec9dabca8640d992334573f0a6cbd4a.tgz
+    version: 0.40.0-e77f7b565ec9dabca8640d992334573f0a6cbd4a
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.39.0-fefbee73efe097af6d9b2fbfa417efc26730ea0a.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.39.0-fefbee73efe097af6d9b2fbfa417efc26730ea0a.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -7293,4 +7317,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.6.1-34f503a0dcdb7c6f9d4c4f5ece6b35c91364199b.tgz
     version: 0.6.1-34f503a0dcdb7c6f9d4c4f5ece6b35c91364199b
-generated: "2023-09-18T09:05:09.716215044Z"
+generated: "2023-09-18T09:05:37.770887646Z"
