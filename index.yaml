@@ -3826,6 +3826,30 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-3132d6ad061e8f80577705f9989f1f5d48a5a346.tgz
     version: 0.0.29-3132d6ad061e8f80577705f9989f1f5d48a5a346
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-1d72a9649f933c9f0c47a9d5c9caec0212e753aa.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-1d72a9649f933c9f0c47a9d5c9caec0212e753aa.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-1d72a9649f933c9f0c47a9d5c9caec0212e753aa.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2023-09-25T09:51:24.307891404Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.5
+    description: A helm chart for creating Cluster API clusters with the Azure infrastructure
+      provider (CAPZ).
+    digest: 2467de70b61ff46d0688add55f94ca5bfc6fb38f550a334e080c0b96241cf5e4
+    home: https://github.com/giantswarm/cluster-azure
+    icon: https://s.giantswarm.io/app-icons/azure/1/light.svg
+    name: cluster-azure
+    sources:
+    - https://github.com/giantswarm/cluster-azure
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-1d72a9649f933c9f0c47a9d5c9caec0212e753aa.tgz
+    version: 0.0.29-1d72a9649f933c9f0c47a9d5c9caec0212e753aa
   cluster-cloud-director:
   - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.13.0-e3ee5d26421429b8e20c8e2dee8d5360717d0a7b.tgz-meta/main.yaml
@@ -10337,4 +10361,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.6.1-34f503a0dcdb7c6f9d4c4f5ece6b35c91364199b.tgz
     version: 0.6.1-34f503a0dcdb7c6f9d4c4f5ece6b35c91364199b
-generated: "2023-09-25T09:31:31.387069482Z"
+generated: "2023-09-25T09:51:24.30507296Z"
