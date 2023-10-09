@@ -4019,6 +4019,30 @@ entries:
   cluster-eks:
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.4.0-cbf32a8b90bac3ee54ddae88929e57e7f252691a.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.4.0-cbf32a8b90bac3ee54ddae88929e57e7f252691a.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.4.0-cbf32a8b90bac3ee54ddae88929e57e7f252691a.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2023-10-09T15:37:38.537036848Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.5
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: fc3d4e3f3b99a9f97b8bc9950e1a61aa2967fee3157019b609f656561d4bde84
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/1/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.4.0-cbf32a8b90bac3ee54ddae88929e57e7f252691a.tgz
+    version: 0.4.0-cbf32a8b90bac3ee54ddae88929e57e7f252691a
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.4.0-6058c653beb6dfe2ad15264066e05c2a534fbe6d.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.4.0-6058c653beb6dfe2ad15264066e05c2a534fbe6d.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -10966,4 +10990,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.6.1-dcb8b319ab828d0204081da82a8ef479936bf44c.tgz
     version: 0.6.1-dcb8b319ab828d0204081da82a8ef479936bf44c
-generated: "2023-10-09T15:36:15.359097857Z"
+generated: "2023-10-09T15:37:38.535444343Z"
