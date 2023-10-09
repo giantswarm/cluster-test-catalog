@@ -4041,6 +4041,28 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.4.0-6058c653beb6dfe2ad15264066e05c2a534fbe6d.tgz
     version: 0.4.0-6058c653beb6dfe2ad15264066e05c2a534fbe6d
+  cluster-gcp:
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.35.0-29ac77ab68dc2ffe50871c6455399bf063f466de.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.35.0-29ac77ab68dc2ffe50871c6455399bf063f466de.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.35.0-29ac77ab68dc2ffe50871c6455399bf063f466de.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2023-10-09T15:36:15.360437358Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.4
+    description: A helm chart for creating Cluster API clusters with the GCP infrastructure
+      provider (CAPG).
+    digest: 325614b628f53a5e7e8c0597e695ac5819f84c5dde40f8d0f6c08166f708a0cf
+    icon: https://s.giantswarm.io/app-icons/gcp/1/light.svg
+    name: cluster-gcp
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.35.0-29ac77ab68dc2ffe50871c6455399bf063f466de.tgz
+    version: 0.35.0-29ac77ab68dc2ffe50871c6455399bf063f466de
   cluster-shared:
   - annotations:
       application.giantswarm.io/area: kaas
@@ -10944,4 +10966,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.6.1-dcb8b319ab828d0204081da82a8ef479936bf44c.tgz
     version: 0.6.1-dcb8b319ab828d0204081da82a8ef479936bf44c
-generated: "2023-10-09T15:34:39.833390167Z"
+generated: "2023-10-09T15:36:15.359097857Z"
