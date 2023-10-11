@@ -4055,6 +4055,30 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-0dcbbed1e56671c79b38362d4e6a2eca6850e19d.tgz
     version: 0.0.29-0dcbbed1e56671c79b38362d4e6a2eca6850e19d
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-03fba9899a4325fb0d01e8925ae52a68b1f9bb5b.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-03fba9899a4325fb0d01e8925ae52a68b1f9bb5b.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-03fba9899a4325fb0d01e8925ae52a68b1f9bb5b.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2023-10-11T18:11:36.140630513Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.5
+    description: A helm chart for creating Cluster API clusters with the Azure infrastructure
+      provider (CAPZ).
+    digest: 9341eb8f50c23618ef5e29fc69e77d03c7d1a5a3d5e3aedf7f18496576bda425
+    home: https://github.com/giantswarm/cluster-azure
+    icon: https://s.giantswarm.io/app-icons/azure/1/light.svg
+    name: cluster-azure
+    sources:
+    - https://github.com/giantswarm/cluster-azure
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-0.0.29-03fba9899a4325fb0d01e8925ae52a68b1f9bb5b.tgz
+    version: 0.0.29-03fba9899a4325fb0d01e8925ae52a68b1f9bb5b
   cluster-cloud-director:
   - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.13.1.tgz-meta/main.yaml
@@ -12018,4 +12042,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.6.1-d36d6fa9781df5da9b10b8c33ff62bfa660646d2.tgz
     version: 0.6.1-d36d6fa9781df5da9b10b8c33ff62bfa660646d2
-generated: "2023-10-11T16:16:43.909833627Z"
+generated: "2023-10-11T18:11:36.138784167Z"
