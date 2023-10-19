@@ -5407,6 +5407,28 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.35.0-29ac77ab68dc2ffe50871c6455399bf063f466de.tgz
     version: 0.35.0-29ac77ab68dc2ffe50871c6455399bf063f466de
+  cluster-openstack:
+  - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-openstack-0.17.1-abfc675cd135257a32e704d69c2a74ab371106f5.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-openstack-0.17.1-abfc675cd135257a32e704d69c2a74ab371106f5.tgz-meta/README.md
+      application.giantswarm.io/team: rocket
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-openstack-0.17.1-abfc675cd135257a32e704d69c2a74ab371106f5.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2023-10-19T16:31:05.479786051Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.5
+    description: A helm chart for creating Cluster API clusters with the OpenStack
+      infrastructure provider (CAPO).
+    digest: 75cf8baac705d2cb9162426634d7d88355cd1ed34bfc698d6b2befc3e04dd144
+    home: https://github.com/giantswarm/cluster-openstack
+    icon: https://s.giantswarm.io/app-icons/openstack/1/light.svg
+    name: cluster-openstack
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-openstack-0.17.1-abfc675cd135257a32e704d69c2a74ab371106f5.tgz
+    version: 0.17.1-abfc675cd135257a32e704d69c2a74ab371106f5
   cluster-shared:
   - annotations:
       application.giantswarm.io/area: kaas
@@ -14757,4 +14779,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.6.1-5b8ec090d7907c25ddc298f8d58d16e3ebb93c10.tgz
     version: 0.6.1-5b8ec090d7907c25ddc298f8d58d16e3ebb93c10
-generated: "2023-10-19T16:26:52.484680051Z"
+generated: "2023-10-19T16:31:05.478106372Z"
