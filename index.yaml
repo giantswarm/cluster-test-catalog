@@ -5530,6 +5530,30 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.4.0-2cf16c9613d1688a15dd99bb2f5ebe61bab4f4aa.tgz
     version: 0.4.0-2cf16c9613d1688a15dd99bb2f5ebe61bab4f4aa
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.4.0-0987fea771f0cca14304b9398872df09c38c23c7.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.4.0-0987fea771f0cca14304b9398872df09c38c23c7.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.4.0-0987fea771f0cca14304b9398872df09c38c23c7.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2023-10-20T16:01:05.57311754Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.5
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 1b1b7790a0acbaebaa50f97ce1c6fa877aa469ee73220f32e2c1fded17d3e1ec
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/1/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.4.0-0987fea771f0cca14304b9398872df09c38c23c7.tgz
+    version: 0.4.0-0987fea771f0cca14304b9398872df09c38c23c7
   cluster-gcp:
   - annotations:
       application.giantswarm.io/app-type: cluster
@@ -15237,4 +15261,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.6.1-07aaba694a15ef7429971e4a55a538f9ae621c45.tgz
     version: 0.6.1-07aaba694a15ef7429971e4a55a538f9ae621c45
-generated: "2023-10-20T15:58:34.377037679Z"
+generated: "2023-10-20T16:01:05.571586863Z"
