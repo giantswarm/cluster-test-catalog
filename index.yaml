@@ -5484,6 +5484,27 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.35.0-29ac77ab68dc2ffe50871c6455399bf063f466de.tgz
     version: 0.35.0-29ac77ab68dc2ffe50871c6455399bf063f466de
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.35.0-269b091e66933837e356fe02ba43cf2839f7e64f.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.35.0-269b091e66933837e356fe02ba43cf2839f7e64f.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.35.0-269b091e66933837e356fe02ba43cf2839f7e64f.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2023-10-20T13:30:26.395903134Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.4
+    description: A helm chart for creating Cluster API clusters with the GCP infrastructure
+      provider (CAPG).
+    digest: 8b70b041d47dce5d15648251c057ca00c0367e5dd29ed706ced5176e817e0677
+    icon: https://s.giantswarm.io/app-icons/gcp/1/light.svg
+    name: cluster-gcp
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.35.0-269b091e66933837e356fe02ba43cf2839f7e64f.tgz
+    version: 0.35.0-269b091e66933837e356fe02ba43cf2839f7e64f
   cluster-openstack:
   - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-openstack-0.17.1-abfc675cd135257a32e704d69c2a74ab371106f5.tgz-meta/main.yaml
@@ -14856,4 +14877,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.6.1-5b8ec090d7907c25ddc298f8d58d16e3ebb93c10.tgz
     version: 0.6.1-5b8ec090d7907c25ddc298f8d58d16e3ebb93c10
-generated: "2023-10-20T13:29:03.497233859Z"
+generated: "2023-10-20T13:30:26.394613441Z"
