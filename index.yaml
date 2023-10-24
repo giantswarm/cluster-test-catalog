@@ -6410,6 +6410,27 @@ entries:
   cluster-gcp:
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.35.0-edeabcad1b868c5537e8d374881f9030f07ef45b.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.35.0-edeabcad1b868c5537e8d374881f9030f07ef45b.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.35.0-edeabcad1b868c5537e8d374881f9030f07ef45b.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2023-10-24T07:35:47.473281337Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.4
+    description: A helm chart for creating Cluster API clusters with the GCP infrastructure
+      provider (CAPG).
+    digest: 49187dd1163e32d917d423dfceb28bb2f5e6746e8be6e7e9c5a0b5f6426fb70e
+    icon: https://s.giantswarm.io/app-icons/gcp/1/light.svg
+    name: cluster-gcp
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.35.0-edeabcad1b868c5537e8d374881f9030f07ef45b.tgz
+    version: 0.35.0-edeabcad1b868c5537e8d374881f9030f07ef45b
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.35.0-c94820cb06d9b6085f9bd27c627e2f67ad7951c1.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-gcp-0.35.0-c94820cb06d9b6085f9bd27c627e2f67ad7951c1.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -17831,4 +17852,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.6.1-069249a1d6422fc1e7ecd0d8ed16c2a8d14bc45a.tgz
     version: 0.6.1-069249a1d6422fc1e7ecd0d8ed16c2a8d14bc45a
-generated: "2023-10-24T07:35:35.73945272Z"
+generated: "2023-10-24T07:35:47.471483919Z"
