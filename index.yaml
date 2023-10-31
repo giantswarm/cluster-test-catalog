@@ -6695,6 +6695,30 @@ entries:
   cluster-eks:
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.5.2.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.5.2.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.5.2.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2023-10-31T12:29:11.597453722Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.5
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 76c07fd92eed99a9d2310fdde0e0c4489ddceddb8edab3e83b57cbbe5aeb02ee
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/1/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.5.2.tgz
+    version: 0.5.2
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.5.1.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.5.1.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -21537,4 +21561,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.6.1-069249a1d6422fc1e7ecd0d8ed16c2a8d14bc45a.tgz
     version: 0.6.1-069249a1d6422fc1e7ecd0d8ed16c2a8d14bc45a
-generated: "2023-10-31T12:18:15.594151229Z"
+generated: "2023-10-31T12:29:11.595412493Z"
