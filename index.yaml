@@ -724,6 +724,30 @@ entries:
     version: 0.46.1-67f6b3e29e7f5cf0e1dd4b9688ae915cffdcec06
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.46.1-03dc798919d02acf73b79224f074653f5a1f7a07.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.46.1-03dc798919d02acf73b79224f074653f5a1f7a07.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.46.1-03dc798919d02acf73b79224f074653f5a1f7a07.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2023-11-06T18:18:53.29985962Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.5
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: d284faaf2dc7808a70e65f6d3b41004ae9c8022dd56501e4cf7bfffa8900bcc6
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/1/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.46.1-03dc798919d02acf73b79224f074653f5a1f7a07.tgz
+    version: 0.46.1-03dc798919d02acf73b79224f074653f5a1f7a07
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.46.0.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.46.0.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -10331,4 +10355,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.6.1-069249a1d6422fc1e7ecd0d8ed16c2a8d14bc45a.tgz
     version: 0.6.1-069249a1d6422fc1e7ecd0d8ed16c2a8d14bc45a
-generated: "2023-11-06T18:10:59.809161375Z"
+generated: "2023-11-06T18:18:53.296611878Z"
