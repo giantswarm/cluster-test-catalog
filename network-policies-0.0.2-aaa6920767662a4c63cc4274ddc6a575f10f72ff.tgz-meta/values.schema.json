@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/TopLvl",
+  "definitions": {
+      "TopLvl": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+              "name": {
+                  "type": "string"
+              },
+              "serviceType": {
+                  "type": "string"
+              },
+              "project": {
+                  "$ref": "#/definitions/Project"
+              },
+              "denyByDefault": {
+                  "$ref": "#/definitions/DenyByDefault"
+              },
+              "extraPolicies": {
+                "$ref": "#/definitions/ExtraPolicies"
+            }
+          },
+          "required": [
+              "denyByDefault",
+              "extraPolicies",
+              "name",
+              "project",
+              "serviceType"
+          ]
+      },
+      "DenyByDefault": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+              "enabled": {
+                  "type": "boolean"
+              },
+              "namespaces": {
+                  "type": "array"
+              }
+          },
+          "required": [
+              "enabled",
+              "namespaces"
+          ],
+          "title": "denyByDefault"
+      },
+      "ExtraPolicies": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "allowGlobalEgressToCoreDNS": {
+                "type": "object",
+                "properties": {
+                    "enabled": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "enabled"
+                ]
+            }
+        },
+        "required": [
+            "allowGlobalEgressToCoreDNS"
+        ],
+        "title": "extraPolicies"
+      },
+      "Project": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+              "branch": {
+                  "type": "string"
+              },
+              "commit": {
+                  "type": "string"
+              }
+          },
+          "required": [
+              "branch",
+              "commit"
+          ],
+          "title": "Project"
+      }
+  }
+}
