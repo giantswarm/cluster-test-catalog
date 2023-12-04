@@ -61,6 +61,30 @@ entries:
   cluster-aws:
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.50.0-6783a2e4f0783e5c0ae3fc6f566ddfbf3cabcd7a.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.50.0-6783a2e4f0783e5c0ae3fc6f566ddfbf3cabcd7a.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.50.0-6783a2e4f0783e5c0ae3fc6f566ddfbf3cabcd7a.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2023-12-04T13:50:08.51579453Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.5
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: f0243220420f38f78c3e4c2bf67159e2fe86ec9196242b8e85182f1e17a1eda4
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/1/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.50.0-6783a2e4f0783e5c0ae3fc6f566ddfbf3cabcd7a.tgz
+    version: 0.50.0-6783a2e4f0783e5c0ae3fc6f566ddfbf3cabcd7a
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.50.0-421e7e37070cf0895376c0280317a4f95a4dbf7f.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.50.0-421e7e37070cf0895376c0280317a4f95a4dbf7f.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -9143,4 +9167,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.6.1-1f914e867903adaa8c82dafd2656ec2886a0a0a1.tgz
     version: 0.6.1-1f914e867903adaa8c82dafd2656ec2886a0a0a1
-generated: "2023-12-04T13:50:01.920950047Z"
+generated: "2023-12-04T13:50:08.51280643Z"
