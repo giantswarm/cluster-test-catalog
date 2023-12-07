@@ -232,6 +232,30 @@ entries:
   cluster-aws:
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.51.0-b37787ab3762e8fdb7b4d8f039345536a50655fb.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.51.0-b37787ab3762e8fdb7b4d8f039345536a50655fb.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.51.0-b37787ab3762e8fdb7b4d8f039345536a50655fb.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2023-12-07T08:30:21.27424628Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 991c82f6262aa03a84df676cf535f451d9b21e410b67ab67edb6b3c328916e2f
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/1/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.51.0-b37787ab3762e8fdb7b4d8f039345536a50655fb.tgz
+    version: 0.51.0-b37787ab3762e8fdb7b4d8f039345536a50655fb
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.50.0-e5a5cbf153f9c0752559d79ada2dc15cbe0fb1a7.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.50.0-e5a5cbf153f9c0752559d79ada2dc15cbe0fb1a7.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -11026,4 +11050,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.6.1-1f914e867903adaa8c82dafd2656ec2886a0a0a1.tgz
     version: 0.6.1-1f914e867903adaa8c82dafd2656ec2886a0a0a1
-generated: "2023-12-07T08:30:01.656542941Z"
+generated: "2023-12-07T08:30:21.27139038Z"
