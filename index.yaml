@@ -7843,6 +7843,30 @@ entries:
   cluster-eks:
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.8.0-fb145ae96a20062fe9ad39a3dcc0febbc884ea77.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.8.0-fb145ae96a20062fe9ad39a3dcc0febbc884ea77.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.8.0-fb145ae96a20062fe9ad39a3dcc0febbc884ea77.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2023-12-12T13:35:25.111913456Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.5
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: ccea162d04d342502455d16267b05f8c74f6b975fe6ebd0b4774addca0b89960
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/1/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.8.0-fb145ae96a20062fe9ad39a3dcc0febbc884ea77.tgz
+    version: 0.8.0-fb145ae96a20062fe9ad39a3dcc0febbc884ea77
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.7.0.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.7.0.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -14602,4 +14626,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.6.1-1812fb6a64610a28ee0b284da9ce3d015f52242a.tgz
     version: 0.6.1-1812fb6a64610a28ee0b284da9ce3d015f52242a
-generated: "2023-12-12T13:35:01.915464475Z"
+generated: "2023-12-12T13:35:25.109721365Z"
