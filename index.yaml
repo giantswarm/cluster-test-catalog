@@ -2854,6 +2854,30 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.10.0-31a90a1bc394e877e33991c317f6cfed8bb35def.tgz
     version: 0.10.0-31a90a1bc394e877e33991c317f6cfed8bb35def
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.10.0-306dbd639b38c0bba4a3fe30a05623a2b89df27b.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.10.0-306dbd639b38c0bba4a3fe30a05623a2b89df27b.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.10.0-306dbd639b38c0bba4a3fe30a05623a2b89df27b.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2024-01-03T09:46:36.304288622Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.0
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 806ebbc4a42560bc238fb8bf6fbbf08f959db49c67bdc78ea7bde21e30e0a7b9
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/1/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.10.0-306dbd639b38c0bba4a3fe30a05623a2b89df27b.tgz
+    version: 0.10.0-306dbd639b38c0bba4a3fe30a05623a2b89df27b
   cluster-shared:
   - annotations:
       application.giantswarm.io/area: kaas
@@ -4650,4 +4674,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.7.0-0ae2069fbb05a3977023c6afc4c85e82c11dfd9f.tgz
     version: 0.7.0-0ae2069fbb05a3977023c6afc4c85e82c11dfd9f
-generated: "2024-01-03T09:46:25.587860762Z"
+generated: "2024-01-03T09:46:36.3029032Z"
