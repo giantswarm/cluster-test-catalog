@@ -8073,6 +8073,30 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.10.0-306dbd639b38c0bba4a3fe30a05623a2b89df27b.tgz
     version: 0.10.0-306dbd639b38c0bba4a3fe30a05623a2b89df27b
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.10.0-063b6f19ce2c023aac1e310853e434be621387d7.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.10.0-063b6f19ce2c023aac1e310853e434be621387d7.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.10.0-063b6f19ce2c023aac1e310853e434be621387d7.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2024-01-19T08:02:38.354333271Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.5
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: d576e576296d3743a751715fd1ffc02ac32bd6131ab3e7c64c9ea8e2a9642d36
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.10.0-063b6f19ce2c023aac1e310853e434be621387d7.tgz
+    version: 0.10.0-063b6f19ce2c023aac1e310853e434be621387d7
   cluster-shared:
   - annotations:
       application.giantswarm.io/area: kaas
@@ -13614,4 +13638,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.7.0-0ae2069fbb05a3977023c6afc4c85e82c11dfd9f.tgz
     version: 0.7.0-0ae2069fbb05a3977023c6afc4c85e82c11dfd9f
-generated: "2024-01-18T19:53:06.511455887Z"
+generated: "2024-01-19T08:02:38.352839902Z"
