@@ -2228,6 +2228,33 @@ entries:
     version: 0.58.0-6e3d697fd7c54ca726b669636a958c401b667895
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.58.0-6defdbe5b4632268c2d25c1c44a5cb531d7ff0f1.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.58.0-6defdbe5b4632268c2d25c1c44a5cb531d7ff0f1.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.58.0-6defdbe5b4632268c2d25c1c44a5cb531d7ff0f1.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2024-01-23T12:05:19.131852229Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.5
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.2.1
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 0f602e9f0198ba7e7e50bcdd6edf83615f288d75b6929d4679de832126aa58db
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.58.0-6defdbe5b4632268c2d25c1c44a5cb531d7ff0f1.tgz
+    version: 0.58.0-6defdbe5b4632268c2d25c1c44a5cb531d7ff0f1
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.58.0-6a6b8c4009207c689b1b2a7ba17d783e01464832.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.58.0-6a6b8c4009207c689b1b2a7ba17d783e01464832.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -17838,4 +17865,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.7.0-04364ab1bc93b6db7921cd9d2e3e1192a52ceeee.tgz
     version: 0.7.0-04364ab1bc93b6db7921cd9d2e3e1192a52ceeee
-generated: "2024-01-23T12:05:16.491272753Z"
+generated: "2024-01-23T12:05:19.128099789Z"
