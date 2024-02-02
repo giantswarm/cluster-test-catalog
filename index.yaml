@@ -8153,6 +8153,30 @@ entries:
   cluster-eks:
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.12.0-f247568367afa18f2f852231724e04f21a730f70.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.12.0-f247568367afa18f2f852231724e04f21a730f70.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.12.0-f247568367afa18f2f852231724e04f21a730f70.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2024-02-02T09:26:52.799117817Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.5
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 686961b63d334ff99cfdaef53bc42fbcfd2b345fb55dcc380c06fac9141d76b4
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.12.0-f247568367afa18f2f852231724e04f21a730f70.tgz
+    version: 0.12.0-f247568367afa18f2f852231724e04f21a730f70
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.12.0-6250f6115ffda2499a759d63ff8e2d51aa7060c2.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.12.0-6250f6115ffda2499a759d63ff8e2d51aa7060c2.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -15684,4 +15708,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.7.0-04364ab1bc93b6db7921cd9d2e3e1192a52ceeee.tgz
     version: 0.7.0-04364ab1bc93b6db7921cd9d2e3e1192a52ceeee
-generated: "2024-02-02T09:25:17.378809032Z"
+generated: "2024-02-02T09:26:52.797090559Z"
