@@ -29455,6 +29455,28 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.12.0-04c3e7de7ba71fed36cddfe6a8096c205985622c.tgz
     version: 0.12.0-04c3e7de7ba71fed36cddfe6a8096c205985622c
+  network-policies:
+  - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/network-policies-0.0.3.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/network-policies-0.0.3.tgz-meta/README.md
+      application.giantswarm.io/team: rocket
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/network-policies-0.0.3.tgz-meta/values.schema.json
+    apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-02-13T14:56:44.66790232Z"
+    description: CiliumNetworkPolicies and NetworkPolicies cluster.Z that should be
+      installed in target cluster.
+    digest: 1c6816d609a6f17030c96fbcb929ce43bd0bb1b04c0c78df66a03b771c56d4b2
+    home: https://github.com/giantswarm/network-policies-app
+    maintainers:
+    - email: team-rocket@giantswarm.io
+      name: Team Rocket
+    name: network-policies
+    sources:
+    - https://github.com/giantswarm/network-policies-app
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.0.3.tgz
+    version: 0.0.3
   outgoing-proxy-stack:
   - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.10.1.tgz-meta/main.yaml
@@ -30352,4 +30374,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.7.0-04364ab1bc93b6db7921cd9d2e3e1192a52ceeee.tgz
     version: 0.7.0-04364ab1bc93b6db7921cd9d2e3e1192a52ceeee
-generated: "2024-02-13T14:50:57.953545205Z"
+generated: "2024-02-13T14:56:44.667322249Z"
