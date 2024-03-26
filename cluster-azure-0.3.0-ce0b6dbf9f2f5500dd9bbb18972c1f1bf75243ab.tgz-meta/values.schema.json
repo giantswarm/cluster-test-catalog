@@ -1,0 +1,953 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "baseDomain": {
+            "type": "string",
+            "title": "Base DNS domain",
+            "default": "azuretest.gigantic.io"
+        },
+        "cluster-shared": {
+            "type": "object",
+            "title": "Library chart"
+        },
+        "connectivity": {
+            "type": "object",
+            "title": "Connectivity",
+            "properties": {
+                "allowedCIDRs": {
+                    "type": "array",
+                    "title": "List of CIDRs which have to been allowed to connect to the API Server endpoint",
+                    "items": {
+                        "type": "string"
+                    },
+                    "default": []
+                },
+                "containerRegistries": {
+                    "type": "object",
+                    "title": "Container registries",
+                    "description": "Endpoints and credentials configuration for container registries.",
+                    "additionalProperties": {
+                        "type": "array",
+                        "title": "Registries",
+                        "description": "Container registries and mirrors",
+                        "items": {
+                            "type": "object",
+                            "title": "Registry",
+                            "required": [
+                                "endpoint"
+                            ],
+                            "properties": {
+                                "credentials": {
+                                    "type": "object",
+                                    "title": "Credentials",
+                                    "properties": {
+                                        "auth": {
+                                            "type": "string",
+                                            "title": "Auth",
+                                            "description": "Base64-encoded string from the concatenation of the username, a colon, and the password."
+                                        },
+                                        "identitytoken": {
+                                            "type": "string",
+                                            "title": "Identity token",
+                                            "description": "Used to authenticate the user and obtain an access token for the registry."
+                                        },
+                                        "password": {
+                                            "type": "string",
+                                            "title": "Password",
+                                            "description": "Used to authenticate for the registry with username/password."
+                                        },
+                                        "username": {
+                                            "type": "string",
+                                            "title": "Username",
+                                            "description": "Used to authenticate for the registry with username/password."
+                                        }
+                                    }
+                                },
+                                "endpoint": {
+                                    "type": "string",
+                                    "title": "Endpoint",
+                                    "description": "Endpoint for the container registry."
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "docker.io": [
+                            {
+                                "endpoint": "registry-1.docker.io"
+                            },
+                            {
+                                "endpoint": "giantswarm.azurecr.io"
+                            }
+                        ]
+                    }
+                },
+                "network": {
+                    "type": "object",
+                    "title": "Network",
+                    "properties": {
+                        "controlPlane": {
+                            "type": "object",
+                            "title": "Control plane",
+                            "properties": {
+                                "cidr": {
+                                    "type": "string",
+                                    "title": "Subnet",
+                                    "default": "10.0.0.0/20"
+                                },
+                                "privateEndpoints": {
+                                    "type": "array",
+                                    "title": "Private endpoints",
+                                    "items": {
+                                        "type": "object",
+                                        "title": "Private endpoint",
+                                        "required": [
+                                            "name",
+                                            "privateLinkServiceConnections"
+                                        ],
+                                        "properties": {
+                                            "applicationSecurityGroups": {
+                                                "type": "array",
+                                                "title": "Application security groups",
+                                                "description": "ApplicationSecurityGroups specifies the Application security group in which the private endpoint IP configuration is included.",
+                                                "items": {
+                                                    "type": "string",
+                                                    "title": "Application security group"
+                                                },
+                                                "default": []
+                                            },
+                                            "customNetworkInterfaceName": {
+                                                "type": "string",
+                                                "title": "Custom network interface name",
+                                                "description": "CustomNetworkInterfaceName specifies the network interface name associated with the private endpoint.",
+                                                "default": ""
+                                            },
+                                            "manualApproval": {
+                                                "type": "boolean",
+                                                "title": "Manual approval",
+                                                "description": "ManualApproval specifies if the connection approval needs to be done manually or not. Set it true when the network admin does not have access to approve connections to the remote resource.",
+                                                "default": false
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "title": "Name of the private endpoint (must be unique in the resource group)",
+                                                "default": ""
+                                            },
+                                            "privateIPAddresses": {
+                                                "type": "array",
+                                                "title": "Private IP addresses",
+                                                "description": "PrivateIPAddresses specifies the IP addresses for the network interface associated with the private endpoint. They have to be part of the subnet where the private endpoint is linked.",
+                                                "items": {
+                                                    "type": "string",
+                                                    "title": "Private IP address"
+                                                },
+                                                "default": []
+                                            },
+                                            "privateLinkServiceConnections": {
+                                                "type": "array",
+                                                "title": "Private link service IDs",
+                                                "items": {
+                                                    "type": "object",
+                                                    "title": "Private link service definition",
+                                                    "required": [
+                                                        "privateLinkServiceID"
+                                                    ],
+                                                    "properties": {
+                                                        "groupIDs": {
+                                                            "type": "array",
+                                                            "title": "Group IDs",
+                                                            "description": "GroupIDs specifies the ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to.",
+                                                            "items": {
+                                                                "type": "string",
+                                                                "title": "Group ID",
+                                                                "examples": [
+                                                                    "blob"
+                                                                ]
+                                                            },
+                                                            "default": []
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "title": "Name",
+                                                            "description": "Name specifies the name of the private link service.",
+                                                            "default": ""
+                                                        },
+                                                        "privateLinkServiceID": {
+                                                            "type": "string",
+                                                            "title": "The private link service ID",
+                                                            "examples": [
+                                                                "/subscriptions/12345678-9abc-def0-1234-567890abcdef/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/privatelink1",
+                                                                "/subscriptions/12345678-9abc-def0-1234-567890abcdef/resourceGroups/rg2/providers/Microsoft.Storage/storageAccounts/bucket1"
+                                                            ],
+                                                            "pattern": "^/subscriptions/[a-fA-F0-9][-a-fA-F0-9]+[a-fA-F0-9]/resourceGroups/[^/]+/providers/[^/]+/[^/]+/.+$"
+                                                        },
+                                                        "requestMessage": {
+                                                            "type": "string",
+                                                            "title": "Request message",
+                                                            "description": "RequestMessage specifies a message passed to the owner of the remote resource with the private endpoint connection request.",
+                                                            "default": ""
+                                                        }
+                                                    }
+                                                },
+                                                "default": []
+                                            }
+                                        }
+                                    },
+                                    "default": []
+                                }
+                            }
+                        },
+                        "hostCidr": {
+                            "type": "string",
+                            "title": "Node subnet",
+                            "description": "IPv4 address range for nodes, in CIDR notation.",
+                            "default": "10.0.0.0/16"
+                        },
+                        "mode": {
+                            "type": "string",
+                            "title": "Network mode",
+                            "description": "Specifying if the cluster resources are publicly accessible or not.",
+                            "enum": [
+                                "public",
+                                "private"
+                            ],
+                            "default": "public"
+                        },
+                        "podCidr": {
+                            "type": "string",
+                            "title": "Pod subnet",
+                            "description": "IPv4 address range for pods, in CIDR notation.",
+                            "default": "192.168.0.0/16"
+                        },
+                        "serviceCidr": {
+                            "type": "string",
+                            "title": "Service subnet",
+                            "description": "IPv4 address range for services, in CIDR notation.",
+                            "default": "172.31.0.0/16"
+                        },
+                        "workers": {
+                            "type": "object",
+                            "title": "Workers",
+                            "properties": {
+                                "cidr": {
+                                    "type": "string",
+                                    "title": "Subnet",
+                                    "default": "10.0.16.0/20"
+                                },
+                                "privateEndpoints": {
+                                    "type": "array",
+                                    "title": "Private endpoints",
+                                    "items": {
+                                        "type": "object",
+                                        "title": "Private endpoint",
+                                        "required": [
+                                            "name",
+                                            "privateLinkServiceConnections"
+                                        ],
+                                        "properties": {
+                                            "applicationSecurityGroups": {
+                                                "type": "array",
+                                                "title": "Application security groups",
+                                                "description": "ApplicationSecurityGroups specifies the Application security group in which the private endpoint IP configuration is included.",
+                                                "items": {
+                                                    "type": "string",
+                                                    "title": "Application security group"
+                                                },
+                                                "default": []
+                                            },
+                                            "customNetworkInterfaceName": {
+                                                "type": "string",
+                                                "title": "Custom network interface name",
+                                                "description": "CustomNetworkInterfaceName specifies the network interface name associated with the private endpoint.",
+                                                "default": ""
+                                            },
+                                            "manualApproval": {
+                                                "type": "boolean",
+                                                "title": "Manual approval",
+                                                "description": "ManualApproval specifies if the connection approval needs to be done manually or not. Set it true when the network admin does not have access to approve connections to the remote resource.",
+                                                "default": false
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "title": "Name of the private endpoint (must be unique in the resource group)",
+                                                "default": ""
+                                            },
+                                            "privateIPAddresses": {
+                                                "type": "array",
+                                                "title": "Private IP addresses",
+                                                "description": "PrivateIPAddresses specifies the IP addresses for the network interface associated with the private endpoint. They have to be part of the subnet where the private endpoint is linked.",
+                                                "items": {
+                                                    "type": "string",
+                                                    "title": "Private IP address"
+                                                },
+                                                "default": []
+                                            },
+                                            "privateLinkServiceConnections": {
+                                                "type": "array",
+                                                "title": "Private link service IDs",
+                                                "items": {
+                                                    "type": "object",
+                                                    "title": "Private link service definition",
+                                                    "required": [
+                                                        "privateLinkServiceID"
+                                                    ],
+                                                    "properties": {
+                                                        "groupIDs": {
+                                                            "type": "array",
+                                                            "title": "Group IDs",
+                                                            "description": "GroupIDs specifies the ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to.",
+                                                            "items": {
+                                                                "type": "string",
+                                                                "title": "Group ID",
+                                                                "examples": [
+                                                                    "blob"
+                                                                ]
+                                                            },
+                                                            "default": []
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "title": "Name",
+                                                            "description": "Name specifies the name of the private link service.",
+                                                            "default": ""
+                                                        },
+                                                        "privateLinkServiceID": {
+                                                            "type": "string",
+                                                            "title": "The private link service ID",
+                                                            "examples": [
+                                                                "/subscriptions/12345678-9abc-def0-1234-567890abcdef/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/privatelink1",
+                                                                "/subscriptions/12345678-9abc-def0-1234-567890abcdef/resourceGroups/rg2/providers/Microsoft.Storage/storageAccounts/bucket1"
+                                                            ],
+                                                            "pattern": "^/subscriptions/[a-fA-F0-9][-a-fA-F0-9]+[a-fA-F0-9]/resourceGroups/[^/]+/providers/[^/]+/[^/]+/.+$"
+                                                        },
+                                                        "requestMessage": {
+                                                            "type": "string",
+                                                            "title": "Request message",
+                                                            "description": "RequestMessage specifies a message passed to the owner of the remote resource with the private endpoint connection request.",
+                                                            "default": ""
+                                                        }
+                                                    }
+                                                },
+                                                "default": []
+                                            }
+                                        }
+                                    },
+                                    "default": []
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "controlPlane": {
+            "type": "object",
+            "title": "Control plane",
+            "properties": {
+                "containerdVolumeSizeGB": {
+                    "type": "integer",
+                    "title": "Containerd volume size (GB)",
+                    "default": 100,
+                    "minimum": 20
+                },
+                "encryptionAtHost": {
+                    "type": "boolean",
+                    "title": "Encryption at host",
+                    "description": "Enable encryption at host for the control plane nodes.",
+                    "default": false
+                },
+                "etcdVolumeSizeGB": {
+                    "type": "integer",
+                    "title": "Etcd volume size (GB)",
+                    "default": 100,
+                    "minimum": 20
+                },
+                "instanceType": {
+                    "type": "string",
+                    "title": "Node VM size",
+                    "default": "Standard_D4s_v5"
+                },
+                "kubeletVolumeSizeGB": {
+                    "type": "integer",
+                    "title": "Kubelet volume size (GB)",
+                    "default": 100,
+                    "minimum": 20
+                },
+                "oidc": {
+                    "type": "object",
+                    "title": "OIDC authentication",
+                    "properties": {
+                        "caPem": {
+                            "type": "string",
+                            "title": "Certificate authority",
+                            "description": "Identity provider's CA certificate in PEM format.",
+                            "default": ""
+                        },
+                        "clientId": {
+                            "type": "string",
+                            "title": "Client ID",
+                            "default": ""
+                        },
+                        "groupsClaim": {
+                            "type": "string",
+                            "title": "Groups claim",
+                            "default": ""
+                        },
+                        "issuerUrl": {
+                            "type": "string",
+                            "title": "Issuer URL",
+                            "default": ""
+                        },
+                        "usernameClaim": {
+                            "type": "string",
+                            "title": "Username claim",
+                            "default": ""
+                        }
+                    }
+                },
+                "replicas": {
+                    "type": "integer",
+                    "title": "Number of nodes",
+                    "default": 3,
+                    "exclusiveMinimum": 0
+                },
+                "rootVolumeSizeGB": {
+                    "type": "integer",
+                    "title": "Root volume size (GB)",
+                    "default": 50,
+                    "minimum": 20
+                }
+            }
+        },
+        "global": {
+            "type": "object",
+            "title": "Global parameters",
+            "properties": {
+                "podSecurityStandards": {
+                    "type": "object",
+                    "title": "Pod Security Standards",
+                    "properties": {
+                        "enforced": {
+                            "type": "boolean",
+                            "title": "Enforced Pod Security Standards",
+                            "description": "Use PSSs instead of PSPs.",
+                            "default": true
+                        }
+                    }
+                }
+            }
+        },
+        "internal": {
+            "type": "object",
+            "title": "Internal settings",
+            "properties": {
+                "defaults": {
+                    "type": "object",
+                    "title": "Default settings",
+                    "properties": {
+                        "evictionMinimumReclaim": {
+                            "type": "string",
+                            "title": "Default settings for eviction minimum reclaim",
+                            "default": "imagefs.available=5%,memory.available=100Mi,nodefs.available=5%"
+                        },
+                        "hardEvictionThresholds": {
+                            "type": "string",
+                            "title": "Default settings for hard eviction thresholds",
+                            "default": "memory.available<200Mi,nodefs.available<10%,nodefs.inodesFree<3%,imagefs.available<10%,pid.available<20%"
+                        },
+                        "softEvictionGracePeriod": {
+                            "type": "string",
+                            "title": "Default settings for soft eviction grace period",
+                            "default": "memory.available=30s,nodefs.available=2m,nodefs.inodesFree=1m,imagefs.available=2m,pid.available=1m"
+                        },
+                        "softEvictionThresholds": {
+                            "type": "string",
+                            "title": "Default settings for soft eviction thresholds",
+                            "default": "memory.available<500Mi,nodefs.available<15%,nodefs.inodesFree<5%,imagefs.available<15%,pid.available<30%"
+                        }
+                    }
+                },
+                "enableVpaResources": {
+                    "type": "boolean",
+                    "title": "Enable VPA Resources in helmreleases",
+                    "default": true
+                },
+                "identity": {
+                    "type": "object",
+                    "title": "Identity",
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "title": "Type of Identity",
+                            "enum": [
+                                "SystemAssigned",
+                                "UserAssigned"
+                            ],
+                            "default": "SystemAssigned"
+                        },
+                        "attachCapzControllerUserAssignedIdentity": {
+                            "type": "boolean",
+                            "title": "Attach CAPZ controller UserAssigned identity",
+                            "default": false
+                        },
+                        "systemAssignedScope": {
+                            "type": "string",
+                            "title": "Scope of SystemAssignedIdentity",
+                            "enum": [
+                                "Subscription",
+                                "ResourceGroup"
+                            ],
+                            "default": "ResourceGroup"
+                        },
+                        "userAssignedCustomIdentities": {
+                            "type": "array",
+                            "title": "List of custom UserAssigned Identities to attach to all nodes",
+                            "default": []
+                        }
+                    }
+                },
+                "image": {
+                    "type": "object",
+                    "title": "Node Image",
+                    "properties": {
+                        "gallery": {
+                            "type": "string",
+                            "title": "Gallery",
+                            "description": "Name of the community gallery hosting the image",
+                            "default": "gsCapzFlatcar-41c2d140-ac44-4d8b-b7e1-7b2f1ddbe4d0"
+                        },
+                        "name": {
+                            "type": "string",
+                            "title": "Image Definition",
+                            "description": "Name of the image definition in the Gallery",
+                            "default": ""
+                        },
+                        "version": {
+                            "type": "string",
+                            "title": "Image version",
+                            "default": "3510.2.5"
+                        }
+                    }
+                },
+                "kubectlImage": {
+                    "type": "object",
+                    "title": "Kubectl Image settings",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "title": "Image name",
+                            "description": "Name of the image Registry",
+                            "default": "giantswarm/kubectl"
+                        },
+                        "registry": {
+                            "type": "string",
+                            "title": "Kubectl Image Registry",
+                            "description": "Registry for the kubectl image",
+                            "default": "gsoci.azurecr.io"
+                        },
+                        "tag": {
+                            "type": "string",
+                            "title": "Image tag",
+                            "default": "1.25.15"
+                        }
+                    }
+                },
+                "kubernetesVersion": {
+                    "type": "string",
+                    "title": "Kubernetes version",
+                    "default": "1.25.16"
+                },
+                "network": {
+                    "type": "object",
+                    "title": "Network configuration",
+                    "description": "Internal network configuration that is susceptible to more frequent change",
+                    "properties": {
+                        "subnets": {
+                            "type": "object",
+                            "title": "VNet spec",
+                            "description": "Customize subnets configuration",
+                            "properties": {
+                                "controlPlaneSubnetName": {
+                                    "type": "string",
+                                    "title": "ControlPlane subnet name",
+                                    "description": "Name of the control plane subnet.",
+                                    "maxLength": 64,
+                                    "minLength": 2,
+                                    "pattern": "^[-\\w\\._]+$"
+                                },
+                                "nodeSubnetNatGatewayName": {
+                                    "type": "string",
+                                    "title": "Nodes subnet nat-gateway name",
+                                    "description": "Name of the nat gateway on the nodes subnet.",
+                                    "maxLength": 64,
+                                    "minLength": 2,
+                                    "pattern": "^[-\\w\\._]+$"
+                                },
+                                "nodesSubnetName": {
+                                    "type": "string",
+                                    "title": "Nodes subnet name",
+                                    "description": "Name of the nodes subnet.",
+                                    "maxLength": 64,
+                                    "minLength": 2,
+                                    "pattern": "^[-\\w\\._]+$"
+                                }
+                            },
+                            "default": {}
+                        },
+                        "vnet": {
+                            "type": "object",
+                            "title": "VNet spec",
+                            "description": "Existing VNet configuration. This is susceptible to more frequent change or removal.",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "title": "VNet name",
+                                    "description": "Name of the existing VNet.",
+                                    "maxLength": 64,
+                                    "minLength": 2,
+                                    "pattern": "^[-\\w\\._]+$"
+                                },
+                                "resourceGroup": {
+                                    "type": "string",
+                                    "title": "Resource group name",
+                                    "description": "Resource group where the existing VNet is deployed.",
+                                    "maxLength": 90,
+                                    "minLength": 1,
+                                    "pattern": "^[-\\w\\._\\(\\)]+$"
+                                }
+                            },
+                            "default": {}
+                        },
+                        "vpn": {
+                            "type": "object",
+                            "title": "VPN configuration",
+                            "description": "Internal VPN configuration that is susceptible to more frequent change",
+                            "properties": {
+                                "gatewayMode": {
+                                    "type": "string",
+                                    "title": "VPN gateway mode",
+                                    "enum": [
+                                        "local",
+                                        "none",
+                                        "remote"
+                                    ],
+                                    "default": "none"
+                                }
+                            }
+                        }
+                    }
+                },
+                "sandboxContainerImage": {
+                    "type": "object",
+                    "title": "The image used by sandbox / pause container",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "title": "Repository",
+                            "default": "giantswarm/pause"
+                        },
+                        "registry": {
+                            "type": "string",
+                            "title": "Registry",
+                            "default": "gsoci.azurecr.io"
+                        },
+                        "tag": {
+                            "type": "string",
+                            "title": "Tag",
+                            "default": "3.9"
+                        }
+                    }
+                },
+                "teleport": {
+                    "type": "object",
+                    "title": "Teleport",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean",
+                            "title": "Enable teleport",
+                            "default": true
+                        },
+                        "proxyAddr": {
+                            "type": "string",
+                            "title": "Teleport proxy address",
+                            "default": "teleport.giantswarm.io:443"
+                        },
+                        "version": {
+                            "type": "string",
+                            "title": "Teleport version",
+                            "default": "14.1.3"
+                        }
+                    }
+                }
+            }
+        },
+        "managementCluster": {
+            "type": "string",
+            "title": "The capi MC managing this cluster"
+        },
+        "metadata": {
+            "type": "object",
+            "title": "Metadata",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "title": "Cluster description",
+                    "description": "User-friendly description of the cluster's purpose."
+                },
+                "labels": {
+                    "type": "object",
+                    "title": "Labels",
+                    "description": "These labels are added to the Kubernetes resources defining this cluster.",
+                    "additionalProperties": false,
+                    "patternProperties": {
+                        "^[a-zA-Z0-9/\\._-]+$": {
+                            "type": "string",
+                            "title": "Label",
+                            "maxLength": 63,
+                            "minLength": 0,
+                            "pattern": "^[a-zA-Z0-9\\._-]+$"
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "title": "Cluster name",
+                    "description": "Unique identifier, cannot be changed after creation."
+                },
+                "organization": {
+                    "type": "string",
+                    "title": "Organization"
+                },
+                "servicePriority": {
+                    "type": "string",
+                    "title": "Service priority",
+                    "description": "The relative importance of this cluster.",
+                    "$comment": "Defined in https://github.com/giantswarm/rfc/tree/main/classify-cluster-priority",
+                    "enum": [
+                        "highest",
+                        "medium",
+                        "lowest"
+                    ],
+                    "default": "highest"
+                }
+            }
+        },
+        "nodePools": {
+            "type": "array",
+            "title": "Node pools",
+            "items": {
+                "type": "object",
+                "title": "Node pool",
+                "properties": {
+                    "customNodeLabels": {
+                        "type": "array",
+                        "title": "Custom node labels",
+                        "items": {
+                            "type": "string",
+                            "title": "Label"
+                        }
+                    },
+                    "customNodeTaints": {
+                        "type": "array",
+                        "title": "Custom node taints",
+                        "items": {
+                            "type": "object",
+                            "title": "Node taint",
+                            "required": [
+                                "effect",
+                                "key",
+                                "value"
+                            ],
+                            "properties": {
+                                "effect": {
+                                    "type": "string",
+                                    "title": "Effect",
+                                    "enum": [
+                                        "NoSchedule",
+                                        "PreferNoSchedule",
+                                        "NoExecute"
+                                    ]
+                                },
+                                "key": {
+                                    "type": "string",
+                                    "title": "Key"
+                                },
+                                "value": {
+                                    "type": "string",
+                                    "title": "Value"
+                                }
+                            }
+                        },
+                        "descriptions": "Taints that will be set on all nodes in the node pool, to avoid the scheduling of certain workloads."
+                    },
+                    "disableHealthCheck": {
+                        "type": "boolean",
+                        "title": "Disable HealthChecks for the MachineDeployment"
+                    },
+                    "encryptionAtHost": {
+                        "type": "boolean",
+                        "title": "Encryption at host",
+                        "description": "Enable encryption at host for the worker nodes.",
+                        "default": false
+                    },
+                    "failureDomain": {
+                        "type": "string",
+                        "title": "Availability zone",
+                        "enum": [
+                            "1",
+                            "2",
+                            "3"
+                        ]
+                    },
+                    "instanceType": {
+                        "type": "string",
+                        "title": "VM size"
+                    },
+                    "name": {
+                        "type": "string",
+                        "title": "Name",
+                        "description": "Unique identifier, cannot be changed after creation.",
+                        "maxLength": 10,
+                        "minLength": 3,
+                        "pattern": "^[-\\w\\._]+$"
+                    },
+                    "replicas": {
+                        "type": "integer",
+                        "title": "Number of nodes",
+                        "minimum": 0
+                    },
+                    "rootVolumeSizeGB": {
+                        "type": "integer",
+                        "title": "Root volume size (GB)",
+                        "exclusiveMinimum": 0
+                    }
+                }
+            },
+            "default": [
+                {
+                    "customNodeLabels": [],
+                    "customNodeTaints": [],
+                    "disableHealthCheck": false,
+                    "encryptionAtHost": false,
+                    "instanceType": "Standard_D4s_v5",
+                    "name": "md00",
+                    "replicas": 2,
+                    "rootVolumeSizeGB": 50
+                }
+            ]
+        },
+        "provider": {
+            "type": "string",
+            "title": "Cluster API provider name"
+        },
+        "providerSpecific": {
+            "type": "object",
+            "title": "Azure settings",
+            "required": [
+                "subscriptionId"
+            ],
+            "properties": {
+                "additionalResourceTags": {
+                    "type": "object",
+                    "title": "Additional resource tags",
+                    "description": "Additional tags to be added to the resource group and to all resources in it.",
+                    "additionalProperties": {
+                        "type": "string",
+                        "title": "Tag value",
+                        "description": "Value of the tag",
+                        "maxLength": 256
+                    },
+                    "default": {},
+                    "propertyNames": {
+                        "type": "string",
+                        "title": "Tag name",
+                        "description": "Name of the tag",
+                        "maxLength": 128,
+                        "pattern": "^[^<>%&?/\\\\]*$"
+                    }
+                },
+                "azureClusterIdentity": {
+                    "type": "object",
+                    "title": "Identity",
+                    "description": "AzureClusterIdentity resource to use for this cluster.",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "title": "Name",
+                            "default": "cluster-identity"
+                        },
+                        "namespace": {
+                            "type": "string",
+                            "title": "Namespace",
+                            "default": "org-giantswarm"
+                        }
+                    }
+                },
+                "location": {
+                    "type": "string",
+                    "title": "Location",
+                    "$comment": "Valid options from https://github.com/giantswarm/capi-image-builder/blob/v1.6.10/helm/capi-image-builder/values.yaml#L48-L52",
+                    "enum": [
+                        "eastus",
+                        "germanywestcentral",
+                        "northeurope",
+                        "westeurope",
+                        "westus2"
+                    ],
+                    "default": "westeurope"
+                },
+                "network": {
+                    "type": "object",
+                    "title": "Azure network settings",
+                    "description": "Azure VNet peering and other Azure-specific network settings.",
+                    "additionalProperties": false,
+                    "properties": {
+                        "peerings": {
+                            "type": "array",
+                            "title": "VNet peerings",
+                            "description": "Specifying VNets (their resource groups and names) to which the peering is established.",
+                            "items": {
+                                "type": "object",
+                                "title": "VNet peering",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "remoteVnetName": {
+                                        "type": "string",
+                                        "title": "VNet name",
+                                        "description": "Name of the remote VNet to which the peering is established.",
+                                        "maxLength": 64,
+                                        "minLength": 2,
+                                        "pattern": "^[-\\w\\._]+$"
+                                    },
+                                    "resourceGroup": {
+                                        "type": "string",
+                                        "title": "Resource group name",
+                                        "description": "Resource group for the remote VNet to which the peering is established.",
+                                        "maxLength": 90,
+                                        "minLength": 1,
+                                        "pattern": "^[-\\w\\._\\(\\)]+$"
+                                    }
+                                },
+                                "uniqueItems": true
+                            },
+                            "default": []
+                        }
+                    }
+                },
+                "subscriptionId": {
+                    "type": "string",
+                    "title": "Subscription ID",
+                    "description": "ID of the Azure subscription this cluster will run in.",
+                    "examples": [
+                        "291bba3f-e0a5-47bc-a099-3bdcb2a50a05"
+                    ],
+                    "maxLength": 36,
+                    "minLength": 36,
+                    "pattern": "^[a-fA-F0-9][-a-fA-F0-9]+[a-fA-F0-9]$"
+                }
+            }
+        }
+    }
+}
