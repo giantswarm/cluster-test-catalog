@@ -12229,6 +12229,30 @@ entries:
   cluster-eks:
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.16.0-ffedd4b902e7456b8a377427065e464024cbf685.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.16.0-ffedd4b902e7456b8a377427065e464024cbf685.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.16.0-ffedd4b902e7456b8a377427065e464024cbf685.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2024-05-15T11:10:08.071540471Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.6.5
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 313be999adb6de0425de5a9f2ee1325dd20a2f8c82c481fed9b96215c7678f3e
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.16.0-ffedd4b902e7456b8a377427065e464024cbf685.tgz
+    version: 0.16.0-ffedd4b902e7456b8a377427065e464024cbf685
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.16.0-e8ececad974952f3da72ac61f0d6f8a30179e8ad.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.16.0-e8ececad974952f3da72ac61f0d6f8a30179e8ad.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -17412,4 +17436,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.11.4-02754d6b32f0f9a902243f5e27bed59a517da4c0.tgz
     version: 0.11.4-02754d6b32f0f9a902243f5e27bed59a517da4c0
-generated: "2024-05-15T10:30:14.75168309Z"
+generated: "2024-05-15T11:10:08.069515465Z"
