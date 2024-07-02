@@ -1,0 +1,845 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "global": {
+            "type": "object",
+            "properties": {
+                "apps": {
+                    "type": "object",
+                    "properties": {
+                        "capiNodeLabeler": {
+                            "type": "object"
+                        },
+                        "certExporter": {
+                            "type": "object"
+                        },
+                        "certManager": {
+                            "type": "object"
+                        },
+                        "chartOperatorExtensions": {
+                            "type": "object"
+                        },
+                        "cilium": {
+                            "type": "object"
+                        },
+                        "ciliumServiceMonitors": {
+                            "type": "object"
+                        },
+                        "clusterAutoscaler": {
+                            "type": "object"
+                        },
+                        "coreDns": {
+                            "type": "object"
+                        },
+                        "etcdKubernetesResourcesCountExporter": {
+                            "type": "object"
+                        },
+                        "externalDns": {
+                            "type": "object"
+                        },
+                        "giantswarmClusterSuite": {
+                            "type": "object"
+                        },
+                        "k8sAuditMetrics": {
+                            "type": "object"
+                        },
+                        "k8sDnsNodeCache": {
+                            "type": "object"
+                        },
+                        "metricsServer": {
+                            "type": "object"
+                        },
+                        "netExporter": {
+                            "type": "object"
+                        },
+                        "networkPolicies": {
+                            "type": "object"
+                        },
+                        "nodeExporter": {
+                            "type": "object"
+                        },
+                        "observabilityBundle": {
+                            "type": "object"
+                        },
+                        "prometheusBlackboxExporter": {
+                            "type": "object"
+                        },
+                        "securityBundle": {
+                            "type": "object"
+                        },
+                        "teleportKubeAgent": {
+                            "type": "object"
+                        },
+                        "verticalPodAutoscaler": {
+                            "type": "object"
+                        },
+                        "verticalPodAutoscalerCrd": {
+                            "type": "object"
+                        }
+                    }
+                },
+                "components": {
+                    "type": "object",
+                    "properties": {
+                        "containerd": {
+                            "type": "object",
+                            "properties": {
+                                "containerRegistries": {
+                                    "type": "object",
+                                    "properties": {
+                                        "docker.io": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "endpoint": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "localRegistryCache": {
+                                    "type": "object",
+                                    "properties": {
+                                        "enabled": {
+                                            "type": "boolean"
+                                        },
+                                        "mirroredRegistries": {
+                                            "type": "array"
+                                        },
+                                        "port": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "selinux": {
+                            "type": "object",
+                            "properties": {
+                                "mode": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "connectivity": {
+                    "type": "object",
+                    "properties": {
+                        "bastion": {
+                            "type": "object",
+                            "properties": {
+                                "enabled": {
+                                    "type": "boolean"
+                                },
+                                "replicas": {
+                                    "type": "integer"
+                                }
+                            }
+                        },
+                        "network": {
+                            "type": "object",
+                            "properties": {
+                                "allowAllEgress": {
+                                    "type": "boolean"
+                                },
+                                "pods": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cidrBlocks": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                },
+                                "services": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cidrBlocks": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "proxy": {
+                            "type": "object",
+                            "properties": {
+                                "enabled": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                },
+                "controlPlane": {
+                    "type": "object",
+                    "properties": {
+                        "apiServerPort": {
+                            "type": "integer"
+                        },
+                        "machineHealthCheck": {
+                            "type": "object",
+                            "properties": {
+                                "enabled": {
+                                    "type": "boolean"
+                                },
+                                "maxUnhealthy": {
+                                    "type": "string"
+                                },
+                                "nodeStartupTimeout": {
+                                    "type": "string"
+                                },
+                                "unhealthyNotReadyTimeout": {
+                                    "type": "string"
+                                },
+                                "unhealthyUnknownTimeout": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "oidc": {
+                            "type": "object"
+                        },
+                        "replicas": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "metadata": {
+                    "type": "object",
+                    "properties": {
+                        "preventDeletion": {
+                            "type": "boolean"
+                        },
+                        "servicePriority": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "podSecurityStandards": {
+                    "type": "object",
+                    "properties": {
+                        "enforced": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "release": {
+                    "type": "object"
+                }
+            }
+        },
+        "internal": {
+            "type": "object",
+            "properties": {
+                "advancedConfiguration": {
+                    "type": "object",
+                    "properties": {
+                        "appPlatform": {
+                            "type": "object",
+                            "properties": {
+                                "fluxBackend": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "cgroupsv1": {
+                            "type": "boolean"
+                        },
+                        "controlPlane": {
+                            "type": "object",
+                            "properties": {
+                                "apiServer": {
+                                    "type": "object",
+                                    "properties": {
+                                        "admissionConfiguration": {
+                                            "type": "object"
+                                        },
+                                        "auditPolicy": {
+                                            "type": "object"
+                                        },
+                                        "enablePriorityAndFairness": {
+                                            "type": "boolean"
+                                        },
+                                        "featureGates": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "enabled": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "controllerManager": {
+                                    "type": "object",
+                                    "properties": {
+                                        "featureGates": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "enabled": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "terminatedPodGCThreshold": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "etcd": {
+                                    "type": "object",
+                                    "properties": {
+                                        "experimental": {
+                                            "type": "object"
+                                        },
+                                        "quotaBackendBytesGiB": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "rolloutBefore": {
+                                    "type": "object",
+                                    "properties": {
+                                        "certificatesExpiryDays": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "kubelet": {
+                            "type": "object",
+                            "properties": {
+                                "containerLogMaxFiles": {
+                                    "type": "integer"
+                                },
+                                "containerLogMaxSize": {
+                                    "type": "string"
+                                },
+                                "kubeReserved": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cpu": {
+                                            "type": "string"
+                                        },
+                                        "ephemeralStorage": {
+                                            "type": "string"
+                                        },
+                                        "memory": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "systemReserved": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cpu": {
+                                            "type": "string"
+                                        },
+                                        "memory": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "registry": {
+                            "type": "string"
+                        },
+                        "workers": {
+                            "type": "object"
+                        }
+                    }
+                },
+                "ephemeralConfiguration": {
+                    "type": "object",
+                    "properties": {
+                        "offlineTesting": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "providerIntegration": {
+            "type": "object",
+            "properties": {
+                "apps": {
+                    "type": "object",
+                    "properties": {
+                        "capiNodeLabeler": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "certExporter": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "certManager": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "chartOperatorExtensions": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "cilium": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "ciliumServiceMonitors": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "clusterAutoscaler": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "coreDns": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "etcdKubernetesResourcesCountExporter": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "externalDns": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "giantswarmClusterSuite": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "k8sAuditMetrics": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "k8sDnsNodeCache": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "metricsServer": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "netExporter": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "networkPolicies": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "nodeExporter": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "observabilityBundle": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "prometheusBlackboxExporter": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "securityBundle": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "teleportKubeAgent": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "verticalPodAutoscaler": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "verticalPodAutoscalerCrd": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                },
+                "bastion": {
+                    "type": "object",
+                    "properties": {
+                        "kubeadmConfig": {
+                            "type": "object",
+                            "properties": {
+                                "ignition": {
+                                    "type": "object",
+                                    "properties": {
+                                        "containerLinuxConfig": {
+                                            "type": "object",
+                                            "properties": {
+                                                "additionalConfig": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "storage": {
+                                                            "type": "object"
+                                                        },
+                                                        "systemd": {
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "components": {
+                    "type": "object",
+                    "properties": {
+                        "containerd": {
+                            "type": "object",
+                            "properties": {
+                                "sandboxContainerImage": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "tag": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "connectivity": {
+                    "type": "object",
+                    "properties": {
+                        "proxy": {
+                            "type": "object",
+                            "properties": {
+                                "noProxy": {
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "sshSsoPublicKey": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "controlPlane": {
+                    "type": "object",
+                    "properties": {
+                        "kubeadmConfig": {
+                            "type": "object",
+                            "properties": {
+                                "clusterConfiguration": {
+                                    "type": "object",
+                                    "properties": {
+                                        "apiServer": {
+                                            "type": "object"
+                                        },
+                                        "controllerManager": {
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "diskSetup": {
+                                    "type": "object"
+                                },
+                                "ignition": {
+                                    "type": "object",
+                                    "properties": {
+                                        "containerLinuxConfig": {
+                                            "type": "object",
+                                            "properties": {
+                                                "additionalConfig": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "storage": {
+                                                            "type": "object"
+                                                        },
+                                                        "systemd": {
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "resources": {
+                            "type": "object",
+                            "properties": {
+                                "controlPlane": {
+                                    "type": "object",
+                                    "properties": {
+                                        "api": {
+                                            "type": "object",
+                                            "properties": {
+                                                "group": {
+                                                    "type": "string"
+                                                },
+                                                "kind": {
+                                                    "type": "string"
+                                                },
+                                                "version": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "infrastructureMachineTemplate": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "environmentVariables": {
+                    "type": "object"
+                },
+                "kubeadmConfig": {
+                    "type": "object",
+                    "properties": {
+                        "ignition": {
+                            "type": "object",
+                            "properties": {
+                                "containerLinuxConfig": {
+                                    "type": "object",
+                                    "properties": {
+                                        "additionalConfig": {
+                                            "type": "object",
+                                            "properties": {
+                                                "storage": {
+                                                    "type": "object"
+                                                },
+                                                "systemd": {
+                                                    "type": "object"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "kubernetesVersion": {
+                    "type": "string"
+                },
+                "osImage": {
+                    "type": "object",
+                    "properties": {
+                        "channel": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "registry": {
+                    "type": "object"
+                },
+                "resourcesApi": {
+                    "type": "object",
+                    "properties": {
+                        "bastionResourceEnabled": {
+                            "type": "boolean"
+                        },
+                        "cleanupHelmReleaseResourcesEnabled": {
+                            "type": "boolean"
+                        },
+                        "clusterResourceEnabled": {
+                            "type": "boolean"
+                        },
+                        "controlPlaneResourceEnabled": {
+                            "type": "boolean"
+                        },
+                        "helmRepositoryResourcesEnabled": {
+                            "type": "boolean"
+                        },
+                        "infrastructureCluster": {
+                            "type": "object"
+                        },
+                        "machineHealthCheckResourceEnabled": {
+                            "type": "boolean"
+                        },
+                        "machinePoolResourcesEnabled": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "teleport": {
+                    "type": "object",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "proxyAddr": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "useReleases": {
+                    "type": "boolean"
+                },
+                "workers": {
+                    "type": "object",
+                    "properties": {
+                        "kubeadmConfig": {
+                            "type": "object",
+                            "properties": {
+                                "ignition": {
+                                    "type": "object",
+                                    "properties": {
+                                        "containerLinuxConfig": {
+                                            "type": "object",
+                                            "properties": {
+                                                "additionalConfig": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "storage": {
+                                                            "type": "object"
+                                                        },
+                                                        "systemd": {
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "resources": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
