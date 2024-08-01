@@ -5099,6 +5099,30 @@ entries:
   cluster-eks:
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.17.1-bec925ac695db97503622062b5122dc608fb8bea.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.17.1-bec925ac695db97503622062b5122dc608fb8bea.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.17.1-bec925ac695db97503622062b5122dc608fb8bea.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2024-08-01T12:39:13.396853376Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: c54bdf53b60207c90873837e15f80b1047154b2751b9d571ba7f5f086f8ec4f9
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.17.1-bec925ac695db97503622062b5122dc608fb8bea.tgz
+    version: 0.17.1-bec925ac695db97503622062b5122dc608fb8bea
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.17.1-85503106cca1d03bb35db9643bf50966f79eb2f5.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.17.1-85503106cca1d03bb35db9643bf50966f79eb2f5.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -7670,4 +7694,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.1-282ad5b6b2df0637c69a860341aae721133e6d3e.tgz
     version: 0.1.1-282ad5b6b2df0637c69a860341aae721133e6d3e
-generated: "2024-08-01T12:33:47.57348546Z"
+generated: "2024-08-01T12:39:13.394978732Z"
