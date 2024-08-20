@@ -8767,6 +8767,30 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.17.1-1ddc7fcfbe75dfe9d1bd0d71cf6c726d26f16227.tgz
     version: 0.17.1-1ddc7fcfbe75dfe9d1bd0d71cf6c726d26f16227
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.17.1-0a01246ab44369d9e620d620d901d0602d49048c.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.17.1-0a01246ab44369d9e620d620d901d0602d49048c.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.17.1-0a01246ab44369d9e620d620d901d0602d49048c.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2024-08-20T15:41:56.374754337Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 1e4f9a6a34e83267d903c9f891b6067c19dc23958abbfc721e07fa5834994c16
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.17.1-0a01246ab44369d9e620d620d901d0602d49048c.tgz
+    version: 0.17.1-0a01246ab44369d9e620d620d901d0602d49048c
   cluster-vsphere:
   - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-0.59.0-aa317440d7e2a5d855fdf4b0513abd74ba2b36f5.tgz-meta/main.yaml
@@ -13598,4 +13622,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.17.0-e9c58cecae385201cbd0119362128f4d294c7c15.tgz
     version: 0.17.0-e9c58cecae385201cbd0119362128f4d294c7c15
-generated: "2024-08-20T15:04:24.749650418Z"
+generated: "2024-08-20T15:41:56.37318638Z"
