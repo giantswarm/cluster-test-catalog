@@ -1,0 +1,155 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$defs": {
+        "app": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+                "appName": {
+                    "type": "string"
+                },
+                "catalog": {
+                    "type": "string"
+                },
+                "chartName": {
+                    "type": "string"
+                },
+                "clusterValues": {
+                    "type": "object",
+                    "properties": {
+                        "configMap": {
+                            "type": "boolean"
+                        },
+                        "secret": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "dependsOn": {
+                    "type": "string"
+                },
+                "extraConfigs": {
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "kind": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "forceUpgrade": {
+                    "type": "boolean"
+                },
+                "inCluster": {
+                    "type": "boolean"
+                },
+                "namespace": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "userConfig": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+                "configMap": {
+                    "type": "object",
+                    "properties": {
+                        "values": {
+                            "type": ["object", "string"]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "type": "object",
+    "properties": {
+        "apps": {
+            "type": "object",
+            "properties": {
+                "capi-node-labeler": {
+                    "$ref": "#/$defs/app"
+                },
+                "certExporter": {
+                    "$ref": "#/$defs/app"
+                },
+                "chartOperatorExtensions": {
+                    "$ref": "#/$defs/app"
+                },
+                "ciliumServiceMonitors": {
+                    "$ref": "#/$defs/app"
+                },
+                "clusterResources": {
+                    "$ref": "#/$defs/app"
+                },
+                "k8sDnsNodeCache": {
+                    "$ref": "#/$defs/app"
+                },
+                "metricsServer": {
+                    "$ref": "#/$defs/app"
+                },
+                "nodeExporter": {
+                    "$ref": "#/$defs/app"
+                },
+                "observabilityBundle": {
+                    "$ref": "#/$defs/app"
+                },
+                "teleport-kube-agent": {
+                    "$ref": "#/$defs/app"
+                }                
+            }
+        },
+        "clusterName": {
+            "type": "string"
+        },
+        "deleteOptions": {
+            "type": "object",
+            "title": "Delete options",
+            "properties": {
+                "moveAppsHelmOwnershipToClusterVSphere": {
+                    "type": "boolean",
+                    "title": "Move Apps Helm ownership to cluster-vsphere",
+                    "description": "Don't delete Apps' Helm charts in the workload cluster. After the update, cluster-vsphere will recreate App CRs and new App CRs will take over the reconciliation of the existing Chart CRs in the workload cluster.",
+                    "default": false
+                }
+            }
+        },
+        "managementCluster": {
+            "type": "string"
+        },
+        "organization": {
+            "type": "string"
+        },
+        "userConfig": {
+            "type": "object",
+            "properties": {
+                "certExporter": {
+                    "$ref": "#/$defs/userConfig"
+                },
+                "certManager": {
+                    "$ref": "#/$defs/userConfig"
+                },
+                "metricsServer": {
+                    "$ref": "#/$defs/userConfig"
+                },
+                "netExporter": {
+                    "$ref": "#/$defs/userConfig"
+                },
+                "nodeExporter": {
+                    "$ref": "#/$defs/userConfig"
+                },
+                "vpa": {
+                    "$ref": "#/$defs/userConfig"
+                }
+            }
+        }
+    }
+}
