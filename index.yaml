@@ -6612,6 +6612,33 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-1.1.1.tgz
     version: 1.1.1
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-1.1.1-9b36e8c7c5e4a090034b655520a7c38f92b3e492.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-1.1.1-9b36e8c7c5e4a090034b655520a7c38f92b3e492.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-1.1.1-9b36e8c7c5e4a090034b655520a7c38f92b3e492.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2024-09-19T14:24:34.423409808Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 1.0.1
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 7ffa0c8243ecf31e619f69d6cb34de1d91e9aa2f33520968e35dd62c0c3baf24
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-1.1.1-9b36e8c7c5e4a090034b655520a7c38f92b3e492.tgz
+    version: 1.1.1-9b36e8c7c5e4a090034b655520a7c38f92b3e492
   cluster-azure:
   - annotations:
       application.giantswarm.io/app-type: cluster
@@ -15147,4 +15174,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.17.0-28a4b8289239963238fdc90dfbc7b38df32d986b.tgz
     version: 0.17.0-28a4b8289239963238fdc90dfbc7b38df32d986b
-generated: "2024-09-19T14:21:43.971996023Z"
+generated: "2024-09-19T14:24:34.41307476Z"
