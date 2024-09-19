@@ -8429,6 +8429,30 @@ entries:
   cluster-eks:
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.18.0-fd1d3f2b01ecf0a995d87dc880a2484e591a0cf6.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.18.0-fd1d3f2b01ecf0a995d87dc880a2484e591a0cf6.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.18.0-fd1d3f2b01ecf0a995d87dc880a2484e591a0cf6.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2024-09-19T06:00:01.21779933Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 3f321f0c6b39cda39db5ac6503a3a3589f137b1cfb4a2f067cbe63a765660b0a
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.18.0-fd1d3f2b01ecf0a995d87dc880a2484e591a0cf6.tgz
+    version: 0.18.0-fd1d3f2b01ecf0a995d87dc880a2484e591a0cf6
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.18.0-e5480189cde439f9e13b205925e23dbd2b6288fa.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.18.0-e5480189cde439f9e13b205925e23dbd2b6288fa.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -14543,4 +14567,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.17.0-28a4b8289239963238fdc90dfbc7b38df32d986b.tgz
     version: 0.17.0-28a4b8289239963238fdc90dfbc7b38df32d986b
-generated: "2024-09-19T05:27:02.115927789Z"
+generated: "2024-09-19T06:00:01.216012759Z"
