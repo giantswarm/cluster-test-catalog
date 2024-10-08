@@ -9122,6 +9122,30 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.18.0-04a8e82202c8f5c61f711853dc2cdb83d557527d.tgz
     version: 0.18.0-04a8e82202c8f5c61f711853dc2cdb83d557527d
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.0.0-4badd3da4d4564db2ab792fe700fe3441d38ea00.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.0.0-4badd3da4d4564db2ab792fe700fe3441d38ea00.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.0.0-4badd3da4d4564db2ab792fe700fe3441d38ea00.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2024-10-08T09:27:09.597151986Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 03d5c5981f8076b4ae3d295361269d9317786f76ec99658eda15bc8a2016426b
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.0.0-4badd3da4d4564db2ab792fe700fe3441d38ea00.tgz
+    version: 0.0.0-4badd3da4d4564db2ab792fe700fe3441d38ea00
   cluster-shared:
   - annotations:
       application.giantswarm.io/area: kaas
@@ -10826,4 +10850,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.17.0-92d05ec44a6b99d78839444e6b20a2d64dd9e40e.tgz
     version: 0.17.0-92d05ec44a6b99d78839444e6b20a2d64dd9e40e
-generated: "2024-10-08T07:27:05.709777456Z"
+generated: "2024-10-08T09:27:09.593633734Z"
