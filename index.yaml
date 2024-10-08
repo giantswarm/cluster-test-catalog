@@ -5663,6 +5663,33 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-1.1.1-2280cfd5245c4ed01b764f3f787f3c9544ac6e3e.tgz
     version: 1.1.1-2280cfd5245c4ed01b764f3f787f3c9544ac6e3e
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.0.0-30a561b577114e02edc681cba4f1975ac75b5973.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.0.0-30a561b577114e02edc681cba4f1975ac75b5973.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.0.0-30a561b577114e02edc681cba4f1975ac75b5973.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2024-10-08T09:49:49.015848358Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 1.4.1
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 5d17caf34c06aa6fde7b655836aa91d6dad64fb946ce0e585814a60c857243da
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-0.0.0-30a561b577114e02edc681cba4f1975ac75b5973.tgz
+    version: 0.0.0-30a561b577114e02edc681cba4f1975ac75b5973
   cluster-azure:
   - annotations:
       application.giantswarm.io/app-type: cluster
@@ -11005,4 +11032,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.17.0-92d05ec44a6b99d78839444e6b20a2d64dd9e40e.tgz
     version: 0.17.0-92d05ec44a6b99d78839444e6b20a2d64dd9e40e
-generated: "2024-10-08T09:45:55.996823225Z"
+generated: "2024-10-08T09:49:49.009313421Z"
