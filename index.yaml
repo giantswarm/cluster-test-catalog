@@ -8607,6 +8607,41 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.57.0-0eb11115771354011802b96008b0e9a315b8259b.tgz
     version: 0.57.0-0eb11115771354011802b96008b0e9a315b8259b
+  - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.0.0-884e77a8b724c35db3d29ba7f136d833a486faab.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.0.0-884e77a8b724c35db3d29ba7f136d833a486faab.tgz-meta/README.md
+      application.giantswarm.io/team: rocket
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.0.0-884e77a8b724c35db3d29ba7f136d833a486faab.tgz-meta/values.schema.json
+      ui.giantswarm.io/logo: https://s.giantswarm.io/app-icons/vmware-cloud-director/1/logo_light.png
+    apiVersion: v2
+    created: "2024-10-08T09:37:51.733315425Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 1.5.1
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the VMware Cloud
+      Director (VCD) infrastructure provider (CAPVCD).
+    digest: d0793274d95a06dd57a4f10df39bdae1bf265f669b85d72809b39c15f045f6b5
+    home: https://github.com/giantswarm/cluster-cloud-director
+    icon: https://s.giantswarm.io/app-icons/vmware-cloud-director/1/icon_light.png
+    keywords:
+    - capvcd
+    - vmware
+    - cloud
+    - director
+    - vcd
+    maintainers:
+    - email: team-rocket@giantswarm.io
+      name: Team Rocket
+    name: cluster-cloud-director
+    sources:
+    - https://github.com/giantswarm/cluster-cloud-director
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.0.0-884e77a8b724c35db3d29ba7f136d833a486faab.tgz
+    version: 0.0.0-884e77a8b724c35db3d29ba7f136d833a486faab
   cluster-eks:
   - annotations:
       application.giantswarm.io/app-type: cluster
@@ -10920,4 +10955,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.17.0-92d05ec44a6b99d78839444e6b20a2d64dd9e40e.tgz
     version: 0.17.0-92d05ec44a6b99d78839444e6b20a2d64dd9e40e
-generated: "2024-10-08T09:37:15.825144918Z"
+generated: "2024-10-08T09:37:51.717559226Z"
