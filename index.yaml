@@ -927,6 +927,41 @@ entries:
     version: 1.3.0-3a4073a75158458c0812f8a45f9632bc9977c151
   cluster-cloud-director:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.62.0-f6530e5ccd1a8ee40f7788a5a0d09753692fe6c5.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.62.0-f6530e5ccd1a8ee40f7788a5a0d09753692fe6c5.tgz-meta/README.md
+      application.giantswarm.io/team: rocket
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.62.0-f6530e5ccd1a8ee40f7788a5a0d09753692fe6c5.tgz-meta/values.schema.json
+      ui.giantswarm.io/logo: https://s.giantswarm.io/app-icons/vmware-cloud-director/1/logo_light.png
+    apiVersion: v2
+    created: "2024-11-01T16:00:35.014831105Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 1.6.0
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the VMware Cloud
+      Director (VCD) infrastructure provider (CAPVCD).
+    digest: 70e633a77dca3461d2d2217dac4af42697f0ca2982fbbcb8c5b5e21e74e2ace6
+    home: https://github.com/giantswarm/cluster-cloud-director
+    icon: https://s.giantswarm.io/app-icons/vmware-cloud-director/1/icon_light.png
+    keywords:
+    - capvcd
+    - vmware
+    - cloud
+    - director
+    - vcd
+    maintainers:
+    - email: team-rocket@giantswarm.io
+      name: Team Rocket
+    name: cluster-cloud-director
+    sources:
+    - https://github.com/giantswarm/cluster-cloud-director
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.62.0-f6530e5ccd1a8ee40f7788a5a0d09753692fe6c5.tgz
+    version: 0.62.0-f6530e5ccd1a8ee40f7788a5a0d09753692fe6c5
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.62.0-e5bb75404012951be8a61b181453dd11b49f1e6e.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.62.0-e5bb75404012951be8a61b181453dd11b49f1e6e.tgz-meta/README.md
       application.giantswarm.io/team: rocket
@@ -4063,4 +4098,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.17.1-a26400f4eb282bf1ce2c61bdcd44bc0c130c63cb.tgz
     version: 0.17.1-a26400f4eb282bf1ce2c61bdcd44bc0c130c63cb
-generated: "2024-11-01T00:14:39.534466697Z"
+generated: "2024-11-01T16:00:35.007424244Z"
