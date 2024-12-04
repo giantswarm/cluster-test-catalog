@@ -2388,6 +2388,29 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-eks-0.8.1-0fd48b7fbcc6539d9cac0e829afec8a612eccd90.tgz
     version: 0.8.1-0fd48b7fbcc6539d9cac0e829afec8a612eccd90
+  network-policies:
+  - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.1-e95ee4e457bcca80ea426ea3ec412ad451134542.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.1-e95ee4e457bcca80ea426ea3ec412ad451134542.tgz-meta/README.md
+      application.giantswarm.io/team: cabbage
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.1-e95ee4e457bcca80ea426ea3ec412ad451134542.tgz-meta/values.schema.json
+    apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-12-04T17:46:36.728846194Z"
+    description: CiliumNetworkPolicies and NetworkPolicies that should be installed
+      in target cluster.
+    digest: 4cfc39532ceeaafbba5c006966cce9c3a600bb8108987c5876d2de90e2009852
+    home: https://github.com/giantswarm/network-policies-app
+    icon: https://s.giantswarm.io/app-icons/kubernetes-netpol/1/light.svg
+    maintainers:
+    - email: team-cabbage@giantswarm.io
+      name: Team Cabbage
+    name: network-policies
+    sources:
+    - https://github.com/giantswarm/network-policies-app
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.1-e95ee4e457bcca80ea426ea3ec412ad451134542.tgz
+    version: 0.1.1-e95ee4e457bcca80ea426ea3ec412ad451134542
   outgoing-proxy-stack:
   - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.17.1-fdcb26d2533679ffce12447088d38f88d3b37b0c.tgz-meta/main.yaml
@@ -2406,4 +2429,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.17.1-fdcb26d2533679ffce12447088d38f88d3b37b0c.tgz
     version: 0.17.1-fdcb26d2533679ffce12447088d38f88d3b37b0c
-generated: "2024-12-04T17:45:06.69741508Z"
+generated: "2024-12-04T17:46:36.72821683Z"
