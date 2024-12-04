@@ -1241,6 +1241,34 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-1.1.3-fc68ef4198468c4cc51ac8ee0d0aab3ea7465c6c.tgz
     version: 1.1.3-fc68ef4198468c4cc51ac8ee0d0aab3ea7465c6c
+  cluster-azure:
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-1.4.0-d298e7620a1b1c25ebd08d00050e742d78e5f876.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-1.4.0-d298e7620a1b1c25ebd08d00050e742d78e5f876.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-1.4.0-d298e7620a1b1c25ebd08d00050e742d78e5f876.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2024-12-04T14:07:27.416820122Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 1.6.0
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the Azure infrastructure
+      provider (CAPZ).
+    digest: cbc232f4e88a84c19b82d0526f9e44898b501b9e38fdeb11d6b4094e01363910
+    home: https://github.com/giantswarm/cluster-azure
+    icon: https://s.giantswarm.io/app-icons/azure/1/light.svg
+    name: cluster-azure
+    sources:
+    - https://github.com/giantswarm/cluster-azure
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-1.4.0-d298e7620a1b1c25ebd08d00050e742d78e5f876.tgz
+    version: 1.4.0-d298e7620a1b1c25ebd08d00050e742d78e5f876
   cluster-cloud-director:
   - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.63.1-c3c53a5dcf972f9f09987ecac179c7d5b40fae89.tgz-meta/main.yaml
@@ -2053,4 +2081,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-eks-0.8.1-66645e1c31d03e59478db36f63df474418acf1f8.tgz
     version: 0.8.1-66645e1c31d03e59478db36f63df474418acf1f8
-generated: "2024-12-04T14:06:43.809983866Z"
+generated: "2024-12-04T14:07:27.4101487Z"
