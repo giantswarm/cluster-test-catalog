@@ -357,6 +357,42 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-2.5.0-27bb12b480ae4de7f7040ea5271cfb642beaf5dc.tgz
     version: 2.5.0-27bb12b480ae4de7f7040ea5271cfb642beaf5dc
+  cluster-cloud-director:
+  - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.64.0-6cdcf1739504b3eca5d3ef22fe79a29f4c5bb88f.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.64.0-6cdcf1739504b3eca5d3ef22fe79a29f4c5bb88f.tgz-meta/README.md
+      application.giantswarm.io/team: rocket
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.64.0-6cdcf1739504b3eca5d3ef22fe79a29f4c5bb88f.tgz-meta/values.schema.json
+      ui.giantswarm.io/logo: https://s.giantswarm.io/app-icons/vmware-cloud-director/1/logo_light.png
+    apiVersion: v2
+    created: "2025-01-07T13:53:24.116260608Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 1.7.0
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the VMware Cloud
+      Director (VCD) infrastructure provider (CAPVCD).
+    digest: ae396567b347f8ce5a512c1433d2e6b9e25e2550e5cc938416cf464d9718a98f
+    home: https://github.com/giantswarm/cluster-cloud-director
+    icon: https://s.giantswarm.io/app-icons/vmware-cloud-director/1/icon_light.png
+    keywords:
+    - capvcd
+    - vmware
+    - cloud
+    - director
+    - vcd
+    maintainers:
+    - email: team-rocket@giantswarm.io
+      name: Team Rocket
+    name: cluster-cloud-director
+    sources:
+    - https://github.com/giantswarm/cluster-cloud-director
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.64.0-6cdcf1739504b3eca5d3ef22fe79a29f4c5bb88f.tgz
+    version: 0.64.0-6cdcf1739504b3eca5d3ef22fe79a29f4c5bb88f
   cluster-eks:
   - annotations:
       application.giantswarm.io/app-type: cluster
@@ -493,4 +529,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.1-1b2897e64fc282aaf30b38c82a463d16c90a5c1d.tgz
     version: 0.1.1-1b2897e64fc282aaf30b38c82a463d16c90a5c1d
-generated: "2025-01-07T13:36:39.082837085Z"
+generated: "2025-01-07T13:53:24.106022631Z"
