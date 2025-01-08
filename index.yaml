@@ -475,6 +475,30 @@ entries:
   cluster-eks:
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-b0271fcb4d57b1a430dd4a3e9350dc95869619ae.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-b0271fcb4d57b1a430dd4a3e9350dc95869619ae.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-b0271fcb4d57b1a430dd4a3e9350dc95869619ae.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2025-01-08T17:00:12.809897312Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 4fd5915c2b89963ef9bf1b477302ec3091dd30af85b6a2d4a270844a1b849c1f
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-b0271fcb4d57b1a430dd4a3e9350dc95869619ae.tgz
+    version: 0.19.0-b0271fcb4d57b1a430dd4a3e9350dc95869619ae
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-82aee97cb668734ac93d3bd2103ac63fcfab612d.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-82aee97cb668734ac93d3bd2103ac63fcfab612d.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -658,4 +682,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.17.1-2836b25baa629ef72d97a59a50c62a9ec5ce7670.tgz
     version: 0.17.1-2836b25baa629ef72d97a59a50c62a9ec5ce7670
-generated: "2025-01-07T18:18:05.109935304Z"
+generated: "2025-01-08T17:00:12.807699118Z"
