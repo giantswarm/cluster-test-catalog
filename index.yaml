@@ -720,6 +720,30 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-82aee97cb668734ac93d3bd2103ac63fcfab612d.tgz
     version: 0.19.0-82aee97cb668734ac93d3bd2103ac63fcfab612d
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-01f9840e182f8314d2f1583f4202783e0f3632ab.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-01f9840e182f8314d2f1583f4202783e0f3632ab.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-01f9840e182f8314d2f1583f4202783e0f3632ab.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2025-01-10T14:36:04.58837532Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: de930c33a7fb29b29a662f5b8e57df334f350dd7c2d0ee664ee82e1ad197b37d
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-01f9840e182f8314d2f1583f4202783e0f3632ab.tgz
+    version: 0.19.0-01f9840e182f8314d2f1583f4202783e0f3632ab
   cluster-vsphere:
   - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-0.68.0-9ec1628861dbd387843dbba35d172f1f1f05919c.tgz-meta/main.yaml
@@ -984,4 +1008,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.17.1-2836b25baa629ef72d97a59a50c62a9ec5ce7670.tgz
     version: 0.17.1-2836b25baa629ef72d97a59a50c62a9ec5ce7670
-generated: "2025-01-10T14:16:04.006362906Z"
+generated: "2025-01-10T14:36:04.586763023Z"
