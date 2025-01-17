@@ -1018,6 +1018,33 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-2.5.0-09398367dd6f04afd69a521fa38bf7411a7487a9.tgz
     version: 2.5.0-09398367dd6f04afd69a521fa38bf7411a7487a9
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-2.5.0-060352bc22a252f43ce6543aec5085c7d43ab0e1.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-2.5.0-060352bc22a252f43ce6543aec5085c7d43ab0e1.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-2.5.0-060352bc22a252f43ce6543aec5085c7d43ab0e1.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2025-01-17T22:27:22.62814899Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 1.7.0
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 439a159a09b10ceeba6af107d6fdd7c20476d7a8c988dfceb0ccda25ce32348d
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-2.5.0-060352bc22a252f43ce6543aec5085c7d43ab0e1.tgz
+    version: 2.5.0-060352bc22a252f43ce6543aec5085c7d43ab0e1
   cluster-azure:
   - annotations:
       application.giantswarm.io/app-type: cluster
@@ -1815,4 +1842,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.17.1-0e640cb2b26d3fbb42e9d5f6826a7f3169fd8458.tgz
     version: 0.17.1-0e640cb2b26d3fbb42e9d5f6826a7f3169fd8458
-generated: "2025-01-17T22:27:15.270858973Z"
+generated: "2025-01-17T22:27:22.619429916Z"
