@@ -1248,6 +1248,33 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-2.5.0-060352bc22a252f43ce6543aec5085c7d43ab0e1.tgz
     version: 2.5.0-060352bc22a252f43ce6543aec5085c7d43ab0e1
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-2.5.0-027bcaf638ce895add707599c88ea63f3631c7f8.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-2.5.0-027bcaf638ce895add707599c88ea63f3631c7f8.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-2.5.0-027bcaf638ce895add707599c88ea63f3631c7f8.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2025-01-22T11:53:09.965374514Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 1.7.0
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 23a83c73f8fafbf5b0bb938d53ef77468b76a860f45e823d4dce00e15a4a5c17
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-2.5.0-027bcaf638ce895add707599c88ea63f3631c7f8.tgz
+    version: 2.5.0-027bcaf638ce895add707599c88ea63f3631c7f8
   cluster-azure:
   - annotations:
       application.giantswarm.io/app-type: cluster
@@ -2321,4 +2348,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.17.1-0e640cb2b26d3fbb42e9d5f6826a7f3169fd8458.tgz
     version: 0.17.1-0e640cb2b26d3fbb42e9d5f6826a7f3169fd8458
-generated: "2025-01-22T07:26:06.830766288Z"
+generated: "2025-01-22T11:53:09.958334771Z"
