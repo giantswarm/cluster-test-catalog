@@ -514,6 +514,33 @@ entries:
     version: 2.6.0-ef16f6fb467a94040220e9c3f2bbb2e7091c7eaf
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-2.6.0-e2f5a14f5461dd5915d1d813650c4f11640699b5.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-2.6.0-e2f5a14f5461dd5915d1d813650c4f11640699b5.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-2.6.0-e2f5a14f5461dd5915d1d813650c4f11640699b5.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2025-02-04T23:29:56.179210344Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 1.7.0
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: b28c1bf4d45e714ad0626e63f6160d69e20a4ee8e1fcbf9647a561ada813b38a
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-2.6.0-e2f5a14f5461dd5915d1d813650c4f11640699b5.tgz
+    version: 2.6.0-e2f5a14f5461dd5915d1d813650c4f11640699b5
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-2.6.0-dc316cd724c2c776be9e97cdcf3d415cff142916.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-2.6.0-dc316cd724c2c776be9e97cdcf3d415cff142916.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -3489,4 +3516,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/kube-vip-cloud-provider-0.0.0-440f74a7683cfde299c02d91a82007ce3ec968e2.tgz
     version: 0.0.0-440f74a7683cfde299c02d91a82007ce3ec968e2
-generated: "2025-02-04T23:29:38.93081389Z"
+generated: "2025-02-04T23:29:56.166204295Z"
