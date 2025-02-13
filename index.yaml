@@ -3172,6 +3172,30 @@ entries:
     version: 0.19.0-e3af12ad50e824948d5606f216bc0d62210ef499
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-b2066c7c407e7eb11625ca7e532c9a198f252d62.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-b2066c7c407e7eb11625ca7e532c9a198f252d62.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-b2066c7c407e7eb11625ca7e532c9a198f252d62.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2025-02-13T13:47:50.428408959Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 4f5346f9813f9bec3c4b97b2f8eb736559aaac7a2e10bd3c8c8ad879252a98cb
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-b2066c7c407e7eb11625ca7e532c9a198f252d62.tgz
+    version: 0.19.0-b2066c7c407e7eb11625ca7e532c9a198f252d62
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-8c8498796301408d81adc448eb4864a3a8e681eb.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-8c8498796301408d81adc448eb4864a3a8e681eb.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -4574,4 +4598,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.1-c7e10f5f6bafa947246db491e4a2917e86bf1124.tgz
     version: 0.1.1-c7e10f5f6bafa947246db491e4a2917e86bf1124
-generated: "2025-02-13T13:47:04.91566101Z"
+generated: "2025-02-13T13:47:50.426037995Z"
