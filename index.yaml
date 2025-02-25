@@ -5873,6 +5873,30 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-2b16d5b70714a60553e9d1afa4b12df9e2710a66.tgz
     version: 0.19.0-2b16d5b70714a60553e9d1afa4b12df9e2710a66
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-1edc44ca375e160dfd4a1c82153ef07d04141c13.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-1edc44ca375e160dfd4a1c82153ef07d04141c13.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-1edc44ca375e160dfd4a1c82153ef07d04141c13.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2025-02-25T10:02:00.37605947Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 3d251e00e0a71009e187a62c8de09e2772cc0b083c1f1a068c8572c23b74d800
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-1edc44ca375e160dfd4a1c82153ef07d04141c13.tgz
+    version: 0.19.0-1edc44ca375e160dfd4a1c82153ef07d04141c13
   cluster-vsphere:
   - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-0.68.1.tgz-meta/main.yaml
@@ -7840,4 +7864,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.17.1-4dffebd79179494794d1c2c81bc0fdaf69ce95c8.tgz
     version: 0.17.1-4dffebd79179494794d1c2c81bc0fdaf69ce95c8
-generated: "2025-02-21T09:10:08.742074435Z"
+generated: "2025-02-25T10:02:00.374042383Z"
