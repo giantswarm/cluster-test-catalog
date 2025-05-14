@@ -8741,6 +8741,30 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-2a4275d21c60fa230c83c74e9d5c696ad8f7b1af.tgz
     version: 0.19.0-2a4275d21c60fa230c83c74e9d5c696ad8f7b1af
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-130b6a90a6e3e05ead156c822ddcd4c2198d392e.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-130b6a90a6e3e05ead156c822ddcd4c2198d392e.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-130b6a90a6e3e05ead156c822ddcd4c2198d392e.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2025-05-14T12:49:39.774701667Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 7f0e202e03a06fcbaefaee984dd55b54513cdf81c39ae97591135c50bd9275f0
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-130b6a90a6e3e05ead156c822ddcd4c2198d392e.tgz
+    version: 0.19.0-130b6a90a6e3e05ead156c822ddcd4c2198d392e
   cluster-shared:
   - annotations:
       application.giantswarm.io/area: kaas
@@ -10611,4 +10635,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.17.1-0424fecf3e2d86ae1f6cdc9f10a6f1e30e13877c.tgz
     version: 0.17.1-0424fecf3e2d86ae1f6cdc9f10a6f1e30e13877c
-generated: "2025-05-14T12:49:31.973367258Z"
+generated: "2025-05-14T12:49:39.77277754Z"
