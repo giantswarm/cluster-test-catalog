@@ -1,0 +1,1908 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$defs": {
+        "app": {
+            "type": "object",
+            "title": "App resource",
+            "description": "Configuration of a default app that is part of the cluster and is deployed as an App resource.",
+            "additionalProperties": false,
+            "properties": {
+                "extraConfigs": {
+                    "type": "array",
+                    "title": "Extra config maps or secrets",
+                    "description": "Extra config maps or secrets that will be used to customize to the app. The desired values must be under configmap or secret key 'values'. The values are merged in the order given, with the later values overwriting earlier, and then inline values overwriting those. Resources must be in the same namespace as the cluster.",
+                    "items": {
+                        "type": "object",
+                        "title": "Config map or secret",
+                        "properties": {
+                            "kind": {
+                                "type": "string",
+                                "title": "Kind",
+                                "description": "Specifies whether the resource is a config map or a secret.",
+                                "enum": [
+                                    "configMap",
+                                    "secret"
+                                ]
+                            },
+                            "name": {
+                                "type": "string",
+                                "title": "Name",
+                                "description": "Name of the config map or secret. The object must exist in the same namespace as the cluster App."
+                            },
+                            "priority": {
+                                "type": "integer",
+                                "title": "Priority",
+                                "default": 25,
+                                "max": 150,
+                                "min": 1
+                            }
+                        }
+                    }
+                },
+                "values": {
+                    "type": "object",
+                    "title": "Config map",
+                    "description": "Helm Values to be passed to the app as user config.",
+                    "additionalProperties": true
+                }
+            }
+        },
+        "awsResourceTagValue": {
+            "type": "string",
+            "title": "Tag value",
+            "$comment": "Restrictions based on https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions",
+            "maxLength": 256,
+            "minLength": 0,
+            "pattern": "^[ a-zA-Z0-9\\._:/=+-@]+$"
+        },
+        "helmRelease": {
+            "type": "object",
+            "title": "App",
+            "description": "Configuration of a default app that is part of the cluster and is deployed as a HelmRelease resource.",
+            "additionalProperties": false,
+            "properties": {
+                "extraConfigs": {
+                    "type": "array",
+                    "title": "Extra config maps or secrets",
+                    "description": "Extra config maps or secrets that will be used to customize to the app. The desired values must be under configmap or secret key 'values'. The values are merged in the order given, with the later values overwriting earlier, and then inline values overwriting those. Resources must be in the same namespace as the cluster.",
+                    "items": {
+                        "type": "object",
+                        "title": "Config map or secret",
+                        "properties": {
+                            "kind": {
+                                "type": "string",
+                                "title": "Kind",
+                                "description": "Specifies whether the resource is a config map or a secret.",
+                                "enum": [
+                                    "ConfigMap",
+                                    "Secret"
+                                ]
+                            },
+                            "name": {
+                                "type": "string",
+                                "title": "Name",
+                                "description": "Name of the config map or secret. The object must exist in the same namespace as the cluster App."
+                            },
+                            "optional": {
+                                "type": "boolean",
+                                "title": "Optional",
+                                "description": "Optional marks this ValuesReference as optional. When set, a not found error for the values reference is ignored, but any ValuesKey, TargetPath or transient error will still result in a reconciliation failure."
+                            }
+                        }
+                    }
+                },
+                "values": {
+                    "type": "object",
+                    "title": "Values",
+                    "description": "Values to be passed to the app. Values will have higher priority than values from configmaps.",
+                    "additionalProperties": true
+                }
+            }
+        },
+        "machinePool": {
+            "type": "object",
+            "title": "Node pool",
+            "properties": {
+                "additionalSecurityGroups": {
+                    "type": "array",
+                    "title": "Machine pool additional security groups",
+                    "description": "Additional security groups that will be added to the machine pool nodes.",
+                    "items": {
+                        "type": "object",
+                        "title": "security group",
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "title": "Id of the security group",
+                                "description": "ID of the security group that will be added to the machine pool nodes. The security group must exist."
+                            }
+                        }
+                    }
+                },
+                "availabilityZones": {
+                    "type": "array",
+                    "title": "Availability zones",
+                    "items": {
+                        "type": "string",
+                        "title": "Availability zone"
+                    }
+                },
+                "awsNodeTerminationHandler": {
+                    "type": "object",
+                    "title": "aws-node-termination-handler related settings",
+                    "description": "Configuration for the ASG lifecycle hook used by aws-node-termination-handler",
+                    "properties": {
+                        "heartbeatTimeoutSeconds": {
+                            "type": "number",
+                            "title": "Heartbeat timeout for ASG lifecycle hook",
+                            "default": 1800,
+                            "maximum": 7200,
+                            "minimum": 30
+                        }
+                    }
+                },
+                "customNodeLabels": {
+                    "type": "array",
+                    "title": "Custom node labels",
+                    "items": {
+                        "type": "string",
+                        "title": "Label"
+                    }
+                },
+                "customNodeTaints": {
+                    "type": "array",
+                    "title": "Custom node taints",
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "effect",
+                            "key",
+                            "value"
+                        ],
+                        "properties": {
+                            "effect": {
+                                "type": "string",
+                                "title": "Effect",
+                                "enum": [
+                                    "NoSchedule",
+                                    "PreferNoSchedule",
+                                    "NoExecute"
+                                ]
+                            },
+                            "key": {
+                                "type": "string",
+                                "title": "Key"
+                            },
+                            "value": {
+                                "type": "string",
+                                "title": "Value"
+                            }
+                        }
+                    }
+                },
+                "instanceType": {
+                    "type": "string",
+                    "title": "EC2 instance type"
+                },
+                "instanceTypeOverrides": {
+                    "type": "array",
+                    "title": "Instance type overrides",
+                    "description": "Ordered list of instance types to be used for the machine pool. The first instance type that is available in the region will be used. Read more in our docs https://docs.giantswarm.io/advanced/cluster-management/node-pools-capi/",
+                    "items": {
+                        "type": "string",
+                        "title": "EC2 instance type"
+                    },
+                    "default": []
+                },
+                "instanceWarmup": {
+                    "type": "integer",
+                    "title": "Time interval, in seconds, between node replacement."
+                },
+                "libVolumeSizeGB": {
+                    "type": "integer",
+                    "title": "Lib volume size (GB)",
+                    "description": "Size of the volume mounted at `/var/lib` on the worker nodes. This disk is shared between kubelet folder `/var/lib/kubelet` and containerd folder `/var/lib/containerd`s.",
+                    "default": 120
+                },
+                "logVolumeSizeGB": {
+                    "type": "integer",
+                    "title": "Log volume size (GB)",
+                    "description": "Size of the volume mounted at `/var/log` on the worker nodes.",
+                    "default": 30
+                },
+                "maxHealthyPercentage": {
+                    "type": "integer",
+                    "title": "Maximum percentage of instances that can be in service when replacing instances.",
+                    "description": "The percentage of capacity in ASG that can be in service and healthy, or pending, to support your workload when replacing instances. A larger range increases the number of instances that can be replaced at the same time. The difference between minHealthyPercentage and maxHealthyPercentage cannot be greater than 100.",
+                    "default": 100,
+                    "maximum": 200,
+                    "minimum": 100
+                },
+                "maxSize": {
+                    "type": "integer",
+                    "title": "Maximum number of nodes"
+                },
+                "minHealthyPercentage": {
+                    "type": "integer",
+                    "title": "Minimum percentage of instances that must remain healthy during node replacement.",
+                    "default": 90,
+                    "maximum": 100,
+                    "minimum": 0
+                },
+                "minSize": {
+                    "type": "integer",
+                    "title": "Minimum number of nodes"
+                },
+                "nodepoolType": {
+                    "type": "string",
+                    "title": "Node pool type",
+                    "description": "Controller that will manage the node pool.",
+                    "enum": [
+                        "machinepool",
+                        "karpenter"
+                    ]
+                },
+                "rootVolumeSizeGB": {
+                    "type": "integer",
+                    "title": "Root volume size (GB)",
+                    "default": 8
+                },
+                "spotInstances": {
+                    "type": "object",
+                    "title": "Spot instances",
+                    "description": "Compared to on-demand instances, spot instances can help you save cost.",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean",
+                            "title": "Enable",
+                            "default": false
+                        },
+                        "maxPrice": {
+                            "type": "number",
+                            "title": "Maximum price to pay per instance per hour, in USD."
+                        }
+                    }
+                },
+                "subnetTags": {
+                    "type": "array",
+                    "title": "Subnet tags",
+                    "description": "Tags to filter which AWS subnets will be used for this node pool.",
+                    "items": {
+                        "type": "object",
+                        "title": "Subnet tag",
+                        "additionalProperties": {
+                            "$ref": "#/$defs/awsResourceTagValue"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "baseDomain": {
+            "type": "string",
+            "title": "Base DNS domain"
+        },
+        "cluster": {
+            "type": "object",
+            "title": "Cluster",
+            "description": "Helm values for the provider-independent cluster chart",
+            "default": {
+                "providerIntegration": {
+                    "apps": {
+                        "capiNodeLabeler": {
+                            "enable": true
+                        },
+                        "certExporter": {
+                            "enable": true
+                        },
+                        "certManager": {
+                            "configTemplateName": "awsCertManagerHelmValues",
+                            "enable": true
+                        },
+                        "chartOperatorExtensions": {
+                            "enable": true
+                        },
+                        "cilium": {
+                            "configTemplateName": "awsCiliumHelmValues",
+                            "enable": true
+                        },
+                        "ciliumServiceMonitors": {
+                            "enable": true
+                        },
+                        "clusterAutoscaler": {
+                            "configTemplateName": "awsClusterAutoscalerHelmValues",
+                            "enable": true
+                        },
+                        "coreDns": {
+                            "configTemplateName": "awsCorednsHelmValues",
+                            "enable": true
+                        },
+                        "coreDnsExtensions": {
+                            "enable": true
+                        },
+                        "etcdDefrag": {
+                            "enable": true
+                        },
+                        "etcdKubernetesResourcesCountExporter": {
+                            "enable": true
+                        },
+                        "externalDns": {
+                            "configTemplateName": "awsExternalDnsHelmValues",
+                            "enable": true
+                        },
+                        "k8sAuditMetrics": {
+                            "enable": true
+                        },
+                        "k8sDnsNodeCache": {
+                            "enable": true
+                        },
+                        "metricsServer": {
+                            "enable": true
+                        },
+                        "netExporter": {
+                            "enable": true
+                        },
+                        "networkPolicies": {
+                            "configTemplateName": "awsNetworkPoliciesHelmValues",
+                            "enable": true
+                        },
+                        "nodeExporter": {
+                            "enable": true
+                        },
+                        "observabilityBundle": {
+                            "enable": true
+                        },
+                        "observabilityPolicies": {
+                            "enable": true
+                        },
+                        "prometheusBlackboxExporter": {
+                            "enable": true
+                        },
+                        "securityBundle": {
+                            "configTemplateName": "awsSecurityBundleHelmValues",
+                            "enable": true
+                        },
+                        "teleportKubeAgent": {
+                            "enable": true
+                        },
+                        "verticalPodAutoscaler": {
+                            "enable": true
+                        },
+                        "verticalPodAutoscalerCrd": {
+                            "enable": true
+                        }
+                    },
+                    "clusterAnnotationsTemplateName": "awsConnectivityLabels",
+                    "components": {
+                        "systemd": {
+                            "timesyncd": {
+                                "ntp": [
+                                    "169.254.169.123"
+                                ]
+                            }
+                        }
+                    },
+                    "connectivity": {
+                        "proxy": {
+                            "noProxy": {
+                                "templateName": "awsNoProxyList",
+                                "value": [
+                                    "elb.amazonaws.com",
+                                    "169.254.169.254"
+                                ]
+                            }
+                        }
+                    },
+                    "controlPlane": {
+                        "kubeadmConfig": {
+                            "clusterConfiguration": {
+                                "apiServer": {
+                                    "apiAudiences": {
+                                        "templateName": "awsApiServerApiAudiences"
+                                    },
+                                    "serviceAccountIssuers": [
+                                        {
+                                            "templateName": "awsIrsaServiceAccountIssuer"
+                                        }
+                                    ]
+                                }
+                            },
+                            "files": [],
+                            "ignition": {
+                                "containerLinuxConfig": {
+                                    "additionalConfig": {
+                                        "storage": {
+                                            "filesystems": [
+                                                {
+                                                    "mount": {
+                                                        "device": "/dev/xvdc",
+                                                        "format": "xfs",
+                                                        "label": "etcd",
+                                                        "wipeFilesystem": true
+                                                    },
+                                                    "name": "etcd"
+                                                },
+                                                {
+                                                    "mount": {
+                                                        "device": "/dev/xvdd",
+                                                        "format": "xfs",
+                                                        "label": "lib",
+                                                        "wipeFilesystem": true
+                                                    },
+                                                    "name": "lib"
+                                                },
+                                                {
+                                                    "mount": {
+                                                        "device": "/dev/xvde",
+                                                        "format": "xfs",
+                                                        "label": "log",
+                                                        "wipeFilesystem": true
+                                                    },
+                                                    "name": "log"
+                                                }
+                                            ]
+                                        },
+                                        "systemd": {
+                                            "units": [
+                                                {
+                                                    "contents": {
+                                                        "install": {
+                                                            "wantedBy": [
+                                                                "local-fs-pre.target"
+                                                            ]
+                                                        },
+                                                        "mount": {
+                                                            "type": "xfs",
+                                                            "what": "/dev/disk/by-label/etcd",
+                                                            "where": "/var/lib/etcd"
+                                                        },
+                                                        "unit": {
+                                                            "description": "etcd volume",
+                                                            "defaultDependencies": false
+                                                        }
+                                                    },
+                                                    "enabled": true,
+                                                    "name": "var-lib-etcd.mount"
+                                                },
+                                                {
+                                                    "contents": {
+                                                        "install": {
+                                                            "wantedBy": [
+                                                                "local-fs-pre.target"
+                                                            ]
+                                                        },
+                                                        "mount": {
+                                                            "type": "xfs",
+                                                            "what": "/dev/disk/by-label/lib",
+                                                            "where": "/var/lib"
+                                                        },
+                                                        "unit": {
+                                                            "description": "var lib volume",
+                                                            "defaultDependencies": false
+                                                        }
+                                                    },
+                                                    "enabled": true,
+                                                    "name": "var-lib.mount"
+                                                },
+                                                {
+                                                    "contents": {
+                                                        "install": {
+                                                            "wantedBy": [
+                                                                "local-fs-pre.target"
+                                                            ]
+                                                        },
+                                                        "mount": {
+                                                            "type": "xfs",
+                                                            "what": "/dev/disk/by-label/log",
+                                                            "where": "/var/log"
+                                                        },
+                                                        "unit": {
+                                                            "description": "log volume",
+                                                            "defaultDependencies": false
+                                                        }
+                                                    },
+                                                    "enabled": true,
+                                                    "name": "var-log.mount"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "resources": {
+                            "infrastructureMachineTemplate": {
+                                "group": "infrastructure.cluster.x-k8s.io",
+                                "kind": "AWSMachineTemplate",
+                                "version": "v1beta2"
+                            },
+                            "infrastructureMachineTemplateSpecTemplateName": "controlplane-awsmachinetemplate-spec"
+                        }
+                    },
+                    "environmentVariables": {
+                        "hostName": "COREOS_EC2_HOSTNAME",
+                        "ipv4": "COREOS_EC2_IPV4_LOCAL"
+                    },
+                    "kubeadmConfig": {
+                        "files": [
+                            {
+                                "contentFrom": {
+                                    "secret": {
+                                        "key": "kubelet-aws-config.sh",
+                                        "name": "provider-specific-files-4",
+                                        "prependClusterNameAsPrefix": true
+                                    }
+                                },
+                                "path": "/opt/bin/kubelet-aws-config.sh",
+                                "permissions": "0755"
+                            },
+                            {
+                                "contentFrom": {
+                                    "secret": {
+                                        "key": "kubelet-aws-config.service",
+                                        "name": "provider-specific-files-4",
+                                        "prependClusterNameAsPrefix": true
+                                    }
+                                },
+                                "path": "/etc/systemd/system/kubelet-aws-config.service",
+                                "permissions": "0644"
+                            },
+                            {
+                                "contentFrom": {
+                                    "secret": {
+                                        "key": "99-unmanaged-devices.network",
+                                        "name": "provider-specific-files-4",
+                                        "prependClusterNameAsPrefix": true
+                                    }
+                                },
+                                "path": "/etc/systemd/network/99-unmanaged-devices.network",
+                                "permissions": "0644"
+                            }
+                        ],
+                        "ignition": {
+                            "containerLinuxConfig": {
+                                "additionalConfig": {
+                                    "systemd": {
+                                        "units": [
+                                            {
+                                                "enabled": true,
+                                                "name": "kubelet-aws-config.service"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "osImage": {
+                        "variant": "3"
+                    },
+                    "pauseProperties": {
+                        "global.connectivity.vpcMode": "private"
+                    },
+                    "provider": "aws",
+                    "registry": {
+                        "templateName": "awsContainerImageRegistry"
+                    },
+                    "resourcesApi": {
+                        "bastionResourceEnabled": false,
+                        "cleanupHelmReleaseResourcesEnabled": true,
+                        "clusterResourceEnabled": true,
+                        "controlPlaneResourceEnabled": true,
+                        "helmRepositoryResourcesEnabled": true,
+                        "infrastructureCluster": {
+                            "group": "infrastructure.cluster.x-k8s.io",
+                            "kind": "AWSCluster",
+                            "version": "v1beta2"
+                        },
+                        "infrastructureMachinePool": {
+                            "group": "infrastructure.cluster.x-k8s.io",
+                            "kind": "AWSMachinePool",
+                            "version": "v1beta2"
+                        },
+                        "machineHealthCheckResourceEnabled": true,
+                        "machinePoolResourcesEnabled": true,
+                        "nodePoolKind": "MachinePool"
+                    },
+                    "useReleases": true,
+                    "workers": {
+                        "defaultNodePools": {
+                            "def00": {
+                                "customNodeLabels": [
+                                    "label=default"
+                                ],
+                                "instanceType": "r6i.xlarge",
+                                "instanceWarmup": 600,
+                                "maxSize": 3,
+                                "minHealthyPercentage": 90,
+                                "minSize": 3
+                            }
+                        },
+                        "kubeadmConfig": {
+                            "files": [],
+                            "ignition": {
+                                "containerLinuxConfig": {
+                                    "additionalConfig": {
+                                        "storage": {
+                                            "filesystems": [
+                                                {
+                                                    "mount": {
+                                                        "device": "/dev/xvdd",
+                                                        "format": "xfs",
+                                                        "label": "lib",
+                                                        "wipeFilesystem": true
+                                                    },
+                                                    "name": "lib"
+                                                },
+                                                {
+                                                    "mount": {
+                                                        "device": "/dev/xvde",
+                                                        "format": "xfs",
+                                                        "label": "log",
+                                                        "wipeFilesystem": true
+                                                    },
+                                                    "name": "log"
+                                                }
+                                            ]
+                                        },
+                                        "systemd": {
+                                            "units": [
+                                                {
+                                                    "contents": {
+                                                        "install": {
+                                                            "wantedBy": [
+                                                                "local-fs-pre.target"
+                                                            ]
+                                                        },
+                                                        "mount": {
+                                                            "type": "xfs",
+                                                            "what": "/dev/disk/by-label/lib",
+                                                            "where": "/var/lib"
+                                                        },
+                                                        "unit": {
+                                                            "description": "lib volume",
+                                                            "defaultDependencies": false
+                                                        }
+                                                    },
+                                                    "enabled": true,
+                                                    "name": "var-lib.mount"
+                                                },
+                                                {
+                                                    "contents": {
+                                                        "install": {
+                                                            "wantedBy": [
+                                                                "local-fs-pre.target"
+                                                            ]
+                                                        },
+                                                        "mount": {
+                                                            "type": "xfs",
+                                                            "what": "/dev/disk/by-label/log",
+                                                            "where": "/var/log"
+                                                        },
+                                                        "unit": {
+                                                            "description": "log volume",
+                                                            "defaultDependencies": false
+                                                        }
+                                                    },
+                                                    "enabled": true,
+                                                    "name": "var-log.mount"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "cluster-shared": {
+            "type": "object",
+            "title": "Library chart"
+        },
+        "global": {
+            "type": "object",
+            "title": "Global",
+            "description": "Properties that are available to all charts and subcharts.",
+            "required": [
+                "metadata",
+                "release"
+            ],
+            "additionalProperties": true,
+            "properties": {
+                "apps": {
+                    "type": "object",
+                    "title": "Apps",
+                    "description": "Configuration of apps that are part of the cluster.",
+                    "additionalProperties": false,
+                    "properties": {
+                        "awsCloudControllerManager": {
+                            "$ref": "#/$defs/helmRelease",
+                            "type": "object",
+                            "title": "AWS cloud controller manager",
+                            "description": "Configuration of aws-cloud-controller-manager-app. For all available values see https://github.com/giantswarm/aws-cloud-controller-manager-app."
+                        },
+                        "awsEbsCsiDriver": {
+                            "$ref": "#/$defs/helmRelease",
+                            "type": "object",
+                            "title": "AWS EBS CSI driver",
+                            "description": "Configuration of aws-ebs-csi-driver-app. For all available values see https://github.com/giantswarm/aws-ebs-csi-driver-app."
+                        },
+                        "awsEbsCsiDriverServiceMonitors": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "AWS EBS CSI driver service monitors",
+                            "description": "Configuration of aws-ebs-csi-driver-servicemonitors. For all available values see https://github.com/giantswarm/aws-ebs-csi-driver-servicemonitors-app."
+                        },
+                        "awsNodeTerminationHandler": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "AWS Node Termination Handler",
+                            "description": "Configuration of aws-nth-bundle. For all available values see https://github.com/giantswarm/aws-nth-bundle."
+                        },
+                        "awsPodIdentityWebhook": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "AWS Pod Identity Webhook",
+                            "description": "Configuration of aws-pod-identity-webhook. For all available values see https://github.com/giantswarm/aws-pod-identity-webhook."
+                        },
+                        "capiNodeLabeler": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "capi-node-labeler",
+                            "description": "Configuration of capi-node-labeler. For all available values see https://github.com/giantswarm/capi-node-labeler."
+                        },
+                        "certExporter": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "cert-exporter",
+                            "description": "Configuration of cert-exporter. For all available values see https://github.com/giantswarm/cert-exporter."
+                        },
+                        "certManager": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "cert-manager",
+                            "description": "Configuration of cert-manager. For all available values see https://github.com/giantswarm/cert-manager-app."
+                        },
+                        "certManagerCrossplaneResources": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "CertManager Crossplane Resources",
+                            "description": "Configuration of cert-manager-crossplane-resources. For all available values see https://github.com/giantswarm/cert-manager-crossplane-resources."
+                        },
+                        "chartOperatorExtensions": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "chart-operator-extensions",
+                            "description": "Configuration of chart-operator-extensions. For all available values see https://github.com/giantswarm/chart-operator-extensions."
+                        },
+                        "cilium": {
+                            "$ref": "#/$defs/helmRelease",
+                            "type": "object",
+                            "title": "Cilium",
+                            "description": "Configuration of cilium-app. For all available values see https://github.com/giantswarm/cilium-app."
+                        },
+                        "ciliumCrossplaneResources": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "Cilium Crossplane resources",
+                            "description": "Configuration of cilium-crossplane-resources. For all available values see https://github.com/giantswarm/cilium-crossplane-resources."
+                        },
+                        "ciliumServiceMonitors": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "Cilium service monitors",
+                            "description": "Configuration of cilium-servicemonitors. For all available values see https://github.com/giantswarm/cilium-servicemonitors-app."
+                        },
+                        "clusterAutoscaler": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "cluster-autoscaler",
+                            "description": "Configuration of cluster-autoscaler. For all available values see https://github.com/giantswarm/cluster-autoscaler-app."
+                        },
+                        "coreDns": {
+                            "$ref": "#/$defs/helmRelease",
+                            "type": "object",
+                            "title": "CoreDNS",
+                            "description": "Configuration of coredns-app. For all available values see https://github.com/giantswarm/coredns-app."
+                        },
+                        "coreDnsExtensions": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "CoreDNS Extensions",
+                            "description": "Configuration of coredns-extensions. For all available values see https://github.com/giantswarm/coredns-extensions-app."
+                        },
+                        "etcdDefrag": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "etcd-defrag",
+                            "description": "Configuration of etcd-defrag. For all available values see https://github.com/giantswarm/etcd-defrag-app."
+                        },
+                        "etcdKubernetesResourcesCountExporter": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "etcd-kubernetes-resources-count-exporter",
+                            "description": "Configuration of etcd-kubernetes-resources-count-exporter. For all available values see https://github.com/giantswarm/etcd-kubernetes-resources-count-exporter."
+                        },
+                        "externalDns": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "external-dns",
+                            "description": "Configuration of external-dns. For all available values see https://github.com/giantswarm/external-dns-app."
+                        },
+                        "irsaServiceMonitors": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "irsa-servicemonitors",
+                            "description": "Configuration of irsa-service-monitor. For all available values see https://github.com/giantswarm/irsa-servicemonitors-app."
+                        },
+                        "k8sAuditMetrics": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "k8s-audit-metrics",
+                            "description": "Configuration of k8s-audit-metrics. For all available values see https://github.com/giantswarm/k8s-audit-metrics."
+                        },
+                        "k8sDnsNodeCache": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "k8s-dns-node-cache",
+                            "description": "Configuration of k8s-dns-node-cache. For all available values see https://github.com/giantswarm/k8s-dns-node-cache-app."
+                        },
+                        "metricsServer": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "metrics-server",
+                            "description": "Configuration of metrics-server. For all available values see https://github.com/giantswarm/metrics-server-app."
+                        },
+                        "netExporter": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "net-exporter",
+                            "description": "Configuration of net-exporter. For all available values see https://github.com/giantswarm/net-exporter."
+                        },
+                        "networkPolicies": {
+                            "$ref": "#/$defs/helmRelease",
+                            "type": "object",
+                            "title": "NetworkPolicies",
+                            "description": "Configuration of network-policies-app. For all available values see https://github.com/giantswarm/network-policies-app."
+                        },
+                        "nodeExporter": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "node-exporter",
+                            "description": "Configuration of node-exporter. For all available values see https://github.com/giantswarm/node-exporter-app."
+                        },
+                        "observabilityBundle": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "observability-bundle",
+                            "description": "Configuration of observability-bundle. For all available values see https://github.com/giantswarm/observability-bundle."
+                        },
+                        "observabilityPolicies": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "observability-policies",
+                            "description": "Configuration of observability-policies. For all available values see https://github.com/giantswarm/observability-policies-app."
+                        },
+                        "prometheusBlackboxExporter": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "prometheus-blackbox-exporter",
+                            "description": "Configuration of prometheus-blackbox-exporter. For all available values see https://github.com/giantswarm/prometheus-blackbox-exporter-app."
+                        },
+                        "securityBundle": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "security-bundle",
+                            "description": "Configuration of security-bundle. For all available values see https://github.com/giantswarm/security-bundle."
+                        },
+                        "teleportKubeAgent": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "teleport-kube-agent",
+                            "description": "Configuration of teleport-kube-agent. For all available values see https://github.com/giantswarm/teleport-kube-agent."
+                        },
+                        "verticalPodAutoscaler": {
+                            "$ref": "#/$defs/app",
+                            "type": "object",
+                            "title": "vertical-pod-autoscaler",
+                            "description": "Configuration of vertical-pod-autoscaler. For all available values see https://github.com/giantswarm/vertical-pod-autoscaler-app."
+                        },
+                        "verticalPodAutoscalerCrd": {
+                            "$ref": "#/$defs/helmRelease",
+                            "type": "object",
+                            "title": "Vertical-pod-autoscaler CRD",
+                            "description": "Configuration of vertical-pod-autoscaler-crd-app. For all available values see https://github.com/giantswarm/vertical-pod-autoscaler-crd."
+                        }
+                    }
+                },
+                "components": {
+                    "type": "object",
+                    "title": "Components",
+                    "description": "Advanced configuration of components that are running on all nodes.",
+                    "additionalProperties": false,
+                    "properties": {
+                        "auditd": {
+                            "type": "object",
+                            "title": "Auditd",
+                            "description": "Enable Auditd service.",
+                            "additionalProperties": false,
+                            "properties": {
+                                "enabled": {
+                                    "type": "boolean",
+                                    "title": "Enabled",
+                                    "description": "Whether or not the Auditd service shall be enabled. When true, the Auditd service is enabled. When false, the Auditd rules service is disabled.",
+                                    "default": false
+                                }
+                            }
+                        },
+                        "containerd": {
+                            "type": "object",
+                            "title": "Containerd",
+                            "description": "Configuration of containerd.",
+                            "required": [
+                                "containerRegistries"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "containerRegistries": {
+                                    "type": "object",
+                                    "title": "Container registries",
+                                    "description": "Endpoints and credentials configuration for container registries.",
+                                    "additionalProperties": {
+                                        "type": "array",
+                                        "title": "Registries",
+                                        "description": "Container registries and mirrors",
+                                        "items": {
+                                            "type": "object",
+                                            "title": "Registry",
+                                            "required": [
+                                                "endpoint"
+                                            ],
+                                            "properties": {
+                                                "credentials": {
+                                                    "type": "object",
+                                                    "title": "Credentials",
+                                                    "properties": {
+                                                        "auth": {
+                                                            "type": "string",
+                                                            "title": "Auth",
+                                                            "description": "Base64-encoded string from the concatenation of the username, a colon, and the password."
+                                                        },
+                                                        "identitytoken": {
+                                                            "type": "string",
+                                                            "title": "Identity token",
+                                                            "description": "Used to authenticate the user and obtain an access token for the registry."
+                                                        },
+                                                        "password": {
+                                                            "type": "string",
+                                                            "title": "Password",
+                                                            "description": "Used to authenticate for the registry with username/password."
+                                                        },
+                                                        "username": {
+                                                            "type": "string",
+                                                            "title": "Username",
+                                                            "description": "Used to authenticate for the registry with username/password."
+                                                        }
+                                                    }
+                                                },
+                                                "endpoint": {
+                                                    "type": "string",
+                                                    "title": "Endpoint",
+                                                    "description": "Endpoint for the container registry."
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "default": {
+                                        "docker.io": [
+                                            {
+                                                "endpoint": "registry-1.docker.io"
+                                            },
+                                            {
+                                                "endpoint": "giantswarm.azurecr.io"
+                                            }
+                                        ],
+                                        "gsoci.azurecr.io": [
+                                            {
+                                                "endpoint": "gsoci.azurecr.io"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "localRegistryCache": {
+                                    "type": "object",
+                                    "title": "Local registry caches configuration",
+                                    "description": "Enable local cache via http://127.0.0.1:<PORT>.",
+                                    "required": [
+                                        "enabled",
+                                        "port"
+                                    ],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "enabled": {
+                                            "type": "boolean",
+                                            "title": "Enable local registry caches",
+                                            "description": "Flag to enable local registry cache.",
+                                            "default": false
+                                        },
+                                        "mirroredRegistries": {
+                                            "type": "array",
+                                            "title": "Registries to cache locally",
+                                            "description": "A list of registries that should be cached.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "default": []
+                                        },
+                                        "port": {
+                                            "type": "integer",
+                                            "title": "Local port for the registry cache",
+                                            "description": "Port for the local registry cache under: http://127.0.0.1:<PORT>.",
+                                            "default": 32767
+                                        }
+                                    }
+                                },
+                                "managementClusterRegistryCache": {
+                                    "type": "object",
+                                    "title": "Management cluster registry cache",
+                                    "description": "Caching container registry on a management cluster level.",
+                                    "required": [
+                                        "enabled"
+                                    ],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "enabled": {
+                                            "type": "boolean",
+                                            "title": "Enabled",
+                                            "description": "Enabling this will configure containerd to use management cluster's Zot registry service. To make use of it as a pull-through cache, you also have to specify registries to cache images for.",
+                                            "default": true
+                                        },
+                                        "mirroredRegistries": {
+                                            "type": "array",
+                                            "title": "Registries to cache",
+                                            "description": "Here you must specify each registry to cache container images for. Please also make sure to have an entry for each registry in Global > Components > Containerd > Container registries.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "default": [
+                                                "gsoci.azurecr.io"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "selinux": {
+                            "type": "object",
+                            "title": "SELinux",
+                            "description": "Configuration of SELinux.",
+                            "required": [
+                                "mode"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "mode": {
+                                    "type": "string",
+                                    "title": "SELinux mode",
+                                    "description": "Configure SELinux mode: 'enforcing', 'permissive' or 'disabled'.",
+                                    "enum": [
+                                        "enforcing",
+                                        "permissive",
+                                        "disabled"
+                                    ],
+                                    "default": "permissive"
+                                }
+                            }
+                        }
+                    }
+                },
+                "connectivity": {
+                    "type": "object",
+                    "title": "Connectivity",
+                    "additionalProperties": false,
+                    "properties": {
+                        "availabilityZoneUsageLimit": {
+                            "type": "integer",
+                            "title": "Availability zones",
+                            "description": "Maximum number of availability zones (AZ) that should be used in a region. If a region has more than this number of AZs then this number of AZs will be picked randomly when creating subnets.",
+                            "default": 3
+                        },
+                        "baseDomain": {
+                            "type": "string",
+                            "title": "Base DNS domain"
+                        },
+                        "cilium": {
+                            "type": "object",
+                            "title": "Cilium",
+                            "description": "Configuration of the Cilium CNI.",
+                            "additionalProperties": false,
+                            "properties": {
+                                "ipamMode": {
+                                    "type": "string",
+                                    "title": "IPAM mode (IP allocation strategy)",
+                                    "description": "Use `eni` for ENI (AWS Elastic Network Interfaces) allocation of IPs in Cilium (https://docs.cilium.io/en/latest/network/concepts/ipam/eni/). The default is `kubernetes` (https://docs.cilium.io/en/latest/network/concepts/ipam/kubernetes/). WARNING: The `eni` feature is currently in an early stage and there might be breaking changes in the future. The networking infrastructure will be made consistent with our vintage cluster implementations so that pod IPs are placed in a secondary VPC CIDR.",
+                                    "enum": [
+                                        "eni",
+                                        "kubernetes"
+                                    ],
+                                    "default": "kubernetes"
+                                }
+                            }
+                        },
+                        "dns": {
+                            "type": "object",
+                            "title": "DNS",
+                            "properties": {
+                                "resolverRulesOwnerAccount": {
+                                    "type": "string",
+                                    "title": "Resolver rules owner",
+                                    "description": "ID of the AWS account that created the resolver rules to be associated with the workload cluster VPC.",
+                                    "oneOf": [
+                                        {
+                                            "pattern": "^\\d{12}$"
+                                        },
+                                        {
+                                            "const": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "eniModePodSubnets": {
+                            "type": "array",
+                            "title": "Pod Subnets for Cilium ENI mode",
+                            "description": "Pod subnets are created and tagged based on this definition. **Only used for `global.connectivity.cilium.ipamMode=eni`** which puts pods on a secondary CIDR block in the VPC, and therefore requires separate subnets. The subnets must be tagged with `sigs.k8s.io/cluster-api-provider-aws/association=secondary` to be correctly handled by CAPA (so those subnets aren't accidentally chosen for nodes). These subnets are always private.",
+                            "items": {
+                                "type": "object",
+                                "title": "Subnet",
+                                "properties": {
+                                    "cidrBlocks": {
+                                        "type": "array",
+                                        "title": "Network",
+                                        "items": {
+                                            "type": "object",
+                                            "required": [
+                                                "availabilityZone",
+                                                "cidr"
+                                            ],
+                                            "properties": {
+                                                "availabilityZone": {
+                                                    "type": "string",
+                                                    "title": "Availability zone",
+                                                    "examples": [
+                                                        "a"
+                                                    ]
+                                                },
+                                                "cidr": {
+                                                    "type": "string",
+                                                    "title": "Address range",
+                                                    "description": "IPv4 address range, in CIDR notation."
+                                                },
+                                                "tags": {
+                                                    "type": "object",
+                                                    "title": "Tags",
+                                                    "description": "AWS resource tags to assign to this subnet.",
+                                                    "additionalProperties": {
+                                                        "$ref": "#/$defs/awsResourceTagValue"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "tags": {
+                                        "type": "object",
+                                        "title": "Tags",
+                                        "description": "AWS resource tags to assign to this CIDR block.",
+                                        "additionalProperties": {
+                                            "$ref": "#/$defs/awsResourceTagValue"
+                                        }
+                                    }
+                                }
+                            },
+                            "default": [
+                                {
+                                    "cidrBlocks": [
+                                        {
+                                            "availabilityZone": "a",
+                                            "cidr": "10.1.0.0/18",
+                                            "tags": {
+                                                "sigs.k8s.io/cluster-api-provider-aws/association": "secondary"
+                                            }
+                                        },
+                                        {
+                                            "availabilityZone": "b",
+                                            "cidr": "10.1.64.0/18",
+                                            "tags": {
+                                                "sigs.k8s.io/cluster-api-provider-aws/association": "secondary"
+                                            }
+                                        },
+                                        {
+                                            "availabilityZone": "c",
+                                            "cidr": "10.1.128.0/18",
+                                            "tags": {
+                                                "sigs.k8s.io/cluster-api-provider-aws/association": "secondary"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "network": {
+                            "type": "object",
+                            "title": "Network",
+                            "additionalProperties": false,
+                            "properties": {
+                                "allowAllEgress": {
+                                    "type": "boolean",
+                                    "title": "Allow all egress",
+                                    "default": false
+                                },
+                                "internetGatewayId": {
+                                    "type": "string",
+                                    "title": "Internet Gateway ID",
+                                    "description": "ID of the Internet gateway for the VPC."
+                                },
+                                "pods": {
+                                    "type": "object",
+                                    "title": "Pods",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "cidrBlocks": {
+                                            "type": "array",
+                                            "title": "Pod subnets",
+                                            "description": "CIDR blocks used for pods. Right now, only one block is supported.<br/><br/>**Note if you use `global.connectivity.cilium.ipamMode=eni` (https://docs.cilium.io/en/latest/network/concepts/ipam/eni/#ipam-eni):** this will be associated as secondary VPC CIDR. Therefore, only sizes /16 to /28 sizes are possible (see https://docs.aws.amazon.com/vpc/latest/userguide/vpc-cidr-blocks.html). And `global.connectivity.eniModePodSubnets` must be a valid split of the CIDR you chose here – we recommend setting `10.1.0.0/16` here for ENI mode because the default values for `global.connectivity.eniModePodSubnets` match that CIDR.",
+                                            "items": {
+                                                "type": "string",
+                                                "title": "Pod subnet",
+                                                "description": "IPv4 address range for pods, in CIDR notation.",
+                                                "examples": [
+                                                    "10.244.0.0/16"
+                                                ]
+                                            },
+                                            "default": [
+                                                "100.64.0.0/12"
+                                            ],
+                                            "maxItems": 1,
+                                            "minItems": 1
+                                        },
+                                        "nodeCidrMaskSize": {
+                                            "type": "integer",
+                                            "title": "Node CIDR mask size",
+                                            "description": "The size of the mask that is used for the node CIDR. The node CIDR is a sub-range of the pod CIDR and so the mask size and pod CIDR must be chosen such that there is enough space for the maximum number of nodes in the cluster.",
+                                            "default": 24,
+                                            "maximum": 27,
+                                            "minimum": 16
+                                        }
+                                    }
+                                },
+                                "services": {
+                                    "type": "object",
+                                    "title": "Services",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "cidrBlocks": {
+                                            "type": "array",
+                                            "title": "K8s Service subnets",
+                                            "items": {
+                                                "type": "string",
+                                                "title": "Service subnet",
+                                                "description": "IPv4 address range for kubernetes services, in CIDR notation.",
+                                                "examples": [
+                                                    "172.31.0.0/16"
+                                                ]
+                                            },
+                                            "default": [
+                                                "172.31.0.0/16"
+                                            ],
+                                            "maxItems": 1,
+                                            "minItems": 1
+                                        }
+                                    }
+                                },
+                                "vpcCidr": {
+                                    "type": "string",
+                                    "title": "VPC subnet",
+                                    "description": "IPv4 address range to assign to this cluster's VPC, in CIDR notation.",
+                                    "default": "10.0.0.0/16"
+                                },
+                                "vpcId": {
+                                    "type": "string",
+                                    "title": "VPC id",
+                                    "description": "ID of the VPC, where the cluster will be deployed. The VPC must exist and it case this is set, VPC wont be created by controllers."
+                                }
+                            }
+                        },
+                        "proxy": {
+                            "type": "object",
+                            "title": "Proxy",
+                            "description": "Whether/how outgoing traffic is routed through proxy servers.",
+                            "additionalProperties": false,
+                            "properties": {
+                                "enabled": {
+                                    "type": "boolean",
+                                    "title": "Enable"
+                                },
+                                "httpProxy": {
+                                    "type": "string",
+                                    "title": "HTTP proxy",
+                                    "description": "To be passed to the HTTP_PROXY environment variable in all hosts."
+                                },
+                                "httpsProxy": {
+                                    "type": "string",
+                                    "title": "HTTPS proxy",
+                                    "description": "To be passed to the HTTPS_PROXY environment variable in all hosts."
+                                },
+                                "noProxy": {
+                                    "type": "string",
+                                    "title": "No proxy",
+                                    "description": "To be passed to the NO_PROXY environment variable in all hosts."
+                                }
+                            }
+                        },
+                        "subnets": {
+                            "type": "array",
+                            "title": "Subnets",
+                            "description": "Subnets are created and tagged based on this definition.",
+                            "items": {
+                                "type": "object",
+                                "title": "Subnet",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "cidrBlocks": {
+                                        "type": "array",
+                                        "title": "Network",
+                                        "items": {
+                                            "type": "object",
+                                            "required": [
+                                                "cidr"
+                                            ],
+                                            "properties": {
+                                                "availabilityZone": {
+                                                    "type": "string",
+                                                    "title": "Availability zone",
+                                                    "examples": [
+                                                        "a"
+                                                    ]
+                                                },
+                                                "cidr": {
+                                                    "type": "string",
+                                                    "title": "Address range",
+                                                    "description": "IPv4 address range, in CIDR notation."
+                                                },
+                                                "tags": {
+                                                    "type": "object",
+                                                    "title": "Tags",
+                                                    "description": "AWS resource tags to assign to this subnet.",
+                                                    "additionalProperties": {
+                                                        "$ref": "#/$defs/awsResourceTagValue"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "title": "ID of the subnet",
+                                        "description": "ID of an existing subnet. When set, this subnet will be used instead of creating a new one."
+                                    },
+                                    "isPublic": {
+                                        "type": "boolean",
+                                        "title": "Public"
+                                    },
+                                    "natGatewayId": {
+                                        "type": "string",
+                                        "title": "ID of the NAT Gateway",
+                                        "description": "ID of the NAT Gateway used for this existing subnet."
+                                    },
+                                    "routeTableId": {
+                                        "type": "string",
+                                        "title": "ID of route table",
+                                        "description": "ID of the route table, assigned to the existing subnet. Must be provided when defining subnet via ID."
+                                    },
+                                    "tags": {
+                                        "type": "object",
+                                        "title": "Tags",
+                                        "description": "AWS resource tags to assign to this CIDR block.",
+                                        "additionalProperties": {
+                                            "$ref": "#/$defs/awsResourceTagValue"
+                                        }
+                                    }
+                                }
+                            },
+                            "default": [
+                                {
+                                    "cidrBlocks": [
+                                        {
+                                            "cidr": "10.0.0.0/20"
+                                        },
+                                        {
+                                            "cidr": "10.0.16.0/20"
+                                        },
+                                        {
+                                            "cidr": "10.0.32.0/20"
+                                        }
+                                    ],
+                                    "isPublic": true
+                                },
+                                {
+                                    "cidrBlocks": [
+                                        {
+                                            "cidr": "10.0.64.0/18"
+                                        },
+                                        {
+                                            "cidr": "10.0.128.0/18"
+                                        },
+                                        {
+                                            "cidr": "10.0.192.0/18"
+                                        }
+                                    ],
+                                    "isPublic": false
+                                }
+                            ]
+                        },
+                        "topology": {
+                            "type": "object",
+                            "title": "Topology",
+                            "description": "Networking architecture between management cluster and workload cluster.",
+                            "additionalProperties": false,
+                            "properties": {
+                                "mode": {
+                                    "type": "string",
+                                    "title": "Mode",
+                                    "description": "Valid values: GiantSwarmManaged, UserManaged, None.",
+                                    "enum": [
+                                        "None",
+                                        "GiantSwarmManaged",
+                                        "UserManaged"
+                                    ],
+                                    "default": "None"
+                                },
+                                "prefixListId": {
+                                    "type": "string",
+                                    "title": "Prefix list ID",
+                                    "description": "ID of the managed prefix list to use when the topology mode is set to 'UserManaged'."
+                                },
+                                "transitGatewayId": {
+                                    "type": "string",
+                                    "title": "Transit gateway ID",
+                                    "description": "If the topology mode is set to 'UserManaged', this can be used to specify the transit gateway to use."
+                                }
+                            }
+                        },
+                        "vpcEndpointMode": {
+                            "type": "string",
+                            "title": "VPC endpoint mode",
+                            "description": "Who is reponsible for creation and management of VPC endpoints.",
+                            "enum": [
+                                "GiantSwarmManaged",
+                                "UserManaged"
+                            ],
+                            "default": "GiantSwarmManaged"
+                        },
+                        "vpcMode": {
+                            "type": "string",
+                            "title": "VPC mode",
+                            "description": "Whether the cluser's VPC is created with public, internet facing resources (public subnets, NAT gateway) or not (private).",
+                            "enum": [
+                                "public",
+                                "private"
+                            ],
+                            "default": "public"
+                        }
+                    }
+                },
+                "controlPlane": {
+                    "type": "object",
+                    "title": "Control plane",
+                    "additionalProperties": false,
+                    "properties": {
+                        "additionalSecurityGroups": {
+                            "type": "array",
+                            "title": "Control Plane additional security groups",
+                            "description": "Additional security groups that will be added to the control plane nodes.",
+                            "items": {
+                                "type": "object",
+                                "title": "Security group",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "title": "Id of the security group",
+                                        "description": "ID of the security group that will be added to the control plane nodes. The security group must exist."
+                                    }
+                                }
+                            }
+                        },
+                        "apiExtraArgs": {
+                            "type": "object",
+                            "title": "API extra arguments",
+                            "description": "Extra arguments passed to the kubernetes API server.",
+                            "patternProperties": {
+                                "^.+:.+$": {
+                                    "type": "string",
+                                    "title": "argument"
+                                }
+                            },
+                            "example": [
+                                "audit-log-maxsize: 100"
+                            ]
+                        },
+                        "apiExtraCertSANs": {
+                            "type": "array",
+                            "title": "API extra cert SANs",
+                            "description": "Extra certs SANs passed to the kubeadmcontrolplane CR.",
+                            "items": {
+                                "type": "string",
+                                "title": "cert SAN",
+                                "example": [
+                                    "test.mydomain.com"
+                                ]
+                            }
+                        },
+                        "apiMode": {
+                            "type": "string",
+                            "title": "API mode",
+                            "description": "Whether the Kubernetes API server load balancer should be reachable from the internet (public) or internal only (private).",
+                            "enum": [
+                                "public",
+                                "private"
+                            ],
+                            "default": "public"
+                        },
+                        "apiServerPort": {
+                            "type": "integer",
+                            "title": "API server port",
+                            "description": "The API server Load Balancer port. This option sets the Spec.ClusterNetwork.APIServerPort field on the Cluster CR. In CAPI this field isn't used currently. It is instead used in providers. In CAPA this sets only the public facing port of the Load Balancer. In CAPZ both the public facing and the destination port are set to this value. CAPV and CAPVCD do not use it.",
+                            "default": 443,
+                            "maximum": 65535,
+                            "minimum": 0
+                        },
+                        "etcdVolumeSizeGB": {
+                            "type": "integer",
+                            "title": "Etcd volume size (GB)",
+                            "default": 50
+                        },
+                        "instanceType": {
+                            "type": "string",
+                            "title": "EC2 instance type",
+                            "default": "r6i.xlarge"
+                        },
+                        "libVolumeSizeGB": {
+                            "type": "integer",
+                            "title": "Lib volume size (GB)",
+                            "description": "Size of the volume mounted at `/var/lib` on the control plane nodes. This disk is shared between kubelet folder `/var/lib/kubelet` and containerd folder `/var/lib/containerd`.",
+                            "default": 40
+                        },
+                        "loadBalancerIngressAllowCidrBlocks": {
+                            "type": "array",
+                            "title": "Load balancer allow list",
+                            "description": "IPv4 address ranges that are allowed to connect to the control plane load balancer, in CIDR notation. When setting this field, remember to add the Management cluster Nat Gateway IPs provided by Giant Swarm so that the cluster can still be managed. These Nat Gateway IPs can be found in the Management Cluster AWSCluster '.status.networkStatus.natGatewaysIPs' field.",
+                            "items": {
+                                "type": "string",
+                                "title": "Address range"
+                            }
+                        },
+                        "logVolumeSizeGB": {
+                            "type": "integer",
+                            "title": "Log volume size (GB)",
+                            "description": "Size of the volume mounted at /var/log on the control plane nodes.",
+                            "default": 15
+                        },
+                        "machineHealthCheck": {
+                            "type": "object",
+                            "title": "Machine health check",
+                            "additionalProperties": false,
+                            "properties": {
+                                "enabled": {
+                                    "type": "boolean",
+                                    "title": "Enable",
+                                    "default": true
+                                },
+                                "maxUnhealthy": {
+                                    "type": "string",
+                                    "title": "Maximum unhealthy nodes",
+                                    "examples": [
+                                        "40%"
+                                    ],
+                                    "default": "40%"
+                                },
+                                "nodeStartupTimeout": {
+                                    "type": "string",
+                                    "title": "Node startup timeout",
+                                    "description": "Determines how long a machine health check should wait for a node to join the cluster, before considering a machine unhealthy.",
+                                    "examples": [
+                                        "10m",
+                                        "100s"
+                                    ],
+                                    "default": "8m0s"
+                                },
+                                "unhealthyNotReadyTimeout": {
+                                    "type": "string",
+                                    "title": "Timeout for ready",
+                                    "description": "If a node is not in condition 'Ready' after this timeout, it will be considered unhealthy.",
+                                    "examples": [
+                                        "300s"
+                                    ],
+                                    "default": "10m0s"
+                                },
+                                "unhealthyUnknownTimeout": {
+                                    "type": "string",
+                                    "title": "Timeout for unknown condition",
+                                    "description": "If a node is in 'Unknown' condition after this timeout, it will be considered unhealthy.",
+                                    "examples": [
+                                        "300s"
+                                    ],
+                                    "default": "10m0s"
+                                }
+                            }
+                        },
+                        "oidc": {
+                            "type": "object",
+                            "title": "OIDC authentication",
+                            "additionalProperties": false,
+                            "properties": {
+                                "caPem": {
+                                    "type": "string",
+                                    "title": "Certificate authority",
+                                    "description": "Identity provider's CA certificate in PEM format."
+                                },
+                                "clientId": {
+                                    "type": "string",
+                                    "title": "Client ID"
+                                },
+                                "groupsClaim": {
+                                    "type": "string",
+                                    "title": "Groups claim"
+                                },
+                                "issuerUrl": {
+                                    "type": "string",
+                                    "title": "Issuer URL",
+                                    "description": "Exact issuer URL that will be included in identity tokens."
+                                },
+                                "usernameClaim": {
+                                    "type": "string",
+                                    "title": "Username claim"
+                                }
+                            }
+                        },
+                        "rootVolumeSizeGB": {
+                            "type": "integer",
+                            "title": "Root volume size (GB)",
+                            "default": 8
+                        },
+                        "subnetTags": {
+                            "type": "array",
+                            "title": "Subnet tags",
+                            "description": "Tags to select AWS resources for the control plane by.",
+                            "items": {
+                                "type": "object",
+                                "title": "Subnet tag",
+                                "additionalProperties": {
+                                    "$ref": "#/$defs/awsResourceTagValue"
+                                }
+                            }
+                        }
+                    }
+                },
+                "managementCluster": {
+                    "type": "string",
+                    "title": "Management cluster",
+                    "description": "Name of the Cluster API cluster managing this workload cluster."
+                },
+                "metadata": {
+                    "type": "object",
+                    "title": "Metadata",
+                    "additionalProperties": true,
+                    "properties": {
+                        "description": {
+                            "type": "string",
+                            "title": "Cluster description",
+                            "description": "User-friendly description of the cluster's purpose."
+                        },
+                        "labels": {
+                            "type": "object",
+                            "title": "Labels",
+                            "description": "These labels are added to the Kubernetes resources defining this cluster.",
+                            "additionalProperties": false,
+                            "patternProperties": {
+                                "^[a-zA-Z0-9/\\._-]+$": {
+                                    "type": "string",
+                                    "title": "Label",
+                                    "maxLength": 63,
+                                    "minLength": 0,
+                                    "pattern": "^[a-zA-Z0-9\\._-]+$"
+                                }
+                            }
+                        },
+                        "name": {
+                            "type": "string",
+                            "title": "Cluster name",
+                            "description": "Unique identifier, cannot be changed after creation."
+                        },
+                        "organization": {
+                            "type": "string",
+                            "title": "Organization"
+                        },
+                        "preventDeletion": {
+                            "type": "boolean",
+                            "title": "Prevent cluster deletion",
+                            "default": false
+                        },
+                        "servicePriority": {
+                            "type": "string",
+                            "title": "Service priority",
+                            "description": "The relative importance of this cluster.",
+                            "$comment": "Defined in https://github.com/giantswarm/rfc/tree/main/classify-cluster-priority",
+                            "enum": [
+                                "highest",
+                                "medium",
+                                "lowest"
+                            ],
+                            "default": "highest"
+                        }
+                    }
+                },
+                "nodePools": {
+                    "type": "object",
+                    "title": "Node pools",
+                    "description": "Node pools of the cluster. If not specified, this defaults to the value of `cluster.providerIntegration.workers.defaultNodePools`.",
+                    "additionalProperties": false,
+                    "patternProperties": {
+                        "^[a-z0-9][-a-z0-9]{3,18}[a-z0-9]$": {
+                            "$ref": "#/$defs/machinePool"
+                        }
+                    }
+                },
+                "podSecurityStandards": {
+                    "type": "object",
+                    "title": "Pod Security Standards",
+                    "properties": {
+                        "enforced": {
+                            "type": "boolean",
+                            "title": "Enforced",
+                            "default": true
+                        }
+                    }
+                },
+                "providerSpecific": {
+                    "type": "object",
+                    "title": "AWS settings",
+                    "additionalProperties": false,
+                    "properties": {
+                        "additionalNodeTags": {
+                            "type": "object",
+                            "title": "Additional node tags",
+                            "description": "Additional tags to add to AWS nodes created by the cluster.",
+                            "additionalProperties": {
+                                "$ref": "#/$defs/awsResourceTagValue"
+                            }
+                        },
+                        "additionalResourceTags": {
+                            "type": "object",
+                            "title": "Additional resource tags",
+                            "description": "Additional tags to add to AWS resources created by the cluster.",
+                            "additionalProperties": {
+                                "$ref": "#/$defs/awsResourceTagValue"
+                            }
+                        },
+                        "ami": {
+                            "type": "string",
+                            "title": "Amazon machine image (AMI)",
+                            "description": "If specified, this image will be used to provision EC2 instances."
+                        },
+                        "awsAccountId": {
+                            "type": "string",
+                            "title": "AWS Account ID",
+                            "description": "Only used when rendering the chart template locally, you shouldn't use this value. Used to calculate the IRSA service account issuer when using the China region."
+                        },
+                        "awsClusterRoleIdentityName": {
+                            "type": "string",
+                            "title": "Cluster role identity name",
+                            "description": "Name of an AWSClusterRoleIdentity object. Learn more at https://docs.giantswarm.io/getting-started/cloud-provider-accounts/cluster-api/aws/#configure-the-awsclusterroleidentity .",
+                            "$comment": "See also https://cluster-api-aws.sigs.k8s.io/topics/multitenancy.html#awsclusterroleidentity",
+                            "default": "default",
+                            "maxLength": 63,
+                            "minLength": 1,
+                            "pattern": "^[-a-zA-Z0-9_\\.]{1,63}$"
+                        },
+                        "controlPlaneAmi": {
+                            "type": "string",
+                            "title": "Amazon machine image (AMI) for control plane",
+                            "description": "If specified, this image will be used to provision EC2 instances for the control plane."
+                        },
+                        "flatcarAwsAccount": {
+                            "type": "string",
+                            "title": "AWS account owning Flatcar image",
+                            "description": "AWS account ID owning the Flatcar Container Linux AMI.",
+                            "default": "706635527432"
+                        },
+                        "instanceMetadataOptions": {
+                            "type": "object",
+                            "title": "Instance metadata options",
+                            "description": "Instance metadata options for the EC2 instances in the cluster.",
+                            "additionalProperties": false,
+                            "properties": {
+                                "httpTokens": {
+                                    "type": "string",
+                                    "title": "HTTP tokens",
+                                    "description": "The state of token usage for your instance metadata requests. If you set this parameter to `optional`, you can use either IMDSv1 or IMDSv2. If you set this parameter to `required`, you must use a IMDSv2 to access the instance metadata endpoint. Learn more at [What’s new in IMDSv2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html).",
+                                    "enum": [
+                                        "optional",
+                                        "required"
+                                    ],
+                                    "default": "required"
+                                }
+                            }
+                        },
+                        "nodePoolAmi": {
+                            "type": "string",
+                            "title": "Amazon machine image (AMI) for node pools",
+                            "description": "If specified, this image will be used to provision EC2 instances for node pools."
+                        },
+                        "nodeTerminationHandlerEnabled": {
+                            "type": "boolean",
+                            "title": "Use the AWS Node Termination Handler app",
+                            "description": "Defaults to true. Whether or not to enable the Auto Scaling Groups lifecycle hooks and use the node-termination-handler app (NTH) to manage the termination of EC2 instances.",
+                            "default": true
+                        },
+                        "reducedInstanceProfileIamPermissionsForWorkers": {
+                            "type": "boolean",
+                            "title": "Use reduced IAM permissions on worker nodes instance profile",
+                            "description": "Defaults to true. If something breaks, this can temporarily be disabled in order to bring certain IAM permissions (e.g. EC2) back for the worker nodes' IAM instance profile. Applications must use [IRSA](https://docs.giantswarm.io/tutorials/access-management/iam-roles-for-service-accounts/) to authenticate with the AWS API instead of falling back to the instance profile.",
+                            "default": true
+                        },
+                        "region": {
+                            "type": "string",
+                            "title": "Region"
+                        }
+                    }
+                },
+                "release": {
+                    "type": "object",
+                    "title": "Release",
+                    "description": "Information about the workload cluster release.",
+                    "required": [
+                        "version"
+                    ],
+                    "properties": {
+                        "version": {
+                            "type": "string",
+                            "title": "Version"
+                        }
+                    }
+                }
+            }
+        },
+        "internal": {
+            "type": "object",
+            "title": "Internal",
+            "description": "For Giant Swarm internal use only, not stable, or not supported by UIs.",
+            "properties": {
+                "awsPartition": {
+                    "type": "string",
+                    "title": "AWS Partition",
+                    "description": "Only used when rendering the chart template locally, you shouldn't use this value."
+                },
+                "hashSalt": {
+                    "type": "string",
+                    "title": "Hash salt",
+                    "description": "If specified, this token is used as a salt to the hash suffix of some resource names. Can be used to force-recreate some resources."
+                }
+            }
+        },
+        "managementCluster": {
+            "type": "string",
+            "title": "Management cluster",
+            "description": "Name of the Cluster API cluster managing this workload cluster."
+        },
+        "provider": {
+            "type": "string",
+            "title": "Cluster API provider name"
+        }
+    }
+}
