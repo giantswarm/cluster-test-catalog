@@ -3540,6 +3540,24 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/default-apps-eks-0.8.1-bf1503137f8619d7f63e92fd521b218f5c654d83.tgz
     version: 0.8.1-bf1503137f8619d7f63e92fd521b218f5c654d83
+  default-apps-vsphere:
+  - annotations:
+      application.giantswarm.io/app-type: bundle
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.16.0-961edfa94cbe4ff299119b17d750730d59d63247.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.16.0-961edfa94cbe4ff299119b17d750730d59d63247.tgz-meta/README.md
+      application.giantswarm.io/team: rocket
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.16.0-961edfa94cbe4ff299119b17d750730d59d63247.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2025-06-26T12:30:25.439919758Z"
+    description: A Helm chart which defines the pre-installed apps in all Giant Swarm
+      vSphere clusters
+    digest: 37c8d77354f568e4d4487bb46e701cb46bfa157893c937b5be2d9ffd0d44d958
+    home: https://github.com/giantswarm/default-apps-vsphere
+    icon: https://s.giantswarm.io/app-icons/vsphere/2/icon-light.png
+    name: default-apps-vsphere
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/default-apps-vsphere-0.16.0-961edfa94cbe4ff299119b17d750730d59d63247.tgz
+    version: 0.16.0-961edfa94cbe4ff299119b17d750730d59d63247
   network-policies:
   - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.1-08744bf81e771f2bc376709327e963de1be1aaf4.tgz-meta/main.yaml
@@ -3615,4 +3633,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.18.1-03cdcb6408a50835c29085bed50e2e647785aa13.tgz
     version: 0.18.1-03cdcb6408a50835c29085bed50e2e647785aa13
-generated: "2025-06-26T12:23:18.375027278Z"
+generated: "2025-06-26T12:30:25.438665922Z"
