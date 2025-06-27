@@ -3980,6 +3980,38 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-1.4.0-37be0b8a28eb59b6e059e0970441cbb4a2026576.tgz
     version: 1.4.0-37be0b8a28eb59b6e059e0970441cbb4a2026576
+  - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-1.4.0-062c8042cac2283de81adfcdbf8de2f1f05a8b66.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-1.4.0-062c8042cac2283de81adfcdbf8de2f1f05a8b66.tgz-meta/README.md
+      application.giantswarm.io/team: rocket
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-1.4.0-062c8042cac2283de81adfcdbf8de2f1f05a8b66.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2025-06-27T14:09:39.482875798Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 2.4.0
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the vSphere provider
+      (CAPV).
+    digest: 4fc0cbafc691f17fc6ce97fe8ada78269805873cdbb42794706dd38984d15520
+    home: https://github.com/giantswarm/cluster-vsphere
+    icon: https://s.giantswarm.io/app-icons/vsphere/2/icon-light.png
+    keywords:
+    - capv
+    - vsphere
+    - vmware
+    maintainers:
+    - email: team-rocket@giantswarm.io
+      name: Team Rocket
+    name: cluster-vsphere
+    sources:
+    - https://github.com/giantswarm/cluster-vsphere
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-1.4.0-062c8042cac2283de81adfcdbf8de2f1f05a8b66.tgz
+    version: 1.4.0-062c8042cac2283de81adfcdbf8de2f1f05a8b66
   default-apps-eks:
   - annotations:
       application.giantswarm.io/app-type: bundle
@@ -4245,4 +4277,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.18.1-03cdcb6408a50835c29085bed50e2e647785aa13.tgz
     version: 0.18.1-03cdcb6408a50835c29085bed50e2e647785aa13
-generated: "2025-06-27T09:11:44.399200802Z"
+generated: "2025-06-27T14:09:39.476073579Z"
