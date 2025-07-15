@@ -2822,6 +2822,30 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-051b470bca4fc5571d7216b7ec810adc1032bf1e.tgz
     version: 0.19.0-051b470bca4fc5571d7216b7ec810adc1032bf1e
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-01dfa8de96d01b488bda857957d83fd5ab73e77d.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-01dfa8de96d01b488bda857957d83fd5ab73e77d.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-01dfa8de96d01b488bda857957d83fd5ab73e77d.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2025-07-15T08:52:50.180460239Z"
+    dependencies:
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 8169da6cab95b8cae0aceba383c58e6a5a877eb665c4ca226defc4c07e71918b
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-01dfa8de96d01b488bda857957d83fd5ab73e77d.tgz
+    version: 0.19.0-01dfa8de96d01b488bda857957d83fd5ab73e77d
   cluster-shared:
   - annotations:
       application.giantswarm.io/area: kaas
@@ -3501,4 +3525,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/outgoing-proxy-stack-0.18.1-260112ffd34739d56316a63d5bfeba1287e6d155.tgz
     version: 0.18.1-260112ffd34739d56316a63d5bfeba1287e6d155
-generated: "2025-07-15T08:52:48.34729141Z"
+generated: "2025-07-15T08:52:50.176836907Z"
