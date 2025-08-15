@@ -5828,6 +5828,33 @@ entries:
     version: 0.19.0-1128f6fed096a0dc9dc458fe4831876d21a69bc7
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-0f45b81b37c3e20027524d1006706411755e01db.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-0f45b81b37c3e20027524d1006706411755e01db.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-0f45b81b37c3e20027524d1006706411755e01db.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2025-08-15T07:09:33.373740267Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 2.6.0
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: be4c36b482a478a4c7cbbd8e77c0a02897e67aa33649cb0bfae086710fff4159
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-0f45b81b37c3e20027524d1006706411755e01db.tgz
+    version: 0.19.0-0f45b81b37c3e20027524d1006706411755e01db
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-0d99845cef6797a317f02efa59dc968a692d25f9.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-0.19.0-0d99845cef6797a317f02efa59dc968a692d25f9.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -6525,4 +6552,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.1-45bebe51f527fa01fd1a99511a5a12011ea69aeb.tgz
     version: 0.1.1-45bebe51f527fa01fd1a99511a5a12011ea69aeb
-generated: "2025-08-15T07:09:26.655080847Z"
+generated: "2025-08-15T07:09:33.366499013Z"
