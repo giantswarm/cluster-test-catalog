@@ -4761,6 +4761,33 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-2.2.0-2596988a19dab23bdf0c90bf1fcff6f6f41c3a57.tgz
     version: 2.2.0-2596988a19dab23bdf0c90bf1fcff6f6f41c3a57
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-1.6.0.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-1.6.0.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-1.6.0.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2025-08-21T05:40:16.372014786Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 1.7.0
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the Azure infrastructure
+      provider (CAPZ).
+    digest: 727329eb2ba2168ee40f2156c1ff52968be0541e4dcce38dc19729a19a710518
+    home: https://github.com/giantswarm/cluster-azure
+    icon: https://s.giantswarm.io/app-icons/azure/1/light.svg
+    name: cluster-azure
+    sources:
+    - https://github.com/giantswarm/cluster-azure
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-1.6.0.tgz
+    version: 1.6.0
   cluster-cloud-director:
   - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-0.68.0.tgz-meta/main.yaml
@@ -7695,4 +7722,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.1-45bebe51f527fa01fd1a99511a5a12011ea69aeb.tgz
     version: 0.1.1-45bebe51f527fa01fd1a99511a5a12011ea69aeb
-generated: "2025-08-21T05:39:15.436079619Z"
+generated: "2025-08-21T05:40:16.364358787Z"
