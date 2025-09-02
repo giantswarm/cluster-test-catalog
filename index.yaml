@@ -3134,6 +3134,33 @@ entries:
     version: 2.3.1-f748d83b3b709832073ed96cea538303614e306b
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-2.3.1-bc77832b7b993c31f8b6fee68858f3169444edf8.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-2.3.1-bc77832b7b993c31f8b6fee68858f3169444edf8.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-2.3.1-bc77832b7b993c31f8b6fee68858f3169444edf8.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2025-09-02T17:10:54.95525749Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 2.6.2
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the Azure infrastructure
+      provider (CAPZ).
+    digest: c110e4c66f12b945be2445ec6ec741e07701177244d141b4494068d276f6e667
+    home: https://github.com/giantswarm/cluster-azure
+    icon: https://s.giantswarm.io/app-icons/azure/1/light.svg
+    name: cluster-azure
+    sources:
+    - https://github.com/giantswarm/cluster-azure
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-2.3.1-bc77832b7b993c31f8b6fee68858f3169444edf8.tgz
+    version: 2.3.1-bc77832b7b993c31f8b6fee68858f3169444edf8
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-2.3.1-bb17c48bb0829baa06f4273849fb0ce91bd188ea.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-2.3.1-bb17c48bb0829baa06f4273849fb0ce91bd188ea.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -6636,4 +6663,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.1-6bc93d1677894596de9ea5c09dfed75b0fa0cdff.tgz
     version: 0.1.1-6bc93d1677894596de9ea5c09dfed75b0fa0cdff
-generated: "2025-09-02T17:09:14.462540535Z"
+generated: "2025-09-02T17:10:54.945214105Z"
