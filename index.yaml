@@ -2260,6 +2260,33 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-5.0.0-03c97c9f9dd79036763f62bd09ae835cfaae97cc.tgz
     version: 5.0.0-03c97c9f9dd79036763f62bd09ae835cfaae97cc
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-5.0.0-0298c6c8b5f37fa18050a9c06f21ba067d334b78.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-5.0.0-0298c6c8b5f37fa18050a9c06f21ba067d334b78.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-5.0.0-0298c6c8b5f37fa18050a9c06f21ba067d334b78.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2025-10-02T13:15:37.408788802Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-test-catalog
+      version: 4.0.1-977d9880be77a077b57330cf916856e7798624f6
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 1f0afa05a6a361f8b23a4a714a8daae612d5490dde7bfcad37c39c166b8eb109
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-5.0.0-0298c6c8b5f37fa18050a9c06f21ba067d334b78.tgz
+    version: 5.0.0-0298c6c8b5f37fa18050a9c06f21ba067d334b78
   cluster-azure:
   - annotations:
       application.giantswarm.io/app-type: cluster
@@ -3055,4 +3082,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.1-157a0c2c09ac46c5c5d1bfef15592abf8a8e251b.tgz
     version: 0.1.1-157a0c2c09ac46c5c5d1bfef15592abf8a8e251b
-generated: "2025-10-02T13:13:57.046532819Z"
+generated: "2025-10-02T13:15:37.396472159Z"
