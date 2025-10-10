@@ -6761,6 +6761,38 @@ entries:
     version: 0.19.0-04b0faf9929ae8dbad8f06e4fd96d0327dfddd7f
   cluster-vsphere:
   - annotations:
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-3.0.1-d2e09d4239982b96cd5e818f9e66add0fc7b71b4.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-3.0.1-d2e09d4239982b96cd5e818f9e66add0fc7b71b4.tgz-meta/README.md
+      application.giantswarm.io/team: rocket
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-3.0.1-d2e09d4239982b96cd5e818f9e66add0fc7b71b4.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2025-10-10T14:48:53.742899478Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 4.0.3
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the vSphere provider
+      (CAPV).
+    digest: a5567b6a4a5e89430009204008b43ae7863f7b065c2560ad3b6eb71db01d4598
+    home: https://github.com/giantswarm/cluster-vsphere
+    icon: https://s.giantswarm.io/app-icons/vsphere/2/icon-light.png
+    keywords:
+    - capv
+    - vsphere
+    - vmware
+    maintainers:
+    - email: team-rocket@giantswarm.io
+      name: Team Rocket
+    name: cluster-vsphere
+    sources:
+    - https://github.com/giantswarm/cluster-vsphere
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-3.0.1-d2e09d4239982b96cd5e818f9e66add0fc7b71b4.tgz
+    version: 3.0.1-d2e09d4239982b96cd5e818f9e66add0fc7b71b4
+  - annotations:
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-3.0.1-cd15cae3f7efc037257e5b5675d7e9e0c9183721.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-3.0.1-cd15cae3f7efc037257e5b5675d7e9e0c9183721.tgz-meta/README.md
       application.giantswarm.io/team: rocket
@@ -7423,4 +7455,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.1-157a0c2c09ac46c5c5d1bfef15592abf8a8e251b.tgz
     version: 0.1.1-157a0c2c09ac46c5c5d1bfef15592abf8a8e251b
-generated: "2025-10-10T14:46:16.621655802Z"
+generated: "2025-10-10T14:48:53.735906712Z"
