@@ -1,0 +1,1002 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$defs": {
+        "awsResourceTagValue": {
+            "type": "string",
+            "title": "Tag value",
+            "$comment": "Restrictions based on https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions",
+            "maxLength": 256,
+            "minLength": 0,
+            "pattern": "^[ a-zA-Z0-9\\._:/=+-@]+$"
+        },
+        "machinePool": {
+            "type": "object",
+            "title": "Node pool",
+            "properties": {
+                "amiType": {
+                    "type": "string",
+                    "title": "AMI type",
+                    "enum": [
+                        "AL2023_x86_64_STANDARD",
+                        "AL2023_ARM_64_STANDARD",
+                        "CUSTOM"
+                    ]
+                },
+                "availabilityZones": {
+                    "type": "array",
+                    "title": "Availability zones",
+                    "items": {
+                        "type": "string",
+                        "title": "Availability zone"
+                    }
+                },
+                "customNodeLabels": {
+                    "type": "array",
+                    "title": "Custom node labels",
+                    "items": {
+                        "type": "string",
+                        "title": "Label"
+                    }
+                },
+                "customNodeTaints": {
+                    "type": "array",
+                    "title": "Custom node taints",
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "effect",
+                            "key",
+                            "value"
+                        ],
+                        "properties": {
+                            "effect": {
+                                "type": "string",
+                                "title": "Effect",
+                                "enum": [
+                                    "NoSchedule",
+                                    "PreferNoSchedule",
+                                    "NoExecute"
+                                ]
+                            },
+                            "key": {
+                                "type": "string",
+                                "title": "Key"
+                            },
+                            "value": {
+                                "type": "string",
+                                "title": "Value"
+                            }
+                        }
+                    }
+                },
+                "instanceType": {
+                    "type": "string",
+                    "title": "EC2 instance type"
+                },
+                "maxSize": {
+                    "type": "integer",
+                    "title": "Maximum number of nodes"
+                },
+                "minSize": {
+                    "type": "integer",
+                    "title": "Minimum number of nodes"
+                },
+                "rootVolumeSizeGB": {
+                    "type": "integer",
+                    "title": "Root volume size (GB)"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "title": "Subnet IDs",
+                    "description": "Subnet IDs to use for this node pool. This field is immutable and cannot be changed.",
+                    "items": {
+                        "type": "string",
+                        "title": "Subnet ID"
+                    }
+                },
+                "subnetTags": {
+                    "type": "array",
+                    "title": "Subnet tags",
+                    "description": "Tags to filter which AWS subnets will be used for this node pool.",
+                    "items": {
+                        "type": "object",
+                        "title": "Subnet tag",
+                        "additionalProperties": {
+                            "$ref": "#/$defs/awsResourceTagValue"
+                        }
+                    }
+                },
+                "updateConfig": {
+                    "type": "object",
+                    "title": "Update configuration of the nodegroup. Only one of maxUnavailable or maxUnavailablePercentage can be set. The maxUnavailable take precedence over maxUnavailablePercentage.",
+                    "properties": {
+                        "maxUnavailable": {
+                            "type": "integer",
+                            "title": "Max unavailable",
+                            "description": "MaxUnavailable is the maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. The maximum number is 100.",
+                            "maximum": 100,
+                            "minimum": 1
+                        },
+                        "maxUnavailablePercentage": {
+                            "type": "integer",
+                            "title": "Max unavailable percentage",
+                            "description": "MaxUnavailablePercentage is the maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once.",
+                            "maximum": 100,
+                            "minimum": 1
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "baseDomain": {
+            "type": "string",
+            "title": "Base DNS domain"
+        },
+        "cluster": {
+            "type": "object",
+            "title": "Cluster",
+            "description": "Helm values for the provider-independent cluster chart.",
+            "default": {
+                "providerIntegration": {
+                    "apps": {
+                        "certExporter": {
+                            "configTemplateName": "EKSCertExporterHelmValues",
+                            "enable": false
+                        },
+                        "certManager": {
+                            "enable": false
+                        },
+                        "chartOperatorExtensions": {
+                            "enable": false
+                        },
+                        "cilium": {
+                            "configTemplateName": "EKSCiliumHelmValues",
+                            "enable": false
+                        },
+                        "ciliumServiceMonitors": {
+                            "enable": false
+                        },
+                        "clusterAutoscaler": {
+                            "configTemplateName": "EKSClusterAutoscalerHelmValues",
+                            "enable": false
+                        },
+                        "coreDns": {
+                            "configTemplateName": "EKSCoreDNSHelmValues",
+                            "enable": false
+                        },
+                        "coreDnsExtensions": {
+                            "configTemplateName": "EKSCorednsHelmValues",
+                            "enable": false
+                        },
+                        "externalDns": {
+                            "configTemplateName": "EKSExternalDNSHelmValues",
+                            "enable": false
+                        },
+                        "k8sDnsNodeCache": {
+                            "enable": false
+                        },
+                        "metricsServer": {
+                            "enable": false
+                        },
+                        "netExporter": {
+                            "configTemplateName": "EKSNetExporterHelmValues",
+                            "enable": false
+                        },
+                        "networkPolicies": {
+                            "configTemplateName": "EKSNetworkPoliciesHelmValues",
+                            "enable": false
+                        },
+                        "nodeExporter": {
+                            "enable": false
+                        },
+                        "observabilityBundle": {
+                            "enable": false
+                        },
+                        "observabilityPolicies": {
+                            "enable": false
+                        },
+                        "securityBundle": {
+                            "configTemplateName": "EKSSecurityBundleHelmValues",
+                            "enable": false
+                        },
+                        "teleportKubeAgent": {
+                            "enable": true
+                        },
+                        "verticalPodAutoscaler": {
+                            "enable": false
+                        },
+                        "verticalPodAutoscalerCrd": {
+                            "enable": false
+                        }
+                    },
+                    "controlPlane": {
+                        "resources": {
+                            "controlPlane": {
+                                "api": {
+                                    "group": "controlplane.cluster.x-k8s.io",
+                                    "kind": "AWSManagedControlPlane",
+                                    "version": "v1beta2"
+                                }
+                            },
+                            "infrastructureMachineTemplate": {
+                                "group": "controlplane.cluster.x-k8s.io",
+                                "kind": "AWSManagedControlPlane",
+                                "version": "v1beta2"
+                            },
+                            "infrastructureMachineTemplateSpecTemplateName": "template-not-implemented"
+                        }
+                    },
+                    "provider": "eks",
+                    "resourcesApi": {
+                        "bastionResourceEnabled": false,
+                        "cleanupHelmReleaseResourcesEnabled": false,
+                        "clusterResourceEnabled": true,
+                        "controlPlaneResourceEnabled": false,
+                        "helmRepositoryResourcesEnabled": true,
+                        "infrastructureCluster": {
+                            "group": "infrastructure.cluster.x-k8s.io",
+                            "kind": "AWSManagedCluster",
+                            "version": "v1beta2"
+                        },
+                        "infrastructureMachinePool": {
+                            "group": "infrastructure.cluster.x-k8s.io",
+                            "kind": "AWSManagedMachinePool",
+                            "version": "v1beta2"
+                        },
+                        "machineHealthCheckResourceEnabled": false,
+                        "machinePool": {
+                            "bootstrap": {
+                                "templateName": "machine-pool-bootstrap-config"
+                            }
+                        },
+                        "machinePoolResourcesEnabled": true,
+                        "nodePoolKind": "MachinePool"
+                    },
+                    "useReleases": true,
+                    "workers": {
+                        "defaultNodePools": {
+                            "def00": {
+                                "cloneMode": "linkedClone",
+                                "machineHealthCheck": {
+                                    "enabled": true,
+                                    "maxUnhealthy": "40%",
+                                    "nodeStartupTimeout": "20m0s",
+                                    "unhealthyNotReadyTimeout": "10m0s",
+                                    "unhealthyUnknownTimeout": "10m0s"
+                                },
+                                "memoryMiB": 16896,
+                                "network": {},
+                                "numCPUs": 6,
+                                "replicas": 2,
+                                "resourcePool": "*/Resources",
+                                "template": ""
+                            }
+                        },
+                        "kubeadmConfig": {
+                            "enabled": false
+                        },
+                        "resources": {
+                            "infrastructureMachineTemplateSpecTemplateName": "managed-machine-pool-spec"
+                        }
+                    }
+                }
+            }
+        },
+        "cluster-shared": {
+            "type": "object",
+            "title": "Library chart"
+        },
+        "global": {
+            "type": "object",
+            "title": "Global properties",
+            "description": "Properties that are available to all charts and subcharts.",
+            "additionalProperties": true,
+            "properties": {
+                "connectivity": {
+                    "type": "object",
+                    "title": "Connectivity",
+                    "properties": {
+                        "availabilityZoneUsageLimit": {
+                            "type": "integer",
+                            "title": "Availability zones",
+                            "description": "Maximum number of availability zones (AZ) that should be used in a region. If a region has more than this number of AZs then this number of AZs will be picked randomly when creating subnets.",
+                            "default": 3
+                        },
+                        "baseDomain": {
+                            "type": "string",
+                            "title": "Base DNS domain"
+                        },
+                        "network": {
+                            "type": "object",
+                            "title": "Network",
+                            "properties": {
+                                "pods": {
+                                    "type": "object",
+                                    "title": "Pods",
+                                    "properties": {
+                                        "cidrBlocks": {
+                                            "type": "array",
+                                            "title": "Pod subnets",
+                                            "items": {
+                                                "type": "string",
+                                                "title": "Pod subnet",
+                                                "description": "IPv4 address range for pods, in CIDR notation. Must be within the 100.64.0.0/10 or 198.19.0.0/16 range. The CIDR block size must be betwen /16 and /28.",
+                                                "examples": [
+                                                    "100.64.0.0/16"
+                                                ]
+                                            },
+                                            "default": [
+                                                "100.64.0.0/16"
+                                            ],
+                                            "maxItems": 1,
+                                            "minItems": 1
+                                        }
+                                    }
+                                },
+                                "services": {
+                                    "type": "object",
+                                    "title": "Services",
+                                    "properties": {
+                                        "cidrBlocks": {
+                                            "type": "array",
+                                            "title": "K8s Service subnets",
+                                            "items": {
+                                                "type": "string",
+                                                "title": "Service subnet",
+                                                "description": "IPv4 address range for kubernetes services, in CIDR notation.",
+                                                "enum": [
+                                                    "172.31.0.0/16"
+                                                ],
+                                                "examples": [
+                                                    "172.31.0.0/16"
+                                                ]
+                                            },
+                                            "default": [
+                                                "172.31.0.0/16"
+                                            ],
+                                            "maxItems": 1,
+                                            "minItems": 1
+                                        }
+                                    }
+                                },
+                                "vpcCidr": {
+                                    "type": "string",
+                                    "title": "VPC subnet",
+                                    "description": "IPv4 address range to assign to this cluster's VPC, in CIDR notation.",
+                                    "default": "10.0.0.0/16"
+                                }
+                            }
+                        },
+                        "podSubnets": {
+                            "type": "array",
+                            "title": "Pod Subnets",
+                            "description": "Pod Subnets are created and tagged based on this definition.",
+                            "items": {
+                                "type": "object",
+                                "title": "Subnet",
+                                "properties": {
+                                    "cidrBlocks": {
+                                        "type": "array",
+                                        "title": "Network",
+                                        "items": {
+                                            "type": "object",
+                                            "required": [
+                                                "availabilityZone",
+                                                "cidr"
+                                            ],
+                                            "properties": {
+                                                "availabilityZone": {
+                                                    "type": "string",
+                                                    "title": "Availability zone",
+                                                    "examples": [
+                                                        "a"
+                                                    ]
+                                                },
+                                                "cidr": {
+                                                    "type": "string",
+                                                    "title": "Address range",
+                                                    "description": "IPv4 address range, in CIDR notation."
+                                                },
+                                                "tags": {
+                                                    "type": "object",
+                                                    "title": "Tags",
+                                                    "description": "AWS resource tags to assign to this subnet.",
+                                                    "additionalProperties": {
+                                                        "$ref": "#/$defs/awsResourceTagValue"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "tags": {
+                                        "type": "object",
+                                        "title": "Tags",
+                                        "description": "AWS resource tags to assign to this CIDR block.",
+                                        "additionalProperties": {
+                                            "$ref": "#/$defs/awsResourceTagValue"
+                                        }
+                                    }
+                                }
+                            },
+                            "default": [
+                                {
+                                    "cidrBlocks": [
+                                        {
+                                            "availabilityZone": "a",
+                                            "cidr": "100.64.0.0/18",
+                                            "tags": {
+                                                "sigs.k8s.io/cluster-api-provider-aws/association": "secondary"
+                                            }
+                                        },
+                                        {
+                                            "availabilityZone": "b",
+                                            "cidr": "100.64.64.0/18",
+                                            "tags": {
+                                                "sigs.k8s.io/cluster-api-provider-aws/association": "secondary"
+                                            }
+                                        },
+                                        {
+                                            "availabilityZone": "c",
+                                            "cidr": "100.64.128.0/18",
+                                            "tags": {
+                                                "sigs.k8s.io/cluster-api-provider-aws/association": "secondary"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "proxy": {
+                            "type": "object",
+                            "title": "Proxy",
+                            "description": "Whether/how outgoing traffic is routed through proxy servers.",
+                            "properties": {
+                                "enabled": {
+                                    "type": "boolean",
+                                    "title": "Enable"
+                                },
+                                "httpProxy": {
+                                    "type": "string",
+                                    "title": "HTTP proxy",
+                                    "description": "To be passed to the HTTP_PROXY environment variable in all hosts."
+                                },
+                                "httpsProxy": {
+                                    "type": "string",
+                                    "title": "HTTPS proxy",
+                                    "description": "To be passed to the HTTPS_PROXY environment variable in all hosts."
+                                },
+                                "noProxy": {
+                                    "type": "string",
+                                    "title": "No proxy",
+                                    "description": "To be passed to the NO_PROXY environment variable in all hosts."
+                                }
+                            }
+                        },
+                        "subnets": {
+                            "type": "array",
+                            "title": "Subnets",
+                            "description": "Subnets are created and tagged based on this definition.",
+                            "items": {
+                                "type": "object",
+                                "title": "Subnet",
+                                "properties": {
+                                    "cidrBlocks": {
+                                        "type": "array",
+                                        "title": "Network",
+                                        "items": {
+                                            "type": "object",
+                                            "required": [
+                                                "availabilityZone",
+                                                "cidr"
+                                            ],
+                                            "properties": {
+                                                "availabilityZone": {
+                                                    "type": "string",
+                                                    "title": "Availability zone",
+                                                    "examples": [
+                                                        "a"
+                                                    ]
+                                                },
+                                                "cidr": {
+                                                    "type": "string",
+                                                    "title": "Address range",
+                                                    "description": "IPv4 address range, in CIDR notation."
+                                                },
+                                                "tags": {
+                                                    "type": "object",
+                                                    "title": "Tags",
+                                                    "description": "AWS resource tags to assign to this subnet.",
+                                                    "additionalProperties": {
+                                                        "$ref": "#/$defs/awsResourceTagValue"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "isPublic": {
+                                        "type": "boolean",
+                                        "title": "Public"
+                                    },
+                                    "tags": {
+                                        "type": "object",
+                                        "title": "Tags",
+                                        "description": "AWS resource tags to assign to this CIDR block.",
+                                        "additionalProperties": {
+                                            "$ref": "#/$defs/awsResourceTagValue"
+                                        }
+                                    }
+                                }
+                            },
+                            "default": [
+                                {
+                                    "cidrBlocks": [
+                                        {
+                                            "availabilityZone": "a",
+                                            "cidr": "10.0.0.0/20"
+                                        },
+                                        {
+                                            "availabilityZone": "b",
+                                            "cidr": "10.0.16.0/20"
+                                        },
+                                        {
+                                            "availabilityZone": "c",
+                                            "cidr": "10.0.32.0/20"
+                                        }
+                                    ],
+                                    "isPublic": true
+                                },
+                                {
+                                    "cidrBlocks": [
+                                        {
+                                            "availabilityZone": "a",
+                                            "cidr": "10.0.64.0/18"
+                                        },
+                                        {
+                                            "availabilityZone": "b",
+                                            "cidr": "10.0.128.0/18"
+                                        },
+                                        {
+                                            "availabilityZone": "c",
+                                            "cidr": "10.0.192.0/18"
+                                        }
+                                    ],
+                                    "isPublic": false
+                                }
+                            ]
+                        }
+                    }
+                },
+                "controlPlane": {
+                    "type": "object",
+                    "title": "Control plane",
+                    "properties": {
+                        "apiMode": {
+                            "type": "string",
+                            "title": "API mode",
+                            "description": "Whether the Kubernetes API server load balancer should be reachable from the internet (public) or internal only (private).",
+                            "enum": [
+                                "public",
+                                "private"
+                            ],
+                            "default": "public"
+                        },
+                        "encryptionConfig": {
+                            "type": "object",
+                            "title": "Encryption config",
+                            "description": "Encryption configuration for the Kubernetes API server.",
+                            "properties": {
+                                "keyArn": {
+                                    "type": "string",
+                                    "title": "Key ARN",
+                                    "description": "AWS KMS key ARN. To enable encryption when creating a cluster, you need to create a new KMS key that has an alias name starting with `cluster-api-provider-aws-`. For example: `arn:aws:kms:eu-north-1:12345678901:alias/cluster-api-provider-aws-key1`. But do not use the ARN of the alias to fill this value, Use then ARN of the key itself.",
+                                    "examples": [
+                                        "arn:aws:kms:eu-west-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+                                    ]
+                                },
+                                "resources": {
+                                    "type": "array",
+                                    "title": "Resources",
+                                    "description": "Specifies the resources to be encrypted. The only supported value is secrets.",
+                                    "items": {
+                                        "type": "string",
+                                        "title": "Resource",
+                                        "description": "Specifies the resources to be encrypted. The only supported value is secrets."
+                                    }
+                                }
+                            }
+                        },
+                        "logging": {
+                            "type": "object",
+                            "title": "Logging",
+                            "properties": {
+                                "apiServer": {
+                                    "type": "boolean",
+                                    "title": "Api Server",
+                                    "description": "Enable or disable Api server logging to CloudWatch (https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).",
+                                    "default": true
+                                },
+                                "audit": {
+                                    "type": "boolean",
+                                    "title": "Audit",
+                                    "description": "Enable or disable audit logging to CloudWatch (https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).",
+                                    "default": true
+                                },
+                                "authenticator": {
+                                    "type": "boolean",
+                                    "title": "Authenticator",
+                                    "description": "Enable or disable IAM Authenticator logging to CloudWatch (https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).",
+                                    "default": true
+                                },
+                                "controllerManager": {
+                                    "type": "boolean",
+                                    "title": "Controller Manager",
+                                    "description": "Enable or disable Controller Manager logging to CloudWatch (https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).",
+                                    "default": true
+                                }
+                            }
+                        },
+                        "oidc": {
+                            "type": "object",
+                            "title": "OIDC identity provider config",
+                            "description": "OIDC identity provider configuration for the Kubernetes API server.",
+                            "properties": {
+                                "clientId": {
+                                    "type": "string",
+                                    "title": "Client ID",
+                                    "description": "Client ID of the OIDC identity provider."
+                                },
+                                "groupsClaim": {
+                                    "type": "string",
+                                    "title": "Groups claim",
+                                    "description": "Claim to use for mapping groups."
+                                },
+                                "groupsPrefix": {
+                                    "type": "string",
+                                    "title": "Groups prefix",
+                                    "description": "Prefix to use for mapping groups."
+                                },
+                                "identityProviderConfigName": {
+                                    "type": "string",
+                                    "title": "Identity provider config name",
+                                    "description": "Name of the OIDC identity provider config."
+                                },
+                                "issuerUrl": {
+                                    "type": "string",
+                                    "title": "Issuer URL",
+                                    "description": "URL of the OIDC identity provider."
+                                },
+                                "requiredClaims": {
+                                    "type": "object",
+                                    "title": "Required claims",
+                                    "description": "Required claims for the OIDC identity provider.",
+                                    "additionalProperties": {
+                                        "type": "string",
+                                        "title": "Claim"
+                                    }
+                                },
+                                "tags": {
+                                    "type": "object",
+                                    "title": "Tags",
+                                    "description": "AWS resource tags to assign to the IAM OIDC provider.",
+                                    "additionalProperties": {
+                                        "$ref": "#/$defs/awsResourceTagValue"
+                                    }
+                                },
+                                "usernameClaim": {
+                                    "type": "string",
+                                    "title": "Username claim",
+                                    "description": "Claim to use for mapping usernames."
+                                },
+                                "usernamePrefix": {
+                                    "type": "string",
+                                    "title": "Username prefix",
+                                    "description": "Prefix to use for mapping usernames."
+                                }
+                            }
+                        },
+                        "roleMapping": {
+                            "type": "array",
+                            "title": "Role mappings",
+                            "items": {
+                                "type": "object",
+                                "title": "Role mapping",
+                                "description": "Maps AWS IAM role to Kubernetes role.",
+                                "properties": {
+                                    "groups": {
+                                        "type": "array",
+                                        "title": "Groups",
+                                        "description": "Kubernetes groups.",
+                                        "items": {
+                                            "type": "string",
+                                            "title": "Group",
+                                            "description": "Kubernetes group, for example `system:masters`."
+                                        }
+                                    },
+                                    "rolearn": {
+                                        "type": "string",
+                                        "title": "AWS Role ARN",
+                                        "description": "Full ARN of the AWS IAM role."
+                                    },
+                                    "username": {
+                                        "type": "string",
+                                        "title": "Kubernetes username",
+                                        "description": "Kubernetes username, for example `cluster-admin`."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "managementCluster": {
+                    "type": "string",
+                    "title": "Management cluster",
+                    "description": "Name of the Cluster API cluster managing this workload cluster."
+                },
+                "metadata": {
+                    "type": "object",
+                    "title": "Metadata",
+                    "additionalProperties": true,
+                    "properties": {
+                        "description": {
+                            "type": "string",
+                            "title": "Cluster description",
+                            "description": "User-friendly description of the cluster's purpose."
+                        },
+                        "name": {
+                            "type": "string",
+                            "title": "Cluster name",
+                            "description": "Unique identifier, cannot be changed after creation."
+                        },
+                        "organization": {
+                            "type": "string",
+                            "title": "Organization"
+                        },
+                        "preventDeletion": {
+                            "type": "boolean",
+                            "title": "Prevent cluster deletion",
+                            "default": false
+                        },
+                        "servicePriority": {
+                            "type": "string",
+                            "title": "Service priority",
+                            "description": "The relative importance of this cluster.",
+                            "$comment": "Defined in https://github.com/giantswarm/rfc/tree/main/classify-cluster-priority",
+                            "enum": [
+                                "highest",
+                                "medium",
+                                "lowest"
+                            ],
+                            "default": "highest"
+                        }
+                    },
+                    "default": null
+                },
+                "nodePools": {
+                    "type": "object",
+                    "title": "Node pools",
+                    "description": "Node pools of the cluster. If not specified, this defaults to the value of `internal.nodePools`.",
+                    "additionalProperties": false,
+                    "patternProperties": {
+                        "^[a-z0-9][-a-z0-9]{3,18}[a-z0-9]$": {
+                            "$ref": "#/$defs/machinePool"
+                        }
+                    }
+                },
+                "podSecurityStandards": {
+                    "type": "object",
+                    "title": "Pod Security Standards",
+                    "properties": {
+                        "enforced": {
+                            "type": "boolean",
+                            "title": "Enforced",
+                            "default": true
+                        }
+                    }
+                },
+                "providerSpecific": {
+                    "type": "object",
+                    "title": "AWS settings",
+                    "properties": {
+                        "additionalResourceTags": {
+                            "type": "object",
+                            "title": "Additional resource tags",
+                            "description": "Additional tags to add to AWS resources created by the cluster.",
+                            "additionalProperties": {
+                                "$ref": "#/$defs/awsResourceTagValue"
+                            }
+                        },
+                        "addons": {
+                            "type": "array",
+                            "title": "EKS Addons",
+                            "description": "List of EKS addons to enable with the EKS cluster.",
+                            "items": {
+                                "type": "object",
+                                "title": "Addon",
+                                "required": [
+                                    "name",
+                                    "version"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                    "configuration": {
+                                        "type": "string",
+                                        "title": "Configuration",
+                                        "description": "Configuration of the EKS addon."
+                                    },
+                                    "conflictResolution": {
+                                        "type": "string",
+                                        "title": "Conflict resolution",
+                                        "description": "Declare what should happen if there are parameter conflicts. Defaults to none.",
+                                        "enum": [
+                                            "overwrite",
+                                            "none"
+                                        ],
+                                        "default": "none"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "title": "Addon name",
+                                        "description": "Name of the EKS addon."
+                                    },
+                                    "serviceAccountRoleARN": {
+                                        "type": "string",
+                                        "title": "Service Account Role ARN",
+                                        "description": "The ARN of an IAM role to bind to the addon's service account."
+                                    },
+                                    "version": {
+                                        "type": "string",
+                                        "title": "Addon version",
+                                        "description": "Version of the EKS addon."
+                                    }
+                                }
+                            },
+                            "default": []
+                        },
+                        "ami": {
+                            "type": "string",
+                            "title": "Amazon machine image (AMI)",
+                            "description": "If specified, this image will be used to provision EC2 instances."
+                        },
+                        "awsAccountId": {
+                            "type": "string",
+                            "title": "AWS account ID",
+                            "description": "AWS Account ID of the AWSClusterRoleIdentity IAM role, recommendation is to leave this value empty as it will be automatically calculated. This value is needed for tests.",
+                            "default": "",
+                            "maxLength": 12,
+                            "minLength": 0,
+                            "pattern": "^[0-9]{0,12}$"
+                        },
+                        "awsClusterRoleIdentityName": {
+                            "type": "string",
+                            "title": "Cluster role identity name",
+                            "description": "Name of an AWSClusterRoleIdentity object. This in turn refers to the IAM role used to create all AWS cloud resources when creating the cluster. The role can be in another AWS account in order to create all resources in that account. Note: This name does not refer directly to an IAM role name/ARN.",
+                            "$comment": "See also https://cluster-api-aws.sigs.k8s.io/topics/multitenancy.html#awsclusterroleidentity",
+                            "default": "default",
+                            "maxLength": 63,
+                            "minLength": 1,
+                            "pattern": "^[-a-zA-Z0-9_\\.]{1,63}$"
+                        },
+                        "kubeProxy": {
+                            "type": "object",
+                            "title": "Kube Proxy",
+                            "description": "KubeProxy defines managed attributes of the kube-proxy daemonset.",
+                            "additionalProperties": false,
+                            "properties": {
+                                "disable": {
+                                    "type": "boolean",
+                                    "title": "Disable kube-proxy",
+                                    "description": "Disable set to true indicates that kube-proxy should be disabled. With EKS clusters, kube-proxy is automatically installed into the cluster. For clusters where you want to use kube-proxy functionality that is provided with an alternate CNI, this option provides a way to specify that the kube-proxy daemonset should be deleted. You cannot set this to true if you are using the Amazon kube-proxy addon.",
+                                    "default": false
+                                }
+                            }
+                        },
+                        "region": {
+                            "type": "string",
+                            "title": "Region"
+                        },
+                        "vpcCni": {
+                            "type": "object",
+                            "title": "VPC CNI",
+                            "description": "Configuration for the AWS VPC CNI.",
+                            "properties": {
+                                "disable": {
+                                    "type": "boolean",
+                                    "title": "Disable",
+                                    "description": "Disable indicates that the Amazon VPC CNI should be disabled. With EKS clusters the Amazon VPC CNI is automatically installed into the cluster. For clusters where you want to use an alternate CNI this option provides a way to specify that the Amazon VPC CNI should be deleted. You cannot set this to true if you are using the Amazon VPC CNI addon.",
+                                    "default": false
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "internal": {
+            "type": "object",
+            "title": "Internal",
+            "description": "For Giant Swarm internal use only, not stable, or not supported by UIs.",
+            "properties": {
+                "hashSalt": {
+                    "type": "string",
+                    "title": "Hash salt",
+                    "description": "If specified, this token is used as a salt to the hash suffix of some resource names. Can be used to force-recreate some resources."
+                },
+                "nodePools": {
+                    "type": "object",
+                    "title": "Default node pool",
+                    "patternProperties": {
+                        "^[a-z0-9][-a-z0-9]{3,18}[a-z0-9]$": {
+                            "$ref": "#/$defs/machinePool"
+                        }
+                    },
+                    "default": {
+                        "def00": {
+                            "amiType": "AL2023_x86_64_STANDARD",
+                            "customNodeLabels": [
+                                "label=default"
+                            ],
+                            "instanceType": "r6i.xlarge",
+                            "maxSize": 4,
+                            "minSize": 3
+                        }
+                    }
+                },
+                "sandboxContainerImage": {
+                    "type": "object",
+                    "title": "Kubectl image",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "title": "Repository",
+                            "default": "giantswarm/pause"
+                        },
+                        "registry": {
+                            "type": "string",
+                            "title": "Registry",
+                            "default": "gsoci.azurecr.io"
+                        },
+                        "tag": {
+                            "type": "string",
+                            "title": "Tag",
+                            "default": "3.10.1"
+                        }
+                    }
+                }
+            }
+        },
+        "kubectlImage": {
+            "type": "object",
+            "title": "Kubectl image",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Repository",
+                    "default": "giantswarm/kubectl"
+                },
+                "registry": {
+                    "type": "string",
+                    "title": "Registry",
+                    "default": "gsoci.azurecr.io"
+                },
+                "tag": {
+                    "type": "string",
+                    "title": "Tag",
+                    "default": "1.31.4"
+                }
+            }
+        },
+        "managementCluster": {
+            "type": "string",
+            "title": "Management cluster",
+            "description": "Name of the Cluster API cluster managing this workload cluster."
+        },
+        "provider": {
+            "type": "string",
+            "title": "Cluster API provider name"
+        }
+    }
+}
