@@ -3306,6 +3306,33 @@ entries:
     version: 6.4.0-24127c18ed5a675bb64e9c6e09de7fa26d1231fc
   - annotations:
       application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-6.4.0-220fd2adee679ed2d97db01398dfe179dce82998.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-6.4.0-220fd2adee679ed2d97db01398dfe179dce82998.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-6.4.0-220fd2adee679ed2d97db01398dfe179dce82998.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2025-12-03T10:19:51.617233117Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 5.0.0
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: d805236fcf1731ca7571b5b3ef12ea059363b4f55d8b5aa8356d4c13175c7415
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-6.4.0-220fd2adee679ed2d97db01398dfe179dce82998.tgz
+    version: 6.4.0-220fd2adee679ed2d97db01398dfe179dce82998
+  - annotations:
+      application.giantswarm.io/app-type: cluster
       application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-6.4.0-20f2d9291593e07311f089ff565b2bbed4884c07.tgz-meta/main.yaml
       application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-6.4.0-20f2d9291593e07311f089ff565b2bbed4884c07.tgz-meta/README.md
       application.giantswarm.io/team: phoenix
@@ -5124,4 +5151,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-3.4.0-226d32699e7c202e8ee139da77fbd8a0429ea038.tgz
     version: 3.4.0-226d32699e7c202e8ee139da77fbd8a0429ea038
-generated: "2025-12-03T10:15:32.327354416Z"
+generated: "2025-12-03T10:19:51.604873543Z"
