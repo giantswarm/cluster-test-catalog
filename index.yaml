@@ -796,6 +796,33 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-5.3.0-ca20c302a1b5d189307c3e3c9f5f5575c49a396e.tgz
     version: 5.3.0-ca20c302a1b5d189307c3e3c9f5f5575c49a396e
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-5.3.0-b4caba5a3ccf388c7c33e4187be0eeaeceb0ef97.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-5.3.0-b4caba5a3ccf388c7c33e4187be0eeaeceb0ef97.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-5.3.0-b4caba5a3ccf388c7c33e4187be0eeaeceb0ef97.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2026-01-08T15:05:10.072999631Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 3.0.1
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 8d5585543378240d654668aa4471086a5357e8453bb1ab3950aa5e65650698a0
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-5.3.0-b4caba5a3ccf388c7c33e4187be0eeaeceb0ef97.tgz
+    version: 5.3.0-b4caba5a3ccf388c7c33e4187be0eeaeceb0ef97
   cluster-azure:
   - annotations:
       io.giantswarm.application.app-type: cluster
@@ -2187,4 +2214,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.1-06d02ee2f6dfe7b61da174fa05a1ddda84d0cd17.tgz
     version: 0.1.1-06d02ee2f6dfe7b61da174fa05a1ddda84d0cd17
-generated: "2026-01-08T15:02:26.832954409Z"
+generated: "2026-01-08T15:05:10.064354904Z"
