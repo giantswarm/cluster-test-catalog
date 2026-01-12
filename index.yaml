@@ -220,6 +220,30 @@ entries:
     version: 5.1.1-a0a55a955e20b8cc526cfb67341bdfe6f42cfce4
   - annotations:
       io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-5.1.1-9f3b2a56de47a8dd805207858b66792c538432aa.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster/refs/tags/v5.1.1-9f3b2a56de47a8dd805207858b66792c538432aa/README.md
+      io.giantswarm.application.team: turtles
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster/refs/tags/v5.1.1-9f3b2a56de47a8dd805207858b66792c538432aa/helm/cluster/values.schema.json
+    apiVersion: v2
+    created: "2026-01-12T14:34:40.702334929Z"
+    dependencies:
+    - condition: providerIntegration.controlPlane.kamaji.enabled
+      name: kamaji-etcd
+      repository: ""
+      version: 0.14.0
+    description: Giant Swarm cluster chart with provider-independent cluster resources
+    digest: d6ea84b39b59b2f8a7a045885b9f31f916d587b3c9df902217f7fb82282d7322
+    home: https://github.com/giantswarm/cluster
+    icon: https://s.giantswarm.io/app-icons/giantswarm/1/dark.svg
+    name: cluster
+    sources:
+    - https://github.com/giantswarm/cluster
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-5.1.1-9f3b2a56de47a8dd805207858b66792c538432aa.tgz
+    version: 5.1.1-9f3b2a56de47a8dd805207858b66792c538432aa
+  - annotations:
+      io.giantswarm.application.app-type: cluster
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-5.1.1-81705ade8bfb27defad83719626edf20dfc395f1.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster/refs/tags/v5.1.1-81705ade8bfb27defad83719626edf20dfc395f1/README.md
       io.giantswarm.application.team: turtles
@@ -2514,4 +2538,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.1-06d02ee2f6dfe7b61da174fa05a1ddda84d0cd17.tgz
     version: 0.1.1-06d02ee2f6dfe7b61da174fa05a1ddda84d0cd17
-generated: "2026-01-12T12:47:28.6621578Z"
+generated: "2026-01-12T14:34:40.694950099Z"
