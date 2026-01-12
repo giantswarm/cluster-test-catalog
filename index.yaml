@@ -58,6 +58,30 @@ entries:
     version: 5.1.1-e9b61be9503af0cd95c12d08737a4b28c700f1ee
   - annotations:
       io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-5.1.1-e92d29d8dca1a61d0067f94a7770bbfb8b26f023.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster/refs/tags/v5.1.1-e92d29d8dca1a61d0067f94a7770bbfb8b26f023/README.md
+      io.giantswarm.application.team: turtles
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster/refs/tags/v5.1.1-e92d29d8dca1a61d0067f94a7770bbfb8b26f023/helm/cluster/values.schema.json
+    apiVersion: v2
+    created: "2026-01-12T10:42:54.004572165Z"
+    dependencies:
+    - condition: kamaji-etcd.deploy
+      name: kamaji-etcd
+      repository: ""
+      version: 0.14.0
+    description: Giant Swarm cluster chart with provider-independent cluster resources
+    digest: 43e5742f80b4bd1c038f50109282faa005e51372aa366838c08ff2a31d151fdd
+    home: https://github.com/giantswarm/cluster
+    icon: https://s.giantswarm.io/app-icons/giantswarm/1/dark.svg
+    name: cluster
+    sources:
+    - https://github.com/giantswarm/cluster
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-5.1.1-e92d29d8dca1a61d0067f94a7770bbfb8b26f023.tgz
+    version: 5.1.1-e92d29d8dca1a61d0067f94a7770bbfb8b26f023
+  - annotations:
+      io.giantswarm.application.app-type: cluster
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-5.1.1-b5bfbdb17cf255aabb63d6250ae26f7b61831697.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster/refs/tags/v5.1.1-b5bfbdb17cf255aabb63d6250ae26f7b61831697/README.md
       io.giantswarm.application.team: turtles
@@ -2391,4 +2415,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.1-06d02ee2f6dfe7b61da174fa05a1ddda84d0cd17.tgz
     version: 0.1.1-06d02ee2f6dfe7b61da174fa05a1ddda84d0cd17
-generated: "2026-01-12T08:58:12.736048084Z"
+generated: "2026-01-12T10:42:53.997195751Z"
