@@ -1,0 +1,1597 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$defs": {
+        "cidrBlocks": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "IPv4 address range, in CIDR notation.",
+                "examples": [
+                    "10.244.0.0/16"
+                ],
+                "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(/([0-9]|[1,2][0-9]|[3][0-2]))?$"
+            },
+            "minItems": 1
+        },
+        "cloneMode": {
+            "type": "string",
+            "title": "VM template clone mode",
+            "enum": [
+                "fullClone",
+                "linkedClone"
+            ],
+            "default": "linkedClone"
+        },
+        "diskGiB": {
+            "type": "integer",
+            "title": "Disk size",
+            "examples": [
+                30
+            ],
+            "exclusiveMinimum": 0
+        },
+        "machineHealthCheck": {
+            "type": "object",
+            "title": "Machine health check",
+            "required": [
+                "enabled"
+            ],
+            "properties": {
+                "diskFullContainerdTimeout": {
+                    "type": "string",
+                    "title": "DiskFullContainerd timeout",
+                    "description": "Determines how long a machine health check should wait for a node with condition DiskFullContainerd=True before considering a machine unhealthy. Use an empty value to not consider this condition.",
+                    "examples": [
+                        "10m",
+                        "100s"
+                    ],
+                    "default": ""
+                },
+                "diskFullKubeletTimeout": {
+                    "type": "string",
+                    "title": "DiskFullKubelet timeout",
+                    "description": "Determines how long a machine health check should wait for a node with condition DiskFullKubelet=True before considering a machine unhealthy. Use an empty value to not consider this condition.",
+                    "examples": [
+                        "10m",
+                        "100s"
+                    ],
+                    "default": ""
+                },
+                "diskFullVarLogTimeout": {
+                    "type": "string",
+                    "title": "DiskFullVarLog timeout",
+                    "description": "Determines how long a machine health check should wait for a node with condition DiskFullVarLog=True before considering a machine unhealthy. Use an empty value to not consider this condition.",
+                    "examples": [
+                        "10m",
+                        "100s"
+                    ],
+                    "default": ""
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "title": "Enable",
+                    "default": true
+                },
+                "maxUnhealthy": {
+                    "type": "string",
+                    "title": "Maximum unhealthy nodes",
+                    "description": "Defaults to 40% for control plane nodes and 20% for worker nodes.",
+                    "examples": [
+                        "40%"
+                    ],
+                    "default": "40%"
+                },
+                "nodeStartupTimeout": {
+                    "type": "string",
+                    "title": "Node startup timeout",
+                    "description": "Determines how long a machine health check should wait for a node to join the cluster, before considering a machine unhealthy.",
+                    "examples": [
+                        "10m",
+                        "100s"
+                    ],
+                    "default": "20m0s"
+                },
+                "unhealthyNotReadyTimeout": {
+                    "type": "string",
+                    "title": "Timeout for ready",
+                    "description": "If a node is not in condition 'Ready' after this timeout, it will be considered unhealthy.",
+                    "examples": [
+                        "300s"
+                    ],
+                    "default": "10m0s"
+                },
+                "unhealthyUnknownTimeout": {
+                    "type": "string",
+                    "title": "Timeout for unknown condition",
+                    "description": "If a node is in 'Unknown' condition after this timeout, it will be considered unhealthy.",
+                    "examples": [
+                        "300s"
+                    ],
+                    "default": "10m0s"
+                }
+            }
+        },
+        "memoryGiB": {
+            "type": "integer",
+            "title": "Memory size",
+            "examples": [
+                8192
+            ],
+            "minimum": 8192
+        },
+        "network": {
+            "type": "object",
+            "title": "Network configuration",
+            "additionalProperties": false,
+            "properties": {
+                "devices": {
+                    "type": "array",
+                    "title": "Network devices",
+                    "description": "Network interface configuration for VMs.",
+                    "additionalProperties": false,
+                    "items": {
+                        "type": "object",
+                        "title": "Devices",
+                        "required": [
+                            "networkName"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "dhcp4": {
+                                "type": "boolean",
+                                "title": "IPv4 DHCP",
+                                "description": "Is DHCP enabled on this segment."
+                            },
+                            "networkName": {
+                                "type": "string",
+                                "title": "Segment name",
+                                "description": "Segment name to attach nodes to. Must already exist."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "numCPUs": {
+            "type": "integer",
+            "title": "Number of CPUs",
+            "examples": [
+                6
+            ],
+            "minimum": 2
+        },
+        "resourcePool": {
+            "type": "string",
+            "title": "VSphere resource pool name",
+            "default": "*/Resources"
+        },
+        "strategy": {
+            "type": "object",
+            "title": "Update strategy",
+            "description": "Strategy to use when updating the machines.",
+            "properties": {
+                "rollingUpdate": {
+                    "type": "object",
+                    "title": "Rolling update strategy",
+                    "description": "Rolling update config params.",
+                    "properties": {
+                        "deletePolicy": {
+                            "type": "string",
+                            "title": "Delete policy",
+                            "description": "DeletePolicy defines the policy used by the MachineDeployment to identify nodes to delete when downscaling. When no value is supplied, the default DeletePolicy of MachineSet is used.",
+                            "enum": [
+                                "Random",
+                                "Newest",
+                                "Oldest"
+                            ]
+                        },
+                        "maxSurge": {
+                            "type": "string",
+                            "title": "Max surge",
+                            "description": "The maximum number of machines that can be scheduled above the desired number of machines. Value can be an absolute number (ex: 5) or a percentage of desired machines (ex: 10%). This can not be 0 if MaxUnavailable is 0. Absolute number is calculated from percentage by rounding up. Defaults to 1.",
+                            "default": "1"
+                        },
+                        "maxUnavailable": {
+                            "type": "string",
+                            "title": "Max unavailable",
+                            "description": "The maximum number of machines that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of desired machines (ex: 10%). Absolute number is calculated from percentage by rounding down. This can not be 0 if MaxSurge is 0. Defaults to 0.",
+                            "default": "0"
+                        }
+                    }
+                }
+            }
+        },
+        "template": {
+            "type": "string",
+            "title": "VM template"
+        }
+    },
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "baseDomain": {
+            "type": "string",
+            "title": "Base DNS domain"
+        },
+        "cluster": {
+            "type": "object",
+            "title": "Cluster",
+            "description": "Helm values for the provider-independent cluster chart.",
+            "default": {
+                "internal": {
+                    "advancedConfiguration": {
+                        "controlPlane": {
+                            "apiServer": {
+                                "extraArgs": {
+                                    "requestheader-allowed-names": "front-proxy-client"
+                                }
+                            }
+                        }
+                    }
+                },
+                "providerIntegration": {
+                    "apps": {
+                        "certExporter": {
+                            "configTemplateName": "vSphereCertExporterHelmValues",
+                            "enable": true
+                        },
+                        "certManager": {
+                            "configTemplateName": "vSphereCertManagerHelmValues",
+                            "enable": true
+                        },
+                        "chartOperatorExtensions": {
+                            "enable": true
+                        },
+                        "cilium": {
+                            "configTemplateName": "vSphereCiliumHelmValues",
+                            "enable": true
+                        },
+                        "ciliumServiceMonitors": {
+                            "enable": true
+                        },
+                        "coreDns": {
+                            "enable": true
+                        },
+                        "coreDnsExtensions": {
+                            "enable": true
+                        },
+                        "etcdDefrag": {
+                            "enable": true
+                        },
+                        "etcdKubernetesResourcesCountExporter": {
+                            "enable": true
+                        },
+                        "k8sDnsNodeCache": {
+                            "enable": true
+                        },
+                        "metricsServer": {
+                            "enable": true
+                        },
+                        "netExporter": {
+                            "enable": true
+                        },
+                        "networkPolicies": {
+                            "configTemplateName": "vSphereNetworkPoliciesHelmValues",
+                            "enable": true
+                        },
+                        "nodeExporter": {
+                            "configTemplateName": "vSphereNodeExporterHelmValues",
+                            "enable": true
+                        },
+                        "nodeProblemDetector": {
+                            "enable": false
+                        },
+                        "observabilityBundle": {
+                            "enable": true
+                        },
+                        "observabilityPolicies": {
+                            "enable": true
+                        },
+                        "priorityClasses": {
+                            "enable": true
+                        },
+                        "securityBundle": {
+                            "enable": true
+                        },
+                        "teleportKubeAgent": {
+                            "enable": true
+                        },
+                        "verticalPodAutoscaler": {
+                            "enable": true
+                        },
+                        "verticalPodAutoscalerCrd": {
+                            "enable": true
+                        }
+                    },
+                    "controlPlane": {
+                        "kamaji": {
+                            "addons": {
+                                "konnectivity": {
+                                    "server": {
+                                        "port": "8132"
+                                    }
+                                }
+                            },
+                            "apiServer": {
+                                "extraArgs": [
+                                    "--enable-admission-plugins=PodSecurity"
+                                ]
+                            },
+                            "controllerManager": {
+                                "extraArgs": [
+                                    "--cloud-provider=external",
+                                    "--bind-address=0.0.0.0"
+                                ]
+                            },
+                            "dataStoreName": "",
+                            "deployment": {
+                                "additionalMetadata": {
+                                    "annotations": {},
+                                    "labels": {}
+                                },
+                                "affinity": {},
+                                "nodeSelector": {
+                                    "kubernetes.io/os": "linux"
+                                },
+                                "podAdditionalMetadata": {
+                                    "annotations": {},
+                                    "labels": {}
+                                },
+                                "tolerations": [],
+                                "topologySpreadConstraints": []
+                            },
+                            "kubelet": {
+                                "cgroupfs": "systemd",
+                                "preferredAddressTypes": [
+                                    "InternalIP",
+                                    "ExternalIP"
+                                ]
+                            },
+                            "network": {
+                                "certSANs": [],
+                                "serviceAddress": "",
+                                "serviceAnnotations": {},
+                                "serviceLabels": {},
+                                "serviceType": "LoadBalancer"
+                            },
+                            "scheduler": {
+                                "extraArgs": [
+                                    "--bind-address=0.0.0.0"
+                                ]
+                            }
+                        },
+                        "kubeadmConfig": {
+                            "files": [
+                                {
+                                    "contentFrom": {
+                                        "secret": {
+                                            "key": "content",
+                                            "name": "kubevip-pod",
+                                            "prependClusterNameAsPrefix": true
+                                        }
+                                    },
+                                    "path": "/etc/kubernetes/manifests/kube-vip.yaml",
+                                    "permissions": "0600"
+                                }
+                            ],
+                            "postKubeadmCommands": [
+                                "sed --in-place \"s|/etc/kubernetes/super-admin.conf|/etc/kubernetes/admin.conf|g\" /etc/kubernetes/manifests/kube-vip.yaml"
+                            ]
+                        },
+                        "resources": {
+                            "infrastructureMachineTemplate": {
+                                "group": "infrastructure.cluster.x-k8s.io",
+                                "kind": "VSphereMachineTemplate",
+                                "version": "v1beta1"
+                            },
+                            "infrastructureMachineTemplateSpecTemplateName": "controlplane-vspheremachinetemplate-spec"
+                        }
+                    },
+                    "environmentVariables": {
+                        "hostName": "COREOS_CUSTOM_HOSTNAME",
+                        "ipv4": "COREOS_CUSTOM_IPV4"
+                    },
+                    "kubeadmConfig": {
+                        "enableGiantswarmUser": true,
+                        "files": [
+                            {
+                                "contentFrom": {
+                                    "secret": {
+                                        "key": "set-hostname.sh",
+                                        "name": "provider-specific-files-1",
+                                        "prependClusterNameAsPrefix": true
+                                    }
+                                },
+                                "path": "/opt/bin/set-hostname.sh",
+                                "permissions": "0755"
+                            }
+                        ],
+                        "ignition": {
+                            "containerLinuxConfig": {
+                                "additionalConfig": {
+                                    "systemd": {
+                                        "units": [
+                                            {
+                                                "contents": {
+                                                    "install": {
+                                                        "wantedBy": [
+                                                            "multi-user.target"
+                                                        ]
+                                                    },
+                                                    "unit": {
+                                                        "description": "VMWare metadata agent"
+                                                    }
+                                                },
+                                                "dropins": [
+                                                    {
+                                                        "contents": "[Unit]\nAfter=nss-lookup.target\nAfter=network-online.target\nWants=network-online.target\n[Service]\nType=oneshot\nRestart=on-failure\nRemainAfterExit=yes\nEnvironment=OUTPUT=/run/metadata/coreos\nExecStart=/usr/bin/mkdir --parent /run/metadata\nExecStart=/usr/bin/bash -cv 'echo \"COREOS_CUSTOM_HOSTNAME=$(\"$(find /usr/bin /usr/share/oem -name vmtoolsd -type f -executable 2>/dev/null | head -n 1)\" --cmd \"info-get guestinfo.metadata\" | base64 -d | awk \\'/local-hostname/ {print $2}\\' | tr -d \\'\"\\')\" >> ${OUTPUT}'\nExecStart=/usr/bin/bash -cv 'echo \"COREOS_CUSTOM_IPV4=$(\"$(find /usr/bin /usr/share/oem -name vmtoolsd -type f -executable 2>/dev/null | head -n 1)\" --cmd \"info-get guestinfo.ip\")\" >> ${OUTPUT}'",
+                                                        "name": "10-coreos-metadata.conf"
+                                                    }
+                                                ],
+                                                "enabled": true,
+                                                "name": "coreos-metadata.service"
+                                            },
+                                            {
+                                                "contents": {
+                                                    "install": {
+                                                        "wantedBy": [
+                                                            "multi-user.target"
+                                                        ]
+                                                    },
+                                                    "unit": {
+                                                        "description": "Set machine hostname"
+                                                    }
+                                                },
+                                                "dropins": [
+                                                    {
+                                                        "contents": "[Unit]\nRequires=coreos-metadata.service\nAfter=coreos-metadata.service\nBefore=teleport.service\n[Service]\nType=oneshot\nRemainAfterExit=yes\nEnvironmentFile=/run/metadata/coreos\nExecStart=/opt/bin/set-hostname.sh",
+                                                        "name": "10-set-hostname.conf"
+                                                    }
+                                                ],
+                                                "enabled": true,
+                                                "name": "set-hostname.service"
+                                            },
+                                            {
+                                                "contents": {
+                                                    "install": {
+                                                        "wantedBy": [
+                                                            "default.target"
+                                                        ]
+                                                    },
+                                                    "unit": {
+                                                        "description": "Disable TCP segmentation offloading"
+                                                    }
+                                                },
+                                                "dropins": [
+                                                    {
+                                                        "contents": "[Unit]\nAfter=network.target\n[Service]\nType=oneshot\nRemainAfterExit=yes\nExecStart=/usr/sbin/ethtool -K ens192 tx-udp_tnl-csum-segmentation off\nExecStart=/usr/sbin/ethtool -K ens192 tx-udp_tnl-segmentation off",
+                                                        "name": "10-ethtool-segmentation.conf"
+                                                    }
+                                                ],
+                                                "enabled": true,
+                                                "name": "ethtool-segmentation.service"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "postKubeadmCommands": [
+                            "usermod -aG root nobody"
+                        ]
+                    },
+                    "pauseProperties": {
+                        "global.connectivity.network.controlPlaneEndpoint.host": ""
+                    },
+                    "provider": "vsphere",
+                    "resourcesApi": {
+                        "bastionResourceEnabled": false,
+                        "cleanupHelmReleaseResourcesEnabled": true,
+                        "helmRepositoryResourcesEnabled": true,
+                        "infrastructureCluster": {
+                            "group": "infrastructure.cluster.x-k8s.io",
+                            "kind": "VSphereCluster",
+                            "version": "v1beta1"
+                        },
+                        "infrastructureMachinePool": {
+                            "group": "infrastructure.cluster.x-k8s.io",
+                            "kind": "VSphereMachineTemplate",
+                            "version": "v1beta1"
+                        },
+                        "nodePoolKind": "MachineDeployment"
+                    },
+                    "useReleases": true,
+                    "workers": {
+                        "defaultNodePools": {
+                            "def00": {
+                                "cloneMode": "linkedClone",
+                                "machineHealthCheck": {
+                                    "enabled": true,
+                                    "maxUnhealthy": "40%",
+                                    "nodeStartupTimeout": "20m0s",
+                                    "unhealthyNotReadyTimeout": "10m0s",
+                                    "unhealthyUnknownTimeout": "10m0s"
+                                },
+                                "memoryMiB": 16896,
+                                "network": {},
+                                "numCPUs": 6,
+                                "replicas": 2,
+                                "resourcePool": "*/Resources",
+                                "template": ""
+                            }
+                        },
+                        "resources": {
+                            "infrastructureMachineTemplateSpecTemplateName": "worker-vspheremachinetemplate-spec"
+                        }
+                    }
+                }
+            }
+        },
+        "cluster-shared": {
+            "type": "object",
+            "title": "Library chart"
+        },
+        "global": {
+            "type": "object",
+            "title": "Properties that are available to all charts and subcharts",
+            "required": [
+                "metadata",
+                "release"
+            ],
+            "properties": {
+                "components": {
+                    "type": "object",
+                    "title": "Components",
+                    "description": "Advanced configuration of components that are running on all nodes.",
+                    "additionalProperties": false,
+                    "properties": {
+                        "containerd": {
+                            "type": "object",
+                            "title": "Containerd",
+                            "description": "Configuration of containerd.",
+                            "required": [
+                                "containerRegistries"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "cdi": {
+                                    "type": "object",
+                                    "title": "Container Device Interface (CDI)",
+                                    "description": "Configuration of CDI support in containerd.",
+                                    "required": [
+                                        "enabled"
+                                    ],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "enabled": {
+                                            "type": "boolean",
+                                            "title": "Enabled",
+                                            "description": "Enabling this will configure containerd to support Container Device Interface (CDI) specification.",
+                                            "default": false
+                                        },
+                                        "specDirs": {
+                                            "type": "array",
+                                            "title": "CDI spec directories",
+                                            "description": "List of directories to search for CDI spec files.",
+                                            "items": {
+                                                "type": "string",
+                                                "title": "CDI spec directory",
+                                                "description": "Directory to search for CDI spec files."
+                                            },
+                                            "default": [
+                                                "/etc/cdi",
+                                                "/var/run/cdi"
+                                            ]
+                                        }
+                                    }
+                                },
+                                "containerRegistries": {
+                                    "type": "object",
+                                    "title": "Container registries",
+                                    "description": "Endpoints and credentials configuration for container registries.",
+                                    "additionalProperties": {
+                                        "type": "array",
+                                        "title": "Registries",
+                                        "description": "Container registries and mirrors",
+                                        "items": {
+                                            "type": "object",
+                                            "title": "Registry",
+                                            "required": [
+                                                "endpoint"
+                                            ],
+                                            "properties": {
+                                                "credentials": {
+                                                    "type": "object",
+                                                    "title": "Credentials",
+                                                    "properties": {
+                                                        "auth": {
+                                                            "type": "string",
+                                                            "title": "Auth",
+                                                            "description": "Base64-encoded string from the concatenation of the username, a colon, and the password."
+                                                        },
+                                                        "identitytoken": {
+                                                            "type": "string",
+                                                            "title": "Identity token",
+                                                            "description": "Used to authenticate the user and obtain an access token for the registry."
+                                                        },
+                                                        "password": {
+                                                            "type": "string",
+                                                            "title": "Password",
+                                                            "description": "Used to authenticate for the registry with username/password."
+                                                        },
+                                                        "username": {
+                                                            "type": "string",
+                                                            "title": "Username",
+                                                            "description": "Used to authenticate for the registry with username/password."
+                                                        }
+                                                    }
+                                                },
+                                                "endpoint": {
+                                                    "type": "string",
+                                                    "title": "Endpoint",
+                                                    "description": "Endpoint for the container registry."
+                                                },
+                                                "insecure": {
+                                                    "type": "boolean",
+                                                    "title": "HTTP endpoint",
+                                                    "description": "Set to true to configure endpoint as HTTP instead of HTTPS (default).",
+                                                    "default": false
+                                                },
+                                                "overridePath": {
+                                                    "type": "boolean",
+                                                    "title": "Override path enabled",
+                                                    "description": "This setting is used to indicate the host's API root endpoint is defined in the URL path rather than by the API specification. This may be used with non-compliant OCI registries which are missing the /v2 prefix. (Defaults to false).",
+                                                    "default": false
+                                                },
+                                                "skipVerify": {
+                                                    "type": "boolean",
+                                                    "title": "Skip TLS verify",
+                                                    "description": "Skip TLS verification of the endpoint.",
+                                                    "default": false
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "default": {}
+                                },
+                                "debug": {
+                                    "type": "object",
+                                    "title": "ContainerD debug configuration",
+                                    "description": "Debug configuration for containerd.",
+                                    "required": [
+                                        "level"
+                                    ],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "level": {
+                                            "type": "string",
+                                            "title": "Debug level",
+                                            "description": "Debug level for containerd logging [trace, debug, info, warn, error, fatal, panic].",
+                                            "enum": [
+                                                "trace",
+                                                "debug",
+                                                "info",
+                                                "warn",
+                                                "error",
+                                                "fatal",
+                                                "panic"
+                                            ],
+                                            "default": "info"
+                                        }
+                                    }
+                                },
+                                "localRegistryCache": {
+                                    "type": "object",
+                                    "title": "Local registry caches configuration",
+                                    "description": "Enable local cache via http://127.0.0.1:<PORT>.",
+                                    "required": [
+                                        "enabled",
+                                        "port"
+                                    ],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "enabled": {
+                                            "type": "boolean",
+                                            "title": "Enable local registry caches",
+                                            "description": "Flag to enable local registry cache.",
+                                            "default": false
+                                        },
+                                        "mirroredRegistries": {
+                                            "type": "array",
+                                            "title": "Registries to cache locally",
+                                            "description": "A list of registries that should be cached.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "default": []
+                                        },
+                                        "port": {
+                                            "type": "integer",
+                                            "title": "Local port for the registry cache",
+                                            "description": "Port for the local registry cache under: http://127.0.0.1:<PORT>.",
+                                            "default": 32767
+                                        }
+                                    }
+                                },
+                                "managementClusterRegistryCache": {
+                                    "type": "object",
+                                    "title": "Management cluster registry cache",
+                                    "description": "Caching container registry on a management cluster level.",
+                                    "required": [
+                                        "enabled"
+                                    ],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "enabled": {
+                                            "type": "boolean",
+                                            "title": "Enabled",
+                                            "description": "Enabling this will configure containerd to use management cluster's Zot registry service. To make use of it as a pull-through cache, you also have to specify registries to cache images for.",
+                                            "default": true
+                                        },
+                                        "mirroredRegistries": {
+                                            "type": "array",
+                                            "title": "Registries to cache",
+                                            "description": "Here you must specify each registry to cache container images for. Please also make sure to have an entry for each registry in Global > Components > Containerd > Container registries.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "default": []
+                                        }
+                                    }
+                                },
+                                "selinux": {
+                                    "type": "object",
+                                    "title": "SELinux configuration",
+                                    "description": "SELinux configuration for containerd.",
+                                    "required": [
+                                        "enabled"
+                                    ],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "enabled": {
+                                            "type": "boolean",
+                                            "title": "Enabled",
+                                            "description": "Enabling this will configure containerd to do SELinux relabeling to containers.",
+                                            "default": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "connectivity": {
+                    "type": "object",
+                    "title": "Connectivity",
+                    "description": "Configurations related to cluster connectivity such as container registries.",
+                    "required": [
+                        "baseDomain",
+                        "network"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                        "baseDomain": {
+                            "type": "string",
+                            "title": "Base DNS domain"
+                        },
+                        "containerRegistries": {
+                            "type": "object",
+                            "title": "Container registries",
+                            "description": "Endpoints and credentials configuration for container registries.",
+                            "additionalProperties": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "required": [
+                                        "endpoint"
+                                    ],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "credentials": {
+                                            "type": "object",
+                                            "title": "Credentials",
+                                            "description": "Credentials for the endpoint.",
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "auth": {
+                                                    "type": "string",
+                                                    "title": "Auth",
+                                                    "description": "Base64-encoded string from the concatenation of the username, a colon, and the password."
+                                                },
+                                                "identitytoken": {
+                                                    "type": "string",
+                                                    "title": "Identity token",
+                                                    "description": "Used to authenticate the user and obtain an access token for the registry."
+                                                },
+                                                "password": {
+                                                    "type": "string",
+                                                    "title": "Password",
+                                                    "description": "Used to authenticate for the registry with username/password."
+                                                },
+                                                "username": {
+                                                    "type": "string",
+                                                    "title": "Username",
+                                                    "description": "Used to authenticate for the registry with username/password."
+                                                }
+                                            }
+                                        },
+                                        "endpoint": {
+                                            "type": "string",
+                                            "title": "Endpoint",
+                                            "description": "Endpoint for the container registry."
+                                        }
+                                    }
+                                }
+                            },
+                            "default": {}
+                        },
+                        "localRegistryCache": {
+                            "type": "object",
+                            "title": "Local registry cache",
+                            "description": "Caching container registry within the cluster.",
+                            "required": [
+                                "enabled",
+                                "port"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "enabled": {
+                                    "type": "boolean",
+                                    "title": "Enable",
+                                    "description": "Enabling this will deploy the Zot registry service in the cluster. To make use of it as a pull-through cache, you also have to specify registries to cache images for.",
+                                    "default": false
+                                },
+                                "mirroredRegistries": {
+                                    "type": "array",
+                                    "title": "Registries to cache",
+                                    "description": "Here you must specify each registry to cache container images for. Please also make sure to have an entry for each registry in Global > Components > Containerd > Container registries.",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "default": []
+                                },
+                                "port": {
+                                    "type": "integer",
+                                    "title": "Service port",
+                                    "description": "NodePort used by the local registry service.",
+                                    "default": 32767
+                                }
+                            }
+                        },
+                        "network": {
+                            "type": "object",
+                            "title": "Network",
+                            "required": [
+                                "loadBalancers"
+                            ],
+                            "properties": {
+                                "controlPlaneEndpoint": {
+                                    "type": "object",
+                                    "title": "Endpoint",
+                                    "description": "Kubernetes API configuration.",
+                                    "properties": {
+                                        "host": {
+                                            "type": "string",
+                                            "title": "Host",
+                                            "description": "IP for access to the Kubernetes API. Manually select an IP for kube API. Empty string for auto selection from the ipPoolName pool."
+                                        },
+                                        "ipPoolName": {
+                                            "type": "string",
+                                            "title": "Ip Pool Name",
+                                            "description": "Ip for control plane will be drawn from this GlobalInClusterIPPool resource.",
+                                            "default": "wc-cp-ips",
+                                            "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$"
+                                        },
+                                        "port": {
+                                            "type": "integer",
+                                            "title": "Port number",
+                                            "description": "Port for access to the Kubernetes API.",
+                                            "default": 6443
+                                        }
+                                    }
+                                },
+                                "loadBalancers": {
+                                    "type": "object",
+                                    "title": "Load balancers",
+                                    "description": "Loadbalancer IP source.",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "cidrBlocks": {
+                                            "$ref": "#/$defs/cidrBlocks",
+                                            "title": "Load Balancer subnets"
+                                        },
+                                        "ipPoolName": {
+                                            "type": "string",
+                                            "title": "Ip Pool Name",
+                                            "description": "Ip for Service LB running in WC will be drawn from this GlobalInClusterIPPool resource.",
+                                            "default": "svc-lb-ips",
+                                            "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$"
+                                        },
+                                        "numberOfIps": {
+                                            "type": "integer",
+                                            "title": "Number of LB IPs to reserve",
+                                            "default": 3
+                                        }
+                                    }
+                                },
+                                "pods": {
+                                    "type": "object",
+                                    "title": "Pods",
+                                    "required": [
+                                        "cidrBlocks"
+                                    ],
+                                    "properties": {
+                                        "cidrBlocks": {
+                                            "$ref": "#/$defs/cidrBlocks",
+                                            "title": "Pod subnets",
+                                            "default": [
+                                                "10.244.0.0/16"
+                                            ]
+                                        }
+                                    }
+                                },
+                                "services": {
+                                    "type": "object",
+                                    "title": "Services",
+                                    "required": [
+                                        "cidrBlocks"
+                                    ],
+                                    "properties": {
+                                        "cidrBlocks": {
+                                            "$ref": "#/$defs/cidrBlocks",
+                                            "title": "Service subnets",
+                                            "default": [
+                                                "172.31.0.0/16"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "proxy": {
+                            "type": "object",
+                            "title": "Proxy",
+                            "description": "Whether/how outgoing traffic is routed through proxy servers.",
+                            "additionalProperties": false,
+                            "properties": {
+                                "enabled": {
+                                    "type": "boolean",
+                                    "title": "Enable"
+                                },
+                                "httpProxy": {
+                                    "type": "string",
+                                    "title": "HTTP proxy",
+                                    "description": "HTTP proxy - To be passed to the HTTP_PROXY environment variable in all hosts."
+                                },
+                                "httpsProxy": {
+                                    "type": "string",
+                                    "title": "HTTPS proxy",
+                                    "description": "HTTPS proxy - To be passed to the HTTPS_PROXY environment variable in all hosts."
+                                },
+                                "noProxy": {
+                                    "type": "string",
+                                    "title": "No proxy",
+                                    "description": "No proxy - Comma-separated addresses to be passed to the NO_PROXY environment variable in all hosts."
+                                }
+                            }
+                        }
+                    }
+                },
+                "controlPlane": {
+                    "type": "object",
+                    "title": "Control plane",
+                    "additionalProperties": false,
+                    "properties": {
+                        "machineHealthCheck": {
+                            "$ref": "#/$defs/machineHealthCheck",
+                            "description": "Machine health check configuration for control plane nodes."
+                        },
+                        "machineTemplate": {
+                            "type": "object",
+                            "title": "Template to define control plane nodes",
+                            "required": [
+                                "network"
+                            ],
+                            "additionalProperties": true,
+                            "properties": {
+                                "cloneMode": {
+                                    "$ref": "#/$defs/cloneMode",
+                                    "description": "VM template cloning method."
+                                },
+                                "diskGiB": {
+                                    "$ref": "#/$defs/diskGiB",
+                                    "description": "Control plane node root volume size, in GB."
+                                },
+                                "memoryMiB": {
+                                    "$ref": "#/$defs/memoryGiB",
+                                    "description": "Control plane memory size, in MB.",
+                                    "default": 8192
+                                },
+                                "network": {
+                                    "$ref": "#/$defs/network",
+                                    "description": "Control plane node network configuration."
+                                },
+                                "numCPUs": {
+                                    "$ref": "#/$defs/numCPUs",
+                                    "description": "Control plane CPU count.",
+                                    "default": 4
+                                },
+                                "resourcePool": {
+                                    "$ref": "#/$defs/resourcePool",
+                                    "description": "Name of the resource pool to use."
+                                },
+                                "template": {
+                                    "$ref": "#/$defs/template",
+                                    "description": "Full name of the VM template."
+                                }
+                            }
+                        },
+                        "oidc": {
+                            "type": "object",
+                            "title": "OIDC authentication",
+                            "additionalProperties": false,
+                            "properties": {
+                                "caPem": {
+                                    "type": "string",
+                                    "title": "Certificate authority file",
+                                    "description": "Path to identity provider's CA certificate in PEM format."
+                                },
+                                "clientId": {
+                                    "type": "string",
+                                    "title": "Client ID",
+                                    "description": "OIDC client identifier to identify with."
+                                },
+                                "groupsClaim": {
+                                    "type": "string",
+                                    "title": "Groups claim",
+                                    "description": "Name of the identity token claim bearing the user's group memberships."
+                                },
+                                "issuerUrl": {
+                                    "type": "string",
+                                    "title": "Issuer URL",
+                                    "description": "URL of the provider which allows the API server to discover public signing keys, not including any path. Discovery URL without the '/.well-known/openid-configuration' part."
+                                },
+                                "structuredAuthentication": {
+                                    "type": "object",
+                                    "title": "Structured authentication",
+                                    "properties": {
+                                        "enabled": {
+                                            "type": "boolean",
+                                            "title": "Enable structured authentication",
+                                            "default": false
+                                        },
+                                        "issuers": {
+                                            "type": "array",
+                                            "title": "Issuers",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "audienceMatchPolicy": {
+                                                        "type": "string",
+                                                        "title": "Audience match policy",
+                                                        "enum": [
+                                                            "MatchAny"
+                                                        ]
+                                                    },
+                                                    "audiences": {
+                                                        "type": "array",
+                                                        "title": "Audiences",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "caPem": {
+                                                        "type": "string",
+                                                        "title": "Certificate authority",
+                                                        "description": "Identity provider's CA certificate in PEM format."
+                                                    },
+                                                    "claimMappings": {
+                                                        "type": "object",
+                                                        "title": "Claim mappings",
+                                                        "properties": {
+                                                            "extra": {
+                                                                "type": "array",
+                                                                "title": "Extra attributes",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "key": {
+                                                                            "type": "string",
+                                                                            "title": "Key"
+                                                                        },
+                                                                        "valueExpression": {
+                                                                            "type": "string",
+                                                                            "title": "Value expression"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "groups": {
+                                                                "type": "object",
+                                                                "title": "Groups mapping",
+                                                                "properties": {
+                                                                    "claim": {
+                                                                        "type": "string",
+                                                                        "title": "Claim",
+                                                                        "description": "JWT claim to use for groups. Mutually exclusive with 'expression'."
+                                                                    },
+                                                                    "expression": {
+                                                                        "type": "string",
+                                                                        "title": "CEL expression",
+                                                                        "description": "CEL expression to determine groups. Mutually exclusive with 'claim' and 'prefix'."
+                                                                    },
+                                                                    "prefix": {
+                                                                        "type": "string",
+                                                                        "title": "Prefix",
+                                                                        "description": "Prefix to prepend to group claims. Required if 'claim' is set. Mutually exclusive with 'expression'."
+                                                                    }
+                                                                },
+                                                                "not": {
+                                                                    "required": [
+                                                                        "expression",
+                                                                        "claim"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "uid": {
+                                                                "type": "object",
+                                                                "title": "UID mapping",
+                                                                "properties": {
+                                                                    "claim": {
+                                                                        "type": "string",
+                                                                        "title": "Claim",
+                                                                        "description": "JWT claim to use as the UID. Mutually exclusive with 'expression'."
+                                                                    },
+                                                                    "expression": {
+                                                                        "type": "string",
+                                                                        "title": "CEL expression",
+                                                                        "description": "CEL expression to determine the UID. Mutually exclusive with 'claim'."
+                                                                    }
+                                                                },
+                                                                "not": {
+                                                                    "required": [
+                                                                        "expression",
+                                                                        "claim"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "username": {
+                                                                "type": "object",
+                                                                "title": "Username mapping",
+                                                                "properties": {
+                                                                    "claim": {
+                                                                        "type": "string",
+                                                                        "title": "Claim",
+                                                                        "description": "JWT claim to use as the username. Mutually exclusive with 'expression'."
+                                                                    },
+                                                                    "expression": {
+                                                                        "type": "string",
+                                                                        "title": "CEL expression",
+                                                                        "description": "CEL expression to determine the username. Mutually exclusive with 'claim' and 'prefix'."
+                                                                    },
+                                                                    "prefix": {
+                                                                        "type": "string",
+                                                                        "title": "Prefix",
+                                                                        "description": "Prefix to prepend to the username claim. Required if 'claim' is set. Mutually exclusive with 'expression'."
+                                                                    }
+                                                                },
+                                                                "not": {
+                                                                    "required": [
+                                                                        "expression",
+                                                                        "claim"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "claimValidationRules": {
+                                                        "type": "array",
+                                                        "title": "Claim validation rules",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "claim": {
+                                                                    "type": "string",
+                                                                    "title": "Claim",
+                                                                    "description": "JWT claim to validate. Used with 'requiredValue'. Mutually exclusive with 'expression'."
+                                                                },
+                                                                "expression": {
+                                                                    "type": "string",
+                                                                    "title": "CEL expression",
+                                                                    "description": "CEL expression that must evaluate to true. Mutually exclusive with 'claim' and 'requiredValue'."
+                                                                },
+                                                                "message": {
+                                                                    "type": "string",
+                                                                    "title": "Validation message",
+                                                                    "description": "Error message shown in API server logs when validation fails."
+                                                                },
+                                                                "requiredValue": {
+                                                                    "type": "string",
+                                                                    "title": "Required value",
+                                                                    "description": "Required value for the claim. Used with 'claim'. Mutually exclusive with 'expression'."
+                                                                }
+                                                            },
+                                                            "not": {
+                                                                "required": [
+                                                                    "expression",
+                                                                    "claim"
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    "clientId": {
+                                                        "type": "string",
+                                                        "title": "Client ID"
+                                                    },
+                                                    "discoveryUrl": {
+                                                        "type": "string",
+                                                        "title": "Discovery URL",
+                                                        "description": "Overrides the URL used to fetch discovery information."
+                                                    },
+                                                    "groupsClaim": {
+                                                        "type": "string",
+                                                        "title": "Groups claim"
+                                                    },
+                                                    "groupsPrefix": {
+                                                        "type": "string",
+                                                        "title": "Groups prefix"
+                                                    },
+                                                    "issuerUrl": {
+                                                        "type": "string",
+                                                        "title": "Issuer URL",
+                                                        "description": "Exact issuer URL that will be included in identity tokens."
+                                                    },
+                                                    "requiredClaims": {
+                                                        "type": "array",
+                                                        "title": "Required claims (Legacy)",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "claim": {
+                                                                    "type": "string",
+                                                                    "title": "Claim"
+                                                                },
+                                                                "requiredValue": {
+                                                                    "type": "string",
+                                                                    "title": "Required value"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "userValidationRules": {
+                                                        "type": "array",
+                                                        "title": "User validation rules",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "expression": {
+                                                                    "type": "string",
+                                                                    "title": "CEL expression",
+                                                                    "description": "CEL expression that must evaluate to true for the user to be valid."
+                                                                },
+                                                                "message": {
+                                                                    "type": "string",
+                                                                    "title": "Validation message",
+                                                                    "description": "Error message shown in API server logs when validation fails."
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "usernameClaim": {
+                                                        "type": "string",
+                                                        "title": "Username claim"
+                                                    },
+                                                    "usernamePrefix": {
+                                                        "type": "string",
+                                                        "title": "Username prefix"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "usernameClaim": {
+                                    "type": "string",
+                                    "title": "Username claim",
+                                    "description": "Name of the identity token claim bearing the unique user identifier."
+                                }
+                            }
+                        },
+                        "replicas": {
+                            "type": "integer",
+                            "title": "Number of nodes",
+                            "minimum": 1
+                        }
+                    }
+                },
+                "managementCluster": {
+                    "type": "string",
+                    "title": "Management cluster",
+                    "description": "Name of the Cluster API cluster managing this workload cluster."
+                },
+                "metadata": {
+                    "type": "object",
+                    "title": "Metadata",
+                    "additionalProperties": false,
+                    "properties": {
+                        "description": {
+                            "type": "string",
+                            "title": "Cluster description",
+                            "description": "User-friendly description of the cluster's purpose."
+                        },
+                        "labels": {
+                            "type": "object",
+                            "title": "Labels",
+                            "description": "These labels are added to the Kubernetes resources defining this cluster.",
+                            "additionalProperties": false,
+                            "patternProperties": {
+                                "^[a-zA-Z0-9/\\._-]+$": {
+                                    "type": "string",
+                                    "title": "Label",
+                                    "maxLength": 63,
+                                    "minLength": 0,
+                                    "pattern": "^[a-zA-Z0-9\\._-]+$"
+                                }
+                            }
+                        },
+                        "name": {
+                            "type": "string",
+                            "title": "Cluster name"
+                        },
+                        "organization": {
+                            "type": "string",
+                            "title": "Organization"
+                        },
+                        "preventDeletion": {
+                            "type": "boolean",
+                            "title": "Prevent cluster deletion",
+                            "default": false
+                        },
+                        "servicePriority": {
+                            "type": "string",
+                            "title": "Service priority",
+                            "description": "The relative importance of this cluster.",
+                            "$comment": "Defined in https://github.com/giantswarm/rfc/tree/main/classify-cluster-priority",
+                            "enum": [
+                                "highest",
+                                "medium",
+                                "lowest"
+                            ],
+                            "default": "highest"
+                        }
+                    }
+                },
+                "nodePools": {
+                    "type": "object",
+                    "title": "Node pools",
+                    "description": "Groups of worker nodes with identical configuration.",
+                    "additionalProperties": false,
+                    "patternProperties": {
+                        "^[a-z0-9-]{3,10}$": {
+                            "type": "object"
+                        }
+                    },
+                    "properties": {
+                        "worker": {
+                            "type": "object",
+                            "title": "Default nodePool",
+                            "required": [
+                                "network"
+                            ],
+                            "additionalProperties": true,
+                            "properties": {
+                                "cloneMode": {
+                                    "$ref": "#/$defs/cloneMode",
+                                    "description": "VM template cloning method."
+                                },
+                                "diskGiB": {
+                                    "$ref": "#/$defs/diskGiB",
+                                    "description": "Worker node root volume size, in GB."
+                                },
+                                "machineHealthCheck": {
+                                    "$ref": "#/$defs/machineHealthCheck",
+                                    "description": "Machine health check configuration for worker nodes."
+                                },
+                                "memoryMiB": {
+                                    "$ref": "#/$defs/memoryGiB",
+                                    "description": "Worker memory size, in MB.",
+                                    "default": 16896
+                                },
+                                "network": {
+                                    "$ref": "#/$defs/network",
+                                    "description": "Worker node network configuration."
+                                },
+                                "numCPUs": {
+                                    "$ref": "#/$defs/numCPUs",
+                                    "description": "Worker node CPU count.",
+                                    "default": 6
+                                },
+                                "replicas": {
+                                    "type": "integer",
+                                    "title": "Number of nodes",
+                                    "default": 2,
+                                    "minimum": 1
+                                },
+                                "resourcePool": {
+                                    "$ref": "#/$defs/resourcePool",
+                                    "description": "Name of the resource pool to use."
+                                },
+                                "strategy": {
+                                    "$ref": "#/$defs/strategy",
+                                    "description": "Strategy to use when updating the machines."
+                                },
+                                "template": {
+                                    "$ref": "#/$defs/template",
+                                    "description": "Full name of the VM template."
+                                }
+                            }
+                        }
+                    }
+                },
+                "podSecurityStandards": {
+                    "type": "object",
+                    "title": "Pod Security Standards",
+                    "properties": {
+                        "enforced": {
+                            "type": "boolean",
+                            "title": "Enforced Pod Security Standards",
+                            "description": "Use PSSs instead of PSPs.",
+                            "default": true
+                        }
+                    }
+                },
+                "providerSpecific": {
+                    "type": "object",
+                    "title": "Provider specific configuration",
+                    "properties": {
+                        "additionalVsphereClusterAnnotations": {
+                            "type": "array",
+                            "title": "Additional vsphere cluster annotations",
+                            "description": "Additional annotations to be added to the vspherecluster custom resource.",
+                            "items": {
+                                "type": "string",
+                                "examples": [
+                                    "example.com/annotation: value"
+                                ]
+                            },
+                            "default": []
+                        },
+                        "defaultStorageClass": {
+                            "type": "object",
+                            "title": "Default Storage Class",
+                            "description": "Configuration of the default storage class.",
+                            "properties": {
+                                "enabled": {
+                                    "type": "boolean",
+                                    "title": "Enable default storage class",
+                                    "description": "Creates a default storage class if set to true.",
+                                    "default": true
+                                },
+                                "reclaimPolicy": {
+                                    "type": "string",
+                                    "title": "Reclaim Policy",
+                                    "description": "Reclaim policy of the storage class (Delete or Retain).",
+                                    "enum": [
+                                        "Delete",
+                                        "Retain"
+                                    ],
+                                    "default": "Delete"
+                                },
+                                "storagePolicyName": {
+                                    "type": "string",
+                                    "title": "Storage Policy name",
+                                    "description": "Name of the vSphere storage policy to use in the storage class. Leave empty for no storage policy.",
+                                    "default": ""
+                                }
+                            }
+                        },
+                        "templateSuffix": {
+                            "type": "string",
+                            "title": "Template suffix",
+                            "description": "Suffix to append to the VM template name to find the correct template.",
+                            "default": ""
+                        },
+                        "vcenter": {
+                            "type": "object",
+                            "title": "VCenter",
+                            "description": "Configuration for vSphere API access.",
+                            "properties": {
+                                "datacenter": {
+                                    "type": "string",
+                                    "title": "Datacenter",
+                                    "description": "Name of the datacenter to deploy nodes into."
+                                },
+                                "datastore": {
+                                    "type": "string",
+                                    "title": "Datastore",
+                                    "description": "Name of the datastore for node disk storage."
+                                },
+                                "password": {
+                                    "type": "string",
+                                    "title": "Password",
+                                    "description": "Password for the VSphere API."
+                                },
+                                "region": {
+                                    "type": "string",
+                                    "title": "Region",
+                                    "description": "Category name in VSphere for topology.kubernetes.io/region labels."
+                                },
+                                "server": {
+                                    "type": "string",
+                                    "title": "Server",
+                                    "description": "URL of the VSphere API."
+                                },
+                                "thumbprint": {
+                                    "type": "string",
+                                    "title": "Thumbprint",
+                                    "description": "TLS certificate signature of the VSphere API."
+                                },
+                                "username": {
+                                    "type": "string",
+                                    "title": "Username",
+                                    "description": "Username for the VSphere API."
+                                },
+                                "zone": {
+                                    "type": "string",
+                                    "title": "Zone",
+                                    "description": "Category name in VSphere for topology.kubernetes.io/zone labels."
+                                }
+                            }
+                        }
+                    }
+                },
+                "release": {
+                    "type": "object",
+                    "title": "Release",
+                    "description": "Information about the workload cluster release.",
+                    "required": [
+                        "version"
+                    ],
+                    "properties": {
+                        "version": {
+                            "type": "string",
+                            "title": "Version"
+                        }
+                    }
+                }
+            }
+        },
+        "internal": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "kubectlImage": {
+                    "type": "object",
+                    "title": "Kubectl image",
+                    "description": "Used by cluster-shared library chart to configure coredns in-cluster.",
+                    "additionalProperties": false,
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "title": "Repository",
+                            "default": "giantswarm/kubectl"
+                        },
+                        "registry": {
+                            "type": "string",
+                            "title": "Registry",
+                            "default": "gsoci.azurecr.io"
+                        },
+                        "tag": {
+                            "type": "string",
+                            "title": "Tag",
+                            "default": "1.29.9"
+                        }
+                    }
+                }
+            }
+        },
+        "managementCluster": {
+            "type": "string",
+            "title": "Management cluster name"
+        },
+        "provider": {
+            "type": "string",
+            "title": "Provider name"
+        }
+    }
+}
