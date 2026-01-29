@@ -1239,6 +1239,30 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-5.1.0-3758f1bfdb493006b090847fead433bdbb1c1f82.tgz
     version: 5.1.0-3758f1bfdb493006b090847fead433bdbb1c1f82
+  - annotations:
+      io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-5.1.0-0bf706fc1e919e839fb3e027b6755045f1e787ba.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster/refs/tags/v5.1.0-0bf706fc1e919e839fb3e027b6755045f1e787ba/README.md
+      io.giantswarm.application.team: turtles
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster/refs/tags/v5.1.0-0bf706fc1e919e839fb3e027b6755045f1e787ba/helm/cluster/values.schema.json
+    apiVersion: v2
+    created: "2026-01-29T14:54:48.061139573Z"
+    dependencies:
+    - condition: providerIntegration.controlPlane.kamaji.enabled
+      name: kamaji-etcd
+      repository: ""
+      version: 0.2.99
+    description: Giant Swarm cluster chart with provider-independent cluster resources
+    digest: fab9b311f1baca1b240112e2fd9be64b470f9d71038fa7f2ebdddefa1ab22df7
+    home: https://github.com/giantswarm/cluster
+    icon: https://s.giantswarm.io/app-icons/giantswarm/1/dark.svg
+    name: cluster
+    sources:
+    - https://github.com/giantswarm/cluster
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-5.1.0-0bf706fc1e919e839fb3e027b6755045f1e787ba.tgz
+    version: 5.1.0-0bf706fc1e919e839fb3e027b6755045f1e787ba
   cluster-aws:
   - annotations:
       io.giantswarm.application.app-type: cluster
@@ -8818,4 +8842,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.1-06d02ee2f6dfe7b61da174fa05a1ddda84d0cd17.tgz
     version: 0.1.1-06d02ee2f6dfe7b61da174fa05a1ddda84d0cd17
-generated: "2026-01-29T14:47:54.011576589Z"
+generated: "2026-01-29T14:54:48.053891094Z"
