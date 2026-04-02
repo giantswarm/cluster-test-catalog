@@ -2310,6 +2310,33 @@ entries:
   cluster-azure:
   - annotations:
       io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-6.2.0-ce4c26da30f1c05209f5c19aed740a520f216a79.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-azure/ce4c26da30f1c05209f5c19aed740a520f216a79/README.md
+      io.giantswarm.application.team: phoenix
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-azure/ce4c26da30f1c05209f5c19aed740a520f216a79/helm/cluster-azure/values.schema.json
+    apiVersion: v2
+    created: "2026-04-02T09:19:09.032470593Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 6.3.0
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the Azure infrastructure
+      provider (CAPZ).
+    digest: 16551f2b4b3a8cde5909ae3750721f64c4eb305a40b510ea96946b0376d81d8f
+    home: https://github.com/giantswarm/cluster-azure
+    icon: https://s.giantswarm.io/app-icons/azure/1/light.svg
+    name: cluster-azure
+    sources:
+    - https://github.com/giantswarm/cluster-azure
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-6.2.0-ce4c26da30f1c05209f5c19aed740a520f216a79.tgz
+    version: 6.2.0-ce4c26da30f1c05209f5c19aed740a520f216a79
+  - annotations:
+      io.giantswarm.application.app-type: cluster
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-6.1.0-dc1d9da8446c8f7fab3e4ba4b0175644de0d0a30.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-azure/dc1d9da8446c8f7fab3e4ba4b0175644de0d0a30/README.md
       io.giantswarm.application.team: phoenix
@@ -4043,4 +4070,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-6.0.0-7a39ea0684bc4fa61ec055059f766a0665f1f7c8.tgz
     version: 6.0.0-7a39ea0684bc4fa61ec055059f766a0665f1f7c8
-generated: "2026-04-02T09:18:55.164338926Z"
+generated: "2026-04-02T09:19:09.020663143Z"
