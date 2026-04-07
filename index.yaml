@@ -4154,6 +4154,39 @@ entries:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-6.1.1-30223e5e4fe2ad7bf1dde6683a15e9040243e858.tgz
     version: 6.1.1-30223e5e4fe2ad7bf1dde6683a15e9040243e858
   - annotations:
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-6.1.1-2f51f9e71943c5cb14e465756d18fc9b66d17bf6.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-vsphere/2f51f9e71943c5cb14e465756d18fc9b66d17bf6/README.md
+      io.giantswarm.application.restrictions.compatible-providers: vsphere
+      io.giantswarm.application.team: rocket
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-vsphere/2f51f9e71943c5cb14e465756d18fc9b66d17bf6/helm/cluster-vsphere/values.schema.json
+    apiVersion: v2
+    created: "2026-04-07T10:35:12.487852149Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 6.3.0
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the vSphere provider
+      (CAPV).
+    digest: 2baf1f16ebe909a0d3ef80c2e45240e4065ffd3f4d0206f2494b48cdba65f328
+    home: https://github.com/giantswarm/cluster-vsphere
+    icon: https://s.giantswarm.io/app-icons/vsphere/2/icon-light.png
+    keywords:
+    - capv
+    - vsphere
+    - vmware
+    maintainers:
+    - email: team-rocket@giantswarm.io
+      name: Team Rocket
+    name: cluster-vsphere
+    sources:
+    - https://github.com/giantswarm/cluster-vsphere
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-6.1.1-2f51f9e71943c5cb14e465756d18fc9b66d17bf6.tgz
+    version: 6.1.1-2f51f9e71943c5cb14e465756d18fc9b66d17bf6
+  - annotations:
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-6.1.0-b90061a8e71eaa60b2830af2d58e8da9dc1c45cd.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-vsphere/b90061a8e71eaa60b2830af2d58e8da9dc1c45cd/README.md
       io.giantswarm.application.restrictions.compatible-providers: vsphere
@@ -4483,4 +4516,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-6.0.0-7a39ea0684bc4fa61ec055059f766a0665f1f7c8.tgz
     version: 6.0.0-7a39ea0684bc4fa61ec055059f766a0665f1f7c8
-generated: "2026-04-07T08:16:27.560964227Z"
+generated: "2026-04-07T10:35:12.475191927Z"
