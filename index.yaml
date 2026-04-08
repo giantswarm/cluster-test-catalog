@@ -3656,6 +3656,42 @@ entries:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-4.1.0-14d49708db53a5d61f2f9c18e06af7c9f39fbe18.tgz
     version: 4.1.0-14d49708db53a5d61f2f9c18e06af7c9f39fbe18
   - annotations:
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-4.1.0-0f5c7267f47c8280185c651ca3e7e945e9f5f461.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-cloud-director/0f5c7267f47c8280185c651ca3e7e945e9f5f461/README.md
+      io.giantswarm.application.restrictions.compatible-providers: cloud-director
+      io.giantswarm.application.team: rocket
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-cloud-director/0f5c7267f47c8280185c651ca3e7e945e9f5f461/helm/cluster-cloud-director/values.schema.json
+      ui.giantswarm.io/logo: https://s.giantswarm.io/app-icons/vmware-cloud-director/1/logo_light.png
+    apiVersion: v2
+    created: "2026-04-08T14:39:48.735466897Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 6.3.0
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the VMware Cloud
+      Director (VCD) infrastructure provider (CAPVCD).
+    digest: 5e883a5a2e2bd7356d12ae0701a01efab7148419bfc584ae3715e11617b90a5d
+    home: https://github.com/giantswarm/cluster-cloud-director
+    icon: https://s.giantswarm.io/app-icons/vmware-cloud-director/1/icon_light.png
+    keywords:
+    - capvcd
+    - vmware
+    - cloud
+    - director
+    - vcd
+    maintainers:
+    - email: team-rocket@giantswarm.io
+      name: Team Rocket
+    name: cluster-cloud-director
+    sources:
+    - https://github.com/giantswarm/cluster-cloud-director
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-4.1.0-0f5c7267f47c8280185c651ca3e7e945e9f5f461.tgz
+    version: 4.1.0-0f5c7267f47c8280185c651ca3e7e945e9f5f461
+  - annotations:
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-4.0.0-88c7ba7c8ed30046166d0ace64db34f61f3d6f25.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-cloud-director/88c7ba7c8ed30046166d0ace64db34f61f3d6f25/README.md
       io.giantswarm.application.restrictions.compatible-providers: cloud-director
@@ -4975,4 +5011,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-6.0.0-7a39ea0684bc4fa61ec055059f766a0665f1f7c8.tgz
     version: 6.0.0-7a39ea0684bc4fa61ec055059f766a0665f1f7c8
-generated: "2026-04-08T14:37:34.370657695Z"
+generated: "2026-04-08T14:39:48.725392485Z"
