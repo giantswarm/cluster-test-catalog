@@ -2816,6 +2816,35 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-7.5.0-6a940401736a28584d05cb5c1008a94e28326f64.tgz
     version: 7.5.0-6a940401736a28584d05cb5c1008a94e28326f64
+  - annotations:
+      io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-7.5.0-2774124649377bc94400d91b1218a909a64ffa23.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-aws/2774124649377bc94400d91b1218a909a64ffa23/README.md
+      io.giantswarm.application.restrictions.compatible-providers: aws,capa
+      io.giantswarm.application.team: phoenix
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-aws/2774124649377bc94400d91b1218a909a64ffa23/helm/cluster-aws/values.schema.json
+    apiVersion: v2
+    appVersion: 7.5.0-2774124649377bc94400d91b1218a909a64ffa23
+    created: "2026-04-09T12:44:40.430405786Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 5.3.1
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 65698de36974b81dd596c37af185ae9ee28ee73a52883ba18f87db6983edcf0f
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-7.5.0-2774124649377bc94400d91b1218a909a64ffa23.tgz
+    version: 7.5.0-2774124649377bc94400d91b1218a909a64ffa23
   cluster-azure:
   - annotations:
       io.giantswarm.application.app-type: cluster
@@ -5781,4 +5810,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-4.1.4-17317ed3d1d5ce92c1b7840bcef1480c291aadbd.tgz
     version: 4.1.4-17317ed3d1d5ce92c1b7840bcef1480c291aadbd
-generated: "2026-04-09T12:44:23.355007632Z"
+generated: "2026-04-09T12:44:40.420686518Z"
