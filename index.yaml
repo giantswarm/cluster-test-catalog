@@ -939,6 +939,32 @@ entries:
   cluster-aws:
   - annotations:
       io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.2.0-ec8672158f5e857ae05228c8350d780b4803635e.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-aws/ec8672158f5e857ae05228c8350d780b4803635e/README.md
+      io.giantswarm.application.restrictions.compatible-providers: aws,capa
+      io.giantswarm.application.team: phoenix
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-aws/ec8672158f5e857ae05228c8350d780b4803635e/helm/cluster-aws/values.schema.json
+    apiVersion: v2
+    appVersion: 8.2.0-ec8672158f5e857ae05228c8350d780b4803635e
+    created: "2026-04-10T09:18:40.603288208Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 6.3.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: e8a08e20f406efd0915ba674830d0921d153621f54a6c531da1c5a8bcae8c873
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.2.0-ec8672158f5e857ae05228c8350d780b4803635e.tgz
+    version: 8.2.0-ec8672158f5e857ae05228c8350d780b4803635e
+  - annotations:
+      io.giantswarm.application.app-type: cluster
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.2.0-8db030df43dde663861416ef0d97f5e6128ff67b.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-aws/8db030df43dde663861416ef0d97f5e6128ff67b/README.md
       io.giantswarm.application.restrictions.compatible-providers: aws,capa
@@ -6272,4 +6298,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-4.1.4-17317ed3d1d5ce92c1b7840bcef1480c291aadbd.tgz
     version: 4.1.4-17317ed3d1d5ce92c1b7840bcef1480c291aadbd
-generated: "2026-04-10T09:01:48.851719743Z"
+generated: "2026-04-10T09:18:40.592827909Z"
