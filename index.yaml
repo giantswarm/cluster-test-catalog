@@ -3307,6 +3307,30 @@ entries:
   cluster-azure:
   - annotations:
       io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-6.3.0-fad6587e7da28a1406646af31691828523db1f23.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-azure/fad6587e7da28a1406646af31691828523db1f23/README.md
+      io.giantswarm.application.team: phoenix
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-azure/fad6587e7da28a1406646af31691828523db1f23/helm/cluster-azure/values.schema.json
+    apiVersion: v2
+    created: "2026-04-15T10:32:19.680241776Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 6.3.0
+    description: A helm chart for creating Cluster API clusters with the Azure infrastructure
+      provider (CAPZ).
+    digest: 9672c506559a712c6fb9d3d5cb5cb21b33249449718e230ddfdfa0a54228e5eb
+    home: https://github.com/giantswarm/cluster-azure
+    icon: https://s.giantswarm.io/app-icons/azure/1/light.svg
+    name: cluster-azure
+    sources:
+    - https://github.com/giantswarm/cluster-azure
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-6.3.0-fad6587e7da28a1406646af31691828523db1f23.tgz
+    version: 6.3.0-fad6587e7da28a1406646af31691828523db1f23
+  - annotations:
+      io.giantswarm.application.app-type: cluster
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-6.3.0-eb58b983c547715fa143423a0dfc4fcc17360547.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-azure/eb58b983c547715fa143423a0dfc4fcc17360547/README.md
       io.giantswarm.application.team: phoenix
@@ -7159,4 +7183,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-4.1.4-17317ed3d1d5ce92c1b7840bcef1480c291aadbd.tgz
     version: 4.1.4-17317ed3d1d5ce92c1b7840bcef1480c291aadbd
-generated: "2026-04-15T09:51:02.792255528Z"
+generated: "2026-04-15T10:32:19.668984667Z"
