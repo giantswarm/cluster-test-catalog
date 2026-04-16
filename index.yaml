@@ -1507,6 +1507,32 @@ entries:
     version: 8.2.0-0645fec829f3303be8e032c096713ef75ff4caa0
   - annotations:
       io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.2.0-063252e4d1014ebfe8baff8e86efc7859e962bc3.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-aws/063252e4d1014ebfe8baff8e86efc7859e962bc3/README.md
+      io.giantswarm.application.restrictions.compatible-providers: aws,capa
+      io.giantswarm.application.team: phoenix
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-aws/063252e4d1014ebfe8baff8e86efc7859e962bc3/helm/cluster-aws/values.schema.json
+    apiVersion: v2
+    appVersion: 8.2.0-063252e4d1014ebfe8baff8e86efc7859e962bc3
+    created: "2026-04-16T06:53:16.142528803Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 6.4.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 426de505415bf7d4a5f686a685624739376bdc47f55e0e3afe1148a6e5e85b73
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.2.0-063252e4d1014ebfe8baff8e86efc7859e962bc3.tgz
+    version: 8.2.0-063252e4d1014ebfe8baff8e86efc7859e962bc3
+  - annotations:
+      io.giantswarm.application.app-type: cluster
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.2.0-03d75769fefb6a3c0847bf1866080b7c4db55607.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-aws/03d75769fefb6a3c0847bf1866080b7c4db55607/README.md
       io.giantswarm.application.restrictions.compatible-providers: aws,capa
@@ -7757,4 +7783,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.3-fd1ad2424b8e990bc4691205992c6f2e814dcb95.tgz
     version: 0.1.3-fd1ad2424b8e990bc4691205992c6f2e814dcb95
-generated: "2026-04-15T17:43:59.26733384Z"
+generated: "2026-04-16T06:53:16.131786097Z"
