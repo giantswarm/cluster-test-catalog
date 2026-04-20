@@ -4029,6 +4029,30 @@ entries:
   cluster-azure:
   - annotations:
       io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-6.4.0-f12338e6ff40b460f402dc780dd45a493c5fb921.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-azure/f12338e6ff40b460f402dc780dd45a493c5fb921/README.md
+      io.giantswarm.application.team: phoenix
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-azure/f12338e6ff40b460f402dc780dd45a493c5fb921/helm/cluster-azure/values.schema.json
+    apiVersion: v2
+    created: "2026-04-20T10:38:58.043174474Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 6.4.0
+    description: A helm chart for creating Cluster API clusters with the Azure infrastructure
+      provider (CAPZ).
+    digest: 916601e755ea6ebfb63193402da30524e9412aa101925420204735b2f0422f66
+    home: https://github.com/giantswarm/cluster-azure
+    icon: https://s.giantswarm.io/app-icons/azure/1/light.svg
+    name: cluster-azure
+    sources:
+    - https://github.com/giantswarm/cluster-azure
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-6.4.0-f12338e6ff40b460f402dc780dd45a493c5fb921.tgz
+    version: 6.4.0-f12338e6ff40b460f402dc780dd45a493c5fb921
+  - annotations:
+      io.giantswarm.application.app-type: cluster
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-6.4.0-551d88629748b600034b92803a87a75355c4d380.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-azure/551d88629748b600034b92803a87a75355c4d380/README.md
       io.giantswarm.application.team: phoenix
@@ -8984,4 +9008,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.3-ce5e7651558e60ec5c1e8706f61088a3c3a30207.tgz
     version: 0.1.3-ce5e7651558e60ec5c1e8706f61088a3c3a30207
-generated: "2026-04-20T10:37:41.016707619Z"
+generated: "2026-04-20T10:38:58.034299653Z"
