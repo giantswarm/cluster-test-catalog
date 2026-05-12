@@ -4867,6 +4867,33 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-6.4.3-03afb895e3ad7390a1c05cd7a7e8bf0a57947189.tgz
     version: 6.4.3-03afb895e3ad7390a1c05cd7a7e8bf0a57947189
+  - annotations:
+      application.giantswarm.io/app-type: cluster
+      application.giantswarm.io/metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-5.4.0-a9c4d3b561d90093d63fc6085a8f410d10997dca.tgz-meta/main.yaml
+      application.giantswarm.io/readme: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-5.4.0-a9c4d3b561d90093d63fc6085a8f410d10997dca.tgz-meta/README.md
+      application.giantswarm.io/team: phoenix
+      application.giantswarm.io/values-schema: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-5.4.0-a9c4d3b561d90093d63fc6085a8f410d10997dca.tgz-meta/values.schema.json
+    apiVersion: v2
+    created: "2026-05-12T10:45:33.594647894Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 3.0.1
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 85d8c8af2bc80acc9321c73143ffc23dee6069320dca2618d62f9887649f1cba
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-5.4.0-a9c4d3b561d90093d63fc6085a8f410d10997dca.tgz
+    version: 5.4.0-a9c4d3b561d90093d63fc6085a8f410d10997dca
   cluster-azure:
   - annotations:
       io.giantswarm.application.app-type: cluster
@@ -7950,4 +7977,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.3-238a6809f3d3ce816620286386180b49850d5104.tgz
     version: 0.1.3-238a6809f3d3ce816620286386180b49850d5104
-generated: "2026-05-12T10:39:42.048407054Z"
+generated: "2026-05-12T10:45:33.585277448Z"
