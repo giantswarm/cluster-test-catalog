@@ -9261,6 +9261,32 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-2.0.0-2aadeefd0e21906a0b4eb862bd2ac3b62104020f.tgz
     version: 2.0.0-2aadeefd0e21906a0b4eb862bd2ac3b62104020f
+  - annotations:
+      io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-2.0.0-0dedf2fcefbcb8a20b87668eca0c84082bd29036.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-eks/0dedf2fcefbcb8a20b87668eca0c84082bd29036/README.md
+      io.giantswarm.application.restrictions.compatible-providers: aws,capa
+      io.giantswarm.application.team: phoenix
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-eks/0dedf2fcefbcb8a20b87668eca0c84082bd29036/helm/cluster-eks/values.schema.json
+    apiVersion: v2
+    appVersion: 2.0.0-0dedf2fcefbcb8a20b87668eca0c84082bd29036
+    created: "2026-06-16T05:36:18.057054606Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 6.4.0
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 49d74209c70d790bc5b0b6397a698bb3a6677056f410ab0c27817fb23813c9d0
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-2.0.0-0dedf2fcefbcb8a20b87668eca0c84082bd29036.tgz
+    version: 2.0.0-0dedf2fcefbcb8a20b87668eca0c84082bd29036
   cluster-shared:
   - annotations:
       io.giantswarm.application.area: kaas
@@ -11456,4 +11482,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.3-0fb299923e90cbc52cfaa7b25881fd8bcb16e744.tgz
     version: 0.1.3-0fb299923e90cbc52cfaa7b25881fd8bcb16e744
-generated: "2026-06-15T23:47:12.84285622Z"
+generated: "2026-06-16T05:36:18.047338293Z"
