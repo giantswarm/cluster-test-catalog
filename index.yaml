@@ -13233,6 +13233,37 @@ entries:
     version: 0.7.1-1e5f83b598726b922762db8099b3555b7af2fe69
   cluster-vsphere:
   - annotations:
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-6.6.1-dev.teams-alignment-branch.2026-06-23.08-22-35.h29b88dc.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-vsphere/refs/tags/v6.6.1-dev.teams-alignment-branch.2026-06-23.08-22-35.h29b88dc/README.md
+      io.giantswarm.application.restrictions.compatible-providers: vsphere
+      io.giantswarm.application.team: rocket
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-vsphere/refs/tags/v6.6.1-dev.teams-alignment-branch.2026-06-23.08-22-35.h29b88dc/helm/cluster-vsphere/values.schema.json
+    apiVersion: v2
+    appVersion: 6.6.1-dev.teams-alignment-branch.2026-06-23.08-22-35.h29b88dc
+    created: "2026-06-23T08:23:05.284060291Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 6.7.0
+    description: A helm chart for creating Cluster API clusters with the vSphere provider
+      (CAPV).
+    digest: 8a246fa6fcb3763606adf1e597f5454280e935a274dd37a709406b0c9c3a13b0
+    home: https://github.com/giantswarm/cluster-vsphere
+    icon: https://s.giantswarm.io/app-icons/vsphere/2/icon-light.png
+    keywords:
+    - capv
+    - vsphere
+    - vmware
+    maintainers:
+    - email: team-rocket@giantswarm.io
+      name: Team Rocket
+    name: cluster-vsphere
+    sources:
+    - https://github.com/giantswarm/cluster-vsphere
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-6.6.1-dev.teams-alignment-branch.2026-06-23.08-22-35.h29b88dc.tgz
+    version: 6.6.1-dev.teams-alignment-branch.2026-06-23.08-22-35.h29b88dc
+  - annotations:
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-vsphere-6.6.1-dev.renovate-architect-9-x.2026-06-22.10-05-58.hdeff26b.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-vsphere/refs/tags/v6.6.1-dev.renovate-architect-9-x.2026-06-22.10-05-58.hdeff26b/README.md
       io.giantswarm.application.restrictions.compatible-providers: vsphere
@@ -15986,4 +16017,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.1.3-0fb299923e90cbc52cfaa7b25881fd8bcb16e744.tgz
     version: 0.1.3-0fb299923e90cbc52cfaa7b25881fd8bcb16e744
-generated: "2026-06-23T08:21:59.262297407Z"
+generated: "2026-06-23T08:23:05.275147169Z"
