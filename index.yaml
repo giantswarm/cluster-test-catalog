@@ -5853,6 +5853,32 @@ entries:
   cluster-eks:
   - annotations:
       io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-2.2.1-dev.teams-alignment-branch.2026-07-11.12-25-57.hf0dde94.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-eks/refs/tags/v2.2.1-dev.teams-alignment-branch.2026-07-11.12-25-57.hf0dde94/README.md
+      io.giantswarm.application.restrictions.compatible-providers: aws,capa
+      io.giantswarm.application.team: phoenix
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-eks/refs/tags/v2.2.1-dev.teams-alignment-branch.2026-07-11.12-25-57.hf0dde94/helm/cluster-eks/values.schema.json
+    apiVersion: v2
+    appVersion: 2.2.1-dev.teams-alignment-branch.2026-07-11.12-25-57.hf0dde94
+    created: "2026-07-11T12:26:26.846740748Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 6.7.0
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: b8cf832c17de8bd882008833b4a622cf98590de12b4e48d8022252fe6f3d6c8b
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-2.2.1-dev.teams-alignment-branch.2026-07-11.12-25-57.hf0dde94.tgz
+    version: 2.2.1-dev.teams-alignment-branch.2026-07-11.12-25-57.hf0dde94
+  - annotations:
+      io.giantswarm.application.app-type: cluster
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-2.2.1-dev.teams-alignment-branch.2026-06-23.08-37-30.h9adf43d.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-eks/refs/tags/v2.2.1-dev.teams-alignment-branch.2026-06-23.08-37-30.h9adf43d/README.md
       io.giantswarm.application.restrictions.compatible-providers: aws,capa
@@ -7647,4 +7673,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.2.1-dev.renovate-architect-9-x.2026-06-17.23-59-53.h6b7bb91.tgz
     version: 0.2.1-dev.renovate-architect-9-x.2026-06-17.23-59-53.h6b7bb91
-generated: "2026-07-11T12:25:48.494265349Z"
+generated: "2026-07-11T12:26:26.838389969Z"
