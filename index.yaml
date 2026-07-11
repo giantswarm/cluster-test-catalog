@@ -4916,6 +4916,40 @@ entries:
     version: 6.6.1-dev.release-minor.2026-06-18.09-30-36.h87cfd47
   cluster-cloud-director:
   - annotations:
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-4.7.1-dev.teams-alignment-branch.2026-07-11.12-16-03.h82b8597.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-cloud-director/refs/tags/v4.7.1-dev.teams-alignment-branch.2026-07-11.12-16-03.h82b8597/README.md
+      io.giantswarm.application.restrictions.compatible-providers: cloud-director
+      io.giantswarm.application.team: rocket
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-cloud-director/refs/tags/v4.7.1-dev.teams-alignment-branch.2026-07-11.12-16-03.h82b8597/helm/cluster-cloud-director/values.schema.json
+      ui.giantswarm.io/logo: https://s.giantswarm.io/app-icons/vmware-cloud-director/1/logo_light.png
+    apiVersion: v2
+    appVersion: 4.7.1-dev.teams-alignment-branch.2026-07-11.12-16-03.h82b8597
+    created: "2026-07-11T12:16:20.805577251Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 6.7.0
+    description: A helm chart for creating Cluster API clusters with the VMware Cloud
+      Director (VCD) infrastructure provider (CAPVCD).
+    digest: aa539acba71ba812d3262b2c3a767d8cbede48285515986a3b208c1597bc38d2
+    home: https://github.com/giantswarm/cluster-cloud-director
+    icon: https://s.giantswarm.io/app-icons/vmware-cloud-director/1/icon_light.png
+    keywords:
+    - capvcd
+    - vmware
+    - cloud
+    - director
+    - vcd
+    maintainers:
+    - email: team-rocket@giantswarm.io
+      name: Team Rocket
+    name: cluster-cloud-director
+    sources:
+    - https://github.com/giantswarm/cluster-cloud-director
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-4.7.1-dev.teams-alignment-branch.2026-07-11.12-16-03.h82b8597.tgz
+    version: 4.7.1-dev.teams-alignment-branch.2026-07-11.12-16-03.h82b8597
+  - annotations:
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-cloud-director-4.7.1-dev.teams-alignment-branch.2026-06-23.09-03-22.ha1d326b.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-cloud-director/refs/tags/v4.7.1-dev.teams-alignment-branch.2026-06-23.09-03-22.ha1d326b/README.md
       io.giantswarm.application.restrictions.compatible-providers: cloud-director
@@ -7580,4 +7614,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.2.1-dev.renovate-architect-9-x.2026-06-17.23-59-53.h6b7bb91.tgz
     version: 0.2.1-dev.renovate-architect-9-x.2026-06-17.23-59-53.h6b7bb91
-generated: "2026-07-11T12:11:39.997566961Z"
+generated: "2026-07-11T12:16:20.797335193Z"
