@@ -4285,6 +4285,32 @@ entries:
     version: 8.7.1-dev.chore-migra--ager-values.2026-06-22.18-03-24.hd36a4f6
   - annotations:
       io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.7.1-dev.add-cert-ma--er-byo-role.2026-07-14.08-00-19.hc865c28.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-aws/refs/tags/v8.7.1-dev.add-cert-ma--er-byo-role.2026-07-14.08-00-19.hc865c28/README.md
+      io.giantswarm.application.restrictions.compatible-providers: aws,capa
+      io.giantswarm.application.team: phoenix
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-aws/refs/tags/v8.7.1-dev.add-cert-ma--er-byo-role.2026-07-14.08-00-19.hc865c28/helm/cluster-aws/values.schema.json
+    apiVersion: v2
+    appVersion: 8.7.1-dev.add-cert-ma--er-byo-role.2026-07-14.08-00-19.hc865c28
+    created: "2026-07-14T08:01:09.676428621Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 6.7.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 1a075b924d6de74b2b3b22c58fd3147ca62f117ad6a7cde73b5f3e621c17c300
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.7.1-dev.add-cert-ma--er-byo-role.2026-07-14.08-00-19.hc865c28.tgz
+    version: 8.7.1-dev.add-cert-ma--er-byo-role.2026-07-14.08-00-19.hc865c28
+  - annotations:
+      io.giantswarm.application.app-type: cluster
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.7.1-dev.add-cert-ma--er-byo-role.2026-07-14.07-20-16.hd0e1278.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-aws/refs/tags/v8.7.1-dev.add-cert-ma--er-byo-role.2026-07-14.07-20-16.hd0e1278/README.md
       io.giantswarm.application.restrictions.compatible-providers: aws,capa
@@ -8189,4 +8215,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.2.1-dev.renovate-architect-9-x.2026-06-17.23-59-53.h6b7bb91.tgz
     version: 0.2.1-dev.renovate-architect-9-x.2026-06-17.23-59-53.h6b7bb91
-generated: "2026-07-14T07:58:03.51816504Z"
+generated: "2026-07-14T08:01:09.660441053Z"
