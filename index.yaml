@@ -5099,6 +5099,34 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-7.7.2-9756cb83aa0de8ec4fb62c8d8b3f12a8e0eb8c7f.tgz
     version: 7.7.2-9756cb83aa0de8ec4fb62c8d8b3f12a8e0eb8c7f
+  - annotations:
+      io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-7.4.0-7246ce3ffb5f4c7c28bb5acfebe59c81993abb53.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-aws/7246ce3ffb5f4c7c28bb5acfebe59c81993abb53/README.md
+      io.giantswarm.application.restrictions.compatible-providers: aws,capa
+      io.giantswarm.application.team: phoenix
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-aws/7246ce3ffb5f4c7c28bb5acfebe59c81993abb53/helm/cluster-aws/values.schema.json
+    apiVersion: v2
+    created: "2026-07-14T13:44:03.626595285Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 5.3.0
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: f6fd96c39934d9641a3eb6e9d71e867df2963ffbecface1007412d8066180d9d
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-7.4.0-7246ce3ffb5f4c7c28bb5acfebe59c81993abb53.tgz
+    version: 7.4.0-7246ce3ffb5f4c7c28bb5acfebe59c81993abb53
   cluster-azure:
   - annotations:
       io.giantswarm.application.app-type: cluster
@@ -8531,4 +8559,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.2.1-dev.renovate-architect-9-x.2026-06-17.23-59-53.h6b7bb91.tgz
     version: 0.2.1-dev.renovate-architect-9-x.2026-06-17.23-59-53.h6b7bb91
-generated: "2026-07-14T13:12:05.758340017Z"
+generated: "2026-07-14T13:44:03.613423193Z"
