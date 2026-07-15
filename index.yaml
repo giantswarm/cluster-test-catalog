@@ -4649,6 +4649,32 @@ entries:
     version: 8.7.1-dev.migrate-app--elmreleases.2026-06-22.11-43-30.hc7b239e
   - annotations:
       io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.7.1-dev.main-release-patch.2026-07-15.13-48-50.h085fb8d.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-aws/refs/tags/v8.7.1-dev.main-release-patch.2026-07-15.13-48-50.h085fb8d/README.md
+      io.giantswarm.application.restrictions.compatible-providers: aws,capa
+      io.giantswarm.application.team: phoenix
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-aws/refs/tags/v8.7.1-dev.main-release-patch.2026-07-15.13-48-50.h085fb8d/helm/cluster-aws/values.schema.json
+    apiVersion: v2
+    appVersion: 8.7.1-dev.main-release-patch.2026-07-15.13-48-50.h085fb8d
+    created: "2026-07-15T13:49:30.878831852Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 6.7.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 87ff6263506ba9f13091a4c21a8897b776e4ae938dd05c4b6f9bdcec0dcf9d94
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.7.1-dev.main-release-patch.2026-07-15.13-48-50.h085fb8d.tgz
+    version: 8.7.1-dev.main-release-patch.2026-07-15.13-48-50.h085fb8d
+  - annotations:
+      io.giantswarm.application.app-type: cluster
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.7.1-dev.main-release-patch.2026-07-14.11-28-44.h2c1d10a.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-aws/refs/tags/v8.7.1-dev.main-release-patch.2026-07-14.11-28-44.h2c1d10a/README.md
       io.giantswarm.application.restrictions.compatible-providers: aws,capa
@@ -9971,4 +9997,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.2.1-dev.renovate-architect-9-x.2026-06-17.23-59-53.h6b7bb91.tgz
     version: 0.2.1-dev.renovate-architect-9-x.2026-06-17.23-59-53.h6b7bb91
-generated: "2026-07-15T13:48:56.770026116Z"
+generated: "2026-07-15T13:49:30.868133292Z"
