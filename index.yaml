@@ -3345,6 +3345,32 @@ entries:
   cluster-aws:
   - annotations:
       io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.8.1-dev.migrate-app--elmreleases.2026-07-16.09-39-34.h981b70f.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-aws/refs/tags/v8.8.1-dev.migrate-app--elmreleases.2026-07-16.09-39-34.h981b70f/README.md
+      io.giantswarm.application.restrictions.compatible-providers: aws,capa
+      io.giantswarm.application.team: phoenix
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-aws/refs/tags/v8.8.1-dev.migrate-app--elmreleases.2026-07-16.09-39-34.h981b70f/helm/cluster-aws/values.schema.json
+    apiVersion: v2
+    appVersion: 8.8.1-dev.migrate-app--elmreleases.2026-07-16.09-39-34.h981b70f
+    created: "2026-07-16T09:40:14.028233844Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-test-catalog
+      version: 6.8.1-dev.migrate-app--elmreleases.2026-07-16.06-05-25.hdb9cf6b
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: a4ab3e7f2b48bf2612975d21201b38a020d133fbbe0899a0b6ed31a6389316e3
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.8.1-dev.migrate-app--elmreleases.2026-07-16.09-39-34.h981b70f.tgz
+    version: 8.8.1-dev.migrate-app--elmreleases.2026-07-16.09-39-34.h981b70f
+  - annotations:
+      io.giantswarm.application.app-type: cluster
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.8.1-dev.add-karpent--arm-support.2026-07-16.09-14-35.hd02f837.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-aws/refs/tags/v8.8.1-dev.add-karpent--arm-support.2026-07-16.09-14-35.hd02f837/README.md
       io.giantswarm.application.restrictions.compatible-providers: aws,capa
@@ -10749,4 +10775,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.2.1-dev.renovate-architect-9-x.2026-06-17.23-59-53.h6b7bb91.tgz
     version: 0.2.1-dev.renovate-architect-9-x.2026-06-17.23-59-53.h6b7bb91
-generated: "2026-07-16T09:25:56.193552861Z"
+generated: "2026-07-16T09:40:14.016237445Z"
