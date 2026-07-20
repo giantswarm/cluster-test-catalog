@@ -3445,6 +3445,32 @@ entries:
   cluster-aws:
   - annotations:
       io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.9.1-dev.migrate-app--elmreleases.2026-07-20.11-29-48.h140a0a4.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-aws/refs/tags/v8.9.1-dev.migrate-app--elmreleases.2026-07-20.11-29-48.h140a0a4/README.md
+      io.giantswarm.application.restrictions.compatible-providers: aws,capa
+      io.giantswarm.application.team: phoenix
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-aws/refs/tags/v8.9.1-dev.migrate-app--elmreleases.2026-07-20.11-29-48.h140a0a4/helm/cluster-aws/values.schema.json
+    apiVersion: v2
+    appVersion: 8.9.1-dev.migrate-app--elmreleases.2026-07-20.11-29-48.h140a0a4
+    created: "2026-07-20T11:31:08.598807276Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-test-catalog
+      version: 6.8.1-dev.migrate-app--elmreleases.2026-07-20.11-25-25.h5370396
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 9e96c5e2ab412f276508df15b99e33dea2bedb892b6b31e318ac76092f570bdd
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.9.1-dev.migrate-app--elmreleases.2026-07-20.11-29-48.h140a0a4.tgz
+    version: 8.9.1-dev.migrate-app--elmreleases.2026-07-20.11-29-48.h140a0a4
+  - annotations:
+      io.giantswarm.application.app-type: cluster
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.9.1-dev.migrate-app--elmreleases.2026-07-20.11-28-59.hd6e2cc6.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-aws/refs/tags/v8.9.1-dev.migrate-app--elmreleases.2026-07-20.11-28-59.hd6e2cc6/README.md
       io.giantswarm.application.restrictions.compatible-providers: aws,capa
@@ -11299,4 +11325,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.2.1-dev.renovate-architect-9-x.2026-06-17.23-59-53.h6b7bb91.tgz
     version: 0.2.1-dev.renovate-architect-9-x.2026-06-17.23-59-53.h6b7bb91
-generated: "2026-07-20T11:29:42.387299637Z"
+generated: "2026-07-20T11:31:08.587592857Z"
