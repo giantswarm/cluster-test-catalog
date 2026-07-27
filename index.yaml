@@ -4166,6 +4166,36 @@ entries:
     version: 1.0.1-dev.ktsxu.2026-07-07.06-19-47.h3b6f545
   cluster-aws:
   - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Support
+          url: https://github.com/giantswarm/cluster-aws/issues
+      io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.9.2-dev.teams-alignment-branch.2026-07-27.15-51-44.ha05b842.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-aws/refs/tags/v8.9.2-dev.teams-alignment-branch.2026-07-27.15-51-44.ha05b842/README.md
+      io.giantswarm.application.restrictions.compatible-providers: aws,capa
+      io.giantswarm.application.team: phoenix
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-aws/refs/tags/v8.9.2-dev.teams-alignment-branch.2026-07-27.15-51-44.ha05b842/helm/cluster-aws/values.schema.json
+    apiVersion: v2
+    appVersion: 8.9.2-dev.teams-alignment-branch.2026-07-27.15-51-44.ha05b842
+    created: "2026-07-27T15:52:27.661970324Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 6.8.0
+    description: A helm chart for creating Cluster API clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: 72139b7932c9e8414c40b0d165320bc1467c0a9578572d9cc756b697eb921043
+    home: https://github.com/giantswarm/cluster-aws
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-aws
+    sources:
+    - https://github.com/giantswarm/cluster-aws
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.9.2-dev.teams-alignment-branch.2026-07-27.15-51-44.ha05b842.tgz
+    version: 8.9.2-dev.teams-alignment-branch.2026-07-27.15-51-44.ha05b842
+  - annotations:
       io.giantswarm.application.app-type: cluster
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aws-8.9.2-dev.renovate-aw--v2-monorepo.2026-07-21.20-45-24.hd828ddf.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-aws/refs/tags/v8.9.2-dev.renovate-aw--v2-monorepo.2026-07-21.20-45-24.hd828ddf/README.md
@@ -13720,4 +13750,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.2.1-dev.renovate-architect-9-x.2026-06-17.23-59-53.h6b7bb91.tgz
     version: 0.2.1-dev.renovate-architect-9-x.2026-06-17.23-59-53.h6b7bb91
-generated: "2026-07-27T15:50:27.446897482Z"
+generated: "2026-07-27T15:52:27.648045095Z"
