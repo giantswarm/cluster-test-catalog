@@ -8036,6 +8036,33 @@ entries:
     version: 6.8.2-dev.coredns-values.2026-07-20.22-38-58.h507174a
   - annotations:
       io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-5.4.2.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-azure/refs/tags/v5.4.2/README.md
+      io.giantswarm.application.team: phoenix
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-azure/refs/tags/v5.4.2/helm/cluster-azure/values.schema.json
+    apiVersion: v2
+    created: "2026-08-25T09:34:32.1310134Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 5.3.2
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the Azure infrastructure
+      provider (CAPZ).
+    digest: 090a7af48a2eb8bb198c79a7f89cd876eee50b176a0ab720964e80864118d883
+    home: https://github.com/giantswarm/cluster-azure
+    icon: https://s.giantswarm.io/app-icons/azure/1/light.svg
+    name: cluster-azure
+    sources:
+    - https://github.com/giantswarm/cluster-azure
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-5.4.2.tgz
+    version: 5.4.2
+  - annotations:
+      io.giantswarm.application.app-type: cluster
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-5.4.2-8149793094fbc184a7cb155e3294345a100dd0dc.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-azure/8149793094fbc184a7cb155e3294345a100dd0dc/README.md
       io.giantswarm.application.team: phoenix
@@ -13401,4 +13428,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.2.1-dev.renovate-architect-10-x.2026-08-18.18-39-06.h114aa4f.tgz
     version: 0.2.1-dev.renovate-architect-10-x.2026-08-18.18-39-06.h114aa4f
-generated: "2026-08-25T09:16:06.660074359Z"
+generated: "2026-08-25T09:34:32.117549268Z"
