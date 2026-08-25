@@ -8131,6 +8131,38 @@ entries:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-5.4.3-dev.release-5-4-x-update-orb.2026-08-25.09-52-13.h50f4415.tgz
     version: 5.4.3-dev.release-5-4-x-update-orb.2026-08-25.09-52-13.h50f4415
   - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Support
+          url: https://github.com/giantswarm/cluster-azure/issues
+      io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-5.4.3-dev.backport-5--ure-domains.2026-08-25.10-00-08.h8954920.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-azure/refs/tags/v5.4.3-dev.backport-5--ure-domains.2026-08-25.10-00-08.h8954920/README.md
+      io.giantswarm.application.team: phoenix
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-azure/refs/tags/v5.4.3-dev.backport-5--ure-domains.2026-08-25.10-00-08.h8954920/helm/cluster-azure/values.schema.json
+    apiVersion: v2
+    appVersion: 5.4.3-dev.backport-5--ure-domains.2026-08-25.10-00-08.h8954920
+    created: "2026-08-25T10:00:44.251878029Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 5.3.2
+    - name: cluster-shared
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 0.7.1
+    description: A helm chart for creating Cluster API clusters with the Azure infrastructure
+      provider (CAPZ).
+    digest: cf59429c7fe52cadbf0d0a1d21d024ec306ba220ee1869eab0817bb10bee678e
+    home: https://github.com/giantswarm/cluster-azure
+    icon: https://s.giantswarm.io/app-icons/azure/1/light.svg
+    name: cluster-azure
+    sources:
+    - https://github.com/giantswarm/cluster-azure
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-azure-5.4.3-dev.backport-5--ure-domains.2026-08-25.10-00-08.h8954920.tgz
+    version: 5.4.3-dev.backport-5--ure-domains.2026-08-25.10-00-08.h8954920
+  - annotations:
       io.giantswarm.application.app-type: cluster
       io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-azure-5.4.2.tgz-meta/main.yaml
       io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-azure/refs/tags/v5.4.2/README.md
@@ -13551,4 +13583,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.2.1-dev.renovate-architect-10-x.2026-08-18.18-39-06.h114aa4f.tgz
     version: 0.2.1-dev.renovate-architect-10-x.2026-08-18.18-39-06.h114aa4f
-generated: "2026-08-25T09:59:34.706814091Z"
+generated: "2026-08-25T10:00:44.242645685Z"
