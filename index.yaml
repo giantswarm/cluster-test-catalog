@@ -7237,6 +7237,36 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-3.0.1-dev.main.2026-08-18.14-31-28.hf71c8a4.tgz
     version: 3.0.1-dev.main.2026-08-18.14-31-28.hf71c8a4
+  - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Support
+          url: https://github.com/giantswarm/cluster-eks/issues
+      io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-eks-3.0.1-dev.karpenter-eks.2026-09-07.07-41-51.hf94f961.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-eks/refs/tags/v3.0.1-dev.karpenter-eks.2026-09-07.07-41-51.hf94f961/README.md
+      io.giantswarm.application.restrictions.compatible-providers: aws,capa
+      io.giantswarm.application.team: phoenix
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-eks/refs/tags/v3.0.1-dev.karpenter-eks.2026-09-07.07-41-51.hf94f961/helm/cluster-eks/values.schema.json
+    apiVersion: v2
+    appVersion: 3.0.1-dev.karpenter-eks.2026-09-07.07-41-51.hf94f961
+    created: "2026-09-07T07:42:56.695360193Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 7.0.0
+    description: A helm chart for creating Cluster API EKS clusters with the AWS infrastructure
+      provider (CAPA).
+    digest: e55a6c29b8fe2c6d1dc3465f831d594af744a4b549487cbd26309424e0def7a0
+    home: https://github.com/giantswarm/cluster-eks
+    icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
+    name: cluster-eks
+    sources:
+    - https://github.com/giantswarm/cluster-eks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-eks-3.0.1-dev.karpenter-eks.2026-09-07.07-41-51.hf94f961.tgz
+    version: 3.0.1-dev.karpenter-eks.2026-09-07.07-41-51.hf94f961
   cluster-shared:
   - annotations:
       artifacthub.io/license: Apache-2.0
@@ -8807,4 +8837,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.2.1-dev.cabbage-den--ess-to-imds.2026-09-02.12-21-42.h19ca48a.tgz
     version: 0.2.1-dev.cabbage-den--ess-to-imds.2026-09-02.12-21-42.h19ca48a
-generated: "2026-09-07T07:37:39.513853956Z"
+generated: "2026-09-07T07:42:56.685330301Z"
