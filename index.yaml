@@ -4453,6 +4453,38 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/cluster-7.0.1-dev.migrate-app--elmreleases.2026-08-19.05-02-10.he6beaf2.tgz
     version: 7.0.1-dev.migrate-app--elmreleases.2026-08-19.05-02-10.he6beaf2
+  cluster-aks:
+  - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Support
+          url: https://github.com/giantswarm/cluster-aks/issues
+      io.giantswarm.application.app-type: cluster
+      io.giantswarm.application.audience: all
+      io.giantswarm.application.managed: "false"
+      io.giantswarm.application.metadata: https://giantswarm.github.io/cluster-test-catalog/cluster-aks-0.7.1-rf030ad81t20260930144913h63a1209.tgz-meta/main.yaml
+      io.giantswarm.application.readme: https://raw.githubusercontent.com/giantswarm/cluster-aks/refs/tags/v0.7.1-rf030ad81t20260930144913h63a1209/README.md
+      io.giantswarm.application.team: phoenix
+      io.giantswarm.application.values-schema: https://raw.githubusercontent.com/giantswarm/cluster-aks/refs/tags/v0.7.1-rf030ad81t20260930144913h63a1209/helm/cluster-aks/values.schema.json
+    apiVersion: v2
+    appVersion: 0.7.1-rf030ad81t20260930144913h63a1209
+    created: "2026-09-30T14:49:58.77183121Z"
+    dependencies:
+    - name: cluster
+      repository: https://giantswarm.github.io/cluster-catalog
+      version: 8.4.0
+    description: A Helm chart for creating Cluster API clusters with the Azure infrastructure
+      provider (CAPZ) in AKS mode.
+    digest: 95678044112c302f2188ae6478c537d03a345b500b78da7fdd33ec5e7d19c793
+    home: https://github.com/giantswarm/cluster-aks
+    icon: https://s.giantswarm.io/app-icons/azure/1/light.svg
+    name: cluster-aks
+    sources:
+    - https://github.com/giantswarm/cluster-aks
+    type: application
+    urls:
+    - https://giantswarm.github.io/cluster-test-catalog/cluster-aks-0.7.1-rf030ad81t20260930144913h63a1209.tgz
+    version: 0.7.1-rf030ad81t20260930144913h63a1209
   cluster-autoscaler-crossplane-resources:
   - annotations:
       artifacthub.io/license: Apache-2.0
@@ -24896,4 +24928,4 @@ entries:
     urls:
     - https://giantswarm.github.io/cluster-test-catalog/network-policies-0.2.1-dev.cabbage-den--ess-to-imds.2026-09-02.12-21-42.h19ca48a.tgz
     version: 0.2.1-dev.cabbage-den--ess-to-imds.2026-09-02.12-21-42.h19ca48a
-generated: "2026-09-30T08:12:14.98270275Z"
+generated: "2026-09-30T14:49:58.759279609Z"
